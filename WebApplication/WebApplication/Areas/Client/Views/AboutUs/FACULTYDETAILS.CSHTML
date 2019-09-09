@@ -1,0 +1,361 @@
+﻿@model IEnumerable<WebApplication.Models.StaffDetailModel>
+<!--============================
+        About Page Header
+    =============================-->
+<style>
+    th
+    {
+        font-size:12px;
+        font-weight:500;
+    }
+</style>
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1> Faculty Details </h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"> Faculty Details </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="all-teachers-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/AboutUs/_AboutUsSidebar.cshtml", 10)
+            </div>
+            <div class="col-sm-9">
+                <div class="col-md-12 pad_zero">
+                    <ul class="tabs">
+                        <li class="active" rel="tab1">Faculty Details </li>
+                        <li rel="tab2">Pay Scale</li>
+                        <li rel="tab3">Total Staff</li>
+                    </ul>
+                    <div class="tab_container">
+                        <h3 class="d_active tab_drawer_heading" rel="tab1">Faculty Detail</h3>
+                        <div id="tab1" class="tab_content">
+                            <div class="col-md-12">
+                                <ul class="tabss">
+                                    <li class="active" rel="tab4">@StaffGroup.Adminstrative </li>
+                                    <li rel="tab5">@StaffGroup.PGT</li>
+                                    <li rel="tab6">@StaffGroup.TGT</li>
+                                    <li rel="tab7">@StaffGroup.PRT</li>
+                                    <li rel="tab8">@StaffGroup.NTT</li>
+                                </ul>
+                                <div class="tab_container">
+                                    <h3 class="d_active tab_drawer_heading" rel="tab4">@StaffGroup.Adminstrative</h3>
+                                    <div id="tab4" class="tab_content1">
+                                        <div class="h10"></div>
+                                        <table class="table table-hover table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th># </th>
+                                                    <th>Staff Image </th>
+                                                    <th>Name </th>
+                                                    <th>Designation </th>
+                                                    <th>Appointment Date </th>
+                                                    <th>Professional Qualification </th>
+                                                    <th>Acadmic Qualification </th>
+                                                    <th>Training Status </th>
+                                                    <th>Job Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                        int index = 0;
+                                                }
+                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.Adminstrative))
+                                                {
+                                                    index++;
+                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+
+                            <tr>
+                                <td>@index</td>
+                                <td><img width="60" src="@image" /></td>
+                                <td>@item.Name </td>
+                                <td>@item.Desigination </td>
+                                <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
+                                <td>@item.ProfessionalQualification </td>
+                                <td>@item.AcadmicQualification </td>
+                                <td>@item.TrainingStatus </td>
+                                <td>@item.JobStatus</td>
+                            </tr>
+}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="tab5" class="tab_content1">
+                                        <div class="h10"></div>
+                                        <table class="table table-hover table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th># </th>
+                                                    <th>Staff Image </th>
+                                                    <th>Name </th>
+                                                    <th>Appointment Date </th>
+                                                    <th>Professional Qualification </th>
+                                                    <th>Acadmic Qualification </th>
+                                                    <th>Training Status </th>
+                                                    <th>Job Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                index = 0;
+                                                }
+                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.PGT))
+                                                {
+                                                    index++;
+                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+
+                                    <tr>
+                                        <td>@index</td>
+                                        <td><img width="60" src="@image" /></td>
+                                        <td>@item.Name </td>
+                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
+                                        <td>@item.ProfessionalQualification </td>
+                                        <td>@item.AcadmicQualification </td>
+                                        <td>@item.TrainingStatus </td>
+                                        <td>@item.JobStatus</td>
+                                    </tr>
+}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="tab6" class="tab_content1">
+                                        <div class="h10"></div>
+                                        <table class="table table-hover table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th># </th>
+                                                    <th>Staff Image </th>
+                                                    <th>Name </th>
+-                                                    <th>Appointment Date </th>
+                                                    <th>Professional Qualification </th>
+                                                    <th>Acadmic Qualification </th>
+                                                    <th>Training Status </th>
+                                                    <th>Job Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @{
+                                                index = 0;
+                                            }
+
+                                            @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.TGT))
+                                            {
+                                                index++;
+                                                string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+
+                                                <tr>
+                                                    <td>@index</td>
+                                                    <td><img width="60" src="@image" /></td>
+                                                    <td>@item.Name </td>
+                                                    <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
+                                                    <td>@item.ProfessionalQualification </td>
+                                                    <td>@item.AcadmicQualification </td>
+                                                    <td>@item.TrainingStatus </td>
+                                                    <td>@item.JobStatus</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="tab7" class="tab_content1">
+                                        <div class="h10"></div>
+                                        <table class="table table-hover table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th># </th>
+                                                    <th>Staff Image </th>
+                                                    <th>Name </th>
+                                                    <th>Designation </th>
+                                                    <th>Appointment Date </th>
+                                                    <th>Professional Qualification </th>
+                                                    <th>Acadmic Qualification </th>
+                                                    <th>Training Status </th>
+                                                    <th>Job Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                index = 0;
+                                                }
+                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.PRT))
+                                                {
+                                                    index++;
+                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+
+                                    <tr>
+                                        <td>@index</td>
+                                        <td><img width="60" src="@image" /></td>
+                                        <td>@item.Name </td>
+                                        <td>@item.Desigination </td>
+                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
+                                        <td>@item.ProfessionalQualification </td>
+                                        <td>@item.AcadmicQualification </td>
+                                        <td>@item.TrainingStatus </td>
+                                        <td>@item.JobStatus</td>
+                                    </tr>
+}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="tab8" class="tab_content1">
+                                        <div class="h10"></div>
+                                        <table class="table table-hover table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th># </th>
+                                                    <th>Staff Image </th>
+                                                    <th>Name </th>
+                                                    <th>Appointment Date </th>
+                                                    <th>Professional Qualification </th>
+                                                    <th>Acadmic Qualification </th>
+                                                    <th>Training Status </th>
+                                                    <th>Job Status </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                index = 0;
+                                                }
+                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.NTT))
+                                                {
+                                                    index++;
+                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+
+                                    <tr>
+                                        <td>@index</td>
+                                        <td><img width="60" src="@image" /></td>
+                                        <td>@item.Name </td>
+                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
+                                        <td>@item.ProfessionalQualification </td>
+                                        <td>@item.AcadmicQualification </td>
+                                        <td>@item.TrainingStatus </td>
+                                        <td>@item.JobStatus</td>
+                                    </tr>
+}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- #tab1 -->
+                        <h3 class="tab_drawer_heading" rel="tab2">Pay Scale</h3>
+                        <div id="tab2" class="tab_content">
+                            <div class="h10"></div>
+                            <h2 align="center">Adminstrative Staff</h2>
+                            <div class="h10"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr><th> Sr. No </th>
+                                <th> Designation </th>
+                                <th> Pay Scale </th>
+                                <th> Grand Pay </th>
+                                <th> DA </th>
+                                <th> HRA </th>
+                                <th> EPF </th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td> PGT </td>
+                                        <td> 10300-34800 </td>
+                                        <td> 4200 </td>
+                                        <td> 5% </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td> Principal </td>
+                                        <td> 31100-67000 </td>
+                                        <td> 8400 </td>
+                                        <td> 5% </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td> PRT </td>
+                                        <td> 9300-34800 </td>
+                                        <td> 2170 </td>
+                                        <td> 5% </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td> TGT </td>
+                                        <td> 10300-34800 </td>
+                                        <td> 3600 </td>
+                                        <td> 5% </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td> Vice Principal </td>
+                                        <td> 10300-34800 </td>
+                                        <td> 4200 </td>
+                                        <td> 5% </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab2 -->
+                        <h3 class="tab_drawer_heading" rel="tab3">Total Staff</h3>
+                        <div id="tab3" class="tab_content">
+                            <div class="h10"></div>
+                            <h2 align="center">Staff Designation</h2>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <tr>
+                                    <td><strong> Designation </strong></td>
+                                    <td><strong>Total Staff</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td> PGT </td>
+                                    <td> 11 </td>
+                                </tr>
+                                <tr>
+                                    <td> TGT </td>
+                                    <td> 23 </td>
+                                </tr>
+                                <tr>
+                                    <td> PRT </td>
+                                    <td> 49 </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- #tab3 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts
+{
+    <link rel="stylesheet" href="~/Content/Client/js/tabs/style.css">
+    <script src="~/Content/Client/js/tabs/index.js"></script>
+}
+ 
+ 
+ 
+ 

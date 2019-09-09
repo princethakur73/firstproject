@@ -1,0 +1,235 @@
+﻿@model WebApplication.Models.StaffDetailModel
+
+@{
+    ViewBag.Title = "Staff Detail";
+    ViewBag.SubTitle = "Add New";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Staff Detail</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Staff Detail</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","StaffDetail")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+                            @using (Html.BeginForm("Create", "StaffDetail", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="col-md-8">
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Name <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Name)
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Group Name <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("GroupId", new List<SelectListItem>()
+                                                                {
+                                                                    new SelectListItem(){Text="Select Group..",Value="None" },
+                                                                    new SelectListItem() {Text="Adminstrative",Value="Adminstrative" },
+                                                                    new SelectListItem() {Text="PGT",Value="PGT" },
+                                                                    new SelectListItem() {Text="TGT",Value="TGT" },
+                                                                    new SelectListItem() {Text="PRT",Value="PRT" },
+                                                                    new SelectListItem(){ Text="NTT",Value="NTT"}
+                                                                },
+                                     htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Desigination <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Desigination)
+                                                @Html.ValidationMessageFor(model => model.Desigination, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Appointment Date <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.AppointmentDate)
+                                                @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Professional Qualification <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.ProfessionalQualification)
+                                                @Html.ValidationMessageFor(model => model.ProfessionalQualification, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Academic Qualification <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.AcadmicQualification)
+                                                @Html.ValidationMessageFor(model => model.AcadmicQualification, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Training Status <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("TrainingStatus", new List<SelectListItem>()
+                                                    {
+                                                        new SelectListItem(){Text="Select..",Value="None" },
+                                                        new SelectListItem() {Text="Trained",Value="Trained" },
+                                                        new SelectListItem() {Text="Trainee",Value="Trainee" }
+                                                    },
+                 htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.TrainingStatus, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Job Status <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("JobStatus", new List<SelectListItem>()
+                                            {
+                                            new SelectListItem(){Text="Select..",Value="None" },
+                                            new SelectListItem() {Text="Confirmed",Value="Confirmed" },
+                                            new SelectListItem() {Text="Probation",Value="Probation" }
+                                            },
+                 htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.JobStatus, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Sort Id <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.SortId)
+                                                @Html.ValidationMessageFor(model => model.SortId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Is Active <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.IsActive)
+                                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4 col-md-8">
+                                                <input type="submit" value="Save" id="save" class="btn bg-olive btn-flat margin" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <div class="col-md-2 col-md-offset-2">
+                                                <div style="position:relative">
+                                                    <input name="RemoveImage" type="hidden" id="RemoveImage" value="@Model.RemoveImage" />
+                                                    <input type="file" name="ImageData" id="ImageData" style="display:none" />
+                                                    <img src="@(Model.Image==null?"/Content/images/img_947.png":"/Content/images/StaffDetail/"+Model.Image)" id="ImageView" width="200" />
+                                                    <button type="button" id="remove-img" class="btn btn-default" style="width:200px;background-color:#808080;color:#fff">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Admin/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script>
+         var image ='@Html.Raw(Model.Image)';
+        //console.log(image);
+        //if (image != null) {
+        //    $('#remove-img').hide();
+        //}
+
+        $(document).ready(function () {
+            if ($('#ImageData').val() == '') {
+                $('#remove-img').hide();
+
+            }
+
+            if (image != '') {
+                console.log(image);
+                $('#remove-img').show();
+            }
+
+            $('#ImageView').click(function () {
+                $("#ImageData").click();
+            })
+            $('#remove-img').click(function () {
+                $('#RemoveImage').val(1);
+                $('#ImageData').val('');
+                $('#ImageView').attr('src', '/Content/images/img_947.png');
+                $('#remove-img').hide();
+
+            });
+
+            $("#ImageData").change(function () {
+                file = $(this).val();
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#ImageView')
+                            .attr('src', e.target.result)
+                            .width(200);
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+                $('#RemoveImage').val(0);
+                $('#remove-img').show();
+
+            });
+        });
+        $('#Entry-form').submit(function () {
+
+            if ($('#Entry-form').valid()) {
+                $('#save').prop('disabled', true);
+            }
+        });
+    </script>
+}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 

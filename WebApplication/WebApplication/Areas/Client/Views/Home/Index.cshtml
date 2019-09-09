@@ -1,0 +1,544 @@
+﻿@model WebApplication.Models.HomeModels
+@using System.Linq;
+@using WebApplication.Infrastructure
+@{
+    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
+
+    var slides = dbContext.GetList(currentUserId: 0).OrderBy(m=>m.SortId);
+}
+<section class="slider slider-style02 slider-university">
+    <div class="rev_slider_wrapper">
+        <div id="rev_slider_4" class="rev_slider" style="display:none">
+            <!-- BEGIN SLIDES LIST -->
+            <ul>
+                @foreach (var item in slides)
+                {
+                <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide01-thumb.jpg">
+                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                    <img src="~/Content/images/Slide/@item.Image" alt="Sky" class="rev-slidebg">
+                    <!-- BEGIN BASIC TEXT LAYER -->
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                         data-y="center" data-voffset="50"
+                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-15%];y:150px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="110"
+                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="175"
+                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                        Our aim is that students work with enthusiasm and interest<br>
+                        because God always blesses and helps those who help themselves.
+                    </div>
+                </li>
+                }
+                @*<li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide02-thumb.jpg">
+                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                    <img src="~/Content/Client/images/slide02.jpg" alt="Sky" class="rev-slidebg">
+                    <!-- BEGIN BASIC TEXT LAYER -->
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                         data-y="center" data-voffset="50"
+                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="110"
+                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="175"
+                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                        Our aim is that students work with enthusiasm and interest<br>
+                        because God always blesses and helps those who help themselves.
+                    </div>
+                </li>
+                <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide03-thumb.jpg">
+                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                    <img src="~/Content/Client/images/slide03.jpg" alt="Sky" class="rev-slidebg">
+                    <!-- BEGIN BASIC TEXT LAYER -->
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                         data-y="center" data-voffset="50"
+                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="110"
+                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                         data-x="left" data-hoffset="0"
+                         data-y="center" data-voffset="175"
+                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                        Our aim is that students work with enthusiasm and interest<br>
+                        because God always blesses and helps those who help themselves.
+                    </div>
+                </li>*@
+            </ul>
+            <!-- END SLIDES LIST -->
+        </div>
+        <!-- END SLIDER CONTAINER -->
+    </div>
+    <!-- END SLIDER CONTAINER WRAPPER -->
+</section>
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="section-header04 section-header-g">
+                    <h2>Welcome To <span>HVM</span></h2>
+                    <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
+                </div>
+                <p>
+                    HVM Convent School is promoted under the umbrella of Harsh Education Society (Regd.). President Mr. D.P. Sharma who is a great visionary in the field of Education and Chairperson Mrs. Meena Sharma, a renowned Educationist fulfilled the dream of starting a CBSE school on April 1, 2009 with the vision and mission for the holistic development of each child through quality education.<br>
+                    <br>
+                    It came into existence in April 2009 with classes from Nursery to VIII. Now it takes pride in the galaxy of 2000 students up to XII. It is located on a sprawling 2 (two) acre area. The infrastructural facilities of the school are excellent and are equipped with modern educational and allied amenities.
+                </p>
+                <a href="" class="el-btn-regular">Read More</a>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                @{
+                    Html.RenderPartial("~/Areas/Client/Views/Home/_LatestNews.cshtml", Model.NewsModels);
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<section class="slider-bottom-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="service-box">
+                    <div class="service-icon"> <img src="~/Content/Client/images/vision.png" alt="" /> </div>
+                    <div class="service-info">
+                        <h3>Our Vision</h3>
+                        <p>HVM Convent will promote quality and Holistic Development in learning process by building Knowledge with life skill perspective and values so as to nurture citizens who will meet all challenges of a dynamic society. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ends: .col-sm-3 -->
+            <div class="col-sm-4">
+                <div class="service-box">
+                    <div class="service-icon"> <img src="~/Content/Client/images/mission.png" alt="" /> </div>
+                    <div class="service-info">
+                        <h3>Our Mission</h3>
+                        <p>To provide the students a conducive and dynamic learning environment, creating a proper platform so that they can work towards attainment of their goals and enrich the society with their works and values</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ends: .col-sm-3 -->
+            <div class="col-sm-4">
+                <div class="service-box">
+                    <div class="service-icon"> <img src="~/Content/Client/images/moto.png" alt="" /> </div>
+                    <div class="service-info">
+                        <h3>Our Moto</h3>
+                        <p>‘Work is Worship’ mean - Children must treat the work they do as an art of worship so that they can rise and roar high to reach the pinnacle of glory and make us proud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .slider-bottom-services -->
+<!--==================
+        Courses
+    ===================-->
+<section class="all-course-wrapper online-course-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 section-header04 section-header-d" align="center">
+                <h2>Course <span>Offered</span></h2>
+                <p>Subjects offered in Senior Secondary Classes</p>
+                <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
+            </div>
+            <div class="col-md-12">
+                <div class="course-container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="online-course-single">
+                                <figure> <img src="~/Content/Client/images/medical.jpg" alt="" class="img-responsive"> </figure>
+                                <div class="online-course-details">
+                                    <h3>Medical & Non-Medical</h3>
+                                    <h5>1. English Core</h5>
+                                    <h5>2. Physics</h5>
+                                    <h5>3. Chemistry</h5>
+                                    <h5>4. Biology/Maths</h5>
+                                    <!-- Ends: .course-excerpt -->
+                                    <div class="course-excerpt-bottom"> &nbsp; </div>
+                                    <!-- Ends: .course-excerpt-bottom -->
+                                    <div class="course-details-btn"> <a href="">View Details</a> </div>
+                                    <!-- Ends: .course-details-btn -->
+                                </div>
+                                <!-- Ends: .online-course-details -->
+                            </div>
+                            <!-- Ends: .online-course-single -->
+                        </div>
+                        <!-- Ends: .col-sm-4 -->
+                        <div class="col-md-4 col-sm-6">
+                            <div class="online-course-single">
+                                <figure> <img src="~/Content/Client/images/commerce.jpg" alt="" class="img-responsive"> </figure>
+                                <div class="online-course-details">
+                                    <h3>Commerce</h3>
+                                    <h5>1. English Core</h5>
+                                    <h5>2. Business Studies </h5>
+                                    <h5>3. Accountancy</h5>
+                                    <h5>4. Economics</h5>
+                                    <!-- Ends: .course-excerpt -->
+                                    <div class="course-excerpt-bottom"> &nbsp; </div>
+                                    <!-- Ends: .course-excerpt-bottom -->
+                                    <div class="course-details-btn"> <a href="">View Details</a> </div>
+                                    <!-- Ends: .course-details-btn -->
+                                </div>
+                                <!-- Ends: .online-course-details -->
+                            </div>
+                            <!-- Ends: .online-course-single -->
+                        </div>
+                        <!-- Ends: .col-sm-4 -->
+                        <div class="col-md-4 col-sm-6">
+                            <div class="online-course-single">
+                                <figure> <img src="~/Content/Client/images/humanities.jpg" alt="" class="img-responsive"> </figure>
+                                <div class="online-course-details">
+                                    <h3>Humanities</h3>
+                                    <h5>1. English Core</h5>
+                                    <h5>2. Punjabi</h5>
+                                    <h5>3. Economics</h5>
+                                    <h5>4. Hindi Core</h5>
+                                    <!-- Ends: .course-excerpt -->
+                                    <div class="course-excerpt-bottom"> &nbsp; </div>
+                                    <!-- Ends: .course-excerpt-bottom -->
+                                    <div class="course-details-btn"> <a href="">View Details</a> </div>
+                                    <!-- Ends: .course-details-btn -->
+                                </div>
+                                <!-- Ends: .online-course-details -->
+                            </div>
+                            <!-- Ends: .online-course-single -->
+                        </div>
+                        <!-- Ends: .col-sm-4 -->
+                    </div>
+                </div>
+                <!-- Ends: .course-container -->
+                <!-- Ends: .blog-pagination -->
+            </div>
+            <!-- Ends: .col-md-12 -->
+        </div>
+    </div>
+</section>
+<!-- Ends: .course-main -->
+<!--==================
+        Testimonial
+    ===================-->
+<section class="testimonial testimonial-style02">
+    <div class="container">
+        <div class="row">
+            <div id="testimonial-carousel02" class="owl-carousel testimonial-carousel02 col-sm-12">
+                <div class="testimonial-single row">
+                    <div class="col-sm-6">
+                        <div class="ts-left">
+                            <div class="client-image"> <img src="~/Content/Client/images/president.jpg" alt="" class="img-responsive"> </div>
+                            <div class="client-content">
+                                <h3 class="client-info">
+                                    Mr. D.P. Sharma <br>
+                                    <span>President</span>
+                                </h3>
+                                <br>
+                                <p>The management and staff of HVM Convent strive to provide the students with good opportunities and a proper platform so that they can work towards attainment of their personal goals thus helping to fulfill the goals of the society..</p>
+                                <div align="right"><a href="" class="el-btn-regular">read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="ts-right">
+                            <div class="client-content">
+                                <h3 class="client-info">
+                                    Ms. Meena Sharma <br>
+                                    <span>Director</span>
+                                </h3>
+                                <br>
+                                <p>Work is Worship' is not a mere slogan but the prime goal of Quality Development in learning process by building knowledge, life skills perspectives and values of a student to transform the society...</p>
+                                <div align="left"><a href="" class="el-btn-regular">read more</a></div>
+                            </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ends: .testimonial-single -->
+                <div class="testimonial-single row">
+                    <div class="col-sm-9">
+                        <div class="ts-left">
+                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
+                            <div class="client-content">
+                                <h3 class="client-info">
+                                    Ms. Radhika Jain<br>
+                                    <span>Principal</span>
+                                </h3>
+                                <br>
+                                <p>Thank you for your interest in HVM Convent Sr. Sec. School I sincerely hope that you will appreciate the spirit of your school The Warmth,Purpose and Dedication to succeed. I  believe    that every child  deserves and needs a high quality broad based education in order to succeed in life. HVM Convent Sr. Sec. School is big enough to possess all prime  facilities and small    enough to identify & provide for  the needs of each individual learner. </p>
+                                <div align="right"><a href="" class="el-btn-regular">read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ends: .testimonial-single -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ends: .testimonial -->
+<section class="courses-main">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-sm-12 section-header04 section-header-d" align="center">
+                <h2>Our <span>Toppers</span></h2>
+                <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
+            </div>
+            <div class="col-sm-6">
+                <div class="section-header04 section-header-d">
+                    <h3>Class <span>10th</span></h3>
+                </div>
+                <div class="course-carousel-main owl-carousel">
+                    @foreach (var item in Model.ToppersModels.Where(m => m.ClassName == "10th"))
+                    {
+                        <div class="online-course-single">
+                            <img src="~/Content/images/Toppers/@item.Image" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3>@item.Name</h3>
+                                <p class="price-tag">@item.CGPA</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                            <div class="clear"></div>
+                        </div>
+                    }
+                    @*<div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3>Amandeep Singh</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                        <div class="clear"></div>
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3>Anshika Gupta</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anubhav Goyal</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3>Amandeep Singh</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                        <div class="clear"></div>
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3>Anshika Gupta</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anubhav Goyal</h3>
+                            <p class="price-tag">CGPA-10</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>*@
+                </div>
+            </div>
+            <!-- Ends: .course-carousel-main -->
+            <div class="col-sm-6">
+                <div class="section-header04 section-header-d">
+                    <h3>Class <span>12th</span></h3>
+                </div>
+                <div class="course-carousel-main owl-carousel">
+                    @foreach (var item in Model.ToppersModels.Where(m => m.ClassName == "12th"))
+                    {
+                        <div class="online-course-single">
+                            <img src="~/Content/images/Toppers/@item.Image" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> @item.Name</h3>
+                                <p class="price-tag">@item.CGPA</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                        </div>
+                    }
+                    @*<div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anjali</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anshul Gandotra</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anshul Joshi</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anjali</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anshul Gandotra</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>
+                    <div class="online-course-single">
+                        <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
+                        <div class="online-course-details" align="center">
+                            <h3> Anshul Joshi</h3>
+                            <p class="price-tag">CGPA-1</p>
+                        </div>
+                        <!-- Ends: .online-course-details -->
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="all-course-wrapper events_bg events events-default02">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 section-header05 section-header-d header-dark" align="center">
+                <h2>Activities & <span>Events</span></h2>
+                <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
+            </div>
+            <div class="col-md-12">
+                <div class="events-block">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="event-single">
+                                <div class="event-image"> <img src="~/Content/Client/images/zonal-games.jpg" alt="" class="img-responsive"> </div>
+                                <div class="event-details">
+                                    <h3>Zonal Games</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                                        <li><i class="fa fa-clock-o"></i> 9.00am - 4.00pm</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ends: .event-single -->
+                        <div class="col-sm-6">
+                            <div class="event-single">
+                                <div class="event-image"> <img src="~/Content/Client/images/earth-day.jpg" alt="" class="img-responsive"> </div>
+                                <div class="event-details">
+                                    <h3>Earth Day</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                                        <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ends: .row -->
+                    <div class="row">
+                        <!-- ends: .event-single -->
+                        <div class="col-sm-6">
+                            <div class="event-single">
+                                <div class="event-image"> <img src="~/Content/Client/images/mother-day.jpg" alt="" class="img-responsive"> </div>
+                                <div class="event-details">
+                                    <h3>Mother's Day</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                                        <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="event-single">
+                                <div class="event-image"> <img src="~/Content/Client/images/pool-party.jpg" alt="" class="img-responsive"> </div>
+                                <div class="event-details">
+                                    <h3>Pool Party</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                                        <li><i class="fa fa-clock-o"></i> 9.00am - 4.00pm</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ends: .row -->
+                </div>
+                <!-- ends: .event-block -->
+                <!-- Ends: .blog-pagination -->
+            </div>
+            <!-- Ends: .col-md-12 -->
+        </div>
+    </div>
+</section>
+<section class="kids-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6"><img src="~/Content/Client/images/kids.png" class="img-responsive"></div>
+            <div class="col-sm-6 kids-text">
+                <h2>Kindergarten <span>Section</span></h2>
+                <p>The aim of education should be to teach the "Child To Think , Not What To Think". Do And Learn' is the principal followed to improve children so that they can orient themselves to the tangible world of space and time to formulate their ideas. </p>
+                <a href="" class="el-btn-regular">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>

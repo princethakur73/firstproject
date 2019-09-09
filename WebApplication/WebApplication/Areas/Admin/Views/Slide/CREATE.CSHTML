@@ -1,0 +1,388 @@
+﻿@model WebApplication.Models.SlideModel
+
+@{
+    ViewBag.Title = "Slide";
+    ViewBag.SubTitle = "Add New";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Slide</a></li>
+            <li><a href="#">@ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Slide</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Slide")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+                            @using (Html.BeginForm("Create", "Slide", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="col-md-8">
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                        @*<div class="form-group">
+                                            <label class="col-md-4 control-label">Title <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Title)
+                                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>*@
+
+                                        @*<div class="form-group">
+
+                                            @Html.LabelFor(model => model.Image, new { @class = "" })
+
+                                            <input type="file" id="flPhoto" name="upload" />
+
+                                            <table>
+
+                                                <tr>
+
+                                                    <td>
+
+                                                        Width: <label id="lblWidth">200px</label>
+
+                                                        Height: <label id="lblHeight">200px</label>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <a href="#" id="hlcropImage" style="vertical-align:top;">Crop Image</a>
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td>
+
+                                                        <div style="height:400px; width:400px; overflow:auto;">
+
+                                                            <img id="imgEmpPhoto" src="~/Images/Default/emp-blank-avatar.png" alt="Employee Image" />
+
+                                                        </div>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <canvas id="canvas" height="5" width="5" style="vertical-align:top;"></canvas>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </table>
+
+                                        </div>
+
+                                        <p>
+
+                                            <img id="imgCropped" src="#" style="display:none;" />
+
+                                        </p>
+
+                                        <input type="hidden" name="avatarCropped" id="avatarCropped" />*@
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Image <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                <input type="file" name="ImageData" id="ImageData" class="form-control" />
+                                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Sort Id <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.SortId)
+                                                @Html.ValidationMessageFor(model => model.SortId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4 col-md-8">
+                                                <input type="submit" value="Save" id="save" class="btn bg-olive btn-flat margin" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <div class="col-md-2 col-md-offset-2">
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                                <div class="col-md-12">
+                                    <div style="position:relative" id="image-holder">
+                                        <img style="width:100%" src="" id="ImageView" />
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<link href="~/Content/jquery.Jcrop.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.Jcrop.min.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+       var image ='@Html.Raw(Model.Image)';
+        //console.log(image);
+        //if (image != null) {
+        //    $('#image-holder').hide();
+        //}
+
+        $(document).ready(function () {
+            if ($('#ImageData').val() == '') {
+                $('#image-holder').hide();
+
+            }
+
+            if (image != '') {
+                console.log(image);
+                $('#image-holder').show();
+            }
+
+            //$('#ImageView').click(function () {
+            //    $("#ImageData").click();
+            //})
+           
+
+            $("#ImageData").change(function () {
+                file = $(this).val();
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#ImageView')
+                            .attr('src', e.target.result)
+                           ;
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+                $('#RemoveImage').val(0);
+                $('#image-holder').show();
+
+            });
+        });
+    </script>
+    <script>
+        var imageCropWidth = 0;
+
+        var imageCropHeight = 0;
+
+        var cropPointX = 0;
+
+        var cropPointY = 0;
+
+        var jcropApi;
+
+        $(document).ready(function () {
+
+            //initCrop();
+
+        });
+
+        $("#hlcropImage").on("click", function (e) {
+
+            /*
+
+            The event.preventDefault() method stops the default action of
+
+            an element from happening. For example: Prevent a submit button
+
+            from submitting a form. Prevent a link from following the URL
+
+            */
+
+            e.preventDefault();
+
+            cropImage();
+
+        });
+
+        function initCrop() {
+
+            $('#imgEmpPhoto').Jcrop({
+
+                onChange: setCoordsAndImgSize,
+
+                aspectRatio:1, // 1 means will be same for height and weight
+
+                onSelect: setCoordsAndImgSize
+
+            }, function () { jcropApi = this });
+
+        }
+
+        function showCoordinate() {
+
+            $("#lblWidth").text(imageCropWidth + "px");
+
+            $("#lblHeight").text(imageCropHeight + "px");
+
+        }
+
+        function setCoordsAndImgSize(e) {
+
+            imageCropWidth = e.w;
+
+            imageCropHeight = e.h;
+
+            cropPointX = e.x;
+
+            cropPointY = e.y;
+
+            $("#lblWidth").text(imageCropWidth + "px");
+
+            $("#lblHeight").text(imageCropHeight + "px");
+
+        }
+
+        function cropImage() {
+
+            if (imageCropWidth == 0 && imageCropHeight == 0) {
+
+                alert("Please select crop area.");
+
+                return;
+
+            }
+
+            var img = $("#imgEmpPhoto").attr("src");
+
+            /*Show cropped image*/
+
+            showCroppedImage();
+
+        }
+
+        function showCroppedImage() {
+
+            var x1 = cropPointX;
+
+            var y1 = cropPointY;
+
+            var width = imageCropWidth;
+
+            var height = imageCropHeight;
+
+            var canvas = $("#canvas")[0];
+
+            var context = canvas.getContext('2d');
+
+            var img = new Image();
+
+            img.onload = function () {
+
+                canvas.height = height;
+
+                canvas.width = width;
+
+                context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
+
+                $('#avatarCropped').val(canvas.toDataURL());
+
+            };
+
+            img.src = $('#imgEmpPhoto').attr("src");
+
+        }
+
+        function readFile(input) {
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                /*Destroy jcrop initialization other wise it will hold it previous image in img tag*/
+
+                if (jcropApi != null) {
+
+                    jcropApi.destroy();
+
+                }
+
+                reader.onload = function (e) {
+
+                    $('#imgEmpPhoto').attr('src', "");
+
+                    var img = $('#imgEmpPhoto').attr('src', e.target.result);
+
+                    /*Current uploaded image size*/
+
+                    var width = img[0].height;
+
+                    var height = img[0].width;
+
+                    $("#lblWidth").text(width + "px");
+
+                    $("#lblHeight").text(height + "px");
+
+                    //InitCrop must call here otherwise it will not work
+
+                    initCrop();
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+
+            }
+
+        }
+
+        $('#flPhoto').change(function () {
+
+            readFile(this);
+
+            //initCrop();
+
+        });
+
+
+        $('#Entry-form').submit(function () {
+
+            if ($('#Entry-form').valid()) {
+                $('#save').prop('disabled', true);
+            }
+        });
+    </script>
+}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 

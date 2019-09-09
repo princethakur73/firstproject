@@ -1,0 +1,18 @@
+﻿.form-group label.control-label {
+    font-size: 16px;
+    margin: 5px 0 0 0;
+    color: #6f6e6e;
+}
+.form-group .che {
+    color: #6f6e6e
+}
+.btn-group-sm .btn, .btn-group-sm .input-group-btn .btn, .btn.btn-sm, .input-group-btn .btn.btn-sm
+{
+    padding:5px 10px;
+
+}
+.btn, .input-group-btn .btn
+{
+    margin:0;
+}
+

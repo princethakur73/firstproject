@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'revicons';
+    src: url('revicons.eot');
+    src: url('revicons.eot') format('embedded-opentype'),
+         url('revicons.woff2') format('woff2'),
+         url('revicons.woff') format('woff'),
+         url('revicons.ttf') format('truetype'),
+         url('revicons.svg#revicons') format('svg');
+}

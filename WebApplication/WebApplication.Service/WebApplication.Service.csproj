@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF177A0B-F436-4974-8AAC-D00C17D95DD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication.Service</RootNamespace>
+    <AssemblyName>WebApplication.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Downloads\IDownloadsService.cs" />
+    <Compile Include="Downloads\DownloadsService.cs" />
+    <Compile Include="Slide\ISlideService.cs" />
+    <Compile Include="Slide\SlideService.cs" />
+    <Compile Include="News\NewsService.cs" />
+    <Compile Include="News\INewsService.cs" />
+    <Compile Include="ContactUs\ContactUsService.cs" />
+    <Compile Include="ContactUs\IContactUsService.cs" />
+    <Compile Include="Common\CommonService.cs" />
+    <Compile Include="Common\ICommonService.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Gallery\IGalleryService.cs" />
+    <Compile Include="Gallery\GalleryService.cs" />
+    <Compile Include="ClassMaster\IClassMasterService.cs" />
+    <Compile Include="ClassMaster\ClassMasterService.cs" />
+    <Compile Include="Toppers\IToppersService.cs" />
+    <Compile Include="Toppers\ToppersService.cs" />
+    <Compile Include="Pages\IPageService.cs" />
+    <Compile Include="Pages\PageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Member\IMemberService.cs" />
+    <Compile Include="Member\MemberService.cs" />
+    <Compile Include="StaffDetail\IStaffDetailService.cs" />
+    <Compile Include="StaffDetail\StaffDetailService.cs" />
+    <Compile Include="User\IUserService.cs" />
+    <Compile Include="User\RoleService.cs" />
+    <Compile Include="User\UserService.cs" />
+    <Compile Include="User\UserStore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication.Core\WebApplication.Core.csproj">
+      <Project>{8785c183-a2b0-476f-8fa6-5d6c03fb0abc}</Project>
+      <Name>WebApplication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication.Repository\WebApplication.Repository.csproj">
+      <Project>{886f0dea-7b96-4c1a-9741-b38cbd89b985}</Project>
+      <Name>WebApplication.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8785C183-A2B0-476F-8FA6-5D6C03FB0ABC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication.Core</RootNamespace>
+    <AssemblyName>WebApplication.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\AD.System.Web.Helpers.dll.2.0.0\lib\net20\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base.cs" />
+    <Compile Include="Common\FileStatus.cs" />
+    <Compile Include="Common\LogAction.cs" />
+    <Compile Include="Common\Menu.cs" />
+    <Compile Include="Common\MenuCode.cs" />
+    <Compile Include="Common\NamePrefix.cs" />
+    <Compile Include="Common\Page.cs" />
+    <Compile Include="Common\PageContent.cs" />
+    <Compile Include="Common\Pager.cs" />
+    <Compile Include="Common\Seo.cs" />
+    <Compile Include="Common\UserMenu.cs" />
+    <Compile Include="ContactUs.cs" />
+    <Compile Include="Downloads.cs" />
+    <Compile Include="FilesHelper.cs" />
+    <Compile Include="Gallery.cs" />
+    <Compile Include="GalleryVideo.cs" />
+    <Compile Include="GalleryPicture.cs" />
+    <Compile Include="GalleryPictureMapping.cs" />
+    <Compile Include="GelleryVideoMapping.cs" />
+    <Compile Include="ImageHandler.cs" />
+    <Compile Include="MediaUploadType.cs" />
+    <Compile Include="ClassMaster.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="Slide.cs" />
+    <Compile Include="Toppers.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="PagePictureMapping.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="StaffDetail.cs" />
+    <Compile Include="StaffGroup.cs" />
+    <Compile Include="TransferCerticate.cs" />
+    <Compile Include="User\Role.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="User\UserClaim.cs" />
+    <Compile Include="User\UserLogin.cs" />
+    <Compile Include="User\UserPictureMapping.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="ViewDataUploadFilesResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

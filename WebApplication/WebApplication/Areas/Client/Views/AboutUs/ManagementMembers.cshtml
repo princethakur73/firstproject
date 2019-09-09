@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication.Models.MemberModel>
+<!--============================
+    About Page Header
+=============================-->
+@{
+    var col = 4;
+    float value = (float)Model.Count() / (float)4;
+    var rows = Math.Ceiling(double.Parse(value.ToString()));
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Management Members</h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">Management Members</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="all-teachers-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/AboutUs/_AboutUsSidebar.cshtml", 9)
+            </div>
+            <div class="col-sm-9">
+                <p class="justify">The institution is running under Harsh Educational Society registered under the Society Registration Act 1860. Registration no. of the society is 0048.</p>
+                @for (int i = 0; i < rows; i++)
+                {
+                    <div class="clear h10"></div>
+                    foreach (var item in Model.Skip(i * col).Take(col))
+                    {
+                        string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
+                        <div class="col-md-3 col-sm-4 teachers-six-wrapper">
+                            <div class="instructor-single">
+                                <figure>
+                                    <img style="max-height: 190px;" src="@image" alt="">
+                                    <figcaption>
+                                        <h3 align="center"><a href=""> @item.Name  </a></h3>
+                                        <span class="heading_2">@item.Desigination</span>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

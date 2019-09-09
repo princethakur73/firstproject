@@ -1,0 +1,9 @@
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\bin\Release\WebApplication.Core.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\bin\Release\WebApplication.Core.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\bin\Release\Microsoft.AspNet.Identity.Core.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\bin\Release\Microsoft.AspNet.Identity.Core.xml
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\obj\Release\WebApplication.Core.csproj.CoreCompileInputs.cache
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\obj\Release\WebApplication.Core.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\obj\Release\WebApplication.Core.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\bin\Release\System.Web.Helpers.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Core\obj\Release\WebApplication.Core.csprojResolveAssemblyReference.cache

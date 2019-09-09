@@ -1,0 +1,17 @@
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Service.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Service.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\Microsoft.AspNet.Identity.Core.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Core.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Repository.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\Dapper.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\MySql.Data.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Core.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Repository.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\WebApplication.Repository.dll.config
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\Microsoft.AspNet.Identity.Core.xml
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\Dapper.xml
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\obj\Release\WebApplication.Service.csprojResolveAssemblyReference.cache
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\obj\Release\WebApplication.Service.csproj.CoreCompileInputs.cache
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\obj\Release\WebApplication.Service.dll
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\obj\Release\WebApplication.Service.pdb
+G:\Files\Data\AspNetMVC5\WebApplication\WebApplication.Service\bin\Release\System.Web.Helpers.dll
