@@ -1,0 +1,149 @@
+﻿@using WebApplication.ViewModels
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HVM Convent Sr. Sec. School | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="~/Content/Admin/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/Admin/dist/css/AdminLTE.min.css">
+    <!-- Material Design -->
+    <link rel="stylesheet" href="~/Content/Admin/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="~/Content/Admin/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="~/Content/Admin/dist/css/MaterialAdminLTE.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html">HVM<b> School</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group has-feedback">
+            @*<input type="email" class="form-control" placeholder="Email">*@
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Email" })
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group has-feedback">
+            @*<input type="password" class="form-control" placeholder="Password">*@
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <div class="col-xs-7">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        RememberMe
+                    </label>
+        
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-5">
+                <button type="submit" class="btn btn-primary btn-raised btn-block btn-flat">Sign In</button>
+            </div>
+            <!-- /.col -->
+        </div>
+            }
+        @*<div class="social-auth-links text-center">
+            <p>- OR -</p>
+            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+                <i class="fa fa-facebook"></i> Sign in using
+                Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                <i class="fa fa-google-plus"></i> Sign in using
+                Google+
+            </a>
+        </div>*@
+        <!-- /.social-auth-links -->
+        @*<a href="/Account/ForgotPassword">I forgot my password</a><br>*@
+        <a href="/Account/Register" class="text-center">Register a new membership</a>
+
+        @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Log in" class="btn btn-default" />
+            </div>
+        </div>
+        Enable this once you have account confirmation enabled for password reset functionality
+    <p>
+        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+    </p>
+}*@
+
+        @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+
+        </div>
+        </div>
+   
+            <!-- jQuery 2.2.3 -->
+            <script src="~/Content/Admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <!-- Bootstrap 3.3.6 -->
+            <script src="~/Content/Admin/bootstrap/js/bootstrap.min.js"></script>
+            <!-- Material Design -->
+            <script src="~/Content/Admin/dist/js/material.min.js"></script>
+            <script src="~/Content/Admin/dist/js/ripples.min.js"></script>
+            <script>
+                $.material.init();
+            </script>
+            @Scripts.Render("~/bundles/jqueryval")
+
+</body>
+</html>

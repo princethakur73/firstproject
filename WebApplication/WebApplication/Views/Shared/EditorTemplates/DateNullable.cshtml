@@ -1,0 +1,10 @@
+﻿@model DateTime?
+
+<input id="@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)" name="@ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty)" class="form-control" value="@(Model > DateTime.MinValue || Model.HasValue ? Model.Value.ToString("dd MMM, yyyy") : null)" />
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").kendoDatePicker({
+            format:"dd MMM, yyyy"
+        });
+    });
+</script>

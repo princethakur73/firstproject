@@ -3,11 +3,13 @@
     About Page Header
 =============================-->
 @{
-    var col = 4;
-    float value = (float)Model.Count() / (float)4;
-    var rows = Math.Ceiling(double.Parse(value.ToString()));
+    var i = 1;
 }
-
+<style>
+    table td {
+        padding: 10px;
+    }
+</style>
 <section class="page-header">
     <div class="container">
         <div class="row">
@@ -33,25 +35,14 @@
             </div>
             <div class="col-sm-9">
                 <p class="justify">The institution is running under Harsh Educational Society registered under the Society Registration Act 1860. Registration no. of the society is 0048.</p>
-                @for (int i = 0; i < rows; i++)
-                {
-                    <div class="clear h10"></div>
-                    foreach (var item in Model.Skip(i * col).Take(col))
+                <table class="table" border="1" cellpadding="10" style="width:100%">
+                    <tr><th>S. No.</th><th>Name</th><th>Designation</th></tr>
+                    @foreach (var item in Model)
                     {
-                        string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
-                        <div class="col-md-3 col-sm-4 teachers-six-wrapper">
-                            <div class="instructor-single">
-                                <figure>
-                                    <img style="max-height: 190px;" src="@image" alt="">
-                                    <figcaption>
-                                        <h3 align="center"><a href=""> @item.Name  </a></h3>
-                                        <span class="heading_2">@item.Desigination</span>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                        <tr><td>@i</td><td>@item.Name</td><td>@item.Desigination</td></tr>                       
+                        i++;
                     }
-                }
+                </table>
             </div>
         </div>
     </div>

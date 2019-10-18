@@ -31,11 +31,26 @@ namespace WebApplication.Areas.Client.Controllers
             return View("~/Areas/Client/Views/AboutUs/Messages.cshtml");
         }
 
+        [Route("chairman-message")]
+        public ActionResult ChairmanMassage()
+        {
+            var model = _pageService.GetPageByMenuCode(MenuCode.ChairmanMessage).ToModel();
+
+            return View("~/Areas/Client/Views/AboutUs/ChairmanMassage.cshtml", model);
+        }
+
         [Route("president-message")]
         public ActionResult PresidentMassage()
         {
             var model = _pageService.GetPageByMenuCode(MenuCode.PresidentMessage).ToModel();
             return View("~/Areas/Client/Views/AboutUs/PresidentMassage.cshtml", model);
+        }
+
+        [Route("chairperson-message")]
+        public ActionResult ChairpersonMassage()
+        {
+            var model = _pageService.GetPageByMenuCode(MenuCode.ChairPersonMessage).ToModel();
+            return View("~/Areas/Client/Views/AboutUs/ChairpersonMassage.cshtml", model);
         }
 
         [Route("director-message")]
@@ -52,6 +67,8 @@ namespace WebApplication.Areas.Client.Controllers
 
             return View("~/Areas/Client/Views/AboutUs/PrincipalMassage.cshtml", model);
         }
+
+        
 
         [Route("vision-mission")]
         public ActionResult VisionMission()
@@ -86,6 +103,13 @@ namespace WebApplication.Areas.Client.Controllers
         {
             var members = _MemberService.GetList(currentUserId: 0).ToModel();
             return View("~/Areas/Client/Views/AboutUs/ManagementMembers.cshtml", members);
+        }
+
+        [Route("executive-members")]
+        public ActionResult ExecutiveMembers()
+        {
+            var members = _MemberService.GetAllExecutive(currentUserId: 0).ToModel();
+            return View("~/Areas/Client/Views/AboutUs/ExecutiveMembers.cshtml", members);
         }
 
         [Route("faculty-details")]

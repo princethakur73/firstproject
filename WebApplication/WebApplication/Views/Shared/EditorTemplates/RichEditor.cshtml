@@ -1,0 +1,28 @@
+﻿@model String
+@Html.TextArea("", ViewData.TemplateInfo.FormattedModelValue.ToString(),
+    new { @class = "form-control", rows = 7 })
+
+    <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
+
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+
+            CKEDITOR.replace('@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)', { height: '800px' });
+            ////bootstrap WYSIHTML5 - text editor
+            //$(".textarea").wysihtml5();
+        });
+    </script>
+
+@*<script>
+    $(document).ready(function () {
+        $("#").kendoEditor({
+            resizable: {
+                content: true,
+                toolbar: true
+            }
+        });
+    });
+</script>*@

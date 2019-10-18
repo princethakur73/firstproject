@@ -15,6 +15,8 @@ namespace WebApplication.Models
 
         public int RemoveImage { get; set; } = 0;
         public string Image { get; set; }
+        public string Message { get; set; }
+        public string MessageLink { get; set; }
 
         public int SortId { get; set; }
 

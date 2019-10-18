@@ -102,15 +102,24 @@
                                                 <li class="dropdown-submenu">
                                                     <a href="#">Messages</a> <i class="fa fa-angle-right"></i>
                                                     <ul class="dropdown-menu">
+                                                        <li><a href="@Url.Action("ChairmanMassage","AboutUs")">Chairman's Message</a></li>
                                                         <li><a href="@Url.Action("PresidentMassage","AboutUs")">President's Message</a></li>
-                                                        <li><a href="@Url.Action("DirectorMassage","AboutUs")">Chairperson's Message</a></li>
-                                                        <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Director's Message</a></li>
+                                                        <li><a href="@Url.Action("ChairpersonMassage","AboutUs")">Chairperson's Message</a></li>
+                                                        <li><a href="@Url.Action("DirectorMassage","AboutUs")">Director's Message</a></li>
+                                                        <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Principal's Message</a></li>
                                                     </ul>
+                                                </li>
                                                 <li><a href="@Url.Action("VisionMission","AboutUs")">Vision & Mission</a></li>
                                                 <li><a href="@Url.Action("MandatoryDisclosure","AboutUs")">Mandatory Disclosure</a></li>
                                                 <li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>
                                                 <li><a href="@Url.Action("AffiliationCBSE","AboutUs")">Affiliation to CBSE</a></li>
-                                                <li><a href="@Url.Action("ManagementMembers","AboutUs")">HVM Management</a></li>
+                                                <li class="dropdown-submenu">
+                                                    <a href="#">HVM Management</a> <i class="fa fa-angle-right"></i>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="@Url.Action("ExecutiveMembers","AboutUs")">Executive Members</a></li>
+                                                        <li><a href="@Url.Action("ManagementMembers","AboutUs")">Management Members</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="@Url.Action("FacultyDetails","AboutUs")">Staff Details</a></li>
                                                 <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
                                                 <li><a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a></li>
@@ -147,8 +156,8 @@
                                                         {
                                                             <li><a href="@Url.Action("SessionPhotoGallery", "Gallery", new { session=item.Name})">Session @item.Name </a></li>
                                                         }
-                                                        @*<li><a href="@Url.Action("PhotoSession2018","Gallery")">Session 2016-17</a></li>*@
-                                                        @*<li><a href="/Client/Gallery/Index">Session 2016-17</a></li>*@
+                                                        @*<li><a href="@Url.Action("PhotoSession2018","Gallery")">Session 2016-17</a></li>
+                                                            <li><a href="/Client/Gallery/Index">Session 2016-17</a></li>*@
                                                     </ul>
                                                 </li>
                                                 <li><a href="">Video</a></li>
@@ -328,6 +337,7 @@
     <script src="~/Content/Client/js/assets/jquery.meanmenu.min.js"></script>
     <!-- Mail JS -->
     <script src="~/Content/Client/js/assets/mail.js"></script>
+    <script src="~/Scripts/OurInfrastructure/OurInfrastruture.js"></script>
     <!-- Revolution Extensions -->
     <script type="text/javascript" src="~/Content/Client/js/assets/revolution/extensions/revolution.extension.actions.min.js"></script>
     <script type="text/javascript" src="~/Content/Client/js/assets/revolution/extensions/revolution.extension.carousel.min.js"></script>

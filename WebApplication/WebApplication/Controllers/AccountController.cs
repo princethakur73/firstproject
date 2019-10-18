@@ -35,6 +35,7 @@ namespace WebApplication.Controllers
             ICurrentUser currentUser,
             IIdentity identity,
             IUserService userService)
+
         {
             UserManager = userManager;
             SignInManager = signInManager;

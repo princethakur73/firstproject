@@ -1500,6 +1500,18 @@
     <Content Include="Content\Client\js\plugins.js" />
     <Content Include="Content\Client\js\tabs\index.js" />
     <Content Include="Content\Client\js\tabs\style.css" />
+    <Content Include="Content\Client\OurInfrastructure\ClassRoom\1.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\ClassRoom\2.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\ClassRoom\3.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\ComLab\1.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\ComLab\2.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\PhyCul\1.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\PhyCul\2.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\PhyCul\3.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\Sciencelab\1.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\Sciencelab\2.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\Sciencelab\3.JPG" />
+    <Content Include="Content\Client\OurInfrastructure\SmartClass\1.JPG" />
     <Content Include="Content\Free-file-icons\16px\aac.png" />
     <Content Include="Content\Free-file-icons\16px\ai.png" />
     <Content Include="Content\Free-file-icons\16px\aiff.png" />
@@ -4950,6 +4962,10 @@
     <Content Include="Areas\Admin\Views\Slide\Index.cshtml" />
     <Content Include="Areas\Client\Views\Gallery\SessionPhotoGallery.cshtml" />
     <Content Include="Areas\Client\Views\Gallery\SchoolVirtualTour.cshtml" />
+    <Content Include="Areas\Admin\Views\AboutUs\ChairmanMessage.cshtml" />
+    <Content Include="Areas\Client\Views\AboutUs\ChairmanMassage.cshtml" />
+    <Content Include="Areas\Client\Views\AboutUs\ExecutiveMembers.cshtml" />
+    <Content Include="Areas\Client\Views\AboutUs\ChairpersonMassage.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -4966,6 +4982,7 @@
     <Content Include="Scripts\jquery.Jcrop.min.js" />
     <Content Include="Scripts\News\News.js" />
     <Content Include="Scripts\Downloads\Dlownloads.js" />
+    <Content Include="Scripts\OurInfrastructure\OurInfrastruture.js" />
     <Content Include="Scripts\Slide\Slide.js" />
     <Content Include="Scripts\Toppers\Toppers.js" />
     <Content Include="Scripts\StaffDetail\StaffDetail.js" />
@@ -5069,6 +5086,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Kindergarten\" />
     <Folder Include="Areas\Client\Models\" />
+    <Folder Include="Content\Client\OurInfrastructure\Libarary\" />
     <Folder Include="Content\files\downloads\" />
     <Folder Include="Content\files\News\" />
     <Folder Include="Content\images\StaffDetail\" />

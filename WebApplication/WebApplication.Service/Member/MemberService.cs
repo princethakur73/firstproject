@@ -117,6 +117,22 @@ namespace WebApplication.Service
             return list;
         }
 
+        public List<Member> GetAllExecutive(long currentUserId)
+        {
+            List<Member> list = new List<Member>();
+
+            try
+            {
+                list = MemberRepository.GetAllExecutive(currentUserId);                
+            }
+            catch (System.Exception ex)
+            {
+
+                throw new System.Exception(ex.Message);
+            }
+            return list;
+        }
+
         public Task<IEnumerable<Member>> GetListAsync(long currentUserId)
         {
             throw new System.NotImplementedException();

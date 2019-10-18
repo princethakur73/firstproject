@@ -1,0 +1,11 @@
+﻿@model TimeSpan?
+@using System.Globalization
+
+<input id="@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)" name="@ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty)" value="8:00 AM" />
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").kendoTimePicker({
+            dateInput: true
+        });
+    });
+</script>

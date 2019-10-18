@@ -1,0 +1,17 @@
+﻿@using System.Linq;
+@using WebApplication.Infrastructure
+
+@model int?
+@{
+    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ICommonService>();
+
+    var availableSessions = dbContext.GetSessionList().Select(u => new System.Web.Mvc.SelectListItem
+    {
+        Text = u.Name,
+        Value = u.Id.ToString(),
+        Selected = u.Id == Model
+    }).ToArray();
+}
+
+@Html.DropDownList("", availableSessions, optionLabel: "Select Session..", htmlAttributes: new { @class = "form-control select2" })
+

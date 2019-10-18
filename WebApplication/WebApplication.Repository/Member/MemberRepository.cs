@@ -13,6 +13,38 @@ namespace WebApplication.Repository
     {
         private string query { get; set; }
 
+        public List<Core.Member> GetAllExecutive(long currentUserId)
+        {
+            List<Member> list;
+            try
+            {
+                query = @"SELECT Id,Name,
+                                Desigination,
+                                Image,
+                                Message,
+                                MessageLink,
+                                SortId,
+                                CreateByDate,
+                                CreateByUserId,
+                                ModifyByDate,
+                                ModifyByUserId
+                                FROM member
+                                WHERE IsActive = 1 AND IsExecutive=1
+		                    Order By SortId";
+                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                {
+                    list = Db.Query<Member>(query).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+            return list;
+        }
+
         public List<Core.Member> GetAll(long currentUserId)
         {
             List<Member> list;
@@ -27,8 +59,7 @@ namespace WebApplication.Repository
                                 CreateByUserId,
                                 ModifyByDate,
                                 ModifyByUserId
-                                FROM member
-                                WHERE IsActive = 1    
+                                FROM member Where Desigination != 'Founder'                               
 		                    Order By SortId";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {

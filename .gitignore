@@ -1,0 +1,9 @@
+/WebApplication/WebApplication/bin
+/WebApplication/WebApplication/obj
+/WebApplication/WebApplication.Core/bin
+/WebApplication/WebApplication.Core/obj
+/WebApplication/WebApplication.Repository/bin
+/WebApplication/WebApplication.Repository/obj
+/WebApplication/WebApplication.Service/bin
+/WebApplication/WebApplication.Service/obj
+/WebApplication/.vs

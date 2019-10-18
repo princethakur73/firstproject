@@ -1,0 +1,126 @@
+﻿@model IEnumerable<WebApplication.Models.MemberModel>
+<!--============================
+    About Page Header
+=============================-->
+@{
+}
+<style>
+    .slide-item-wrapper {        
+        height: 1000px;
+        overflow: hidden;
+        cursor:pointer;
+    }
+
+        .slide-item-wrapper > * {
+            transition: .5s ease-in-out;
+        }
+
+    .box-item {
+        display: flex;
+        height: 1000px;
+        /*justify-content: center;
+        align-items: center;
+        background: red;
+        color: white;
+        width: 300px;
+        height: 84px;
+        margin-bottom: 20px;*/
+    }
+    .message_container {
+        padding: 5px;
+        background: #e9e9e9;
+        text-align: center;
+        padding: 10px;
+        padding-bottom: 15px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        float: left;
+        margin: 8px
+    }
+
+    .message_caption {
+        font-family: "Roboto", serif;
+        font-size: 18px;
+        text-align: left;
+        color: #333;
+        padding-top: 10px;
+    }
+
+    .message_matter {
+        text-align: left;
+        padding-top: 10px;
+    }
+    }
+</style>
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Executive Members</h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">Executive Members</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="all-teachers-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/AboutUs/_AboutUsSidebar.cshtml", 9)
+            </div>
+            <div class="col-sm-9">
+                <p class="justify">The institution is running under Harsh Educational Society registered under the Society Registration Act 1860. Registration no. of the society is 0048.</p>
+                <div title="Take away your pointer to resume slider" class="slide-item-wrapper">
+                    <div>
+                        @foreach (var item in Model)
+                        {
+                            string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
+                            <div class="box-item">
+                                <figure class="message_container">
+                                    <img style="width: 100%;" src="@image">
+                                    <figcaption>
+                                        <div class="message_caption">
+                                            @item.Name (@item.Desigination)
+                                            <p style="text-align:left;padding-top:10px">@item.Message <br /></p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        }
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var offset = 0;    
+    var count = $(".slide-item-wrapper > * > *").length;
+
+    var slide = function () {
+            offset = (offset - 1000) % (count * 1000); // 104px div height (incl margin)
+            $(".slide-item-wrapper > *").css({
+                "transform": "translateY(" + offset + "px)",
+            });
+        }
+
+    var nextSliderTime = setInterval(slide, 10000);
+
+    $('.slide-item-wrapper').mouseenter(function () {
+        // Clear the interval.
+        clearInterval(nextSliderTime);
+    }).mouseleave(function () {
+        // Start it nextSlide again.
+        nextSliderTime = setInterval(slide, 10000);
+        });
+</script>

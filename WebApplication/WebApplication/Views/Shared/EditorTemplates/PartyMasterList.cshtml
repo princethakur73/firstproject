@@ -1,0 +1,16 @@
+﻿@using System.Linq;
+@using WebApplication.Infrastructure
+@model int
+@{
+    var dbContext = Context.GetContainer().GetInstance<WebApplication.Repository.IPartyMasterRepository>();
+
+    var availableParties = dbContext.GetAll(0).Select(u => new System.Web.Mvc.SelectListItem
+    {
+        Text = u.Name,
+        Value = u.Id.ToString(),
+        Selected = u.Id == Model
+    }).ToArray();
+}
+
+@Html.DropDownList("", availableParties, optionLabel: "Select..", htmlAttributes: new { @class = "form-control select2" })
+

@@ -1,0 +1,16 @@
+﻿@using WebApplication.Core
+@model WebApplication.Core.UserType
+@{
+    var options = Enum.GetValues(typeof(UserType))
+    .Cast<UserType>()
+    .Select(t => new SelectListItem
+    {
+        Text = t.ToString(),
+        Value = t.ToString(),
+        Selected = t == Model
+    })
+    .ToArray();
+
+}
+
+@Html.DropDownList("", options, new { @class = "form-control" })

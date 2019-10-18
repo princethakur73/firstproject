@@ -8,13 +8,12 @@
 
         public const string OriginsHistory = "2001";
 
+        public const string ChairmanMessage = "2014";
         public const string PresidentMessage = "2002";
-
+        public const string ChairPersonMessage = "2015";
         public const string DirectorMessage = "2003";
-
-        public const string ChairPersonMessage = "2014";
-
         public const string PrincipalMessage = "2004";
+
 
         public const string VisionMission = "2005";
 

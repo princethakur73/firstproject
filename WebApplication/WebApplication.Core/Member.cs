@@ -7,6 +7,8 @@
         public string Desigination { get; set; }
 
         public string Image { get; set; }
+        public string Message { get; set; }
+        public string MessageLink { get; set; }
 
         public bool IsActive { get; set; }
 

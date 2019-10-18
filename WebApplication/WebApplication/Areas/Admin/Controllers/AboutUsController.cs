@@ -214,6 +214,51 @@ namespace WebApplication.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult ChairmanMessage()
+        {
+            PageModel pageModel = new PageModel();
+            try
+            {
+                pageModel = _pageService.GetPageByMenuCode(MenuCode.ChairPersonMessage).ToModel();
+                return View(pageModel);
+            }
+            catch (System.Exception ex)
+            {
+
+                return View(pageModel).WithError(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChairmanMessage(PageModel model)
+        {
+            try
+            {
+                var obj = model.ToEntity();
+                obj.MenuCode = MenuCode.ChairPersonMessage;
+                obj.IsPublish = true;
+                obj.UserId = (int)_currentUser.User.Id;
+                var result = _pageService.Save(obj);
+                if (result > 0)
+                {
+                    return RedirectToAction<AboutUsController>(m => m.ChairmanMessage(model))
+                                        .WithSuccess("Saved Successfully!");
+                }
+                else
+                {
+                    return RedirectToAction<AboutUsController>(m => m.ChairmanMessage(model))
+                                       .WithError("Failed!");
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return View(model).WithError(ex.Message);
+            }
+        }
+
         public ActionResult VisionMission()
         {
             PageModel pageModel = new PageModel();
