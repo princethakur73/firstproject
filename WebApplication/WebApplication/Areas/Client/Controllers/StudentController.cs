@@ -36,7 +36,7 @@ namespace WebApplication.Areas.Client.Controllers
         {
             var model = _pageService.GetPageByMenuCode(MenuCode.OnRollStudents).ToModel();
 
-            return View("~/Areas/Client/Views/Student/OnRoll.cshtml", model);
+            return View(@"~/Areas/Client/Views/Student/OnRoll.cshtml", model);
         }
 
         [Route("transfer-certificate")]
