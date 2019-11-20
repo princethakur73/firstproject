@@ -42,11 +42,11 @@ namespace WebApplication.Areas.Client.Controllers
             return View("~/Areas/Client/Views/Home/ContactUs.cshtml");
         }
 
-        [Route("contact-us")]
-        public ActionResult ContactUs(ContactUsModel contact)
-        {
-            return View("~/Areas/Client/Views/Home/ContactUs.cshtml");
-        }
+        //[Route("contact-us")]
+        //public ActionResult ContactUs(ContactUsModel contact)
+        //{
+        //    return View("~/Areas/Client/Views/Home/ContactUs.cshtml");
+        //}
 
         [Route("press-media")]
         public ActionResult PressMedia()

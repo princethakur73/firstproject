@@ -3175,14 +3175,14 @@ footer .widget.subscribe .widget-content form button {
 	top: 38px;
 	box-shadow: 0 0 27px rgba(0, 0, 0, 0.35);
 }
-.testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-left .client-content {
-	background: #fff;
-	width: 80%;
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 100px 25px 100px 150px;
-}
+    .testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-left .client-content {
+        background: #fff;
+        width: 80%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 100px 25px 100px 260px;        
+    }
 .testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-left .client-content p {
 	position: relative;
 }
@@ -3215,14 +3215,14 @@ footer .widget.subscribe .widget-content form button {
 .testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-right {
 	position: relative;
 }
-.testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-right .client-content {
-	background: #fff;
-	width: 80%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	padding: 100px 150px 100px 25px;
-}
+    .testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-right .client-content {
+        background: #fff;
+        width: 80%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 100px 260px 154px 25px;
+    }
 .testimonial-style02 .testimonial-carousel02 .testimonial-single .ts-right .client-content p {
 	position: relative;
 }
