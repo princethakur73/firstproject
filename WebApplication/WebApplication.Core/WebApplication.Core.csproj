@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="DepartmentMaster.cs" />
     <Compile Include="Common\FileStatus.cs" />
     <Compile Include="Common\LogAction.cs" />
     <Compile Include="Common\Menu.cs" />

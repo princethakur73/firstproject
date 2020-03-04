@@ -1,0 +1,493 @@
+﻿@model IEnumerable<WebApplication.Models.DownloadsModel>
+
+<!--============================
+        About Page Header
+    =============================-->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>List Of Books</h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">List Of Books</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="about-ds">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 6)
+            </div>
+            <div class="col-sm-9">
+                <div class="col-md-12">
+                    <ul class="tabs">
+                        <li class="active" rel="tab1">Nursery</li>
+                        <li rel="tab2">LKG</li>
+                        <li rel="tab3">UKG</li>
+                        <li rel="tab4">I</li>
+                        <li rel="tab5">II</li>
+                        <li rel="tab6">III</li>
+                        <li rel="tab7">IV</li>
+                        <li rel="tab8">V</li>
+                        <li rel="tab9">VI</li>
+                        <li rel="tab10">VII</li>
+                        <li rel="tab11">VIII</li>
+                        <li rel="tab12">IX</li>
+                        <li rel="tab13">X</li>
+                        <li rel="tab14">XI</li>
+                        <li rel="tab15">XII</li>
+                    </ul>
+                    <div class="tab_container">
+                        <!--#tab1-->
+                        <h3 class="d_active tab_drawer_heading" rel="tab1">Nursery</h3>
+                        <div id="tab1" class="tab_content">
+                            <h1 align="center">Class: Nursery</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "Nursery" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab2 -->
+                        <h3 class="tab_drawer_heading" rel="tab2">LKG</h3>
+                        <div id="tab2" class="tab_content">
+                            <h1 align="center">Class: LKG</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "LKG" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab3 -->
+                        <h3 class="tab_drawer_heading" rel="tab3">UKG</h3>
+                        <div id="tab3" class="tab_content">
+                            <h1 align="center">Class: UKG</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "UKG" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--#tab4-->
+                        <h3 class="tab_drawer_heading" rel="tab4">I</h3>
+                        <div id="tab4" class="tab_content">
+                            <h1 align="center">Class: I</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "I" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab5 -->
+                        <h3 class="tab_drawer_heading" rel="tab5">II</h3>
+                        <div id="tab5" class="tab_content">
+                            <h1 align="center">Class: II</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "II" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab6 -->
+                        <h3 class="tab_drawer_heading" rel="tab6">III</h3>
+                        <div id="tab6" class="tab_content">
+                            <h1 align="center">Class: III</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "III" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab7 -->
+                        <h3 class="tab_drawer_heading" rel="tab7">IV</h3>
+                        <div id="tab7" class="tab_content">
+                            <h1 align="center">Class: IV</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "IV" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab8 -->
+                        <h3 class="tab_drawer_heading" rel="tab8">V</h3>
+                        <div id="tab8" class="tab_content">
+                            <h1 align="center">Class: V</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "V" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab9 -->
+                        <h3 class="tab_drawer_heading" rel="tab9">VI</h3>
+                        <div id="tab9" class="tab_content">
+                            <h1 align="center">Class: VI</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "VI" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab10 -->
+                        <h3 class="tab_drawer_heading" rel="tab10">VII</h3>
+                        <div id="tab10" class="tab_content">
+                            <h1 align="center">Class: VII</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "VII" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab11 -->
+                        <h3 class="tab_drawer_heading" rel="tab11">VIII</h3>
+                        <div id="tab11" class="tab_content">
+                            <h1 align="center">Class: VIII</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "VIII" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab12 -->
+                        <h3 class="tab_drawer_heading" rel="tab12">IX</h3>
+                        <div id="tab12" class="tab_content">
+                            <h1 align="center">Class: IX</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "IX" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab13 -->
+                        <h3 class="tab_drawer_heading" rel="tab13">X</h3>
+                        <div id="tab13" class="tab_content">
+                            <h1 align="center">Class: X</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "X" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab14 -->
+                        <h3 class="tab_drawer_heading" rel="tab14">XI</h3>
+                        <div id="tab14" class="tab_content">
+                            <h1 align="center">Class: XI</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "XI" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab15 -->
+                        <h3 class="tab_drawer_heading" rel="tab15">XII</h3>
+                        <div id="tab15" class="tab_content">
+                            <h1 align="center">Class: XII</h1>
+                            <div class="clear"></div>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width='150'>Date</th>
+                                        <th>Title</th>
+                                        <th>Downlaod </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.Where(m => m.ClassName == "XII" && m.Title == "Book List"))
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("dd MMM, yyyy")</td>
+                                                <td>@item.Title</td>
+                                                <td align="center"><a target='_blank' href="/Content/files/downloads/@item.FileName"><img src="~/Content/Client/images/download.png" /></a> </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts
+{
+    <link rel="stylesheet" href="~/Content/Client/js/tabs/style.css">
+    <script src="~/Content/Client/js/tabs/index.js"></script>
+}

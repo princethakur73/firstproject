@@ -1,0 +1,91 @@
+﻿@model WebApplication.Models.PageModel
+@{
+    ViewBag.Title = Model.Title;
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @Model.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Circulars</a></li>
+            <li><a href="#">    @Model.Title</a></li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("TimeTable", "Circulars", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", Id = "Entry-form" }))
+                {
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.AntiForgeryToken()
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#page" data-toggle="tab" aria-expanded="false">Page<div class="ripple-container"></div></a></li>
+                            <li class=""><a href="#seo" data-toggle="tab" aria-expanded="false">Seo <div class="ripple-container"></div></a></li>
+
+                            <li class="pull-right">
+                                <button type="submit" style="margin:3px 3px 0 3px!important" class="btn bg-olive btn-flat margin btn-sm">
+                                    Save
+                                    <div class="ripple-container"></div>
+                                </button>
+                                @*<a href="#" class="text-muted">
+                                        <i class="fa fa-gear"></i>
+                                        <div class="ripple-container">
+                                        </div>
+                                    </a>*@
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="page">
+                                @Html.Partial("_Alerts")
+
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    @Html.EditorFor(model => model.Title)
+                                    @*<input type="email" class="form-control" id="title" placeholder="Enter email">*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Contents</label>
+                                    @Html.EditorFor(model => model.Contents)
+                                </div>
+
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="seo">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Seo</label>
+                                    @Html.EditorFor(model => model.Seo)
+                                </div>
+                                <div class="form-group">
+                                    <label>Meta Title</label>
+                                    @Html.EditorFor(model => model.MetaTitle)
+                                </div>
+                                <!-- textarea -->
+                                <div class="form-group">
+                                    <label>Meta Keywords</label>
+                                    @Html.EditorFor(model => model.MetaKeywords)
+                                </div>
+                                <div class="form-group">
+                                    <label>Meta Description</label>
+                                    @Html.EditorFor(model => model.MetaDescription)
+                                </div>
+                            </div>
+                            <!-- /.tab-pane -->
+
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                }
+            </div>
+            <!-- /.col-->
+        </div>
+        <!-- ./row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

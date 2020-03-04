@@ -28,7 +28,10 @@
 <section class="about-ds">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 2)
+            </div>
+            <div class="col-sm-9">
                 @Html.Raw(Model.Contents)
 
             </div>

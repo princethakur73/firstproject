@@ -32,6 +32,7 @@
         public const string OurFacilities = "2012";
 
         public const string OurRules = "2013";
+        public const string CouselingServices = "2017";
 
         public const string Admission = "3000";
 
@@ -60,6 +61,8 @@
         public const string Achievements = "6000";
 
         public const string OurToppers = "6001";
+        public const string InterSchoolPrizes = "6002";
+        public const string HubLearningActivities = "6003";
 
         public const string Kindergarten = "7000";
 
@@ -72,6 +75,21 @@
         public const string Result = "8003";
 
         public const string ContactUs = "9000";
+        public const string TimeTable = "11001";
+        public const string EvaluationWeightage = "11002";
+        public const string SchoolDiary = "11003";
+        public const string CodeOfConductForStudent = "11004";
+        public const string ListOfBooks = "11005";
+        public const string ListOfHolidays = "11006";
+        public const string TeachingMethodology = "11007";
+        public const string SmartLearning = "11008";
+        public const string Syllabus = "11009";
+        public const string PTMSchedule = "11010";
+        public const string CoCurricularActivites = "11011";
+
+        public const string SchoolCirculars = "12000";
+
+
 
     }
 }

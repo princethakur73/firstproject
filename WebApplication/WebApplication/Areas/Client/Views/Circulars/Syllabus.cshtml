@@ -1,0 +1,39 @@
+﻿@model WebApplication.Models.PageModel
+
+@section seo
+{
+    <meta name="description" content="@Model.MetaDescription">
+    <meta name="keywords" content="@Model.MetaKeywords">
+}
+<!--============================
+        About Page Header
+    =============================-->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>@Model.Title</h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">@Model.Title</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="about-ds">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 10)
+            </div>
+            <div class="col-sm-9">
+                @Html.Raw(Model.Contents)
+            </div>
+        </div>
+    </div>
+</section>

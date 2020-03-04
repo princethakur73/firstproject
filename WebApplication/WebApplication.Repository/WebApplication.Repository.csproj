@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepartmentMaster\DepartmentMasterRepository.cs" />
+    <Compile Include="DepartmentMaster\IDepartmentMasterRepository.cs" />
     <Compile Include="Downloads\IDownloadsRepository.cs" />
     <Compile Include="Downloads\DownloadsRepository.cs" />
     <Compile Include="Slide\SlideRepository.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Pages\IPageRepository.cs" />
     <Compile Include="Pages\PageRepository.cs" />
+    <Compile Include="TransferCertificate\TransferCertificateRepository.cs" />
+    <Compile Include="TransferCertificate\ITransferCertificateRepository.cs" />
     <Compile Include="User\IUserRepository.cs" />
     <Compile Include="User\RoleRepository.cs" />
     <Compile Include="User\UserClaimsRepository.cs" />

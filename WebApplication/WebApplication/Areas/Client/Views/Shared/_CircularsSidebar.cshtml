@@ -1,0 +1,152 @@
+﻿@model int
+<div class="sidebar"> Curriculum </div>
+<ul id="accordion" class="accordion">
+    <li>
+        <a href="@Url.Action("TimeTable","Circulars")">
+            <div class="link @(Model==1?"active-nav":"")">Time Table</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("DateSheet","Academics")">
+            <div class="link @(Model==2?"active-nav":"")">Date Sheet</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("EvaluationWeightage","Circulars")">
+            <div class="link @(Model==3?"active-nav":"")">Evaluation Weightage</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("SchoolDiary","Circulars")">
+            <div class="link @(Model==4?"active-nav":"")">School Diary</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("CodeOfConductForStudent","Circulars")">
+            <div class="link @(Model==5?"active-nav":"")">Code Of Conduct</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("ListOfBooks","Circulars")">
+            <div class="link @(Model==6?"active-nav":"")">List Of Books</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("ListOfHolidays","Circulars")">
+            <div class="link @(Model==7?"active-nav":"")">List Of Holidays</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("TeachingMethodology","Circulars")">
+            <div class="link @(Model==8?"active-nav":"")">Teaching Methodology</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("SmartLearning","Circulars")">
+            <div class="link @(Model==9?"active-nav":"")">Smart Learning</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Syllabus","Circulars")">
+            <div class="link @(Model==10?"active-nav":"")">Syllabus</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("PTMSchedule","Circulars")">
+            <div class="link @(Model==11?"active-nav":"")">PTM Schedule</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("CoCurricularActivites","Circulars")">
+            <div class="link @(Model==12?"active-nav":"")">Co Curricular Activites</div>
+        </a>
+    </li>
+    @*<li>
+            <a href="@Url.Action("OriginsHistory","AboutUs")">
+                <div class="link @(Model==1?"active-nav":"")">Origins & History</div>
+            </a>
+        </li>
+        <div class="link">Messages<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu">
+            <li><a href="@Url.Action("PresidentMassage","AboutUs")">President's Message</a></li>
+            <li><a href="@Url.Action("DirectorMassage","AboutUs")">Director's Message</a></li>
+            <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Principal's Message</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("VisionMission","AboutUs")">
+                <div class="link @(Model==5?"active-nav":"")">Vision & Mission</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("MandatoryDisclosure","AboutUs")">
+                <div class="link @(Model==6?"active-nav":"")">Mandatory Disclosure</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("CourseOffered","AboutUs")">
+                <div class="link @(Model==7?"active-nav":"")">Course Offered</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AffiliationCBSE","AboutUs")">
+                <div class="link @(Model==8?"active-nav":"")">Affiliation to CBSE</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("ManagementMembers","AboutUs")">
+                <div class="link @(Model==9?"active-nav":"")">HVM Management</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("FacultyDetails","AboutUs")">
+                <div class="link @(Model==10?"active-nav":"")">Staff Details</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurInfrastructure","AboutUs")">
+                <div class="link @(Model==11?"active-nav":"")">Our Infrastructure</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurFacilities","AboutUs")">
+                <div class="link @(Model==12?"active-nav":"")"> Our Facilities</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurRules","AboutUs")">
+                <div class="link @(Model==13?"active-nav":"")">Our Rules</div>
+            </a>
+        </li>*@
+</ul>
+@section Scripts
+{
+    <script>
+        $(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
+            }
+
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                };
+            }
+
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
+}

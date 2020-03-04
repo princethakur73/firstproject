@@ -362,7 +362,7 @@ namespace WebApplication.Areas.Admin.Controllers
 
                 return View(pageModel).WithError(ex.Message);
             }
-        }
+        }        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -393,6 +393,53 @@ namespace WebApplication.Areas.Admin.Controllers
                 return View(model).WithError(ex.Message);
             }
         }
+
+        public ActionResult CouselingServices()
+        {
+            PageModel pageModel = new PageModel();
+            try
+            {
+                pageModel = _pageService.GetPageByMenuCode(MenuCode.CouselingServices).ToModel();
+                return View(pageModel);
+            }
+            catch (System.Exception ex)
+            {
+
+                return View(pageModel).WithError(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CouselingServices(PageModel model)
+        {
+            try
+            {
+                var obj = model.ToEntity();
+                obj.MenuCode = MenuCode.CouselingServices;
+                obj.IsPublish = true;
+                obj.UserId = (int)_currentUser.User.Id;
+                var result = _pageService.Save(obj);
+                if (result > 0)
+                {
+                    return RedirectToAction<AboutUsController>(m => m.CouselingServices(model))
+                                        .WithSuccess("Saved Successfully!");
+                }
+                else
+                {
+                    return RedirectToAction<AboutUsController>(m => m.CouselingServices(model))
+                                       .WithError("Failed!");
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return View(model).WithError(ex.Message);
+            }
+        }
+
+
 
         public ActionResult AffiliationCBSE()
         {

@@ -1,0 +1,57 @@
+﻿@model int
+<div class="sidebar"> Achievement </div>
+<ul id="accordion" class="accordion">
+    <li>
+        <a href="@Url.Action("Result","Academics")">
+            <div class="link @(Model==1?"active-nav":"")">Result</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("InterSchoolPrizes","Achievement")">
+            <div class="link @(Model==2?"active-nav":"")">Inter School Prizes</div>
+        </a>
+    </li>
+
+    <li>
+        <a href="@Url.Action("Sports","Student")">
+            <div class="link @(Model==3?"active-nav":"")">Sports</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("HubLearningActivities","Achievement")">
+            <div class="link @(Model==4?"active-nav":"")">Hub Of Learning Activities</div>
+        </a>
+    </li>
+
+</ul>
+@section Scripts
+{
+    <script>
+        $(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
+            }
+
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                };
+            }
+
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
+}

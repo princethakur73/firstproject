@@ -9,11 +9,13 @@ namespace WebApplication.Areas.Client.Controllers
     {
         private IPageService _pageService;
         private IDownloadsService _downloadsService;
+        private ITransferCertificateService _transferCertificateService;
         public StudentController(IPageService pageService,
-            IDownloadsService downloadsService)
+            IDownloadsService downloadsService, ITransferCertificateService transferCertificateService)
         {
             _downloadsService = downloadsService;
             _pageService = pageService;
+            _transferCertificateService = transferCertificateService;
         }
         [Route("sports")]
         public ActionResult Sports()
@@ -40,9 +42,10 @@ namespace WebApplication.Areas.Client.Controllers
         }
 
         [Route("transfer-certificate")]
-        public ActionResult TransferCertificate()
+        public ActionResult TransferCertificate(string text="")
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.TransferCertificate).ToModel();
+            //var model = _pageService.GetPageByMenuCode(MenuCode.TransferCertificate).ToModel();
+            var model = _transferCertificateService.GetList().Where(a=>a.AdmissionNumber== text).ToList().ToModel();
 
             return View("~/Areas/Client/Views/Student/TransferCertificate.cshtml", model);
         }

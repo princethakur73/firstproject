@@ -7,6 +7,7 @@ namespace WebApplication.Core
         public string Name { get; set; }
 
         public string GroupId { get; set; }
+        public int DepartmentId { get; set; }
 
         public string Image { get; set; }
 

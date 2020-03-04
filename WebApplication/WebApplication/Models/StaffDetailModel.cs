@@ -14,6 +14,11 @@ namespace WebApplication.Models
         [Display(Name = "Group Name")]
         public string GroupId { get; set; }
 
+        [Required]
+        [Display(Name = "Department")]
+        [UIHint("MasterDepartmentdId")]
+        public int DepartmentId { get; set; }
+
         public Int16 RemoveImage { get; set; } = 0;
         public string Image { get; set; }
 

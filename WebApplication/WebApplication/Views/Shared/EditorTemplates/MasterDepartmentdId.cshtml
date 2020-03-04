@@ -1,0 +1,16 @@
+﻿@using System.Linq;
+@using WebApplication.Infrastructure
+
+@model int?
+@{
+    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.IDepartmentMasterService>();
+
+    var availableDepartmentMasters = dbContext.GetList(currentUserId:0).Select(u => new System.Web.Mvc.SelectListItem
+    {
+        Text = u.Name,
+        Value = u.Id.ToString(),
+        Selected = u.Id == Model
+    }).ToArray();
+}
+
+@Html.DropDownList("", availableDepartmentMasters, optionLabel: "Select Department..", htmlAttributes: new { @class = "form-control select2" })

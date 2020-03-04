@@ -4,94 +4,97 @@
 @{
     var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
 
-    var slides = dbContext.GetList(currentUserId: 0).OrderBy(m=>m.SortId);
+    var slides = dbContext.GetList(currentUserId: 0).OrderBy(m => m.SortId);
 }
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
+
     <div class="rev_slider_wrapper">
         <div id="rev_slider_4" class="rev_slider" style="display:none">
             <!-- BEGIN SLIDES LIST -->
             <ul>
                 @foreach (var item in slides)
                 {
-                <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide01-thumb.jpg">
-                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                    <img src="~/Content/images/Slide/@item.Image" alt="Sky" class="rev-slidebg">
-                    <!-- BEGIN BASIC TEXT LAYER -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                         data-y="center" data-voffset="50"
-                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-15%];y:150px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="110"
-                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="175"
-                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                        Our aim is that students work with enthusiasm and interest<br>
-                        because God always blesses and helps those who help themselves.
-                    </div>
-                </li>
+                    <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide01-thumb.jpg">
+                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                        <img src="~/Content/images/Slide/@item.Image" alt="Sky" class="rev-slidebg">
+                        <!-- BEGIN BASIC TEXT LAYER -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                             data-y="center" data-voffset="50"
+                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-15%];y:150px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="110"
+                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="175"
+                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                            Our aim is that students work with enthusiasm and interest<br>
+                            because God always blesses and helps those who help themselves.
+                        </div>
+                    </li>
                 }
                 @*<li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide02-thumb.jpg">
-                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                    <img src="~/Content/Client/images/slide02.jpg" alt="Sky" class="rev-slidebg">
-                    <!-- BEGIN BASIC TEXT LAYER -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                         data-y="center" data-voffset="50"
-                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="110"
-                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="175"
-                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                        Our aim is that students work with enthusiasm and interest<br>
-                        because God always blesses and helps those who help themselves.
-                    </div>
-                </li>
-                <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide03-thumb.jpg">
-                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                    <img src="~/Content/Client/images/slide03.jpg" alt="Sky" class="rev-slidebg">
-                    <!-- BEGIN BASIC TEXT LAYER -->
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                         data-y="center" data-voffset="50"
-                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="110"
-                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                         data-x="left" data-hoffset="0"
-                         data-y="center" data-voffset="175"
-                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                        Our aim is that students work with enthusiasm and interest<br>
-                        because God always blesses and helps those who help themselves.
-                    </div>
-                </li>*@
+                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                        <img src="~/Content/Client/images/slide02.jpg" alt="Sky" class="rev-slidebg">
+                        <!-- BEGIN BASIC TEXT LAYER -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                             data-y="center" data-voffset="50"
+                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="110"
+                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="175"
+                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                            Our aim is that students work with enthusiasm and interest<br>
+                            because God always blesses and helps those who help themselves.
+                        </div>
+                    </li>
+                    <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide03-thumb.jpg">
+                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                        <img src="~/Content/Client/images/slide03.jpg" alt="Sky" class="rev-slidebg">
+                        <!-- BEGIN BASIC TEXT LAYER -->
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                             data-y="center" data-voffset="50"
+                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="110"
+                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                             data-x="left" data-hoffset="0"
+                             data-y="center" data-voffset="175"
+                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                            Our aim is that students work with enthusiasm and interest<br>
+                            because God always blesses and helps those who help themselves.
+                        </div>
+                    </li>*@
             </ul>
             <!-- END SLIDES LIST -->
         </div>
@@ -257,7 +260,7 @@
                             <div class="client-content">
                                 <h3 class="client-info">
                                     Founders' Message<br>
-                                                       <span>(Founder)</span>
+                                    <span>(Founder)</span>
                                 </h3>
                                 <br>
                                 <p>We are fortunate to have been ordained with the opportunity to shape the personalities and develop the minds of the young learners...</p>
@@ -359,55 +362,55 @@
                         </div>
                     }
                     @*<div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3>Amandeep Singh</h3>
-                            <p class="price-tag">CGPA-10</p>
+                            <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3>Amandeep Singh</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                            <div class="clear"></div>
                         </div>
-                        <!-- Ends: .online-course-details -->
-                        <div class="clear"></div>
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3>Anshika Gupta</h3>
-                            <p class="price-tag">CGPA-10</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3>Anshika Gupta</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anubhav Goyal</h3>
-                            <p class="price-tag">CGPA-10</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anubhav Goyal</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3>Amandeep Singh</h3>
-                            <p class="price-tag">CGPA-10</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/10th/amandeep-singh.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3>Amandeep Singh</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                            <div class="clear"></div>
                         </div>
-                        <!-- Ends: .online-course-details -->
-                        <div class="clear"></div>
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3>Anshika Gupta</h3>
-                            <p class="price-tag">CGPA-10</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/10th/anshika.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3>Anshika Gupta</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anubhav Goyal</h3>
-                            <p class="price-tag">CGPA-10</p>
-                        </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>*@
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/10th/anubhav.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anubhav Goyal</h3>
+                                <p class="price-tag">CGPA-10</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                        </div>*@
                 </div>
             </div>
             <!-- Ends: .course-carousel-main -->
@@ -428,54 +431,54 @@
                         </div>
                     }
                     @*<div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anjali</h3>
-                            <p class="price-tag">CGPA-1</p>
+                            <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anjali</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
 
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anshul Gandotra</h3>
-                            <p class="price-tag">CGPA-1</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anshul Gandotra</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anshul Joshi</h3>
-                            <p class="price-tag">CGPA-1</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anshul Joshi</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anjali</h3>
-                            <p class="price-tag">CGPA-1</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/12th/anjali.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anjali</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anshul Gandotra</h3>
-                            <p class="price-tag">CGPA-1</p>
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/12th/anshul-gandotra.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anshul Gandotra</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
                         </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>
-                    <div class="online-course-single">
-                        <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
-                        <div class="online-course-details" align="center">
-                            <h3> Anshul Joshi</h3>
-                            <p class="price-tag">CGPA-1</p>
-                        </div>
-                        <!-- Ends: .online-course-details -->
-                    </div>*@
+                        <div class="online-course-single">
+                            <img src="~/Content/Client/images/12th/anshul-joshi.jpg" alt="" class="img-responsive">
+                            <div class="online-course-details" align="center">
+                                <h3> Anshul Joshi</h3>
+                                <p class="price-tag">CGPA-1</p>
+                            </div>
+                            <!-- Ends: .online-course-details -->
+                        </div>*@
                 </div>
             </div>
         </div>
@@ -574,3 +577,44 @@
         </div>
     </div>
 </section>
+
+<!-- Trigger the Modal -->
+<img id="myImg" src="~/Content/images/HVM ADD.jpg" alt="Snow" style="display:none;width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
+
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+</div>
+<script>
+    $(window).on('load', function () {
+        img.click();
+    });
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>

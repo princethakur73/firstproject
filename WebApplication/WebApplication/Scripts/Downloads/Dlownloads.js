@@ -1,5 +1,6 @@
 ﻿// Onload Table Bind
 $(document).ready(function () {
+    debugger
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
     $.get('/Admin/Downloads/GetDownloadsList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {

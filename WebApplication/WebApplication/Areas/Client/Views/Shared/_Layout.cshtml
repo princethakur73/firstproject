@@ -94,12 +94,19 @@
                                 <!-- End .navbar-header -->
                                 <div class="collapse navbar-collapse" id="edulight-navbar-collapse">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                        @*<li><a href="@Url.Action("Index","Home")">Home</a></li>*@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="@Url.Action("OriginsHistory","AboutUs")">Origins & History</a></li>
                                                 <li class="dropdown-submenu">
+                                                    <a href="#">HVM Management</a> <i class="fa fa-angle-right"></i>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="@Url.Action("ExecutiveMembers","AboutUs")">Executive Members</a></li>
+                                                        <li><a href="@Url.Action("ManagementMembers","AboutUs")">Management Members</a></li>
+                                                    </ul>
+                                                </li>
+                                                @*<li><a href="@Url.Action("OriginsHistory","AboutUs")">Origins & History</a></li>*@
+                                                @*<li class="dropdown-submenu">
                                                     <a href="#">Messages</a> <i class="fa fa-angle-right"></i>
                                                     <ul class="dropdown-menu">
                                                         <li><a href="@Url.Action("ChairmanMassage","AboutUs")">Chairman's Message</a></li>
@@ -108,81 +115,116 @@
                                                         <li><a href="@Url.Action("DirectorMassage","AboutUs")">Director's Message</a></li>
                                                         <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Principal's Message</a></li>
                                                     </ul>
-                                                </li>
-                                                <li><a href="@Url.Action("VisionMission","AboutUs")">Vision & Mission</a></li>
+                                                </li>*@
+                                                <li><a href="@Url.Action("VisionMission","AboutUs")">Vision, Mission, Motto</a></li>
                                                 <li><a href="@Url.Action("MandatoryDisclosure","AboutUs")">Mandatory Disclosure</a></li>
-                                                <li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>
+                                                @*<li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>*@
                                                 <li><a href="@Url.Action("AffiliationCBSE","AboutUs")">Affiliation to CBSE</a></li>
-                                                <li class="dropdown-submenu">
-                                                    <a href="#">HVM Management</a> <i class="fa fa-angle-right"></i>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="@Url.Action("ExecutiveMembers","AboutUs")">Executive Members</a></li>
-                                                        <li><a href="@Url.Action("ManagementMembers","AboutUs")">Management Members</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="@Url.Action("FacultyDetails","AboutUs")">Staff Details</a></li>
-                                                <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
-                                                <li><a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a></li>
-                                                <li><a href="@Url.Action("OurRules","AboutUs")">Our Rules</a></li>
+
+                                                @*<li><a href="@Url.Action("FacultyDetails","AboutUs")">Staff Details</a></li>
+        <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
+        <li><a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a></li>
+        <li><a href="@Url.Action("OurRules","AboutUs")">Our Rules</a></li>*@
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Faculties & Facilities</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="@Url.Action("AdmissionRule","Admission")">Admission Rules</a></li>
+                                                <li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>
+                                                <li><a href="@Url.Action("TransferCertificate","Student")">Transfer Certificate</a></li>
+                                                <li><a href="@Url.Action("FacultyDetails","AboutUs")">Teachers</a></li>
+                                                <li><a href="@Url.Action("OnRoll","Student")">Student Strength</a></li>
+                                                <li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>
+                                                <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Infrastructure</a></li>
+                                                <li><a href="@Url.Action("CouselingServices","AboutUs")">Counseling Services</a></li>
                                             </ul>
                                         </li>
                                         <!-- End Teacher -->
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admission</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="@Url.Action("AdmissionRule","Admission")">Admission Rules</a></li>
-                                                <li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Pages -->
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="@Url.Action("Sports","Student")">Sports</a></li>
-                                                <li><a href="@Url.Action("ActivitiesEvents","Student")">Activities & Events</a></li>
-                                                <li><a href="@Url.Action("OnRoll","Student")">On Roll</a></li>
-                                                <li><a href="@Url.Action("TransferCertificate","Student")">Transfer Certificate</a></li>
-                                                <li><a href="@Url.Action("Download","Student")">Download</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Pages -->
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curriculum</a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown-submenu">
+                                                    <a href="#">Academic Curriculum</a> <i class="fa fa-angle-right"></i>
+                                                                                        <ul class="dropdown-menu">                                                                                            
+                                                                                            <li><a href="@Url.Action("TimeTable","Circulars")">Time Table</a></li>
+                                                                                            <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
+                                                                                            <li><a href="@Url.Action("EvaluationWeightage","Circulars")">Evaluation Weightage</a></li>
+                                                                                            <li><a href="@Url.Action("SchoolDiary","Circulars")">School Diary</a></li>
+                                                                                            <li><a href="@Url.Action("CodeOfConductForStudent","Circulars")">Code of Conduct for Student</a></li>
+                                                                                            <li><a href="@Url.Action("ListOfBooks","Circulars")">List of Books</a></li>
+                                                                                            <li><a href="@Url.Action("ListOfHolidays","Circulars")">List of Holidays</a></li>
+                                                                                            <li><a href="@Url.Action("TeachingMethodology","Circulars")">Teaching Methodology</a></li>
+                                                                                            <li><a href="@Url.Action("SmartLearning","Circulars")">Smart learning</a></li>
+                                                                                            <li><a href="@Url.Action("Syllabus","Circulars")">Syllabus</a></li>
+                                                                                            <li><a href="@Url.Action("PTMSchedule","Circulars")">PTM Schedule</a></li>
+                                                                                        </ul>
+                                                </li>
+                                                <li><a href="@Url.Action("CoCurricularActivites","Circulars")">Co-Curricular Activities</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- End Pages -->
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Achivement</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="@Url.Action("Result","Academics")">Result</a></li>
+                                                <li><a href="@Url.Action("InterSchoolPrizes","Achievements")">Inter School Prizes</a></li>
+                                                <li><a href="@Url.Action("Sports","Student")">Sports</a></li>
+                                                <li><a href="@Url.Action("HubLearningActivities","Achievements")">Hub Of Learning Activities</a></li>
+                                                @*<li><a href="@Url.Action("Sports","Student")">Sports</a></li>
+                                                <li><a href="@Url.Action("ActivitiesEvents","Student")">Activities & Events</a></li>
+                                                <li><a href="@Url.Action("OnRoll","Student")">On Roll</a></li>
+                                                <li><a href="@Url.Action("Download","Student")">Download</a></li>*@
+                                            </ul>
+                                        </li>
+                                        <!-- End Pages -->
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Circulars</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="http://cbse.nic.in/newsite/index.html" target="_blank">C.B.S.E. Circulars</a></li>
+                                                <li><a href="@Url.Action("SchoolCirculars","Circulars")">School Circulars</a></li>
+                                                @*<li class="dropdown-submenu">
                                                     <a href="#">Photo</a> <i class="fa fa-angle-right"></i>
                                                     <ul class="dropdown-menu">
-                                                        @foreach (var item in sessionList)
-                                                        {
-                                                            <li><a href="@Url.Action("SessionPhotoGallery", "Gallery", new { session=item.Name})">Session @item.Name </a></li>
-                                                        }
-                                                        @*<li><a href="@Url.Action("PhotoSession2018","Gallery")">Session 2016-17</a></li>
-                                                            <li><a href="/Client/Gallery/Index">Session 2016-17</a></li>*@
+                                                    @foreach (var item in sessionList)
+                                                    {
+                                                        <li><a href="@Url.Action("SessionPhotoGallery", "Gallery", new { session=item.Name})">Session @item.Name </a></li>
+                                                    }
+                                                    <li><a href="@Url.Action("PhotoSession2018","Gallery")">Session 2016-17</a></li>
+                                                    <li><a href="/Client/Gallery/Index">Session 2016-17</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="">Video</a></li>
+                                                <li><a href="">Gallery And Press Release</a></li>
                                                 <li>
                                                     <a href="@Url.Action("SchoolVirtualTour","Gallery")">School Virtual Tour</a>
-                                                </li>
+                                                </li>*@
                                             </ul>
                                         </li>
                                         <!-- end gallery -->
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Achievements</a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="@Url.Action("OursToppers","Achievements")">Our Toppers</a></li>
+                                                <li><a href="">Gallery And Press Release</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Admission Form</a></li>
+                                                <li><a href="#">Recruitment Form</a></li>
+                                                @*<li><a href="@Url.Action("Download","Student")">Download</a></li>*@
                                             </ul>
                                         </li>
                                         <!-- End Contact -->
-                                        <li><a href="">Kindergarten</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
-                                                <li><a href="@Url.Action("Schedule","Academics")">Schedule</a></li>
-                                                <li><a href="@Url.Action("Result","Academics")">Result</a></li>
-                                            </ul>
-                                        </li>
+                                        @*<li><a href="">Kindergarten</a></li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
+                                                    <li><a href="@Url.Action("Schedule","Academics")">Schedule</a></li>
+                                                    <li><a href="@Url.Action("Result","Academics")">Result</a></li>
+                                                </ul>
+                                            </li>*@
                                         <!-- End Contact -->
                                         <li><a href="@Url.Action("ContactUs","Home")">Contact Us</a></li>
                                     </ul>
@@ -258,7 +300,8 @@
                             <ul class="list-unstyled">
                                 <li>Karamsar Colony, New Subash Nagar, Ludhiana, Punjab.</li>
                                 <li><i class="fa fa-phone"></i> O161 - 2632407, 2632408</li>
-                                <li><i class="fa fa-envelope"></i> info@yourcompany.com</li>
+                                <li><i class="fa fa-phone"></i> 98150-98888</li>
+                                <li><i class="fa fa-envelope"></i> hvmconvent@gmail.com</li>
                             </ul>
                         </div>
                     </div>

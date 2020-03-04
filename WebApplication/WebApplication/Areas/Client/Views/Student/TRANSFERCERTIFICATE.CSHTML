@@ -1,4 +1,5 @@
-﻿<!--============================
+﻿@model IEnumerable<WebApplication.Models.TransferCertificateModel>
+<!--============================
         About Page Header
     =============================-->
 <section class="page-header">
@@ -21,8 +22,8 @@
 <section class="blog-wrapper blog">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-12">
-             @Html.Partial("~/Areas/Client/Views/Student/_StudentSidebar.cshtml", 4)
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 3)
             </div>
             <div class="col-md-9 col-sm-8 ">
                 <div class="forum-wrapper">
@@ -32,11 +33,11 @@
                         </div>
                         <div class="col-sm-6">
                             <form action="#">
-                                <input type="text" placeholder="Enter Admission Number">
+                                <input type="text" id="txt_search" placeholder="Enter Admission Number">
                                 <button type="submit"><i class="fa fa-text"></i></button>
                             </form>
                         </div>
-                        <div class="col-md-2 col-sm-8"> <a href="" class="el-btn-medium">Search</a> </div>
+                        <div class="col-md-2 col-sm-8"> <a href="" onclick="this.href='transfer-certificate?text='+document.getElementById('txt_search').value" class="el-btn-medium">Search</a> </div>
                         <div class="h20"></div>
                     </div>
                     <!-- Ends: .forum-search -->
@@ -54,7 +55,10 @@
                                 <th>Downlaod </th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr><td>@item.StudentName</td><td>@item.ClassName</td><td>@item.AdmissionNumber</td><td><span><a target="_blank" href="~/Content/files/downloads/@item.FileName">Download</a></span></td></tr>                           
+                        }
                     </table>
                 </div>
             </div>

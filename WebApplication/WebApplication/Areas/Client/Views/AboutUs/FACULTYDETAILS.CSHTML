@@ -3,11 +3,16 @@
         About Page Header
     =============================-->
 <style>
-    th
-    {
-        font-size:12px;
-        font-weight:500;
+    th {
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #c40e05;
+        color:white;
     }
+    td {
+        font-size: 14px;
+    }
+    .table > tbody > tr > td, .table > tbody > tr > th{padding:5px;}
 </style>
 <section class="page-header">
     <div class="container">
@@ -30,322 +35,215 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 ">
-                @Html.Partial("~/Areas/Client/Views/AboutUs/_AboutUsSidebar.cshtml", 10)
+                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 4)
             </div>
             <div class="col-sm-9">
-                <div class="col-md-12 pad_zero">
-                    <ul class="tabs">
-                        <li class="active" rel="tab1">Faculty Details </li>
-                        <li rel="tab2">Pay Scale</li>
-                        <li rel="tab3">Total Staff</li>
-                    </ul>
-                    <div class="tab_container">
-                        <h3 class="d_active tab_drawer_heading" rel="tab1">Faculty Detail</h3>
-                        <div id="tab1" class="tab_content">
-                            <div class="col-md-12">
-                                <ul class="tabss">
-                                    <li class="active" rel="tab4">@StaffGroup.Adminstrative </li>
-                                    <li rel="tab5">@StaffGroup.PGT</li>
-                                    <li rel="tab6">@StaffGroup.TGT</li>
-                                    <li rel="tab7">@StaffGroup.PRT</li>
-                                    <li rel="tab8">@StaffGroup.NTT</li>
-                                </ul>
-                                <div class="tab_container">
-                                    <h3 class="d_active tab_drawer_heading" rel="tab4">@StaffGroup.Adminstrative</h3>
-                                    <div id="tab4" class="tab_content1">
-                                        <div class="h10"></div>
-                                        <table class="table table-hover table-bordered table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th># </th>
-                                                    <th>Staff Image </th>
-                                                    <th>Name </th>
-                                                    <th>Designation </th>
-                                                    <th>Appointment Date </th>
-                                                    <th>Professional Qualification </th>
-                                                    <th>Acadmic Qualification </th>
-                                                    <th>Training Status </th>
-                                                    <th>Job Status </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @{
-                        int index = 0;
-                                                }
-                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.Adminstrative))
-                                                {
-                                                    index++;
-                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
+                <h1 style="text-align:center">Staff Detail</h1>
+                <table class="table" border="1">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>Designation</th>
+                        </tr>
+                        <tr>
+                            <td>Ms. Radhika Jain</td>
+                            <td>Director</td>
+                        </tr>
+                        <tr>
+                            <td>Ms. Sunita Kumari </td>
+                            <td>Principal </td>
+                        </tr>
+                        <tr>
+                            <td>Ms. Maninder Kaur </td>
+                            <td>Vice Principal </td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Parveen Thakur</td>
+                            <td>Admin Coordinator</td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Mohandeep</td>
+                            <td>Coordinator</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h1 style="text-align:center">Office Executives</h1>
+                <table class="table" border="1">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            
+                        </tr>
+                        <tr>
+                            <td>Mr. Ranbir Rana</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Mr. Sanjeev Kumar</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Ms. Pooja Bhardwaj </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Ms. Sheenam</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Ms. Pooja</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Ms. Vanisha</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table" border="1" cellpadding="10" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <th>Dept. of English</th>
+                            <th>Dept. of Mathematics</th>
+                            <th>Dept. of Science</th>
+                            <th>Dept. of Social Science</th>
+                            <th>Dept. of Commerce</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ms. Rozy<br />
+                                Ms. Anjali<br />
+                                Ms. Veena Rani<br />
+                                Ms. Kalpna<br />
+                                Ms. Jaspreet Kaur<br />
+                                Ms. Prerna<br />
+                                Ms. Kanika<br />
+                                Ms. Nivay<br />
+                            </td>
+                            <td>
+                                Mr. Rohit Gupta<br />
+                                Ms. Harsharan Kaur<br />
+                                Ms. Renu Arora<br />
+                                Ms. Neha<br />
+                                Ms. Inderjeet Kaur<br />
+                                Ms. Anjali Dhir<br />
+                                Ms. Sonia Khurana<br />
+                            </td>
+                            <td>
+                                Ms. Maninder Kaur<br />
+                                Ms. Neelam<br />
+                                Ms. Madhuri<br />
+                                Ms. Hitasha<br />
+                                Ms. Pankaj<br />
+                                Ms. Priya<br />
+                                Ms. Navneet Kaur<br />
+                                Ms. Khushboo<br />
+                            </td>
+                            <td>
+                                Ms. Pooja Sharma<br />
+                                Mr. Parveen Thakur<br />
+                                Ms. Pragati<br />
+                                Mr. Gautam<br />
+                                Ms. Tipsy<br />
+                                Ms. Gurpreet<br />
+                                Ms. Bindu Dhir<br />
+                                Ms. Jyoti<br />
+                            </td>
+                            <td>
+                                Ms. Anupama Sidana<br />
+                                Ms. Indira Tangri<br />
+                                Mr. Suraj Parkash<br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table" border="1" cellpadding="10" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <th>Dept. of Hindi</th>
+                            <th>Dept. of Punjabi</th>
+                            <th>Dept. of Computer</th>
+                            <th>Dept. of Sports</th>
+                            <th>Dept. of Arts</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ms. Suman Sharma<br />
+                                Ms. Rachu<br />
+                                Ms Chandni<br />
+                                Ms. Baldina<br />
+                                Ms. Sunita Chauhan<br />
+                            </td>
+                            <td>
+                                Ms. Gurpreet Kaur<br />
+                                Ms. Rimpy<br />
+                                Ms.  Harpreet<br />
+                                Ms. Renuka<br />
+                                Ms Neha Sehgal<br />
+                                Ms Jaspreet<br />
+                            </td>
+                            <td>
+                                Mr. Mohandeep<br />
+                                Mr. Jaswinder Singh<br />
+                                Ms. Parul<br />
+                                Ms Shivani<br />
+                            </td>
+                            <td>
+                                Mr. Gopal Thakur<br />
+                                Mr. Manish Kumar<br />
+                                Ms. Harwinder Kaur<br />
+                                Mr. Gurbax Singh<br />
+                            </td>
+                            <td>
+                                Ms. Harpreet Kaur<br />
+                                Ms. Jyoti<br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table" border="1">
+                    <tbody>
+                        <tr>
+                            <th>Dept. of Music & Dance</th>
+                            <th>Supporting Staff</th>
+                            <th>Primary  & Pre – Primary  Teachers</th>                            
+                        </tr>
+                        <tr>
+                            <td>
+                                Ms. Rita<br />
+                                Ms. Vaishali<br />
+                            </td>
+                            <td>
+                                Ms. Priyanka (Librarian)<br />
+                                Ms. Pushpinder Kaur (lab Asst.)<br />
+                                Ms. Jaiwanti<br />
+                                Ms. Bhawna (Counsellor)
+                            </td>
+                            <td>
+                                Ms. Vanita Kashyap<br />
+                                Ms. Teenu Chadha<br />
+                                Ms. Gurrpeet Kaur<br />
+                                Ms. Poonam<br />
+                                Ms. Teema<br />
+                                Ms. Kiran Sharma<br />
+                                Ms. Pooja Jain<br />
+                                Ms. KIran Gulati<br />
+                                Ms. Shakuntla<br />
+                                Ms. Jyoti Aggarwal<br />
+                                Ms. Mudita<br />
+                                Ms. Amandeep<br />
+                                Ms. Nancy<br />
+                                Ms. Rachna<br />
+                                Ms. Geetu<br />
+                                Ms. Rinki<br />
+                                Ms. Neeru<br />
+                                Ms. Hardeep<br />
+                                Ms. Jeewan Jyoti<br />
+                            </td>                            
+                        </tr>
+                    </tbody>
+                </table>
 
-                            <tr>
-                                <td>@index</td>
-                                <td><img width="60" src="@image" /></td>
-                                <td>@item.Name </td>
-                                <td>@item.Desigination </td>
-                                <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
-                                <td>@item.ProfessionalQualification </td>
-                                <td>@item.AcadmicQualification </td>
-                                <td>@item.TrainingStatus </td>
-                                <td>@item.JobStatus</td>
-                            </tr>
-}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div id="tab5" class="tab_content1">
-                                        <div class="h10"></div>
-                                        <table class="table table-hover table-bordered table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th># </th>
-                                                    <th>Staff Image </th>
-                                                    <th>Name </th>
-                                                    <th>Appointment Date </th>
-                                                    <th>Professional Qualification </th>
-                                                    <th>Acadmic Qualification </th>
-                                                    <th>Training Status </th>
-                                                    <th>Job Status </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @{
-                index = 0;
-                                                }
-                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.PGT))
-                                                {
-                                                    index++;
-                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
-
-                                    <tr>
-                                        <td>@index</td>
-                                        <td><img width="60" src="@image" /></td>
-                                        <td>@item.Name </td>
-                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
-                                        <td>@item.ProfessionalQualification </td>
-                                        <td>@item.AcadmicQualification </td>
-                                        <td>@item.TrainingStatus </td>
-                                        <td>@item.JobStatus</td>
-                                    </tr>
-}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div id="tab6" class="tab_content1">
-                                        <div class="h10"></div>
-                                        <table class="table table-hover table-bordered table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th># </th>
-                                                    <th>Staff Image </th>
-                                                    <th>Name </th>
--                                                    <th>Appointment Date </th>
-                                                    <th>Professional Qualification </th>
-                                                    <th>Acadmic Qualification </th>
-                                                    <th>Training Status </th>
-                                                    <th>Job Status </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            @{
-                                                index = 0;
-                                            }
-
-                                            @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.TGT))
-                                            {
-                                                index++;
-                                                string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
-
-                                                <tr>
-                                                    <td>@index</td>
-                                                    <td><img width="60" src="@image" /></td>
-                                                    <td>@item.Name </td>
-                                                    <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
-                                                    <td>@item.ProfessionalQualification </td>
-                                                    <td>@item.AcadmicQualification </td>
-                                                    <td>@item.TrainingStatus </td>
-                                                    <td>@item.JobStatus</td>
-                                                </tr>
-                                            }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div id="tab7" class="tab_content1">
-                                        <div class="h10"></div>
-                                        <table class="table table-hover table-bordered table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th># </th>
-                                                    <th>Staff Image </th>
-                                                    <th>Name </th>
-                                                    <th>Designation </th>
-                                                    <th>Appointment Date </th>
-                                                    <th>Professional Qualification </th>
-                                                    <th>Acadmic Qualification </th>
-                                                    <th>Training Status </th>
-                                                    <th>Job Status </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @{
-                index = 0;
-                                                }
-                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.PRT))
-                                                {
-                                                    index++;
-                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
-
-                                    <tr>
-                                        <td>@index</td>
-                                        <td><img width="60" src="@image" /></td>
-                                        <td>@item.Name </td>
-                                        <td>@item.Desigination </td>
-                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
-                                        <td>@item.ProfessionalQualification </td>
-                                        <td>@item.AcadmicQualification </td>
-                                        <td>@item.TrainingStatus </td>
-                                        <td>@item.JobStatus</td>
-                                    </tr>
-}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div id="tab8" class="tab_content1">
-                                        <div class="h10"></div>
-                                        <table class="table table-hover table-bordered table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th># </th>
-                                                    <th>Staff Image </th>
-                                                    <th>Name </th>
-                                                    <th>Appointment Date </th>
-                                                    <th>Professional Qualification </th>
-                                                    <th>Acadmic Qualification </th>
-                                                    <th>Training Status </th>
-                                                    <th>Job Status </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @{
-                index = 0;
-                                                }
-                                                @foreach (var item in Model.Where(m => m.GroupId == StaffGroup.NTT))
-                                                {
-                                                    index++;
-                                                    string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists("/Content/images/StaffDetail/" + item.Image) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/StaffDetail/" + item.Image;
-
-                                    <tr>
-                                        <td>@index</td>
-                                        <td><img width="60" src="@image" /></td>
-                                        <td>@item.Name </td>
-                                        <td>@item.AppointmentDate.ToString("dd MMM, yyyy") </td>
-                                        <td>@item.ProfessionalQualification </td>
-                                        <td>@item.AcadmicQualification </td>
-                                        <td>@item.TrainingStatus </td>
-                                        <td>@item.JobStatus</td>
-                                    </tr>
-}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- #tab1 -->
-                        <h3 class="tab_drawer_heading" rel="tab2">Pay Scale</h3>
-                        <div id="tab2" class="tab_content">
-                            <div class="h10"></div>
-                            <h2 align="center">Adminstrative Staff</h2>
-                            <div class="h10"></div>
-                            <table class="table table-hover table-bordered table-responsive">
-                                <thead>
-                                    <tr><th> Sr. No </th>
-                                <th> Designation </th>
-                                <th> Pay Scale </th>
-                                <th> Grand Pay </th>
-                                <th> DA </th>
-                                <th> HRA </th>
-                                <th> EPF </th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td> PGT </td>
-                                        <td> 10300-34800 </td>
-                                        <td> 4200 </td>
-                                        <td> 5% </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td> Principal </td>
-                                        <td> 31100-67000 </td>
-                                        <td> 8400 </td>
-                                        <td> 5% </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td> PRT </td>
-                                        <td> 9300-34800 </td>
-                                        <td> 2170 </td>
-                                        <td> 5% </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td> TGT </td>
-                                        <td> 10300-34800 </td>
-                                        <td> 3600 </td>
-                                        <td> 5% </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td> Vice Principal </td>
-                                        <td> 10300-34800 </td>
-                                        <td> 4200 </td>
-                                        <td> 5% </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- #tab2 -->
-                        <h3 class="tab_drawer_heading" rel="tab3">Total Staff</h3>
-                        <div id="tab3" class="tab_content">
-                            <div class="h10"></div>
-                            <h2 align="center">Staff Designation</h2>
-                            <table class="table table-hover table-bordered table-responsive">
-                                <tr>
-                                    <td><strong> Designation </strong></td>
-                                    <td><strong>Total Staff</strong> </td>
-                                </tr>
-                                <tr>
-                                    <td> PGT </td>
-                                    <td> 11 </td>
-                                </tr>
-                                <tr>
-                                    <td> TGT </td>
-                                    <td> 23 </td>
-                                </tr>
-                                <tr>
-                                    <td> PRT </td>
-                                    <td> 49 </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- #tab3 -->
-                    </div>
-                </div>
             </div>
         </div>
     </div>

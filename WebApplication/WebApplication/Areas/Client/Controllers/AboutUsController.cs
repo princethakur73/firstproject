@@ -91,6 +91,13 @@ namespace WebApplication.Areas.Client.Controllers
             return View("~/Areas/Client/Views/AboutUs/CourseOffered.cshtml", model);
         }
 
+        [Route("couseling-services")]
+        public ActionResult CouselingServices()
+        {
+            var model = _pageService.GetPageByMenuCode(MenuCode.CouselingServices).ToModel();
+            return View("~/Areas/Client/Views/AboutUs/CouselingServices.cshtml", model);
+        }
+
         [Route("affiliation-cbse")]
         public ActionResult AffiliationCBSE()
         {

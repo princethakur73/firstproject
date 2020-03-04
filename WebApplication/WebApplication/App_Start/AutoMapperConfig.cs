@@ -23,7 +23,8 @@ namespace WebApplication
                 config.CreateMap<ContactUs, ContactUsModel>().ReverseMap();
                 config.CreateMap<News, NewsModel>().ReverseMap();
                 config.CreateMap<Downloads, DownloadsModel>().ReverseMap();
-
+                config.CreateMap<TransferCerticate, TransferCertificateModel>().ReverseMap();
+                config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
             });
         }
     }

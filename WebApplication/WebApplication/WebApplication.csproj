@@ -217,6 +217,8 @@
     <Compile Include="Areas\Admin\Controllers\AcademicsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AchievementController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdmissionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CircularsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepartmentMasterController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClassMasterController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KindergartenController.cs" />
     <Compile Include="Areas\Admin\Controllers\StudentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TransferCertificateController.cs" />
     <Compile Include="Areas\Admin\Models\FileModel.cs" />
     <Compile Include="Areas\Admin\Models\FilesViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GalleryModel.cs" />
@@ -242,6 +245,7 @@
     <Compile Include="Areas\Client\Controllers\AcademicsController.cs" />
     <Compile Include="Areas\Client\Controllers\AchievementsController.cs" />
     <Compile Include="Areas\Client\Controllers\AdmissionController.cs" />
+    <Compile Include="Areas\Client\Controllers\CircularsController.cs" />
     <Compile Include="Areas\Client\Controllers\GalleryController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
     <Compile Include="Areas\Client\Controllers\StudentController.cs" />
@@ -250,6 +254,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Extensions\ContactUsExtension.cs" />
+    <Compile Include="Extensions\TransferCertificateExtension.cs" />
     <Compile Include="Extensions\DownloadsExtension.cs" />
     <Compile Include="Extensions\NewsExtension.cs" />
     <Compile Include="Extensions\SlideExtension.cs" />
@@ -307,6 +312,8 @@
     <Compile Include="Infrastructure\Tasks\TaskRegistry.cs" />
     <Compile Include="Infrastructure\TransactionPerRequest.cs" />
     <Compile Include="Infrastructure\WebApplicationController.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\TransferCertificateModel.cs" />
     <Compile Include="Models\DownloadsModel.cs" />
     <Compile Include="Models\HomeModels.cs" />
     <Compile Include="Models\NewsModel.cs" />
@@ -325,7 +332,9 @@
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="ViewModels\TransferCertificateViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
@@ -1469,6 +1478,7 @@
     <Content Include="Content\Client\images\vision.png" />
     <Content Include="Content\Client\images\youtube.png" />
     <Content Include="Content\Client\images\zonal-games.jpg" />
+    <Content Include="Content\Client\Index\Index.css" />
     <Content Include="Content\Client\js\assets\bootstrap.min.js" />
     <Content Include="Content\Client\js\assets\jquery-1.12.0.min.js" />
     <Content Include="Content\Client\js\assets\jquery.magnific-popup.min.js" />
@@ -3886,7 +3896,7 @@
     <Content Include="Areas\Client\Views\Academics\Result.cshtml" />
     <Content Include="Areas\Client\Views\Academics\Schedule.cshtml" />
     <Content Include="Content\Client\download\may-test-datesheet-and-syllabus-for-kg.pdf" />
-    <Content Include="Areas\Client\Views\AboutUs\_AboutUsSidebar.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_FaculitySidebar.cshtml" />
     <Content Include="Areas\Client\Views\Student\_StudentSidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Home\DashboardV1.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Dashboard.cshtml" />
@@ -4966,6 +4976,47 @@
     <Content Include="Areas\Client\Views\AboutUs\ChairmanMassage.cshtml" />
     <Content Include="Areas\Client\Views\AboutUs\ExecutiveMembers.cshtml" />
     <Content Include="Areas\Client\Views\AboutUs\ChairpersonMassage.cshtml" />
+    <Content Include="Areas\Admin\Views\AboutUs\CouselingServices.cshtml" />
+    <Content Include="Areas\Client\Views\AboutUs\CouselingServices.cshtml" />
+    <Content Include="Areas\Admin\Views\TransferCertificate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TransferCertificate\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TransferCertificate\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TransferCertificate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\TimeTable.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\TimeTable.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\EvaluationWeightage.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\EvaluationWeightage.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\PTMSchedule.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\Syllabus.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\SmartLearning.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\TeachingMethodology.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\ListOfHolidays.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\ListOfBooks.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\CodeOfConductForStudent.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\SchoolDiary.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\PTMSchedule.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\Syllabus.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\SmartLearning.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\TeachingMethodology.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\ListOfHolidays.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\ListOfBooks.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\CodeOfConductForStudent.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\SchoolDiary.cshtml" />
+    <Content Include="Areas\Client\Views\AboutUs\_AboutUsSidebar.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_CircularsSidebar.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_AchievementSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Achievement\InterSchoolPrizes.cshtml" />
+    <Content Include="Areas\Admin\Views\Achievement\HubLearningActivities.cshtml" />
+    <Content Include="Areas\Client\Views\Achievements\InterSchoolPrizes.cshtml" />
+    <Content Include="Areas\Client\Views\Achievements\HubLearningActivities.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\CoCurricularActivites.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\CoCurricularActivites.cshtml" />
+    <Content Include="Areas\Admin\Views\DepartmentMaster\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DepartmentMaster\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DepartmentMaster\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DepartmentMaster\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Circulars\SchoolCirculars.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\SchoolCirculars.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -4978,6 +5029,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\comman\pager.js" />
     <Content Include="Scripts\ClassMaster\ClassMaster.js" />
+    <Content Include="Scripts\DepartmentMaster\DepartmentMaster.js" />
     <Content Include="Scripts\jquery.Jcrop.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
     <Content Include="Scripts\News\News.js" />
@@ -5015,6 +5067,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\TransferCertificate\TransferCertificate.js" />
     <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -5081,6 +5134,7 @@
     <Content Include="Views\Shared\EditorTemplates\SessionId.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ClassMasterId.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ClassMasterRomanId.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MasterDepartmentdId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

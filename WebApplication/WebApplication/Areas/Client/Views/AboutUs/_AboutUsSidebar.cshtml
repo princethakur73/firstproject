@@ -2,62 +2,82 @@
 <div class="sidebar"> About Us </div>
 <ul id="accordion" class="accordion">
     <li>
-        <a href="@Url.Action("OriginsHistory","AboutUs")">
-            <div class="link @(Model==1?"active-nav":"")">Origins & History</div>
+        <a href="@Url.Action("ManagementMembers","AboutUs")">
+            <div class="link @(Model==1?"active-nav":"")">HVM Management</div>
         </a>
-    </li>
-    <div class="link">Messages<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-        <li><a href="@Url.Action("PresidentMassage","AboutUs")">President's Message</a></li>
-        <li><a href="@Url.Action("DirectorMassage","AboutUs")">Director's Message</a></li>
-        <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Principal's Message</a></li>
-    </ul>
     </li>
     <li>
         <a href="@Url.Action("VisionMission","AboutUs")">
-            <div class="link @(Model==5?"active-nav":"")">Vision & Mission</div>
+            <div class="link @(Model==2?"active-nav":"")">Vision & Mission</div>
         </a>
     </li>
     <li>
         <a href="@Url.Action("MandatoryDisclosure","AboutUs")">
-            <div class="link @(Model==6?"active-nav":"")">Mandatory Disclosure</div>
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("CourseOffered","AboutUs")">
-            <div class="link @(Model==7?"active-nav":"")">Course Offered</div>
+            <div class="link @(Model==3?"active-nav":"")">Mandatory Disclosure</div>
         </a>
     </li>
     <li>
         <a href="@Url.Action("AffiliationCBSE","AboutUs")">
-            <div class="link @(Model==8?"active-nav":"")">Affiliation to CBSE</div>
+            <div class="link @(Model==4?"active-nav":"")">Affiliation to CBSE</div>
         </a>
     </li>
-    <li>
-        <a href="@Url.Action("ManagementMembers","AboutUs")">
-            <div class="link @(Model==9?"active-nav":"")">HVM Management</div>
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("FacultyDetails","AboutUs")">
-            <div class="link @(Model==10?"active-nav":"")">Staff Details</div>
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("OurInfrastructure","AboutUs")">
-            <div class="link @(Model==11?"active-nav":"")">Our Infrastructure</div>
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("OurFacilities","AboutUs")">
-            <div class="link @(Model==12?"active-nav":"")"> Our Facilities</div>
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("OurRules","AboutUs")">
-            <div class="link @(Model==13?"active-nav":"")">Our Rules</div>
-        </a>
-    </li>
+    @*<li>
+            <a href="@Url.Action("OriginsHistory","AboutUs")">
+                <div class="link @(Model==1?"active-nav":"")">Origins & History</div>
+            </a>
+        </li>
+        <div class="link">Messages<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu">
+            <li><a href="@Url.Action("PresidentMassage","AboutUs")">President's Message</a></li>
+            <li><a href="@Url.Action("DirectorMassage","AboutUs")">Director's Message</a></li>
+            <li><a href="@Url.Action("PrincipalMassage","AboutUs")">Principal's Message</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("VisionMission","AboutUs")">
+                <div class="link @(Model==5?"active-nav":"")">Vision & Mission</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("MandatoryDisclosure","AboutUs")">
+                <div class="link @(Model==6?"active-nav":"")">Mandatory Disclosure</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("CourseOffered","AboutUs")">
+                <div class="link @(Model==7?"active-nav":"")">Course Offered</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AffiliationCBSE","AboutUs")">
+                <div class="link @(Model==8?"active-nav":"")">Affiliation to CBSE</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("ManagementMembers","AboutUs")">
+                <div class="link @(Model==9?"active-nav":"")">HVM Management</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("FacultyDetails","AboutUs")">
+                <div class="link @(Model==10?"active-nav":"")">Staff Details</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurInfrastructure","AboutUs")">
+                <div class="link @(Model==11?"active-nav":"")">Our Infrastructure</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurFacilities","AboutUs")">
+                <div class="link @(Model==12?"active-nav":"")"> Our Facilities</div>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("OurRules","AboutUs")">
+                <div class="link @(Model==13?"active-nav":"")">Our Rules</div>
+            </a>
+        </li>*@
 </ul>
 @section Scripts
 {

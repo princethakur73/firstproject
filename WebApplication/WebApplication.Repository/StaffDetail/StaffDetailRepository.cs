@@ -22,6 +22,7 @@ namespace WebApplication.Repository
             {
                 query = @"SELECT Id,
                                 GroupId,
+                                DepartmentId,
                                 Name,
                                 Image,
                                 Desigination,
@@ -59,6 +60,7 @@ namespace WebApplication.Repository
             {
                 query = @"SELECT Id,
                                 GroupId,
+                                DepartmentId,
                                 Name,
                                 Image,
                                 Desigination,
@@ -100,6 +102,7 @@ namespace WebApplication.Repository
                 param.Add("_Desigination", obj.Desigination, DbType.String);
                 param.Add("_Image", obj.Image, DbType.String);
                 param.Add("_GroupId", obj.GroupId, DbType.String);
+                param.Add("_DepartmentId", obj.DepartmentId, DbType.Int32);
                 param.Add("_AppointmentDate", obj.AppointmentDate, DbType.Date);
                 param.Add("_ProfessionalQualification", obj.ProfessionalQualification, DbType.String);
                 param.Add("_AcadmicQualification", obj.AcadmicQualification, DbType.String);

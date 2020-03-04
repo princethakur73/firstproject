@@ -29,25 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 ">
-                <div class="sidebar"> Academics </div>
-                <ul id="accordion" class="accordion">
-                    <li>
-                        <a href="@Url.Action("DateSheet","Academics")">
-                            <div class="link active-nav">Date Sheet</div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="@Url.Action("Schedule","Academics")">
-                            <div class="link">Schedule</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Result","Academics")">
-                            <div class="link">Result</div>
-                        </a>
-                    </li>
-                </ul>
+                @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 2)
             </div>
             <div class="col-sm-9">
                 @Html.Raw(Model.Contents)
