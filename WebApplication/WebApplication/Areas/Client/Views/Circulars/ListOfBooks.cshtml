@@ -91,7 +91,7 @@
                                 <tbody>
                                     @if (Model != null)
                                     {
-                                        foreach (var item in Model.Where(m => m.ClassName == "LKG" && m.Title == "Book List"))
+                                        foreach (var item in Model.Where(m => m.ClassName.ToLower() == "l.k.g." && m.Title.ToLower() == "book list"))
                                         {
                                             <tr>
                                                 <td>@item.Date.ToString("dd MMM, yyyy")</td>
@@ -120,7 +120,7 @@
                                 <tbody>
                                     @if (Model != null)
                                     {
-                                        foreach (var item in Model.Where(m => m.ClassName == "UKG" && m.Title == "Book List"))
+                                        foreach (var item in Model.Where(m => m.ClassName == "U.K.G." && m.Title == "Book List"))
                                         {
                                             <tr>
                                                 <td>@item.Date.ToString("dd MMM, yyyy")</td>

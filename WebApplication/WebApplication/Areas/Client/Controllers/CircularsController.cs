@@ -58,7 +58,7 @@ namespace WebApplication.Areas.Client.Controllers
         public ActionResult ListOfBooks()
         {
             //var model = _pageService.GetPageByMenuCode(MenuCode.ListOfBooks).ToModel();
-            var model = _downloadsService.GetList(currentUserId: 0).Where(m => m.IsPublish == true).ToList().ToModel();
+            var model = _downloadsService.GetList(currentUserId: 0).Where(m => m.IsPublish == true && m.Title.ToLower() == "book list").ToList().ToModel();
             return View("~/Areas/Client/Views/Circulars/ListOfBooks.cshtml", model);
         }
         [Route("list-of-Holidays")]
@@ -82,7 +82,8 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("syllabus")]
         public ActionResult Syllabus()
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.Syllabus).ToModel();
+            //var model = _pageService.GetPageByMenuCode(MenuCode.Syllabus).ToModel();
+            var model = _downloadsService.GetList(currentUserId: 0).Where(m => m.IsPublish == true && m.Title.ToLower()== "syllabus").ToList().ToModel();
             return View("~/Areas/Client/Views/Circulars/Syllabus.cshtml", model);
         }
         [Route("ptm-schedule")]

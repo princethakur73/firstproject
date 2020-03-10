@@ -40,7 +40,7 @@ $(document).on('click', 'li > a', function () {
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
 
-    $.get('/Admin/TransferCertificate/GetMemberList', { 'pageNumber': parseInt(pageNo), 'pageSize': 10 }, function (data) {
+    $.get('/Admin/TransferCertificate/GetTransferCertificateList', { 'pageNumber': parseInt(pageNo), 'pageSize': 10 }, function (data) {
         var templateResult = templateCompile(data);
         $('#table').html(templateResult);
     });

@@ -204,7 +204,22 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="">Gallery And Press Release</a></li>
+                                                @*<li><a href="">Gallery And Press Release</a></li>*@
+                                                <li class="dropdown-submenu">
+                                                    <a href="#">Gallery</a> <i class="fa fa-angle-right"></i>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach (var item in sessionList)
+                                                        {
+                                                            <li><a href="@Url.Action("SessionPhotoGallery", "Gallery", new { session=item.Name})">Session @item.Name </a></li>
+                                                        }
+                                                        @*<li><a href="@Url.Action("PhotoSession2018","Gallery")">Session 2016-17</a></li>
+                                                        <li><a href="/Client/Gallery/Index">Session 2016-17</a></li>*@
+                                                    </ul>
+                                                </li>
+                                                <li><a href="">Press Release</a></li>
+                                                <li>
+                                                    <a href="@Url.Action("SchoolVirtualTour","Gallery")">School Virtual Tour</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -260,7 +275,7 @@
                         <div class="widget-content">
                             <ul class="list-unstyled">
                                 <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                                <li> <a href="@Url.Action("Sports","Students")">About Us</a></li>
+                                <li><a href="@Url.Action("Sports","Students")">About Us</a></li>
                                 <li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>
                                 <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
                                 <li><a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a></li>
@@ -278,7 +293,7 @@
                         </div>
                         <div class="widget-content">
                             <ul class="list-unstyled">
-                                <li><a href="#">Virtual Tour</a></li>
+                                <li><a href="@Url.Action("SchoolVirtualTour","Gallery")">Virtual Tour</a></li>
                                 <li><a href="@Url.Action("PressMedia","Home")">Press & Media</a></li>
                                 <li><a href="@Url.Action("Download","Student")">Download</a></li>
                                 <li><a href="#">Kindergarten</a></li>
@@ -348,7 +363,7 @@
             <div class="footer-bottom-inner">
                 <div class="row">
                     <div class="col-md-12 col-sm-12" align="center">
-                        <p>&copy; Copyright 2018 HVM Convent Sr. Sec. School. All Rights Reserved. </p>
+                        <p>&copy; Copyright @System.DateTime.Today.Year.ToString() HVM Convent Sr. Sec. School. All Rights Reserved. </p>
                     </div>
                 </div>
             </div>

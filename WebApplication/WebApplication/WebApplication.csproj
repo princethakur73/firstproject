@@ -1328,6 +1328,9 @@
     <Content Include="Content\Client\images\anuragdeep-kaur.jpg" />
     <Content Include="Content\Client\images\ashutosh-upadhyay.jpg" />
     <Content Include="Content\Client\images\baldina.jpg" />
+    <Content Include="Content\Client\images\chairman.jpeg" />
+    <Content Include="Content\Client\images\chairmen.jpg" />
+    <Content Include="Content\Client\images\chairperson.jpg" />
     <Content Include="Content\Client\images\commerce.jpg" />
     <Content Include="Content\Client\images\computer-labs.jpg" />
     <Content Include="Content\Client\images\correct.png" />

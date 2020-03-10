@@ -102,6 +102,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Circulars/PTMSchedule.cshtml">
       <publishTime>01/15/2020 22:41:43</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Circulars/SchoolCirculars.cshtml">
+      <publishTime>03/04/2020 23:00:22</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/Circulars/SchoolDiary.cshtml">
       <publishTime>01/15/2020 22:34:54</publishTime>
     </File>
@@ -397,13 +400,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2020 16:04:50</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/ListOfBooks.cshtml">
-      <publishTime>02/04/2020 23:33:39</publishTime>
+      <publishTime>03/04/2020 21:23:21</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/ListOfHolidays.cshtml">
       <publishTime>01/19/2020 16:06:54</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/PTMSchedule.cshtml">
       <publishTime>01/19/2020 16:08:37</publishTime>
+    </File>
+    <File Include="Areas/Client/Views/Circulars/SchoolCirculars.cshtml">
+      <publishTime>03/04/2020 22:50:29</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolDiary.cshtml">
       <publishTime>01/19/2020 16:05:35</publishTime>
@@ -466,7 +472,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/16/2020 23:36:06</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_Layout.cshtml">
-      <publishTime>02/29/2020 00:47:37</publishTime>
+      <publishTime>03/04/2020 22:56:39</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/ActivitiesEvents.cshtml">
       <publishTime>10/18/2019 12:30:10</publishTime>
@@ -1081,31 +1087,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/22/2019 00:01:22</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>02/29/2020 02:24:33</publishTime>
+      <publishTime>03/04/2020 23:09:16</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>02/29/2020 02:24:33</publishTime>
+      <publishTime>03/04/2020 23:09:16</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>02/29/2020 02:24:45</publishTime>
+      <publishTime>03/04/2020 23:09:29</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>02/29/2020 02:24:45</publishTime>
+      <publishTime>03/04/2020 23:09:29</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>02/29/2020 02:24:34</publishTime>
+      <publishTime>03/04/2020 23:09:17</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>01/13/2018 12:43:14</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>02/29/2020 02:24:34</publishTime>
+      <publishTime>03/04/2020 23:09:17</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>02/29/2020 02:24:34</publishTime>
+      <publishTime>03/04/2020 23:09:17</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>02/29/2020 02:24:34</publishTime>
+      <publishTime>03/04/2020 23:09:17</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/11/2013 05:58:38</publishTime>
@@ -5146,7 +5152,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/24/2019 13:57:41</publishTime>
     </File>
     <File Include="Content/Client/js/tabs/style.css">
-      <publishTime>08/24/2019 13:57:40</publishTime>
+      <publishTime>03/04/2020 21:49:23</publishTime>
     </File>
     <File Include="Content/Client/less/animated.less">
       <publishTime>08/24/2019 13:57:56</publishTime>
