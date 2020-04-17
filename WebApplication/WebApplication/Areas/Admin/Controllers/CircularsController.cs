@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ using WebApplication.Infrastructure;
 using WebApplication.Infrastructure.Alerts;
 using WebApplication.Models;
 using WebApplication.Service;
+using WebApplication.ViewModels;
 
 namespace WebApplication.Areas.Admin.Controllers
 {
@@ -16,10 +18,12 @@ namespace WebApplication.Areas.Admin.Controllers
     {
         private IPageService _pageService;
         private ICurrentUser _currentUser;
-        public CircularsController(IPageService pageService, ICurrentUser currentUser)
+        private ICircularsService _circularsService;
+        public CircularsController(IPageService pageService, ICurrentUser currentUser, ICircularsService circularsService)
         {
             _pageService = pageService;
             _currentUser = currentUser;
+            _circularsService = circularsService;
         }
         // GET: Admin/Circulars
         public ActionResult Index()
@@ -565,6 +569,222 @@ namespace WebApplication.Areas.Admin.Controllers
                 return View(pageModel).WithError(ex.Message);
             }
         }
+
+        //////////////////////////////////////////////////////////
+
+        public ActionResult Create()
+        {
+            return View(new CircularsModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CircularsModel model)
+        {
+            try
+            {
+
+                HttpPostedFileBase file = Request.Files["file"];
+
+                if (file.ContentLength == 0)
+                {
+                    ModelState.AddModelError("FileName", "Please give valid file.");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var obj = model.ToEntity();
+                if (file != null)
+                {
+                    if (file.ContentLength > 0)
+                    {
+                        string fileName = file.FileName;
+
+                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/circulars/"), fileName));
+
+                        obj.FileName = fileName;
+                        obj.Extenstion = Path.GetExtension(file.FileName);
+                        model.FileName = fileName;
+                    }
+
+                }
+
+
+                obj.UserId = (int)_currentUser.User.Id;
+
+                if (_circularsService.Save(obj) > 0)
+                {
+                    return RedirectToAction<CircularsController>(m => m.Index())
+                                        .WithSuccess("Saved Successfully!");
+                }
+
+                return View(model).WithError("Error occurred while saving record.");
+            }
+            catch (System.Exception ex)
+            {
+
+                return View(model).WithError(ex.Message);
+            }
+
+        }
+
+        public ActionResult Edit(int? Id)
+        {
+            CircularsModel model = new CircularsModel();
+            try
+            {
+                model = _circularsService.GetById(Id ?? 0, _currentUser.User.Id).ToModel();
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.Index())
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CircularsModel model)
+        {
+            try
+            {
+
+                HttpPostedFileBase file = Request.Files["file"];
+
+                if (file.ContentLength == 0 && model.FileName == null)
+                {
+                    ModelState.AddModelError("FileName", "Please give valid file.");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var obj = model.ToEntity();
+                if (file != null)
+                {
+                    if (file.ContentLength > 0)
+                    {
+                        if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/circulars/"), model.FileName)))
+                        {
+                            System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/circulars/"), model.FileName));
+                        }
+
+                        string fileName = model.Title.ToLowerInvariant().Replace(' ', '-') + "-" + DateTime.Now.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);
+
+                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/circulars/"), fileName));
+
+                        obj.FileName = fileName;
+                        model.FileName = fileName;
+                    }
+
+                }
+
+
+                obj.UserId = (int)_currentUser.User.Id;
+
+
+
+                if (_circularsService.Save(obj) > 0)
+                {
+                    return RedirectToAction<CircularsController>(m => m.Index())
+                                        .WithSuccess("Updated Successfully!");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.Edit(model))
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Details(int? Id)
+        {
+            CircularsModel model = new CircularsModel();
+            try
+            {
+                model = _circularsService.GetById(Id ?? 0, _currentUser.User.Id).ToModel();
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.Index())
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Delete(int? Id)
+        {
+            bool result = false;
+            try
+            {
+                if (Id == null)
+                {
+                    return RedirectToAction<CircularsController>(m => m.Index())
+                        .WithError("Unable to delete, record is already in use.");
+                }
+                var data = _circularsService.GetById(Id ?? 0, _currentUser.User.Id);
+                result = _circularsService.DeleteById(Id ?? 0, _currentUser.User.Id);
+                if (result)
+                {
+                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/circulars/"), data.FileName)))
+                    {
+                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/circulars/"), data.FileName));
+                    }
+                }
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        #region Helper
+
+        [HttpGet]
+        public JsonResult GetCircularsList(int pageNumber, int pageSize)
+        {
+            try
+            {
+                var list = _circularsService.GetList(pageNumber, pageSize);
+                int totalItems = _circularsService.GetListCount(pageNumber, pageSize);
+
+                var pager = new Pager(totalItems, pageNumber, pageSize);
+
+                var viewMOdel = new CircularsViewModel()
+                {
+                    CircularsModels = list.ToModel(),
+                    Pager = pager
+                };
+                return Json(viewMOdel, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult CheckNameExist(string Name, string Id)
+        {
+            bool result = true;
+            int id = Id == "undefined" ? 0 : int.Parse(Id);
+            result = !_circularsService.IsNameExist(Name, id);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
 
     }
 }

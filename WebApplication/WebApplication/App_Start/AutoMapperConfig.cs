@@ -25,6 +25,8 @@ namespace WebApplication
                 config.CreateMap<Downloads, DownloadsModel>().ReverseMap();
                 config.CreateMap<TransferCerticate, TransferCertificateModel>().ReverseMap();
                 config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
+                config.CreateMap<Circulars, CircularsModel>().ReverseMap();
+                config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
             });
         }
     }

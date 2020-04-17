@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-9 col-sm-8 ">
                 <div class="forum-wrapper">
-                    <div class="forum-search">
+                    @*<div class="forum-search">
                         <div class="col-sm-3 pad_zero">
                             <p class="justify">Enter Admission Number *</p>
                         </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-md-2 col-sm-8"> <a href="" onclick="this.href='transfer-certificate?text='+document.getElementById('txt_search').value" class="el-btn-medium">Search</a> </div>
                         <div class="h20"></div>
-                    </div>
+                    </div>*@
                     <!-- Ends: .forum-search -->
                     <!-- Ends: .forum-header -->
                     <!-- Ends: .forum-content -->
@@ -52,12 +52,13 @@
                                 <th>Student Name </th>
                                 <th>Class</th>
                                 <th>Admission Number</th>
-                                <th>Downlaod </th>
+                                <th>Download </th>
+                                <th>View</th>
                             </tr>
                         </thead>
                         @foreach (var item in Model)
                         {
-                            <tr><td>@item.StudentName</td><td>@item.ClassName</td><td>@item.AdmissionNumber</td><td><span><a target="_blank" href="~/Content/files/downloads/@item.FileName">Download</a></span></td></tr>                           
+                            <tr><td>@item.StudentName</td><td>@item.ClassName</td><td>@item.AdmissionNumber</td><td><span><a target="_self" href="~/Content/files/downloads/@item.FileName">Download</a></span></td><td><span><a target="_blank" href="~/Content/files/downloads/@item.FileName">View</a></span></td></tr>                           
                         }
                     </table>
                 </div>

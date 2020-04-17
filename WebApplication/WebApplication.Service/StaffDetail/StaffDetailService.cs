@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApplication.Core;
+using WebApplication.Core.Model;
 using WebApplication.Repository;
 
 namespace WebApplication.Service
@@ -168,6 +169,37 @@ namespace WebApplication.Service
         public Task<StaffDetail> SaveAsync(StaffDetail obj)
         {
             throw new System.NotImplementedException();
+        }
+        public List<DepartmentStaffModel> GetStaffList()
+        {
+            List<StaffModel> list = new List<StaffModel>();
+            List<DepartmentStaffModel> departmentStaffModels = new List<DepartmentStaffModel>();
+            try
+             {   
+                list = staffDetailRepository.GetStaffList();
+                foreach (var item in list)
+                {
+                    if (departmentStaffModels.Exists(a=>a.Department==item.Department))
+                    {
+                        departmentStaffModels.Find(a => a.Department == item.Department).Staff.Add(item);
+                    }
+                    else
+                    {
+                        DepartmentStaffModel departmentStaffModel = new DepartmentStaffModel();
+                        departmentStaffModel.Staff = new List<StaffModel>();
+                        departmentStaffModel.Department = item.Department;
+                        departmentStaffModel.Staff.Add(item);
+                        departmentStaffModels.Add(departmentStaffModel);
+                    }
+                }
+                
+            }
+            catch (System.Exception ex)
+            {
+
+                throw new System.Exception(ex.Message);
+            }
+            return departmentStaffModels;
         }
     }
 }

@@ -71,6 +71,7 @@
     <Compile Include="ImageHandler.cs" />
     <Compile Include="MediaUploadType.cs" />
     <Compile Include="ClassMaster.cs" />
+    <Compile Include="Model\StaffModel.cs" />
     <Compile Include="News.cs" />
     <Compile Include="Slide.cs" />
     <Compile Include="Toppers.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Session.cs" />
     <Compile Include="StaffDetail.cs" />
     <Compile Include="StaffGroup.cs" />
+    <Compile Include="Circulars.cs" />
     <Compile Include="TransferCerticate.cs" />
     <Compile Include="User\Role.cs" />
     <Compile Include="User\User.cs" />

@@ -90,8 +90,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Circulars/CodeOfConductForStudent.cshtml">
       <publishTime>01/15/2020 22:35:27</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Circulars/Create.cshtml">
+      <publishTime>03/13/2020 23:40:42</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Circulars/Details.cshtml">
+      <publishTime>03/13/2020 22:51:17</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Circulars/Edit.cshtml">
+      <publishTime>03/13/2020 23:44:24</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/Circulars/EvaluationWeightage.cshtml">
       <publishTime>01/15/2020 22:32:47</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Circulars/Index.cshtml">
+      <publishTime>03/14/2020 00:41:19</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/ListOfBooks.cshtml">
       <publishTime>01/15/2020 22:36:22</publishTime>
@@ -250,7 +262,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/14/2019 21:18:32</publishTime>
     </File>
     <File Include="Areas/Admin/Views/StaffDetail/Create.cshtml">
-      <publishTime>10/18/2019 12:21:29</publishTime>
+      <publishTime>03/21/2020 12:28:16</publishTime>
     </File>
     <File Include="Areas/Admin/Views/StaffDetail/Details.cshtml">
       <publishTime>10/18/2019 12:21:37</publishTime>
@@ -333,6 +345,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Client/Views/AboutUs/FacultyDetails.cshtml">
       <publishTime>01/16/2020 23:50:20</publishTime>
     </File>
+    <File Include="Areas/Client/Views/AboutUs/FacultyDetailsNew.cshtml">
+      <publishTime>03/21/2020 14:15:45</publishTime>
+    </File>
     <File Include="Areas/Client/Views/AboutUs/ManagementMembers.cshtml">
       <publishTime>01/15/2020 23:44:25</publishTime>
     </File>
@@ -384,6 +399,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Client/Views/Achievements/OursToppers.cshtml">
       <publishTime>10/18/2019 12:27:00</publishTime>
     </File>
+    <File Include="Areas/Client/Views/Admission/AdmissionForm.cshtml">
+      <publishTime>04/17/2020 18:11:55</publishTime>
+    </File>
     <File Include="Areas/Client/Views/Admission/AdmissionRule.cshtml">
       <publishTime>01/16/2020 23:43:51</publishTime>
     </File>
@@ -400,7 +418,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2020 16:04:50</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/ListOfBooks.cshtml">
-      <publishTime>03/04/2020 21:23:21</publishTime>
+      <publishTime>03/09/2020 14:22:30</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/ListOfHolidays.cshtml">
       <publishTime>01/19/2020 16:06:54</publishTime>
@@ -409,7 +427,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2020 16:08:37</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolCirculars.cshtml">
-      <publishTime>03/04/2020 22:50:29</publishTime>
+      <publishTime>03/14/2020 02:26:03</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolDiary.cshtml">
       <publishTime>01/19/2020 16:05:35</publishTime>
@@ -418,13 +436,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/19/2020 16:07:36</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/Syllabus.cshtml">
-      <publishTime>01/19/2020 16:08:05</publishTime>
+      <publishTime>03/09/2020 16:03:12</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/TeachingMethodology.cshtml">
       <publishTime>01/19/2020 16:07:18</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/TimeTable.cshtml">
       <publishTime>01/19/2020 16:04:33</publishTime>
+    </File>
+    <File Include="Areas/Client/Views/Circulars/View.cshtml">
+      <publishTime>03/14/2020 02:24:15</publishTime>
     </File>
     <File Include="Areas/Client/Views/Gallery/Photos.cshtml">
       <publishTime>10/18/2019 12:27:31</publishTime>
@@ -448,7 +469,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2020 01:08:20</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/News.cshtml">
-      <publishTime>10/18/2019 12:29:03</publishTime>
+      <publishTime>03/21/2020 13:33:17</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/NewsDetails.cshtml">
       <publishTime>10/18/2019 12:29:11</publishTime>
@@ -460,7 +481,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2019 12:29:39</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/_LatestNews.cshtml">
-      <publishTime>08/24/2019 12:52:09</publishTime>
+      <publishTime>03/21/2020 13:24:46</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_AchievementSidebar.cshtml">
       <publishTime>02/08/2020 11:59:11</publishTime>
@@ -472,7 +493,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/16/2020 23:36:06</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_Layout.cshtml">
-      <publishTime>03/04/2020 22:56:39</publishTime>
+      <publishTime>04/16/2020 12:26:25</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/ActivitiesEvents.cshtml">
       <publishTime>10/18/2019 12:30:10</publishTime>
@@ -487,7 +508,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2020 23:41:10</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/TransferCertificate.cshtml">
-      <publishTime>01/16/2020 23:44:23</publishTime>
+      <publishTime>03/12/2020 23:08:13</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/_StudentSidebar.cshtml">
       <publishTime>10/18/2019 12:30:03</publishTime>
@@ -1087,31 +1108,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/22/2019 00:01:22</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>03/04/2020 23:09:16</publishTime>
+      <publishTime>03/21/2020 14:10:09</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>03/04/2020 23:09:16</publishTime>
+      <publishTime>03/21/2020 14:10:09</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>03/04/2020 23:09:29</publishTime>
+      <publishTime>04/17/2020 18:13:32</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>03/04/2020 23:09:29</publishTime>
+      <publishTime>04/17/2020 18:13:32</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>03/04/2020 23:09:17</publishTime>
+      <publishTime>03/21/2020 14:10:09</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>01/13/2018 12:43:14</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>03/04/2020 23:09:17</publishTime>
+      <publishTime>03/21/2020 14:10:09</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>03/04/2020 23:09:17</publishTime>
+      <publishTime>03/21/2020 14:10:10</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>03/04/2020 23:09:17</publishTime>
+      <publishTime>03/21/2020 14:10:10</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/11/2013 05:58:38</publishTime>
@@ -4607,6 +4628,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/Client/images/baldina.jpg">
       <publishTime>08/24/2019 13:55:40</publishTime>
+    </File>
+    <File Include="Content/Client/images/chairman.jpeg">
+      <publishTime>09/23/2019 22:14:24</publishTime>
+    </File>
+    <File Include="Content/Client/images/chairmen.jpg">
+      <publishTime>11/07/2019 23:22:53</publishTime>
+    </File>
+    <File Include="Content/Client/images/chairperson.jpg">
+      <publishTime>09/23/2019 22:14:46</publishTime>
     </File>
     <File Include="Content/Client/images/commerce.jpg">
       <publishTime>08/24/2019 13:55:38</publishTime>
@@ -14640,6 +14670,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>01/13/2018 12:08:30</publishTime>
     </File>
+    <File Include="Scripts/Circulars/Circulars.js">
+      <publishTime>03/13/2020 23:01:05</publishTime>
+    </File>
     <File Include="Scripts/ClassMaster/ClassMaster.js">
       <publishTime>05/17/2018 12:31:22</publishTime>
     </File>
@@ -14650,7 +14683,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/25/2020 23:04:46</publishTime>
     </File>
     <File Include="Scripts/Downloads/Dlownloads.js">
-      <publishTime>01/03/2020 22:58:34</publishTime>
+      <publishTime>03/09/2020 16:08:40</publishTime>
     </File>
     <File Include="Scripts/Gallery/Gallery.js">
       <publishTime>03/26/2018 09:40:24</publishTime>
@@ -14740,7 +14773,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 12:52:40</publishTime>
     </File>
     <File Include="Scripts/News/News.js">
-      <publishTime>05/22/2018 12:04:56</publishTime>
+      <publishTime>03/09/2020 16:09:54</publishTime>
     </File>
     <File Include="Scripts/OurInfrastructure/OurInfrastruture.js">
       <publishTime>09/12/2019 01:09:07</publishTime>
@@ -14761,7 +14794,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/17/2018 11:22:18</publishTime>
     </File>
     <File Include="Scripts/TransferCertificate/TransferCertificate.js">
-      <publishTime>01/03/2020 22:44:57</publishTime>
+      <publishTime>03/09/2020 16:11:04</publishTime>
     </File>
     <File Include="Scripts/vue.min.js">
       <publishTime>03/30/2018 11:25:46</publishTime>

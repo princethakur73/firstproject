@@ -45,6 +45,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-md-4 control-label">Department <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.DepartmentId)
+                                                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-4 control-label">Group Name <span class="text-red">*</span> </label>
                                             <div class="col-md-6">
                                                 @Html.DropDownList("GroupId", new List<SelectListItem>()

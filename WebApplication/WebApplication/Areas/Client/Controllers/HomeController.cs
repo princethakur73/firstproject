@@ -65,7 +65,7 @@ namespace WebApplication.Areas.Client.Controllers
             }
 
 
-            return View(data.ToModel());
+            return View("~/Areas/Client/Views/Home/News.cshtml", data.ToModel());
         }
 
         public ActionResult NewsDetails(string token)

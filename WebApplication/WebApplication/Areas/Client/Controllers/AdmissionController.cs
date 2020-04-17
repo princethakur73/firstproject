@@ -27,5 +27,15 @@ namespace WebApplication.Areas.Client.Controllers
 
             return View("~/Areas/Client/Views/Admission/FeeStructure.cshtml", model);
         }
+
+        [Route("admission-form")]
+        public ActionResult AdmissionForm()
+        {
+            var model = _pageService.GetPageByMenuCode(MenuCode.FeeStructure).ToModel();
+
+            return View("~/Areas/Client/Views/Admission/AdmissionForm.cshtml", model);
+        }
+
+
     }
 }

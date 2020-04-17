@@ -125,6 +125,12 @@ namespace WebApplication.Areas.Client.Controllers
             var staffList = _StaffDetailService.GetList(currentUserId: 0).ToModel();
             return View("~/Areas/Client/Views/AboutUs/FacultyDetails.cshtml", staffList);
         }
+        [Route("faculty-details-new")]
+        public ActionResult FacultyDetailsNew()
+        {
+            var staffList = _StaffDetailService.GetStaffList();
+            return View("~/Areas/Client/Views/AboutUs/FacultyDetailsNew.cshtml", staffList);
+        }
 
         [Route("our-infrastructure")]
         public ActionResult OurInfrastructure()

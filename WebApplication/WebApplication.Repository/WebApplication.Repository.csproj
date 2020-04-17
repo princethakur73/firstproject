@@ -83,8 +83,10 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Pages\IPageRepository.cs" />
     <Compile Include="Pages\PageRepository.cs" />
-    <Compile Include="TransferCertificate\TransferCertificateRepository.cs" />
     <Compile Include="TransferCertificate\ITransferCertificateRepository.cs" />
+    <Compile Include="TransferCertificate\TransferCertificateRepository.cs" />
+    <Compile Include="Circulars\CircularsRepository.cs" />
+    <Compile Include="Circulars\ICircularsRepository.cs" />
     <Compile Include="User\IUserRepository.cs" />
     <Compile Include="User\RoleRepository.cs" />
     <Compile Include="User\UserClaimsRepository.cs" />

@@ -1,0 +1,79 @@
+﻿<style>
+    .content-fee {
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        font-size: medium;
+    }
+
+    h1 {
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+</style>
+<!--============================
+        About Page Header
+    =============================-->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Admission Form</h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">Admission Form</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="about-ds">
+    <div class="container">
+        <div class="row">
+            @*<div class="col-md-3 col-sm-12 ">
+                    @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 12)
+                </div>*@
+            <div class="col-sm-12">
+
+                <div>
+                    <div class="content-fee">
+                        Important information<br />
+                        <ul style="list-style-type:circle">
+                            <li>
+                                Students seeking admission in class XI need to fill the below given admission <a href="http://www.hvmsrsecschool.org/Content/Client/download/RegistrationForm.docx">form</a> and submit it to  <a href="">hvmconvent@gmail.com</a>
+                            </li>
+                            <li>Admission Form <a target="_blank" href="http://www.hvmsrsecschool.org/Content/Client/download/RegistrationForm.docx">Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-fee">
+                        For any query please contact:- 8566804647, 7814216030, 9914615275
+                    </div>
+                    @*<div class="content-fee">
+                        3. Fee need to be deposit as follow:<br />
+                        <ul style="list-style-type:circle">
+                            <li>For Class XI - Rs. 7000</li>
+                            <li>For Kindergarten - Rs. 16000</li>
+                        </ul>
+                    </div>
+                    <div class="content-fee">
+                        4. Bank Detail
+                        <ul style="list-style-type:circle">
+                            <li>School Name: HVM CONVENT SCHOOL</li>
+                            <li>Account Number: 4450002100004648</li>
+                            <li>Bank Name: Punjab National Bank (Sunder Nager branch)</li>
+                            <li>IFSC Code: PUNB0445000</li>
+                        </ul>
+                    </div>*@
+                    <div class="row">
+                        <iframe src="https://docs.google.com/gview?url=http://www.hvmsrsecschool.org/Content/Client/download/RegistrationForm.docx&amp;embedded=true" style="width:1200px; height:924px;" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

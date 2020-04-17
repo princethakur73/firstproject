@@ -71,6 +71,8 @@
     <Compile Include="Member\MemberService.cs" />
     <Compile Include="StaffDetail\IStaffDetailService.cs" />
     <Compile Include="StaffDetail\StaffDetailService.cs" />
+    <Compile Include="Circulars\ICircularsService.cs" />
+    <Compile Include="Circulars\CircularsService.cs" />
     <Compile Include="TransferCertificate\TransferCertificateService.cs" />
     <Compile Include="TransferCertificate\ITransferCertificateService.cs" />
     <Compile Include="User\IUserService.cs" />

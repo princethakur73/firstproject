@@ -1,0 +1,131 @@
+﻿@model IEnumerable<WebApplication.Core.Model.DepartmentStaffModel>
+<!--============================
+        About Page Header
+    =============================-->
+@{ int a = 0; var exclude = new[] { "management", "executive" };}
+<style>
+    th {
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #c40e05;
+        color: white;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th {
+        padding: 5px;
+    }
+
+    .floatLeft {
+        width: 37%;
+        float: left;
+    }
+
+    .floatRight {
+        width: 50%;
+        float: right;
+    }
+
+    .container {
+        overflow: hidden;
+        padding: 0;
+    }
+</style>
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1> Faculty Details </h1>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"> Faculty Details </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ends: .page-header -->
+<!--============================
+        About Page Content
+    =============================-->
+<section class="all-teachers-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 ">
+                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 4)
+            </div>
+            <div class="col-sm-9">
+                <!--Dynamic-->
+                <h1 style="text-align:center">Staff Detail</h1>
+                <table class="table" border="1">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>Desigination</th>
+                        </tr>
+                        @foreach (var item in Model.Where(s => s.Department.ToLower() == "management"))
+                        {
+                            foreach (var staff in item.Staff)
+                            {
+                                <tr>
+                                    <td>@staff.StaffName</td>
+                                    <td>@staff.Designation</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <h1 style="text-align:center">Office Executives</h1>
+                <table class="table" border="1">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+
+                        </tr>
+                        @foreach (var item in Model.Where(s => s.Department.ToLower() == "executive"))
+                        {
+                            foreach (var staff in item.Staff)
+                            {
+                                <tr>
+                                    <td>@staff.StaffName</td>
+                                </tr>
+                            }
+                        }
+                </table>
+                <div class="container">
+                    @foreach (var item in Model.Where(z => !exclude.Contains(z.Department.ToLower())).ToList())
+                    {
+                        { a = a + 1; }
+                        string style = a % 2 == 0 ? "padding-right: 0px;" : "padding-right: 10px;";
+                        <div class="floatLeft" style="@style">
+                            <table class="table" border="1">
+                                <tbody>
+                                    <tr>
+                                        <th colspan="2">Dept @item.Department</th>
+                                    </tr>
+                                    @foreach (var staff in item.Staff)
+                                    {
+                                        <tr><td>@staff.StaffName</td> <td>@staff.AcadmicQualification</td></tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        if (a % 2 == 0)
+                        {
+                            <div style="clear:both"></div>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts
+{
+    <link rel="stylesheet" href="~/Content/Client/js/tabs/style.css">
+    <script src="~/Content/Client/js/tabs/index.js"></script>
+}

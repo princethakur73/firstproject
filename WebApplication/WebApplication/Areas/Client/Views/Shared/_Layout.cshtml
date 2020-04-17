@@ -225,7 +225,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Admission Form</a></li>
+                                                <li><a href="@Url.Action("AdmissionForm","Admission")">Admission Form</a></li>
                                                 <li><a href="#">Recruitment Form</a></li>
                                                 @*<li><a href="@Url.Action("Download","Student")">Download</a></li>*@
                                             </ul>
@@ -278,9 +278,9 @@
                                 <li><a href="@Url.Action("Sports","Students")">About Us</a></li>
                                 <li><a href="@Url.Action("CourseOffered","AboutUs")">Course Offered</a></li>
                                 <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
-                                <li><a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a></li>
+                                <li>@*<a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a>*@</li>
                                 <li><a href="@Url.Action("AdmissionRules","Admission")">Admission Rules</a></li>
-                                <li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>
+                                @*<li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>*@
                             </ul>
                         </div>
                     </div>
@@ -294,9 +294,9 @@
                         <div class="widget-content">
                             <ul class="list-unstyled">
                                 <li><a href="@Url.Action("SchoolVirtualTour","Gallery")">Virtual Tour</a></li>
-                                <li><a href="@Url.Action("PressMedia","Home")">Press & Media</a></li>
+                                <li><a href="@Url.Action("PressMedia","Home")">Press & Release</a></li>
                                 <li><a href="@Url.Action("Download","Student")">Download</a></li>
-                                <li><a href="#">Kindergarten</a></li>
+                                @*<li><a href="#">Kindergarten</a></li>*@
                                 <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
                                 <li><a href="@Url.Action("Schedule","Academics")">Schedule</a></li>
                                 <li><a href="@Url.Action("Result","Academics")">Result</a></li>

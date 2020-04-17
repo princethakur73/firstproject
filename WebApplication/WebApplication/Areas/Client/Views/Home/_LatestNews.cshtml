@@ -9,7 +9,8 @@
             {
                 <li>
                     <h5><strong>@item.Title</strong></h5>
-                    <a href="" target="_blank">@item.ShortDescription</a>
+                    <span>@Html.Raw(item.Description)</span> <br />
+                    <a href="~/Content/files/News/@item.FileName" target="_blank">@item.ShortDescription</a>
                 </li>
             }
         </ul>

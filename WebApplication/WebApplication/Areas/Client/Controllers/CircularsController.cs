@@ -4,25 +4,32 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
+using WebApplication.Infrastructure;
+using WebApplication.Infrastructure.Alerts;
+using WebApplication.Models;
 using WebApplication.Service;
 
 namespace WebApplication.Areas.Client.Controllers
 {
     
-    public class CircularsController : Controller
+    public class CircularsController : WebApplicationController
     {
         private readonly IPageService _pageService;
         private IStaffDetailService _StaffDetailService;
         private IMemberService _MemberService;
         private IDownloadsService _downloadsService;
+        private ICircularsService _circularsService;
+        private ICurrentUser _currentUser;
         public CircularsController(IStaffDetailService staffDetailService,
             IMemberService memberService,
-            IPageService pageService, IDownloadsService downloadsService)
+            IPageService pageService, IDownloadsService downloadsService, ICircularsService circularsService, ICurrentUser currentUser)
         {
             _pageService = pageService;
             _StaffDetailService = staffDetailService;
             _MemberService = memberService;
             _downloadsService = downloadsService;
+            _circularsService = circularsService;
+            _currentUser = currentUser;
         }
         // GET: Client/Circulars
 
@@ -103,7 +110,8 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("school-circulars")]
         public ActionResult SchoolCirculars()
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.SchoolCirculars).ToModel();
+            //var model = _pageService.GetPageByMenuCode(MenuCode.SchoolCirculars).ToModel();
+            var model = _circularsService.GetList().ToModel();
             return View("~/Areas/Client/Views/Circulars/SchoolCirculars.cshtml", model);
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using WebApplication.Core;
+using WebApplication.Core.Model;
 
 namespace WebApplication.Repository
 {
@@ -219,6 +220,24 @@ namespace WebApplication.Repository
             }
 
             return countTotal;
+        }
+
+        public List<StaffModel> GetStaffList()
+        {
+            List<StaffModel> list;
+            try
+            {
+                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                {
+                    list = Db.Query<StaffModel>("sp_Staff_List", param: null, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            return list;
         }
     }
 }
