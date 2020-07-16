@@ -53,6 +53,13 @@
                                 <img src="@photo.thumbnailUrl" border="0">
                             </a>
                         }
+                        foreach (var video in dbContext.GetGalleryVideosByGalleryId(gallery.Id).Take(4))
+                        {
+
+                            <a class="fancybox" href="@video.url" data-fancybox-group="gallery">
+                                <img src="@video.thumbnailUrl" border="0">
+                            </a>
+                        }
                         <div align="right" style="margin-right:20px;">
                             <a class="gary_btn" href="@Url.Action("Photos","Gallery",new {sessionName=SessionName,galleryId=gallery.Id })">View Gallery</a>
                         </div>
