@@ -255,6 +255,7 @@
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Extensions\ContactUsExtension.cs" />
     <Compile Include="Extensions\CircularsExtension.cs" />
+    <Compile Include="Extensions\AdmissionExtension.cs" />
     <Compile Include="Extensions\TransferCertificateExtension.cs" />
     <Compile Include="Extensions\DownloadsExtension.cs" />
     <Compile Include="Extensions\NewsExtension.cs" />
@@ -315,6 +316,7 @@
     <Compile Include="Infrastructure\WebApplicationController.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\CircularsModel.cs" />
+    <Compile Include="Models\StudentAdmissionModel.cs" />
     <Compile Include="Models\TransferCertificateModel.cs" />
     <Compile Include="Models\DownloadsModel.cs" />
     <Compile Include="Models\HomeModels.cs" />
@@ -337,6 +339,7 @@
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="ViewModels\CircularsViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionViewModel.cs" />
     <Compile Include="ViewModels\TransferCertificateViewModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
@@ -3622,6 +3625,7 @@
     <Content Include="Files\Gallery\photos\thumbs\f512aea8-d22a-4f0d-9095-5c3d2fef1911-250x250.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admission\Admission.js" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.js" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.js" />
@@ -5030,6 +5034,8 @@
     <Content Include="Areas\Client\Views\Circulars\View.cshtml" />
     <Content Include="Areas\Client\Views\AboutUs\FacultyDetailsNew.cshtml" />
     <Content Include="Areas\Client\Views\Admission\AdmissionForm.cshtml" />
+    <Content Include="Areas\Admin\Views\Admission\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admission\Details.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />

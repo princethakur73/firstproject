@@ -62,6 +62,8 @@
     <Compile Include="Gallery\GalleryService.cs" />
     <Compile Include="ClassMaster\IClassMasterService.cs" />
     <Compile Include="ClassMaster\ClassMasterService.cs" />
+    <Compile Include="Admission\IAdmissionService.cs" />
+    <Compile Include="Admission\AdmissionService.cs" />
     <Compile Include="Toppers\IToppersService.cs" />
     <Compile Include="Toppers\ToppersService.cs" />
     <Compile Include="Pages\IPageService.cs" />

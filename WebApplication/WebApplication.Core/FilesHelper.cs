@@ -199,14 +199,13 @@ namespace WebApplication.Core
                         var ThumbfullPath2 = Path.Combine(ThumbfullPath, fileThumb);
                         using (MemoryStream stream = new MemoryStream(System.IO.File.ReadAllBytes(fullPath)))
                         {
-                            Bitmap bitmap = new Bitmap(stream);
-                            ImageHandler imageHandler = new ImageHandler();
-                            imageHandler.Save(bitmap, 250, 250, 1, ThumbfullPath2);
+                            //Bitmap bitmap = new Bitmap(stream);
+                            //ImageHandler imageHandler = new ImageHandler();
+                            //imageHandler.Save(bitmap, 250, 250, 1, ThumbfullPath2);
 
-                            //var thumbnail = new WebImage(stream).Resize(250, 250);
-                            //thumbnail.Save(ThumbfullPath2, "jpg");
+                            var thumbnail = new WebImage(stream).Resize(250, 250);
+                            thumbnail.Save(ThumbfullPath2, "jpg");
                         }
-
                     }
                 }
                 statuses.Add(UploadResult(file.FileName, file.ContentLength, file.FileName, entityId, fileName, error));

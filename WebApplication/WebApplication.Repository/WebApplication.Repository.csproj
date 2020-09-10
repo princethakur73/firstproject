@@ -71,6 +71,8 @@
     <Compile Include="ClassMaster\ClassMasterRepository.cs" />
     <Compile Include="Toppers\IToppersRepository.cs" />
     <Compile Include="Toppers\ToppersRepository.cs" />
+    <Compile Include="Admission\IAdmissionRepository.cs" />
+    <Compile Include="Admission\AdmissionRepository.cs" />
     <Compile Include="StaffDetail\IStaffDetailRepository.cs" />
     <Compile Include="StaffDetail\StaffDetailRepository.cs" />
     <Compile Include="Member\IMemberRepository.cs" />

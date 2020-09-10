@@ -4,6 +4,7 @@ using WebApplication.Infrastructure;
 using WebApplication.Infrastructure.Alerts;
 using WebApplication.Models;
 using WebApplication.Service;
+using WebApplication.ViewModels;
 
 namespace WebApplication.Areas.Admin.Controllers
 {
@@ -12,13 +13,19 @@ namespace WebApplication.Areas.Admin.Controllers
     {
         private IPageService _pageService;
         private ICurrentUser _currentUser;
+        private IAdmissionService _admissionService;
 
-        public AdmissionController(IPageService pageService, ICurrentUser currentUser)
+        public AdmissionController(IPageService pageService, ICurrentUser currentUser, IAdmissionService admissionService)
         {
             _pageService = pageService;
             _currentUser = currentUser;
+            _admissionService = admissionService;
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult AdmissionRule()
         {
             PageModel pageModel = new PageModel();
@@ -107,6 +114,77 @@ namespace WebApplication.Areas.Admin.Controllers
 
                 return View(model).WithError(ex.Message);
             }
+        }
+
+        [HttpGet]
+        public JsonResult GetAdmissionList(int pageNumber, int pageSize)
+        {
+            try
+            {
+                var list = _admissionService.GetList(pageNumber, pageSize);
+                int totalItems = _admissionService.GetListCount(pageNumber, pageSize);
+
+                var pager = new Pager(totalItems, pageNumber, pageSize);
+
+                var viewMOdel = new AdmissionViewModel()
+                {
+                    StudentAdmissionModels = list.ToModel(),
+                    Pager = pager
+                };
+                return Json(viewMOdel, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+
+            }
+
+        }
+
+
+        public ActionResult Details(int? Id)
+        {
+            StudentAdmissionModel model = new StudentAdmissionModel();
+            try
+            {
+                model = _admissionService.GetById(Id ?? 0, _currentUser.User.Id).ToModel();
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<AdmissionController>(m => m.Index())
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Delete(int? Id)
+        {
+            bool result = false;
+            try
+            {
+                if (Id == null)
+                {
+                    return RedirectToAction<AdmissionController>(m => m.Index())
+                        .WithError("Unable to delete, record is already in use.");
+                }
+                var data = _admissionService.GetById(Id ?? 0, _currentUser.User.Id);
+                result = _admissionService.DeleteById(Id ?? 0, _currentUser.User.Id);
+                if (result)
+                {
+                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/images/StudentAdmission/"), data.Image)))
+                    {
+                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/images/StudentAdmission/"), data.Image));
+                    }
+                }
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

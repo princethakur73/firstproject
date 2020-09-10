@@ -7,9 +7,9 @@ namespace WebApplication.Service
 {
     public interface IGalleryService : IService<Gallery, int>
     {
-        List<Gallery> GetList(int pageNo = 1, int pageSize = 10);
+        List<Gallery> GetList(int sessionId, int pageNo = 1, int pageSize = 10);
 
-        int GetListCount(int pageNo = 1, int pageSize = 10);
+        int GetListCount(int sessionId, int pageNo = 1, int pageSize = 10);
 
         bool IsNameExist(string name, int id);
 
@@ -32,5 +32,6 @@ namespace WebApplication.Service
         Task<Gallery> GetGalleryPhotosByGalleryIdAsync(int galleryId);
 
         Task<Gallery> GetGalleryVideoByGalleryIdAsync(int galleryId);
+        int GetCurrentSession();
     }
 }

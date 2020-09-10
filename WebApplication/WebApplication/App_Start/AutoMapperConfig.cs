@@ -27,6 +27,7 @@ namespace WebApplication
                 config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
                 config.CreateMap<Circulars, CircularsModel>().ReverseMap();
                 config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
+                config.CreateMap<StudentAdmission, StudentAdmissionModel>().ReverseMap();
             });
         }
     }

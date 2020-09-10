@@ -32,7 +32,9 @@ namespace WebApplication.Areas.Admin.Controllers
         // GET: Gallery
         public ActionResult Index()
         {
-            return View();
+            GalleryModel galleryModel = new GalleryModel();
+            galleryModel.SessionId = _GalleryService.GetCurrentSession();
+            return View(galleryModel);
         }
 
         public ActionResult Index1()
@@ -268,12 +270,12 @@ namespace WebApplication.Areas.Admin.Controllers
         #region Helper
 
         [HttpGet]
-        public JsonResult GetGalleryList(int pageNumber, int pageSize)
+        public JsonResult GetGalleryList(int sessionId, int pageNumber, int pageSize)
         {
             try
             {
-                var list = _GalleryService.GetList(pageNumber, pageSize);
-                int totalItems = _GalleryService.GetListCount(pageNumber, pageSize);
+                var list = _GalleryService.GetList(sessionId,pageNumber, pageSize);
+                int totalItems = _GalleryService.GetListCount(sessionId,pageNumber, pageSize);
 
                 var pager = new Pager(totalItems, pageNumber, pageSize);
 

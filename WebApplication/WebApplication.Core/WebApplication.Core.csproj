@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StudentAdmission.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="DepartmentMaster.cs" />
     <Compile Include="Common\FileStatus.cs" />

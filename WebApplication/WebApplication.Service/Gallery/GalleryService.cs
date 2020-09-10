@@ -209,12 +209,12 @@ namespace WebApplication.Service
             return list;
         }
 
-        public List<Gallery> GetList(int pageNo = 1, int pageSize = 10)
+        public List<Gallery> GetList(int sessionId,int pageNo = 1, int pageSize = 10)
         {
             List<Gallery> list = new List<Gallery>();
             try
             {
-                list = GalleryRepository.GetList(pageNo, pageSize);
+                list = GalleryRepository.GetList(sessionId,pageNo, pageSize);
             }
             catch (System.Exception ex)
             {
@@ -245,12 +245,12 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int sessionId, int pageNo = 1, int pageSize = 10)
         {
             int count = 0;
             try
             {
-                count = GalleryRepository.GetListCount(pageNo, pageSize);
+                count = GalleryRepository.GetListCount(sessionId,pageNo, pageSize);
             }
             catch (System.Exception ex)
             {
@@ -286,6 +286,10 @@ namespace WebApplication.Service
                 throw new System.Exception(ex.Message);
             }
             return result;
+        }
+        public int GetCurrentSession()
+        {
+            return GalleryRepository.GetCurrentSession();
         }
 
         public Task<Gallery> SaveAsync(Gallery obj)

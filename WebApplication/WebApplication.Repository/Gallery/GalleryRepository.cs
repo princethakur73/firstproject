@@ -51,7 +51,7 @@ namespace WebApplication.Repository
 			                    ModifyByUserId			                    	   
 			                    from Gallery g
                         join session s on 
-                        g.sessionId =s.Id
+                        g.sessionId =s.Id and g.IsActive=1 
 		                Order By g.Name";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
@@ -192,12 +192,13 @@ namespace WebApplication.Repository
             return isDeleted;
         }
 
-        public List<Gallery> GetList(int pageNo = 1, int pageSize = 10)
+        public List<Gallery> GetList(int sessionId,int pageNo = 1, int pageSize = 10)
         {
             List<Gallery> list;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_SessionId", sessionId, DbType.Int32);
                 param.Add("_IsCount", 0, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
@@ -215,12 +216,13 @@ namespace WebApplication.Repository
             return list;
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int sessionId, int pageNo = 1, int pageSize = 10)
         {
             int countTotal = 0;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_SessionId", sessionId, DbType.Int32);
                 param.Add("_IsCount", 1, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
@@ -655,7 +657,8 @@ namespace WebApplication.Repository
 			                    from Gallery g
                         join session s on 
                         g.sessionId =s.Id
-		                where s.Name=@name";
+		                where s.Name=@name and g.IsActive=1 
+                        order by g.EventDate desc";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
                     list = await Db.QueryAsync<Gallery>(query, new { name = sessionName });
@@ -689,7 +692,8 @@ namespace WebApplication.Repository
 			                    from Gallery g
                         join session s on 
                         g.sessionId =s.Id
-		                where g.id=@Id;
+		                where g.id=@Id and g.IsActive=1 
+                        order by g.EventDate desc;
                         
                         Select 	p.Id,
 		                        GalleryId,
@@ -739,7 +743,8 @@ namespace WebApplication.Repository
 			                    from Gallery g
                         join session s on 
                         g.sessionId =s.Id
-		                where g.id=@Id;
+		                where g.id=@Id and g.IsActive=1 
+                        order by g.EventDate desc;
                         
                         Select 	p.Id,
 		                        GalleryId,
@@ -769,6 +774,23 @@ namespace WebApplication.Repository
             }
 
             return data;
+        }
+        public  int GetCurrentSession()
+        {
+            try
+            {
+                query = @"Select  Id from Session Order by Name desc LIMIT 1";               
+                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                {
+                    return Db.ExecuteScalar<int>(query);                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            
         }
     }
 }

@@ -51,6 +51,7 @@
         public const string TransferCertificate = "4004";
 
         public const string Download = "4005";
+        public const string AdmissionList = "4006";
 
         public const string Gallery = "5000";
 

@@ -1,0 +1,162 @@
+﻿@model WebApplication.Models.StudentAdmissionModel
+
+@{
+    ViewBag.Title = "Admission";
+    ViewBag.SubTitle = "Detail";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Admission</a></li>
+            <li><a href="#">@ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Admission</h3>
+                        <div class="box-tools pull-right">
+                            @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit","Toppers",new {Id=Model.Id })'">Edit</button>*@
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Admission")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+
+                            <div class="col-md-8">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Name <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.StudentName</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Father Name <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.FatherName</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Mother Name <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.MotherName</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Gender <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Gender</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Class Name <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.ClassName</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">DOB <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.DOB</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Father Occupation <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.FatherOccupation</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Address <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Address</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Contact <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Contact</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Category <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Category</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Last Board <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.LastBoard</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Last School <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.LastSchool</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Subject1 <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Subject1</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Subject2 <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Subject2</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Subject3 <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Subject3</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Subject4 <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Subject4</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Subject5 <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Subject5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+
+                                    <div class="form-group">
+                                        <div class="col-md-2 col-md-offset-2">
+                                            <div style="position:relative">
+                                                <img src="@(Model.Image==null?"/Content/images/img_947.png":"/Content/images/StudentAdmission/"+Model.Image)" id="ImageView" width="200" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
