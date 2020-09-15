@@ -169,7 +169,7 @@ namespace WebApplication.Core
             for (int i = 0; i < request.Files.Count; i++)
             {
                 var file = request.Files[i];
-                if (!fileExtensions.Contains(Path.GetExtension(file.FileName)))
+                if (!fileExtensions.Contains(Path.GetExtension(file.FileName.ToLower())))
                 {
                     error = "file not support.";
                     statuses.Add(UploadResult(file.FileName, file.ContentLength, file.FileName, entityId: 0, GUID: null, error: error));
