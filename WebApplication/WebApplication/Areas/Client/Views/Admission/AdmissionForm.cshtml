@@ -1,4 +1,19 @@
-﻿<style>
+﻿@model WebApplication.Models.StudentAdmissionModel
+<style>
+    .header {
+        display: inline-block;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .playerOne {
+        float: left;
+    }
+
+    .playerTwo {
+        float: right;
+    }
+    .col-md-offset-4 input{ width:40%;}    
     .content-fee {
         border-bottom: 1px solid #e8e8e8;
         padding-bottom: 15px;
@@ -11,6 +26,39 @@
         padding-bottom: 15px;
         margin-bottom: 20px;
     }
+
+    .col-md-12 h3 {
+        border: 1px solid;
+        padding: 10px 0px 10px 35px;
+        color: white;
+        background: #c40e05;
+    }
+
+    .col-md-12 table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 15px;
+    }
+
+    thead tr th:first-child,
+    tbody tr td:first-child {
+        width: 16em;
+    }
+    /*@@media(min-width:992px) {*/
+    .col-md-4 {
+        width: 22%;
+    }
+
+    .col-md-6 {
+        width: 70%;
+    }
+    /*.form-group .col-md-4 {
+        width: 50%;
+    }*/
+    .form-group {
+        padding: 0px 10px 0px 20px;
+    }
+    /*}*/
 </style>
 <!--============================
         About Page Header
@@ -39,8 +87,433 @@
                     @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 12)
                 </div>*@
             <div class="col-sm-12">
-
                 <div>
+                    <div style="text-align:center">
+                        
+                        <h1><img class="col-md-push-10" src="~/Content/Client/images/logo-footer.png" /> H.V.M. CONVENT SR. SEC. SCHOOL, LUDHIANA</h1>
+                        <h3>(AFFILIATED TO THE CENTRAL BOARD OF SECONDARY EDUCATION NEW DELHI)</h3>
+                        <h6>AFFILIATION NO. 1630652, SCHOOL CODE 20632</h6>
+                        <h6>Karamsar colony, New Subash Nagar, Basti Jodhewal, Ludhiana (Pb.) 141 008</h6>
+                        <h6>Ph. No. : 98150-98888, 96460-98888, Website : www.hvmsrsecschool.org , Email : hvmconvent@gmail.com</h6>
+                    </div>
+                    <div class="box box-danger">
+                        <!--<div class="box-header with-border">-->
+                        @*<h3 class="box-title">Toppers</h3>*@
+                        <!--<div class="box-tools pull-right">
+                                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Toppers")'">Back To List</button>
+                            </div>
+                        </div>-->
+                        <div class="box-body">
+
+                            @Html.Partial("_Alerts")
+                            @using (Html.BeginForm("AdmissionForm", "Admission", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-horizontal">
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Student Name <span class="text-red">*</span> </label>
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.StudentName)
+                                                    @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Male/Female <span class="text-red">*</span> </label>
+                                                <div class="col-md-6">
+                                                    @*@Html.EditorFor(model => model.Gender)*@
+                                                    @Html.DropDownList("Gender", new List<SelectListItem>
+                                                    {
+                                                       new SelectListItem{ Text="Male", Value = "Male" },
+                                                       new SelectListItem{ Text="Female", Value = "Female" },
+                                                    }, new { @class = "form-control select2" })
+                                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Admission to class <span class="text-red">*</span> </label>
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.ClassMasterId)
+                                                    @Html.ValidationMessageFor(model => model.ClassMasterId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">DOB <span class="text-red">*</span> </label>
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { placeholder = "", @class = "form-control", @required = "required", @id = "DOB" } })
+                                                    @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">DOB in words <span class="text-red">*</span> </label>
+                                                <div class="col-md-6">
+                                                    @Html.EditorFor(model => model.DOBInWords, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "DOBInWords" } })
+                                                    @Html.ValidationMessageFor(model => model.DOBInWords, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <div class="col-md-2 col-md-offset-2">
+                                                    <div style="position:relative">
+                                                        <input name="RemoveImage" type="hidden" id="RemoveImage" value="@Model.RemoveImage" />
+                                                        <input type="file" name="ImageData" id="ImageData" style="display:none" />
+                                                        <img src="@(Model.Image==null?"/Content/images/img_947.png":"/Content/images/Toppers/"+Model.Image)" id="ImageView" width="200" />
+                                                        <button type="button" id="remove-img" class="btn btn-default" style="width:200px;background-color:#808080;color:#fff">Remove</button>
+                                                        <div class="clear"></div>
+                                                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Parent detail-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <H3>Details Of Parents</H3>
+                                        <table>
+                                            <thead><tr><th>Details</th><th>Mother</th><th>Father/Guardian</th></tr></thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherName)
+                                                    @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherName)
+                                                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Education</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherEducation)
+                                                    @Html.ValidationMessageFor(model => model.MotherEducation, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherEducation)
+                                                    @Html.ValidationMessageFor(model => model.FatherEducation, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Permanent Address</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherAddress)
+                                                    @Html.ValidationMessageFor(model => model.MotherAddress, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherAddress)
+                                                    @Html.ValidationMessageFor(model => model.FatherAddress, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherEmail)
+                                                    @Html.ValidationMessageFor(model => model.MotherEmail, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherEmail)
+                                                    @Html.ValidationMessageFor(model => model.FatherEmail, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Occupation</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherOccupation)
+                                                    @Html.ValidationMessageFor(model => model.MotherOccupation, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherOccupation)
+                                                    @Html.ValidationMessageFor(model => model.FatherOccupation, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Official Address</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherOfficialAddress)
+                                                    @Html.ValidationMessageFor(model => model.MotherOfficialAddress, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherOfficialAddress)
+                                                    @Html.ValidationMessageFor(model => model.FatherOfficialAddress, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Annual Income</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.MotherAnnualIncome)
+                                                    @Html.ValidationMessageFor(model => model.MotherAnnualIncome, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.FatherAnnualIncome)
+                                                    @Html.ValidationMessageFor(model => model.FatherAnnualIncome, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!--Candidates-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <H3>Whether the candidate is:-</H3>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>(i) Single Girl Child:</th>
+                                                    <td>
+                                                        @Html.DropDownList("IsSingleGirl", new List<SelectListItem>
+                                                   {
+                                                      new SelectListItem{ Text="Yes", Value = "Yes" },
+                                                      new SelectListItem{ Text="No", Value = "No" },
+                                                   }, new { @class = "form-control select2" })
+                                                        @Html.ValidationMessageFor(model => model.IsSingleGirl, "", new { @class = "text-danger" })
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <th>(ii) Specially abled (Divyangjan):</th>
+                                                <td>
+                                                    @Html.DropDownList("IsSpecialAbled", new List<SelectListItem>
+                                                   {
+                                                      new SelectListItem{ Text="Yes", Value = "Yes" },
+                                                      new SelectListItem{ Text="No", Value = "No" },
+                                                   }, new { @class = "form-control select2" })
+                                                    @Html.ValidationMessageFor(model => model.IsSpecialAbled, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>(iii) Belonging to the EWS:</th>
+                                                <td>
+                                                    @Html.DropDownList("IsEBS", new List<SelectListItem>
+                                                   {
+                                                      new SelectListItem{ Text="Yes", Value = "Yes" },
+                                                      new SelectListItem{ Text="No", Value = "No" },
+                                                   }, new { @class = "form-control select2" })
+                                                    @Html.ValidationMessageFor(model => model.IsEBS, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <H3>Personal Details</H3>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <td>
+                                                        @Html.DropDownList("Category", new List<SelectListItem>
+                                                {
+                                                   new SelectListItem{ Text="General", Value = "General" },
+                                                   new SelectListItem{ Text="SC", Value = "SC" },
+                                                   new SelectListItem{ Text="BC", Value = "BC" },
+                                                   new SelectListItem{ Text="OBC", Value = "OBC" },
+                                                }, new { @class = "form-control select2" })
+                                                        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <th>Adhaar No.</th>
+                                                <td>
+                                                    @Html.EditorFor(model => model.AadharNo)
+                                                    @Html.ValidationMessageFor(model => model.AadharNo, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <H3>Last School Detail</H3>
+                                        <div class="form-group">
+                                            <label>Name & Address of Last attended school<span class="text-red">*</span> </label>
+                                            <div>
+                                                @Html.EditorFor(model => model.LastSchool)
+                                                @Html.ValidationMessageFor(model => model.LastSchool, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Class Last Attended<span class="text-red">*</span> </label>
+                                            <div>
+                                                @Html.EditorFor(model => model.ClassName)
+                                                @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Board of last school attended<span class="text-red">*</span> </label>
+                                            <div>
+                                                @*@Html.EditorFor(model => model.LastBoard)*@
+                                                @Html.DropDownList("LastBoard", new List<SelectListItem>
+                                                {
+                                                   new SelectListItem{ Text="CBSE", Value = "CBSE" },
+                                                   new SelectListItem{ Text="ICSE", Value = "ICSE" },
+                                                   new SelectListItem{ Text="PSEB", Value = "PSEB" },
+                                                   new SelectListItem{ Text="Others", Value = "Others" },
+                                                }, new { @class = "form-control select2" })
+                                                @Html.ValidationMessageFor(model => model.LastBoard, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Result of last class attended:<span class="text-red">*</span> </label>
+                                            <div>
+                                                @*@Html.EditorFor(model => model.LastBoard)*@
+                                                @Html.DropDownList("Remarks", new List<SelectListItem>
+                                                {
+                                                   new SelectListItem{ Text="Pass", Value = "Pass" },
+                                                   new SelectListItem{ Text="Fail", Value = "Fail" },
+                                                }, new { @class = "form-control select2" })
+                                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        @*<H3>Result of last class attended:</H3>
+                    <table>
+                        <thead><tr><th>Subject</th><th>Maximum Marks</th><th>Marks Obtained</th><th>% of Marks</th><th>Remarks</th></tr></thead>
+                        <tr>
+                            <td>
+                                @Html.EditorFor(model => model.Subject)
+                                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.MaxMarks)
+                                @Html.ValidationMessageFor(model => model.MaxMarks, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.MarksObtained)
+                                @Html.ValidationMessageFor(model => model.MarksObtained, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.PercentageMarks)
+                                @Html.ValidationMessageFor(model => model.PercentageMarks, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Remarks)
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    </table>*@
+                                        <h3>Transfer Certificate Details:</h3>
+                                        <div class="form-group">
+                                            <label>Transfer Certificate No.<span class="text-red">*</span> </label>
+                                            <div>
+                                                @Html.EditorFor(model => model.TransferCertificateNumber)
+                                                @Html.ValidationMessageFor(model => model.TransferCertificateNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Date of issues<span class="text-red">*</span> </label>
+                                            <div>
+                                                @Html.EditorFor(model => model.DateOfIssue)
+                                                @Html.ValidationMessageFor(model => model.DateOfIssue, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Details of siblings (if any):</h3>
+                                        <table>
+                                            <thead><tr><th>Name</th><th>Brother/Sister</th><th>Age</th><th>Class</th></tr></thead>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.SiblingName)
+                                                    @Html.ValidationMessageFor(model => model.SiblingName, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.SiblingRelation)
+                                                    @Html.ValidationMessageFor(model => model.SiblingRelation, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.SiblingAge)
+                                                    @Html.ValidationMessageFor(model => model.SiblingAge, "", new { @class = "text-danger" })
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.SiblingSchool)
+                                                    @Html.ValidationMessageFor(model => model.SiblingSchool, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <h2 class="text-center"><u>Declaration</u></h2>
+                                        <span>
+                                            I hearby declare that the above information including the Name of Candidate, Father's/ Guardian's Name, Mother's Name and Date of Birth furnished by me is correct to the best of my Knowledge & belief. I shall abide by the rules of the school.
+                                        </span>
+
+                                        <div class="header">
+                                            <div class="playerOne">
+                                                <div>
+                                                    Date :<br />
+
+                                                    @Html.EditorFor(model => model.Date)
+                                                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                                                    Place :<br />
+
+                                                    @Html.EditorFor(model => model.Place)
+                                                    @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="playerTwo">
+                                                <div>
+                                                    Signature of the Partent(s)/Guardian :<br />
+                                                    Relation with candidate
+                                                    @Html.EditorFor(model => model.RelationWithCandidate)
+                                                    @Html.ValidationMessageFor(model => model.RelationWithCandidate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-center">FOR OFFICE USE ONLY</h2>
+                                        <div class="header">
+                                            <div class="playerOne">
+                                                <div>
+                                                    1. Admission No_____________________________<br />
+                                                    2. Admission Fee____________________________<br />
+                                                    3. Tuition Fee________________________________<br />
+                                                </div>
+                                            </div>
+                                            <div class="playerTwo">
+                                                <div>
+                                                    1. Class_________________Section__________________<br />
+                                                    2. Any fee concession availed_____________________<br />
+                                                    Nature of concession (if any)______________________<br />
+                                                    3. Verified by_________________Date________________<br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    ___________________________________________Principal
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4 col-md-8">
+                                                <input type="submit" value="Submit" id="save" class="btn btn-primary" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                <!--<div>
                     <div class="content-fee">
                         Important information<br />
                         <ul style="list-style-type:circle">
@@ -52,28 +525,110 @@
                     </div>
                     <div class="content-fee">
                         For any query please contact:- 8566804647, 7814216030, 9914615275
-                    </div>
+                    </div>-->
                     @*<div class="content-fee">
-                        3. Fee need to be deposit as follow:<br />
-                        <ul style="list-style-type:circle">
-                            <li>For Class XI - Rs. 7000</li>
-                            <li>For Kindergarten - Rs. 16000</li>
-                        </ul>
-                    </div>
-                    <div class="content-fee">
-                        4. Bank Detail
-                        <ul style="list-style-type:circle">
-                            <li>School Name: HVM CONVENT SCHOOL</li>
-                            <li>Account Number: 4450002100004648</li>
-                            <li>Bank Name: Punjab National Bank (Sunder Nager branch)</li>
-                            <li>IFSC Code: PUNB0445000</li>
-                        </ul>
-                    </div>*@
-                    <div class="row">
+                            3. Fee need to be deposit as follow:<br />
+                            <ul style="list-style-type:circle">
+                                <li>For Class XI - Rs. 7000</li>
+                                <li>For Kindergarten - Rs. 16000</li>
+                            </ul>
+                        </div>
+                        <div class="content-fee">
+                            4. Bank Detail
+                            <ul style="list-style-type:circle">
+                                <li>School Name: HVM CONVENT SCHOOL</li>
+                                <li>Account Number: 4450002100004648</li>
+                                <li>Bank Name: Punjab National Bank (Sunder Nager branch)</li>
+                                <li>IFSC Code: PUNB0445000</li>
+                            </ul>
+                        </div>*@
+                    <!--<div class="row">
                         <iframe src="https://docs.google.com/gview?url=http://www.hvmsrsecschool.org/Content/Client/download/RegistrationForm.docx&amp;embedded=true" style="width:1200px; height:924px;" frameborder="0"></iframe>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 </section>
+<!-- /.content-wrapper -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Admin/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script>
+         var image ='@Html.Raw(Model.Image)';
+        //console.log(image);
+        //if (image != null) {
+        //    $('#remove-img').hide();
+        //}
+
+        $(document).ready(function () {
+            if ($('#ImageData').val() == '') {
+                $('#remove-img').hide();
+
+            }
+
+            if (image != '') {
+                console.log(image);
+                $('#remove-img').show();
+            }
+
+            $('#ImageView').click(function () {
+                $("#ImageData").click();
+            })
+            $('#remove-img').click(function () {
+                $('#RemoveImage').val(1);
+                $('#ImageData').val('');
+                $('#ImageView').attr('src', '/Content/images/img_947.png');
+                $('#remove-img').hide();
+
+            });
+
+            $("#ImageData").change(function () {
+                file = $(this).val();
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#ImageView')
+                            .attr('src', e.target.result)
+                            .width(200);
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+                $('#RemoveImage').val(0);
+                $('#remove-img').show();
+
+            });
+        });
+        $('#Entry-form').submit(function () {
+
+            if ($('#Entry-form').valid()) {
+                $('#save').prop('disabled', true);
+            }
+        });
+
+        //$(document).ready(function () {
+        //    //Date picker
+        //    $('#DateOfIssue').datepicker({
+        //        format: 'dd MM, yyyy',
+        //        autoclose: true
+        //    });
+        //});
+
+        $(document).ready(function () {
+            //Date picker
+            $(':input').removeAttr('placeholder');
+            $('#DOB').datepicker({
+                format: 'dd MM, yyyy',
+                autoclose: true
+            });
+
+            //Date picker
+            $('#DateOfIssue').datepicker({
+                format: 'dd MM, yyyy',
+                autoclose: true
+            });
+        });
+        
+    </script>
+}

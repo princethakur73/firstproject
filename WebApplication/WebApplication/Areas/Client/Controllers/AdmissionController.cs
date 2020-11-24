@@ -91,7 +91,7 @@ namespace WebApplication.Areas.Client.Controllers
                 }
 
 
-                obj.UserId = (int)_currentUser.User.Id;
+                obj.UserId = _currentUser !=null && _currentUser.User !=null ? (int)_currentUser.User.Id : 0;
 
                 if (_admissionService.Save(obj) > 0)
                 {
