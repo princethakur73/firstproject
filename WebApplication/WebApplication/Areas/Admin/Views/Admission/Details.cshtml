@@ -4,6 +4,49 @@
     ViewBag.Title = "Admission";
     ViewBag.SubTitle = "Detail";
 }
+<style>
+    .col-md-12 {
+        padding: 50px;
+    }
+
+    .header {
+        display: inline-block;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .playerOne {
+        float: left;
+    }
+
+    .playerTwo {
+        float: right;
+    }
+
+    .main-container table {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .main-container {
+        padding: 0 0 0 50px;
+        clear: both;
+        vertical-align: bottom;
+        width: 100%;
+    }
+
+    .lable {
+        float: left;
+        padding: 5px;
+    }
+
+    .display-text {
+        /*float: left;*/
+        padding: 5px;
+        font-weight: 400
+    }
+</style>
+<script src="~/Scripts/printPlugin.js"></script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,131 +69,262 @@
                         <div class="box-tools pull-right">
                             @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit","Toppers",new {Id=Model.Id })'">Edit</button>*@
                             <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Admission")'">Back To List</button>
-                        </div>
+                        
+                            <button onclick="myFunction()">Click me</button></div>
                     </div>
-                    <div class="box-body">
-                        <div class="row">
-                            @Html.Partial("_Alerts")
+                    <div id="drag">
+                        <div style="text-align:center">
 
-                            <div class="col-md-8">
-                                <div class="form-horizontal">
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Name <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.StudentName</p>
+                            <h1><img class="col-md-push-10" src="~/Content/Client/images/logo-footer.png" /> H.V.M. CONVENT SR. SEC. SCHOOL, LUDHIANA</h1>
+                            <h3>(AFFILIATED TO THE CENTRAL BOARD OF SECONDARY EDUCATION NEW DELHI)</h3>
+                            <h6>AFFILIATION NO. 1630652, SCHOOL CODE 20632</h6>
+                            <h6>Karamsar colony, New Subash Nagar, Basti Jodhewal, Ludhiana (Pb.) 141 008</h6>
+                            <h6>Ph. No. : 98150-98888, 96460-98888, Website : www.hvmsrsecschool.org , Email : hvmconvent@gmail.com</h6>
+                        </div>
+                        <div class="box-body" style="border:1px solid">
+                            <div class="row">
+                                @Html.Partial("_Alerts")
+
+                                <div class="col-md-8">
+                                    <div class="form-horizontal">
+                                        <div class="main-container">
+                                            <div class="lable">1. Name: </div><div class="display-text">@Model.StudentName</div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">2. Gender: </div><div class="display-text">@Model.Gender</div><div class="lable">3. Addmission to class: </div><div class="display-text">@Model.ClassName</div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">4. Date of birth (in figure): </div><div class="display-text">@DateTime.Parse(Model.DOB).ToShortDateString() </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">&nbsp;&nbsp;&nbsp;&nbsp;   (Words): </div><div class="display-text">@Model.DOBInWords</div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Father Name <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.FatherName</p>
+                                    <div class="form-horizontal">
+                                        <div class="main-container">
+                                            <div class="lable">5. Details of Parents: </div><br />
+                                            <div style="clear:both"></div>
+                                            <table>
+                                                <thead><tr><th>Details</th><th>Mother</th><th>Father/Guardian</th></tr></thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <td>
+                                                        @Model.MotherName
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherName
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Education</th>
+                                                    <td>
+                                                        @Model.MotherEducation
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherEducation
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Permanent Address</th>
+                                                    <td>
+                                                        @Model.MotherAddress
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherAddress
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td>
+                                                        @Model.MotherEmail
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherEmail
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Occupation</th>
+                                                    <td>
+                                                        @Model.MotherOccupation
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherOccupation
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Official Address</th>
+                                                    <td>
+                                                        @Model.MotherOfficialAddress
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherOfficialAddress
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Annual Income</th>
+                                                    <td>
+                                                        @Model.MotherAnnualIncome
+                                                    </td>
+                                                    <td>
+                                                        @Model.FatherAnnualIncome
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">6. Whether the candidate: </div><br />
+                                            <div style="clear:both"></div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>(i) Single Girl Child:</th>
+                                                        <td>
+                                                            @Model.IsSingleGirl
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <th>(ii) Specially abled (Divyangjan):</th>
+                                                    <td>
+                                                        @Model.IsSpecialAbled
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>(iii) Belonging to the EWS:</th>
+                                                    <td>
+                                                        @Model.IsEBS
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">7. Personal details: </div><br />
+                                            <div style="clear:both"></div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Category</th>
+                                                        <td>
+                                                            @Model.Category
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <th>Adhaar No.</th>
+                                                    <td>
+                                                        @Model.AadharNo
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">8. Name & Address of Last attended school: </div><div class="display-text">@Model.LastSchool </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">9. Class Last Attended: </div><div class="display-text">@Model.ClassName </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">10. Board of last school attended: </div><div class="display-text">@Model.LastBoard </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">11. Result of last class attended: </div><div class="display-text">@Model.Remarks </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">12. Transfer Certificate No. </div><div class="display-text">@Model.TransferCertificateNumber </div>
+                                        </div>
+                                        <div class="main-container">
+                                            <div class="lable">13. Date of issues: </div><div class="display-text">@Model.DateOfIssue </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Mother Name <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.MotherName</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Gender <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Gender</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Class Name <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.ClassName</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">DOB <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.DOB</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Father Occupation <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.FatherOccupation</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Address <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Address</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Contact <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Contact</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Category <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Category</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Last Board <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.LastBoard</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Last School <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.LastSchool</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Subject1 <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Subject1</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Subject2 <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Subject2</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Subject3 <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Subject3</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Subject4 <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Subject4</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label">Subject5 <span class="text-red">*</span> </label>
-                                        <div class="col-md-6">
-                                            <p class="form-control-static">@Model.Subject5</p>
+                                    <div class="form-horizontal">
+                                        <div class="main-container">
+                                            <div class="lable">14. Details of siblings (if any): </div><br />
+                                            <div style="clear:both"></div>
+                                            <table>
+                                                <thead><tr><th>Name</th><th>Brother/Sister</th><th>Age</th><th>Class</th></tr></thead>
+                                                <tr>
+                                                    <td>
+                                                        @Model.SiblingName
+                                                    </td>
+                                                    <td>
+                                                        @Model.SiblingRelation
+                                                    </td>
+                                                    <td>
+                                                        @Model.SiblingAge
+                                                    </td>
+                                                    <td>
+                                                        @Model.SiblingSchool
+                                                    </td>
+                                                </tr>
+                                            </table>
+
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-horizontal">
+                                <div class="col-md-4">
+                                    <div class="form-horizontal">
 
-                                    <div class="form-group">
-                                        <div class="col-md-2 col-md-offset-2">
-                                            <div style="position:relative">
-                                                <img src="@(Model.Image==null?"/Content/images/img_947.png":"/Content/images/StudentAdmission/"+Model.Image)" id="ImageView" width="200" />
+                                        <div class="form-group">
+                                            <div class="col-md-2 col-md-offset-2">
+                                                <div style="position:relative">
+                                                    <img src="@(Model.Image==null?"/Content/images/img_947.png":"/Content/images/StudentAdmission/"+Model.Image)" id="ImageView" width="200" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h2 class="text-center"><u>Declaration</u></h2>
+                                    <span>
+                                        I hearby declare that the above information including the Name of Candidate, Father's/ Guardian's Name, Mother's Name and Date of Birth furnished by me is correct to the best of my Knowledge & belief. I shall abide by the rules of the school.
+                                    </span>
+
+                                    <div class="header">
+                                        <div class="playerOne">
+                                            <div>
+                                                Date :<br />
+
+                                                @Html.EditorFor(model => model.Date)
+                                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                                                Place :<br />
+
+                                                @Html.EditorFor(model => model.Place)
+                                                @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="playerTwo">
+                                            <div>
+                                                Signature of the Partent(s)/Guardian :<br />
+                                                Relation with candidate
+                                                @Html.EditorFor(model => model.RelationWithCandidate)
+                                                @Html.ValidationMessageFor(model => model.RelationWithCandidate, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="text-center">FOR OFFICE USE ONLY</h2>
+                                    <div class="header">
+                                        <div class="playerOne">
+                                            <div>
+                                                1. Admission No_____________________________<br />
+                                                2. Admission Fee____________________________<br />
+                                                3. Tuition Fee________________________________<br />
+                                            </div>
+                                        </div>
+                                        <div class="playerTwo">
+                                            <div>
+                                                1. Class_________________Section__________________<br />
+                                                2. Any fee concession availed_____________________<br />
+                                                Nature of concession (if any)______________________<br />
+                                                3. Verified by_________________Date________________<br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                ___________________________________________Principal
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -160,3 +334,9 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+    function myFunction() {
+        $("#drag").printThis();
+    }
+    
+</script>

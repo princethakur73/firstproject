@@ -5054,6 +5054,7 @@
     <Content Include="Scripts\News\News.js" />
     <Content Include="Scripts\Downloads\Dlownloads.js" />
     <Content Include="Scripts\OurInfrastructure\OurInfrastruture.js" />
+    <Content Include="Scripts\printPlugin.js" />
     <Content Include="Scripts\Slide\Slide.js" />
     <Content Include="Scripts\Toppers\Toppers.js" />
     <Content Include="Scripts\StaffDetail\StaffDetail.js" />
