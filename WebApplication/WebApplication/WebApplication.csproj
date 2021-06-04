@@ -1531,6 +1531,12 @@
     <Content Include="Content\Client\OurInfrastructure\Sciencelab\2.JPG" />
     <Content Include="Content\Client\OurInfrastructure\Sciencelab\3.JPG" />
     <Content Include="Content\Client\OurInfrastructure\SmartClass\1.JPG" />
+    <Content Include="Content\files\CBSE-Affiliation\BuildCert1.jpg" />
+    <Content Include="Content\files\CBSE-Affiliation\BuildCert2.jpg" />
+    <Content Include="Content\files\CBSE-Affiliation\BuildCert3.jpg" />
+    <Content Include="Content\files\CBSE-Affiliation\FireCert1.jpg" />
+    <Content Include="Content\files\CBSE-Affiliation\SchAff1.jpg" />
+    <Content Include="Content\files\CBSE-Affiliation\Schaff2.jpg" />
     <Content Include="Content\Free-file-icons\16px\aac.png" />
     <Content Include="Content\Free-file-icons\16px\ai.png" />
     <Content Include="Content\Free-file-icons\16px\aiff.png" />
@@ -5036,6 +5042,8 @@
     <Content Include="Areas\Client\Views\Admission\AdmissionForm.cshtml" />
     <Content Include="Areas\Admin\Views\Admission\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Admission\Details.cshtml" />
+    <Content Include="Content\files\CBSE-Affiliation\Detail-of-fee.pdf" />
+    <Content Include="Content\files\CBSE-Affiliation\Performa-certificate.pdf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
