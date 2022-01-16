@@ -105,7 +105,7 @@
 <section class="about">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="section-header04 section-header-g">
                     <h2>Welcome To <span>HVM</span></h2>
                     <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
@@ -116,8 +116,19 @@
                     It came into existence in April 2009 with classes from Nursery to VIII. Now it takes pride in the galaxy of 2000 students up to XII. It is located on a sprawling 2 (two) acre area. The infrastructural facilities of the school are excellent and are equipped with modern educational and allied amenities.
                 </p>
                 <a href="" class="el-btn-regular">Read More</a>
+            </div>            
+        </div>
+    </div>
+</section>
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                @{
+                    Html.RenderPartial("~/Areas/Client/Views/Home/_LatestNews.cshtml", Model.NewsModels);
+                }
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-sm-6">
                 @{
                     Html.RenderPartial("~/Areas/Client/Views/Home/_LatestNews.cshtml", Model.NewsModels);
                 }
@@ -579,7 +590,7 @@
 </section>
 
 <!-- Trigger the Modal -->
-<img id="myImg" src="~/Content/images/Kid Zone.jpg" alt="Snow" style="display:none;width:100%;max-width:300px">
+<img id="myImg" src="~/Content/images/20-21-Result.jpg" alt="Snow" style="display:none;width:100%;max-width:300px">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
