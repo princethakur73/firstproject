@@ -5,7 +5,7 @@ namespace WebApplication.Models
     public class HomeModels
     {
         public List<NewsModel> NewsModels { get; set; }
-
         public List<ToppersModel> ToppersModels { get; set; }
+        public List<CircularsModel> CircularsModel { get; set; }
     }
 }

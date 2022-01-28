@@ -249,6 +249,7 @@
     <Compile Include="Areas\Client\Controllers\GalleryController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
     <Compile Include="Areas\Client\Controllers\StudentController.cs" />
+    <Compile Include="Areas\Client\Models\FirstVistModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -278,6 +279,7 @@
     <Compile Include="Helpers\BootstrapHelpers.cs" />
     <Compile Include="Helpers\JavaScriptHelper.cs" />
     <Compile Include="Helper\BootstrapHelpers.cs" />
+    <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\HelperMethod.cs" />
     <Compile Include="Infrastructure\ActionFilterRegistry.cs" />
     <Compile Include="Infrastructure\Alerts\Alert.cs" />
@@ -5057,6 +5059,8 @@
     <Content Include="Content\files\circulars\lunch-03-14-2020-4702.doc" />
     <Content Include="Content\files\mandatory-disclosure\DEO Certificate001.zip" />
     <Content Include="Content\files\mandatory-disclosure\HVM CONVENT SCHOOL FEE STRUCTURE.docx" />
+    <Content Include="Areas\Client\Views\Home\_Circulares.cshtml" />
+    <Content Include="Areas\Client\Views\Home\_HomePage.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -5181,7 +5185,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Kindergarten\" />
-    <Folder Include="Areas\Client\Models\" />
     <Folder Include="Content\Client\OurInfrastructure\Libarary\" />
     <Folder Include="Content\files\downloads\" />
     <Folder Include="Content\files\News\" />

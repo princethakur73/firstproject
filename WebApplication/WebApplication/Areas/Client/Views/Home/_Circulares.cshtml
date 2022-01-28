@@ -1,7 +1,7 @@
-﻿@model IEnumerable<WebApplication.Models.NewsModel>
+﻿@model IEnumerable<WebApplication.Models.CircularsModel>
 
 <div class="bluebox-border">
-    <div class="bluebox">Latest News</div>
+    <div class="bluebox">Circulars</div>
     <div class="arrow-blue"></div>
     <marquee direction="up" height="270" scrollamount="2" onMouseOver="this.stop();" onMouseOut="this.start();">
         <ul class="news_marquee">
@@ -9,8 +9,7 @@
             {
                 <li>
                     <h5><strong>@item.Title</strong></h5>
-                    <span>@Html.Raw(item.Description)</span> <br />
-                    <a href="~/Content/files/News/@item.FileName" target="_blank">@item.ShortDescription</a>
+                    <a href="~/Content/files/circulars/@item.FileName" target="_blank">View</a>
                 </li>
             }
         </ul>

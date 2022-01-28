@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using WebApplication.Areas.Client.Models;
+using WebApplication.Helper;
 using WebApplication.Models;
 using WebApplication.Service;
 
@@ -11,12 +13,14 @@ namespace WebApplication.Areas.Client.Controllers
         private INewsService newsService;
 
         public IToppersService toppersService { get; }
+        private ICircularsService _circularsService;
 
         public HomeController(INewsService _newsService,
-            IToppersService _toppersService)
+            IToppersService _toppersService, ICircularsService circularsService)
         {
             newsService = _newsService;
             toppersService = _toppersService;
+            _circularsService = circularsService;
         }
         // GET: Client/Home
         public ActionResult Index()
@@ -26,14 +30,27 @@ namespace WebApplication.Areas.Client.Controllers
                 data = data.Where(m => m.IsActive == true).OrderBy(m => m.SortId).ToList();
 
             var toppersModels = toppersService.GetList(currentUserId: 0).ToModel();
+            var circularsModel = _circularsService.GetList().ToModel();
 
             var homeModels = new HomeModels()
             {
                 NewsModels = data.ToModel(),
-                ToppersModels = toppersModels
+                ToppersModels = toppersModels,
+                CircularsModel = circularsModel,
             };
 
             return View("~/Areas/Client/Views/Home/Index.cshtml", homeModels);
+        }
+        public ActionResult FirstVisit()
+        {
+            return PartialView("~/Areas/Client/Views/Home/_HomePage.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult FirstVisit(FirstVistModel model)
+        {
+            var result=EmailHelper.SendEmail(model.Contact, model.Name, model.Description);
+            return Json(result);
         }
 
         [Route("contact-us")]

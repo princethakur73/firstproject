@@ -1,0 +1,57 @@
+﻿<style>
+    .contact_detail {
+        padding: 5px;
+        margin: 10px;
+        width: 45%;
+    }
+
+    .purpose_detail {
+        padding: 5px;
+        margin: 10px;
+        width: 93%;
+    }
+    .text_color {
+        color: black;
+        padding: 10px;
+    }
+</style>
+<div class="bluebox-border">
+    <div class="bluebox">Contact</div>
+    <div class="clear h10"></div>
+    @using (Html.BeginForm("FirstVisit", "Home", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="Concept-Content text_color">
+            <div>
+                <input class="contact_detail" type="text" id="Name" name="Name" placeholder="Name" /> <input class="contact_detail" placeholder="Conatct No." type="text" id="Contact" name="Contact" />
+            </div>
+            <div style="max-width:100%">
+                <textarea class="purpose_detail" placeholder="Description" type="text" id="Description" name="Description" />
+            </div>
+            <input type="button" value="Save" id="save" class="btn bg-olive btn-flat margin" />
+        </div>
+    }
+</div>
+<script>
+    $(document).ready(function () {
+        $("#save").click(function () {
+            debugger
+            var name = $('#Name').val();
+            var contact = $('#Contact').val();
+            var description = $('#Description').val();
+            if (name != '' && contact != '' && description != '') {
+                $.post('/Client/Home/FirstVisit', {
+                    Name: name,
+                    Contact: contact,
+                    Description: description
+                },
+                    function (data) {
+                        modal.style.display = "none";
+                    });
+            }
+            else {
+                alert('please fill the form');
+            }
+        });
+    });
+</script>
