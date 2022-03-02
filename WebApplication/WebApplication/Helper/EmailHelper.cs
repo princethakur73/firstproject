@@ -12,12 +12,12 @@ namespace WebApplication.Helper
         {
             try
             {
-                var senderEmail = new MailAddress("hvmconvent@gmail.com", "HVM Support");
-                var password = "HVM@2018";
+                var senderEmail = new MailAddress("mdsahir48@gmail.com", "HVM Support");
+                var password = "9K6c+bTV";
 
                 MailDefinition md = new MailDefinition
                 {
-                    From = "hvmconvent@gmail.com",
+                    From = "mdsahir48@gmail.com",
                     IsBodyHtml = true,
                     Subject = string.Format("Contact {0}", Name),
                     Priority = MailPriority.High
@@ -31,19 +31,19 @@ namespace WebApplication.Helper
                 };
 
                 string body = "<div>Hello <br>Please check the following detail of the user who visit over the site.<br>" +
-                    "Name: {name}<br>" +
-                    "Conatct: {contact}<br>" +
-                    "Description: {description}</div>";
+                    "Name: "+ Name +"<br>" +
+                    "Conatct: " + Contact + "<br>" +
+                    "Description: " + Description + "</div>";
 
                 MailMessage msg = md.CreateMailMessage("hvmconvent@gmail.com", replacements, body, new System.Web.UI.Control());
 
-                using(SmtpClient client = new SmtpClient())
+                using (SmtpClient client = new SmtpClient())
                 {
                     client.Host = "smtp.gmail.com";
                     client.Port = 587;
-                    client.EnableSsl = true;
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.UseDefaultCredentials = false;
+                    client.EnableSsl = true;
                     client.Credentials = new NetworkCredential(senderEmail.Address, password);
                     client.Send(msg);
                 }
@@ -51,7 +51,7 @@ namespace WebApplication.Helper
             }
             catch (Exception e)
             {
-                return false;
+                throw e;
             }
         }
     }

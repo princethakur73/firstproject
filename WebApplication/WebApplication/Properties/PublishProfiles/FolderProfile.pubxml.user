@@ -6,8 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Prince Thakur\Desktop\Publish</_PublishTargetUrl>
-    <History>True|2021-07-05T18:03:00.5908092Z;</History>
+    <_PublishTargetUrl>C:\Users\mspl\HVM</_PublishTargetUrl>
+    <History>True|2022-01-28T19:54:52.2843603Z;True|2021-07-05T23:33:00.5908092+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -110,7 +110,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2020 22:32:47</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/Index.cshtml">
-      <publishTime>03/14/2020 00:41:19</publishTime>
+      <publishTime>12/26/2021 13:26:39</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/ListOfBooks.cshtml">
       <publishTime>01/15/2020 22:36:22</publishTime>
@@ -266,7 +266,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/14/2019 21:19:29</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Slide/Index.cshtml">
-      <publishTime>10/14/2019 21:18:32</publishTime>
+      <publishTime>01/16/2022 11:50:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/StaffDetail/Create.cshtml">
       <publishTime>03/21/2020 12:28:16</publishTime>
@@ -350,7 +350,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2020 23:47:27</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/FacultyDetails.cshtml">
-      <publishTime>01/16/2020 23:50:20</publishTime>
+      <publishTime>10/15/2021 19:03:51</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/FacultyDetailsNew.cshtml">
       <publishTime>03/21/2020 14:15:45</publishTime>
@@ -359,7 +359,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/15/2020 23:44:25</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/MandatoryDisclosure.cshtml">
-      <publishTime>07/05/2021 22:20:22</publishTime>
+      <publishTime>09/11/2021 00:09:35</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/Messages.cshtml">
       <publishTime>10/18/2019 12:25:45</publishTime>
@@ -473,7 +473,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/29/2020 00:47:01</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/Index.cshtml">
-      <publishTime>08/25/2020 11:37:27</publishTime>
+      <publishTime>01/29/2022 01:03:05</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/News.cshtml">
       <publishTime>03/21/2020 13:33:17</publishTime>
@@ -487,8 +487,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Client/Views/Home/PressMedia.cshtml">
       <publishTime>10/18/2019 12:29:39</publishTime>
     </File>
+    <File Include="Areas/Client/Views/Home/_Circulares.cshtml">
+      <publishTime>01/16/2022 13:24:38</publishTime>
+    </File>
+    <File Include="Areas/Client/Views/Home/_HomePage.cshtml">
+      <publishTime>01/26/2022 02:00:12</publishTime>
+    </File>
     <File Include="Areas/Client/Views/Home/_LatestNews.cshtml">
-      <publishTime>03/21/2020 13:24:46</publishTime>
+      <publishTime>01/16/2022 13:12:19</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_AchievementSidebar.cshtml">
       <publishTime>02/08/2020 11:59:11</publishTime>
@@ -500,7 +506,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/16/2020 23:36:06</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_Layout.cshtml">
-      <publishTime>07/05/2021 20:05:30</publishTime>
+      <publishTime>01/16/2022 11:46:55</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/ActivitiesEvents.cshtml">
       <publishTime>10/18/2019 12:30:10</publishTime>
@@ -1115,31 +1121,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2021 14:18:25</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>07/05/2021 22:47:52</publishTime>
+      <publishTime>01/29/2022 01:23:55</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>07/05/2021 22:47:52</publishTime>
+      <publishTime>01/29/2022 01:23:55</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>07/05/2021 22:48:08</publishTime>
+      <publishTime>01/29/2022 11:24:09</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>07/05/2021 22:48:08</publishTime>
+      <publishTime>01/29/2022 11:24:09</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>07/05/2021 22:47:53</publishTime>
+      <publishTime>01/29/2022 01:23:56</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>01/13/2018 12:43:14</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>07/05/2021 22:47:53</publishTime>
+      <publishTime>01/29/2022 01:23:56</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>07/05/2021 22:47:53</publishTime>
+      <publishTime>01/29/2022 01:23:57</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>07/05/2021 22:47:53</publishTime>
+      <publishTime>01/29/2022 01:23:57</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/11/2013 05:58:38</publishTime>
@@ -5334,6 +5340,45 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/files/CBSE-Affiliation/Schaff2.jpg">
       <publishTime>11/03/2020 11:48:40</publishTime>
+    </File>
+    <File Include="Content/files/circulars/lunch-03-14-2020-4702.doc">
+      <publishTime>03/14/2020 00:47:54</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/AffiliationLetter %28Sr No.1%29.pdf">
+      <publishTime>10/19/2020 11:36:33</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/Building Safety Certificate  %28Sr. No. 5%29.pdf">
+      <publishTime>09/24/2020 09:59:26</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/DEO Certificate001.jpg">
+      <publishTime>02/26/2020 10:55:34</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/DEO Certificate001.zip">
+      <publishTime>07/05/2021 20:23:32</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/DEO Certificate002.jpg">
+      <publishTime>02/26/2020 10:56:22</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/DEO Certificate003.jpg">
+      <publishTime>02/26/2020 10:56:58</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/Fire Safety Certificate  %28Sr. No. 6%29.jpg">
+      <publishTime>10/16/2019 12:15:16</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/Health &amp; sanitation  %28Sr. No. 8%29.pdf">
+      <publishTime>12/16/2020 12:24:11</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/HVM CONVENT SCHOOL FEE STRUCTURE.docx">
+      <publishTime>07/05/2021 22:15:22</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/NOC    %28Sr. No. 3%29.pdf">
+      <publishTime>11/27/2020 12:11:50</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/RTE   %28Sr. No. 4%29.pdf">
+      <publishTime>11/27/2020 12:16:57</publishTime>
+    </File>
+    <File Include="Content/files/mandatory-disclosure/Society Certificate %28Sr. No. 2%29.jpg">
+      <publishTime>12/11/2020 11:01:31</publishTime>
     </File>
     <File Include="Content/Free-file-icons/16px/aac.png">
       <publishTime>09/05/2020 12:56:42</publishTime>
@@ -14705,7 +14750,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/13/2018 12:08:30</publishTime>
     </File>
     <File Include="Scripts/Circulars/Circulars.js">
-      <publishTime>03/13/2020 23:01:05</publishTime>
+      <publishTime>12/26/2021 11:56:55</publishTime>
     </File>
     <File Include="Scripts/ClassMaster/ClassMaster.js">
       <publishTime>05/17/2018 12:31:22</publishTime>
@@ -15011,7 +15056,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2019 12:37:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/17/2019 16:31:58</publishTime>
+      <publishTime>01/29/2022 02:33:00</publishTime>
     </File>
   </ItemGroup>
 </Project>
