@@ -64,7 +64,6 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("list-of-books")]
         public ActionResult ListOfBooks()
         {
-            //var model = _pageService.GetPageByMenuCode(MenuCode.ListOfBooks).ToModel();
             var model = _downloadsService.GetList(currentUserId: 0).Where(m => m.IsPublish == true && m.Title.ToLower() == "book list").ToList().ToModel();
             return View("~/Areas/Client/Views/Circulars/ListOfBooks.cshtml", model);
         }

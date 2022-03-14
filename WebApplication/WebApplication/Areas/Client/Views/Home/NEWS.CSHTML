@@ -30,15 +30,12 @@
                 @foreach (var item in Model)
                 {
                     <h2><a href="@Url.Action("NewsDetails", "Home", new{token=item.Key, Area="Client"})" target="_blank">@item.Title</a></h2>
-
-                    <p class="justify">@item.Description</p>
-
-                    <div class="clear h10">&nbsp;</div>
-
-                    <div class="dashed">&nbsp;</div>
-
-                    <div class="clear h20">&nbsp;</div>
                     <a href="~/Content/files/News/@item.FileName" target="_blank">@item.ShortDescription</a>
+                    <span>@Html.Raw(item.Description)</span> <br />
+                    <div class="clear h10">&nbsp;</div>
+                    <div class="dashed">&nbsp;</div>
+                    <div class="clear h20">&nbsp;</div>
+
 
                 }
             </div>
