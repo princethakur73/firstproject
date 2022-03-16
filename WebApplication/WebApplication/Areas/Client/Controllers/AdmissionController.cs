@@ -42,9 +42,7 @@ namespace WebApplication.Areas.Client.Controllers
         [HttpGet]
         public ActionResult AdmissionForm()
         {
-            //var model = _pageService.GetPageByMenuCode(MenuCode.FeeStructure).ToModel();
             StudentAdmissionModel model = new StudentAdmissionModel();
-
             return View("~/Areas/Client/Views/Admission/AdmissionForm.cshtml", model);
         }
         [HttpPost]

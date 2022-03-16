@@ -13,7 +13,11 @@
     .playerTwo {
         float: right;
     }
-    .col-md-offset-4 input{ width:40%;}    
+
+    .col-md-offset-4 input {
+        width: 40%;
+    }
+
     .content-fee {
         border-bottom: 1px solid #e8e8e8;
         padding-bottom: 15px;
@@ -60,6 +64,9 @@
     }
     /*}*/
 </style>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <!--============================
         About Page Header
     =============================-->
@@ -89,7 +96,7 @@
             <div class="col-sm-12">
                 <div>
                     <div style="text-align:center">
-                        
+
                         <h1><img class="col-md-push-10" src="~/Content/Client/images/logo-footer.png" /> H.V.M. CONVENT SR. SEC. SCHOOL, LUDHIANA</h1>
                         <h3>(AFFILIATED TO THE CENTRAL BOARD OF SECONDARY EDUCATION NEW DELHI)</h3>
                         <h6>AFFILIATION NO. 1630652, SCHOOL CODE 20632</h6>
@@ -478,13 +485,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                        }
+
+                            }
 
 
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!--<div>
                     <div class="content-fee">
                         Important information<br />
@@ -498,23 +505,23 @@
                     <div class="content-fee">
                         For any query please contact:- 8566804647, 7814216030, 9914615275
                     </div>-->
-                    @*<div class="content-fee">
-                            3. Fee need to be deposit as follow:<br />
-                            <ul style="list-style-type:circle">
-                                <li>For Class XI - Rs. 7000</li>
-                                <li>For Kindergarten - Rs. 16000</li>
-                            </ul>
-                        </div>
-                        <div class="content-fee">
-                            4. Bank Detail
-                            <ul style="list-style-type:circle">
-                                <li>School Name: HVM CONVENT SCHOOL</li>
-                                <li>Account Number: 4450002100004648</li>
-                                <li>Bank Name: Punjab National Bank (Sunder Nager branch)</li>
-                                <li>IFSC Code: PUNB0445000</li>
-                            </ul>
-                        </div>*@
-                    <!--<div class="row">
+                @*<div class="content-fee">
+                        3. Fee need to be deposit as follow:<br />
+                        <ul style="list-style-type:circle">
+                            <li>For Class XI - Rs. 7000</li>
+                            <li>For Kindergarten - Rs. 16000</li>
+                        </ul>
+                    </div>
+                    <div class="content-fee">
+                        4. Bank Detail
+                        <ul style="list-style-type:circle">
+                            <li>School Name: HVM CONVENT SCHOOL</li>
+                            <li>Account Number: 4450002100004648</li>
+                            <li>Bank Name: Punjab National Bank (Sunder Nager branch)</li>
+                            <li>IFSC Code: PUNB0445000</li>
+                        </ul>
+                    </div>*@
+                <!--<div class="row">
                         <iframe src="https://docs.google.com/gview?url=http://www.hvmsrsecschool.org/Content/Client/download/RegistrationForm.docx&amp;embedded=true" style="width:1200px; height:924px;" frameborder="0"></iframe>
                     </div>
                 </div>-->
@@ -601,6 +608,37 @@
                 autoclose: true
             });
         });
-        
+
     </script>
 }
+<!-- Trigger the Modal -->
+<img id="myImg" src="~/Content/images/20-21-Result.jpg" alt="Snow" style="display:none;width:100%;max-width:300px">
+<img id="requirement" src="~/Content/images/Requirement.jpeg" alt="Snow" style="display:none;width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- The Close Button -->
+    <span id="close1" class="close">&times;</span>
+
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+</div>
+<script type='text/javascript' src='http://skyblueenglish.co.uk/wp-content/plugins/fancybox-for-wordpress/fancybox/jquery.fancybox.js?ver=1.3.4'></script>
+<script>
+    var modal = document.getElementById("myModal");
+    var captionText = document.getElementById("caption");
+    $(window).on('load', function () {
+        modal.style.display = "block";
+        openForm();
+    });
+    function openForm() {
+        $.get('/Client/Home/FirstVisit', function (data) {
+            $('#caption').html(data);
+        });
+    }
+
+</script>
