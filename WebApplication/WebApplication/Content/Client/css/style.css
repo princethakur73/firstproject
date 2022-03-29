@@ -13674,7 +13674,6 @@ html, body {
 .news_marquee li {
 	padding:8px 10px;
 	padding-left:15px;
-	background-image:url(../images/arrow.png);
 	background-repeat:no-repeat;
 	background-position:10px 13px;
 	font-family: "Roboto", sans-serif;
