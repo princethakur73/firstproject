@@ -16,3 +16,11 @@
     margin:0;
 }
 
+.staffName {
+    padding: 10px 0 0 0;
+}
+#searchBox input {
+    padding: 5px;
+    width: 20%;
+}
+

@@ -177,12 +177,13 @@ namespace WebApplication.Repository
             return isDeleted;
         }
 
-        public List<StaffDetail> GetList(int pageNo = 1, int pageSize = 10)
+        public List<StaffDetail> GetList(string staffName="", int pageNo = 1, int pageSize = 10)
         {
             List<StaffDetail> list;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_StaffName", staffName, DbType.String);
                 param.Add("_IsCount", 0, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
@@ -199,12 +200,13 @@ namespace WebApplication.Repository
             return list;
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(string staffName = "",int pageNo = 1, int pageSize = 10)
         {
             int countTotal = 0;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_StaffName", staffName, DbType.String);
                 param.Add("_IsCount", 1, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);

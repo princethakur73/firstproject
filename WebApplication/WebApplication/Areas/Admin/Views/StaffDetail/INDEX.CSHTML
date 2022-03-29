@@ -26,6 +26,9 @@
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","StaffDetail")'">Add New</button>
                         </div>
+                        <div class="staffName" id="searchBox">
+                            <input type="text" name="staffName" id="staffName" placeholder="Enter 3 character" />
+                        </div>
                     </div>
                     <div class="box-body">
                         @Html.Partial("_Alerts")

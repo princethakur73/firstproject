@@ -3,7 +3,8 @@
 $(document).ready(function () {
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
-    $.get('/Admin/StaffDetail/GetStaffDetailList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {
+    var staffName = document.getElementById("staffName").value ?? '';
+    $.get('/Admin/StaffDetail/GetStaffDetailList', { 'staffName': staffName,'pageNumber': 1, 'pageSize': 10 }, function (data) {
 
         var templateResult = templateCompile(data);
         $('#table').html(templateResult);
@@ -46,4 +47,18 @@ $(document).on('click', 'li > a', function () {
     });
 
 
+});
+// for search the staff by name
+$('#staffName').keyup(function () {
+    var templateHtml = $('#table-list').html();
+    var templateCompile = Handlebars.compile(templateHtml);
+    var val = $(this).val().trim();
+    val = val.replace(/\s+/g, '');
+    if (val.length == 0 || val.length > 2) {
+        var staffName = this.value;
+        $.get('/Admin/StaffDetail/GetStaffDetailList', { 'staffName': staffName, 'pageNumber': 1, 'pageSize': 10 }, function (data) {
+            var templateResult = templateCompile(data);
+            $('#table').html(templateResult);
+        });
+    }
 });

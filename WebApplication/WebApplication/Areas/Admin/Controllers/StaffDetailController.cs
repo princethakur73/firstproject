@@ -223,12 +223,12 @@ namespace WebApplication.Areas.Admin.Controllers
         #region Helper
 
         [HttpGet]
-        public JsonResult GetStaffDetailList(int pageNumber, int pageSize)
+        public JsonResult GetStaffDetailList(string staffName, int pageNumber, int pageSize)
         {
             try
             {
-                var list = _StaffDetailService.GetList(pageNumber, pageSize);
-                int totalItems = _StaffDetailService.GetListCount(pageNumber, pageSize);
+                var list = _StaffDetailService.GetList(staffName,pageNumber, pageSize);
+                int totalItems = _StaffDetailService.GetListCount(staffName,pageNumber, pageSize);
 
                 var pager = new Pager(totalItems, pageNumber, pageSize);
 

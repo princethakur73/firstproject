@@ -28,7 +28,7 @@
                             <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","Gallery")'">Add New</button>
                         </div>
                         <div>                            
-                            @Html.EditorFor(model => model.SessionId, new { htmlAttributes = new { onchange = "OnChangeEvent(this)" } });
+                            @Html.EditorFor(model => model.SessionId, new { htmlAttributes = new { onchange = "OnChangeEvent(this)" } })
                         </div>
                     </div>
                     <div class="box-body">

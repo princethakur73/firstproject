@@ -87,12 +87,12 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public List<StaffDetail> GetList(int pageNo = 1, int pageSize = 10)
+        public List<StaffDetail> GetList(string staffName="",int pageNo = 1, int pageSize = 10)
         {
             List<StaffDetail> list = new List<StaffDetail>();
             try
             {
-                list = staffDetailRepository.GetList(pageNo, pageSize);
+                list = staffDetailRepository.GetList(staffName,pageNo, pageSize);
             }
             catch (System.Exception ex)
             {
@@ -123,12 +123,12 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(string staffName="", int pageNo = 1, int pageSize = 10)
         {
             int count = 0;
             try
             {
-                count = staffDetailRepository.GetListCount(pageNo, pageSize);
+                count = staffDetailRepository.GetListCount(staffName,pageNo, pageSize);
             }
             catch (System.Exception ex)
             {
