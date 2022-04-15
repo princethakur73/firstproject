@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApplication.Core;
 using WebApplication.Core.Model;
@@ -172,12 +173,12 @@ namespace WebApplication.Service
         }
         public List<DepartmentStaffModel> GetStaffList()
         {
-            List<StaffModel> list = new List<StaffModel>();
+            List<StaffModel> dblist = new List<StaffModel>();
             List<DepartmentStaffModel> departmentStaffModels = new List<DepartmentStaffModel>();
             try
              {   
-                list = staffDetailRepository.GetStaffList();
-                foreach (var item in list)
+                dblist = staffDetailRepository.GetStaffList();
+                foreach (var item in dblist)
                 {
                     if (departmentStaffModels.Exists(a=>a.Department==item.Department))
                     {
@@ -188,6 +189,7 @@ namespace WebApplication.Service
                         DepartmentStaffModel departmentStaffModel = new DepartmentStaffModel();
                         departmentStaffModel.Staff = new List<StaffModel>();
                         departmentStaffModel.Department = item.Department;
+                        departmentStaffModel.SortId = item.DSortId;
                         departmentStaffModel.Staff.Add(item);
                         departmentStaffModels.Add(departmentStaffModel);
                     }
@@ -199,7 +201,7 @@ namespace WebApplication.Service
 
                 throw new System.Exception(ex.Message);
             }
-            return departmentStaffModels;
+            return departmentStaffModels.OrderBy(a=>a.SortId).ToList();
         }
     }
 }

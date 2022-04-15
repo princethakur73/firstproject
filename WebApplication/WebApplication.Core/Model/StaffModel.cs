@@ -14,10 +14,12 @@ namespace WebApplication.Core.Model
         public string Designation { get; set; }
         public string AcadmicQualification { get; set; }
         public bool IsActive { get; set; }
+        public int DSortId { get; set; }
     }
     public class DepartmentStaffModel
     {
         public string Department { get; set; }
+        public int SortId { get; set; }
         public List<StaffModel> Staff { get; set; }
     }
 }
