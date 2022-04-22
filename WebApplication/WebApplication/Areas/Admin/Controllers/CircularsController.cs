@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -435,20 +434,7 @@ namespace WebApplication.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult PTMSchedule()
-        {
-            PageModel pageModel = new PageModel();
-            try
-            {
-                pageModel = _pageService.GetPageByMenuCode(MenuCode.PTMSchedule).ToModel();
-                return View(pageModel);
-            }
-            catch (System.Exception ex)
-            {
 
-                return View(pageModel).WithError(ex.Message);
-            }
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -783,6 +769,130 @@ namespace WebApplication.Areas.Admin.Controllers
             result = !_circularsService.IsNameExist(Name, id);
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region PTM
+        /// <summary>
+        /// initial load the PTM admin Page
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PTMSchedule()
+        {
+            return View();
+        }
+        /// <summary>
+        /// list of ptm 
+        /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetPtmList(int pageNumber, int pageSize)
+        {
+            try
+            {
+                var list = _circularsService.GetListPtm(pageNumber, pageSize);
+                int totalItems = list.Count > 0 ? list.FirstOrDefault().TotalRecords : 0;
+                var pager = new Pager(totalItems, pageNumber, pageSize);
+                var viewMOdel = new PtmViewModel()
+                {
+                    PtmModels = list.ToModel(),
+                    Pager = pager
+                };
+                return Json(viewMOdel, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+        /// <summary>
+        /// open edit ptm page
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult CreateEditPtm(int? Id)
+        {
+            PtmModel model = new PtmModel();
+            try
+            {
+                if(Id!=null)
+                model = _circularsService.GetByIdPtm(Id ?? 0).ToModel();
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.PTMSchedule())
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+        /// <summary>
+        /// create edit ptm
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEditPtm(PtmModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var obj = model.ToEntity();
+                string messare = model.Id > 0 ? "Updated Successfully!" : "Saved Successfully!";
+                obj.UserId = (int)_currentUser.User.Id;
+                if (_circularsService.SavePtm(obj) > 0)
+                {
+                    return RedirectToAction<CircularsController>(m => m.PTMSchedule())
+                                        .WithSuccess(messare);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.CreateEditPtm(model))
+                                        .WithError(ex.Message);
+            }
+            return View(model);
+        }
+        /// <summary>
+        /// detail ptm
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult DetailsPtm(int? Id)
+        {
+            PtmModel model = new PtmModel();
+            try
+            {
+                model = _circularsService.GetByIdPtm(Id).ToModel();
+            }
+            catch (System.Exception ex)
+            {
+                return RedirectToAction<CircularsController>(m => m.Index())
+                                        .WithError(ex.Message);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult DeletePtm(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = _circularsService.DeletePtmById(Id);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
         }
         #endregion
 

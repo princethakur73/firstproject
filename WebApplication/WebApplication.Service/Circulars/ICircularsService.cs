@@ -10,5 +10,12 @@ namespace WebApplication.Service
         int GetListCount(int pageNo = 1, int pageSize = 10);
 
         bool IsNameExist(string name, int id);
+
+        #region PTM
+        List<Ptm> GetListPtm(int pageNo = 1, int pageSize = 10);
+        Ptm GetByIdPtm(int? Id);
+        int SavePtm(Ptm obj);
+        bool DeletePtmById(int Id);
+        #endregion
     }
 }

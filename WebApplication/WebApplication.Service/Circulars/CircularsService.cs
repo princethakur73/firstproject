@@ -7,7 +7,7 @@ namespace WebApplication.Service
 {
     public class CircularsService : ICircularsService
     {
-        private CircularsRepository _circularsRepository;
+        private readonly CircularsRepository _circularsRepository;
         public CircularsService(CircularsRepository circularsRepository)
         {
             _circularsRepository = circularsRepository;
@@ -163,5 +163,65 @@ namespace WebApplication.Service
         {
             throw new System.NotImplementedException();
         }
+
+        #region PTM
+        public List<Ptm> GetListPtm(int pageNo = 1, int pageSize = 10)
+        {
+            List<Ptm> list = new List<Ptm>();
+            try
+            {
+                list = _circularsRepository.GetListPtm(pageNo, pageSize);
+            }
+            catch (System.Exception ex)
+            {
+
+                throw new System.Exception(ex.Message);
+            }
+            return list;
+        }
+        public Ptm GetByIdPtm(int? Id)
+        {
+            Ptm obj = new Ptm();
+            try
+            {
+                obj = _circularsRepository.GetByIdPtm(Id);
+            }
+            catch (System.Exception ex)
+            {
+
+                throw new System.Exception(ex.Message);
+            }
+
+            return obj;
+        }
+
+        public int SavePtm(Ptm obj)
+        {
+            int result = 0;
+            try
+            {
+                result = _circularsRepository.SavePTM(obj);
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            return result;
+        }
+        public bool DeletePtmById(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = _circularsRepository.DeleteByIdPtm(Id);
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+
+            return result;
+        }
+        #endregion
     }
 }

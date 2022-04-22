@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
 using WebApplication.Infrastructure;
-using WebApplication.Infrastructure.Alerts;
-using WebApplication.Models;
 using WebApplication.Service;
 
 namespace WebApplication.Areas.Client.Controllers
 {
-    
+
     public class CircularsController : WebApplicationController
     {
         private readonly IPageService _pageService;

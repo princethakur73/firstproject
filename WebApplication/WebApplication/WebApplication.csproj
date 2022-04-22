@@ -316,6 +316,7 @@
     <Compile Include="Infrastructure\Tasks\TaskRegistry.cs" />
     <Compile Include="Infrastructure\TransactionPerRequest.cs" />
     <Compile Include="Infrastructure\WebApplicationController.cs" />
+    <Compile Include="Models\PtmModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\CircularsModel.cs" />
     <Compile Include="Models\StudentAdmissionModel.cs" />
@@ -338,6 +339,7 @@
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\PtmViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="ViewModels\CircularsViewModel.cs" />
@@ -5061,6 +5063,9 @@
     <Content Include="Content\files\mandatory-disclosure\HVM CONVENT SCHOOL FEE STRUCTURE.docx" />
     <Content Include="Areas\Client\Views\Home\_Circulares.cshtml" />
     <Content Include="Areas\Client\Views\Home\_HomePage.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\CreateEditPtm.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\CreatePtm.cshtml" />
+    <Content Include="Areas\Admin\Views\Circulars\DetailsPtm.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -5071,6 +5076,7 @@
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-helper.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\jquery.blueimp-gallery.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Circulars\ptm.js" />
     <Content Include="Scripts\comman\pager.js" />
     <Content Include="Scripts\ClassMaster\ClassMaster.js" />
     <Content Include="Scripts\DepartmentMaster\DepartmentMaster.js" />

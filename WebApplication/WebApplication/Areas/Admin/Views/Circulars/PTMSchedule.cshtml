@@ -1,91 +1,88 @@
-﻿@model WebApplication.Models.PageModel
-@{
-    ViewBag.Title = Model.Title;
+﻿@{
+    ViewBag.Title = "PTM Schedule";
+    ViewBag.SubTitle = "List";
 }
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            @Model.Title
+            @ViewBag.Title
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Circulars</a></li>
-            <li><a href="#">    @Model.Title</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> PTM Schedule</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
         </ol>
     </section>
-    <!-- Main content -->
+    <!-- Content Header (Page header) -->
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("PTMSchedule", "Circulars", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", Id = "Entry-form" }))
-                {
-                    @Html.HiddenFor(model => model.Id)
-                    @Html.AntiForgeryToken()
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#page" data-toggle="tab" aria-expanded="false">Page<div class="ripple-container"></div></a></li>
-                            <li class=""><a href="#seo" data-toggle="tab" aria-expanded="false">Seo <div class="ripple-container"></div></a></li>
 
-                            <li class="pull-right">
-                                <button type="submit" style="margin:3px 3px 0 3px!important" class="btn bg-olive btn-flat margin btn-sm">
-                                    Save
-                                    <div class="ripple-container"></div>
-                                </button>
-                                @*<a href="#" class="text-muted">
-                                        <i class="fa fa-gear"></i>
-                                        <div class="ripple-container">
-                                        </div>
-                                    </a>*@
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="page">
-                                @Html.Partial("_Alerts")
-
-                                <div class="form-group">
-                                    <label for="title">Title</label>
-                                    @Html.EditorFor(model => model.Title)
-                                    @*<input type="email" class="form-control" id="title" placeholder="Enter email">*@
-                                </div>
-                                <div class="form-group">
-                                    <label>Contents</label>
-                                    @Html.EditorFor(model => model.Contents)
-                                </div>
-
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="seo">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Seo</label>
-                                    @Html.EditorFor(model => model.Seo)
-                                </div>
-                                <div class="form-group">
-                                    <label>Meta Title</label>
-                                    @Html.EditorFor(model => model.MetaTitle)
-                                </div>
-                                <!-- textarea -->
-                                <div class="form-group">
-                                    <label>Meta Keywords</label>
-                                    @Html.EditorFor(model => model.MetaKeywords)
-                                </div>
-                                <div class="form-group">
-                                    <label>Meta Description</label>
-                                    @Html.EditorFor(model => model.MetaDescription)
-                                </div>
-                            </div>
-                            <!-- /.tab-pane -->
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">PTM Schedule List</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("CreateEditPtm","Circulars")'">Add New</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        @Html.Partial("_Alerts")
+                        <div id="alert">
 
                         </div>
-                        <!-- /.tab-content -->
+                        <div id="table">
+
+                        </div>
                     </div>
-                }
+                </div>
             </div>
-            <!-- /.col-->
         </div>
-        <!-- ./row -->
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
+@section scripts
+{
+    <script src="~/Scripts/handlebars-v4.0.11.js"></script>
+    <script src="~/Scripts/comman/pager.js"></script>
+    <script id="table-list" type="text/x-handlebars-template">
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Title</th>
+                    <th>Class</th>
+                    <th>Time</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each PtmModels}}
+                <tr class="row-command">
+                    <td>{{Month}}</td>
+                    <td>{{Title}}</td>
+                    <td>{{Class}}</td>
+                    <td>{{Time}}</td>
+                    <td></td>
+                    <td>
+                        <div class="pull-right">
+                            <button type="button" class="btn bg-blue btn-sm" onclick="location.href='/Admin/Circulars/CreateEditPtm/{{Id}}'"><i class="fa fa-file-text-o"> </i> Edit</button>
+                            <button type="button" class="btn bg-purple-active btn-sm" onclick="location.href = '/Admin/Circulars/DetailsPtm/{{Id}}'"><i class="fa fa-eye"> </i> View</button>
+                            <button type="button" class="btn bg-red-active btn-sm delete" data-id="{{Id}}"><i class="fa fa-trash-o"> </i> Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="5"><p class="text-center text-info">Record not found.</p></td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <!-- pager -->
+        {{#list Pager}}
+        {{/list}}
+
+    </script>
+    <script src="~/Scripts/Circulars/Ptm.js"></script>
+
+}

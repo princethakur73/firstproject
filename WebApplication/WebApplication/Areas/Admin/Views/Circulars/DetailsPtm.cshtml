@@ -1,0 +1,85 @@
+﻿@model WebApplication.Models.PtmModel
+@{
+    ViewBag.Title = "PTM Schedule";
+    ViewBag.SubTitle = "Detail";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> PTM Schedule</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">School Circulars</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("CreateEditPtm","Circulars",new {Id=Model.Id })'">Edit</button>
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("PTMSchedule","Circulars")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+
+                            <div class="col-md-8">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Month <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Month</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Title <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Title</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Class <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Class</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Time <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.Time</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Sort Id <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.SortId</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Is Active <span class="text-red">*</span> </label>
+                                        <div class="col-md-6">
+                                            <p class="form-control-static">@Model.IsActive</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

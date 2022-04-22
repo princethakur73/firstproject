@@ -1,0 +1,116 @@
+﻿@model WebApplication.Models.PtmModel
+
+@{
+    ViewBag.Title = "PTM Schedule";
+    ViewBag.SubTitle = "Create";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> PTM Schedule</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">PTM Schedule</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("PTMSchedule","Circulars")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+                            @using (Html.BeginForm("EditPtm", "Circulars", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(m=>m.Id)
+                                <div class="col-md-8">
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Month <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Month)
+                                                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Title <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Title)
+                                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Class <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Class)
+                                                @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Time <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Time)
+                                                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Sort Id <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.SortId)
+                                                @Html.ValidationMessageFor(model => model.SortId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Is Active <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.IsActive)
+                                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4 col-md-8">
+                                                <input type="submit" value="Save" id="save" class="btn bg-olive btn-flat margin" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Admin/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script>
+
+        $('#Entry-form').submit(function () {
+
+            if ($('#Entry-form').valid()) {
+                $('#save').prop('disabled', true);
+            }
+        });
+    </script>
+}
