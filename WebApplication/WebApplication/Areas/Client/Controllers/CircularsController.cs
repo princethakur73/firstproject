@@ -90,7 +90,8 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("ptm-schedule")]
         public ActionResult PTMSchedule()
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.PTMSchedule).ToModel();
+            var list = _circularsService.GetListPtm(1, 100);
+            var model = list.ToModel();
             return View("~/Areas/Client/Views/Circulars/PTMSchedule.cshtml", model);
         }
 
