@@ -6,8 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\mspl\HVM</_PublishTargetUrl>
-    <History>True|2022-03-29T13:08:56.9891349Z;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
+    <_PublishTargetUrl>C:\Users\princ\OneDrive\Desktop\build</_PublishTargetUrl>
+    <History>False|2022-08-04T12:32:51.2922769Z;True|2022-03-29T18:38:56.9891349+05:30;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -83,7 +83,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admission/Details.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>08/01/2022 16:50:45</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admission/FeeStructure.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -100,8 +100,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Circulars/Create.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Circulars/CreateEditPtm.cshtml">
+      <publishTime>04/22/2022 17:59:52</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Circulars/CreatePtm.cshtml">
+      <publishTime>04/19/2022 19:33:56</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/Circulars/Details.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Circulars/DetailsPtm.cshtml">
+      <publishTime>04/22/2022 19:09:14</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/Edit.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -119,7 +128,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/PTMSchedule.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>05/02/2022 19:57:32</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/SchoolCirculars.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -222,6 +231,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Areas/Admin/Views/Home/PressMedia.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/Upload.cshtml">
+      <publishTime>08/04/2022 16:46:21</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/_Files.cshtml">
+      <publishTime>08/04/2022 17:58:56</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Member/Create.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -431,10 +446,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/PTMSchedule.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>05/03/2022 19:24:23</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolCirculars.cshtml">
-      <publishTime>03/29/2022 16:12:11</publishTime>
+      <publishTime>04/19/2022 15:49:42</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolDiary.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -443,7 +458,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/Syllabus.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>07/20/2022 11:14:19</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/TeachingMethodology.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -506,7 +521,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Shared/_Layout.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>04/19/2022 15:45:02</publishTime>
     </File>
     <File Include="Areas/Client/Views/Student/ActivitiesEvents.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -1121,31 +1136,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2021 14:18:25</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>04/11/2022 17:59:49</publishTime>
+      <publishTime>08/04/2022 18:02:30</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>04/11/2022 17:59:49</publishTime>
+      <publishTime>08/04/2022 18:02:30</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>04/15/2022 11:11:46</publishTime>
+      <publishTime>08/04/2022 18:06:57</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>04/15/2022 11:11:46</publishTime>
+      <publishTime>08/04/2022 18:06:57</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>04/11/2022 17:59:50</publishTime>
+      <publishTime>08/04/2022 18:02:31</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>04/11/2022 17:59:50</publishTime>
+      <publishTime>08/04/2022 18:02:31</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>04/15/2022 11:11:35</publishTime>
+      <publishTime>08/04/2022 18:02:31</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>04/15/2022 11:11:35</publishTime>
+      <publishTime>08/04/2022 18:02:31</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/14/2022 13:44:38</publishTime>
@@ -5102,7 +5117,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:29</publishTime>
     </File>
     <File Include="Content/Client/Index/Index.css">
-      <publishTime>03/14/2022 13:44:28</publishTime>
+      <publishTime>07/18/2022 18:21:27</publishTime>
     </File>
     <File Include="Content/Client/js/assets/bootstrap.min.js">
       <publishTime>03/14/2022 13:44:29</publishTime>
@@ -14751,6 +14766,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/Circulars/Circulars.js">
       <publishTime>03/14/2022 13:44:36</publishTime>
+    </File>
+    <File Include="Scripts/Circulars/ptm.js">
+      <publishTime>04/22/2022 19:27:12</publishTime>
     </File>
     <File Include="Scripts/ClassMaster/ClassMaster.js">
       <publishTime>03/14/2022 13:44:36</publishTime>

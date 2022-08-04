@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using WebApplication.Core;
 using WebApplication.Repository;
 
@@ -168,6 +169,16 @@ namespace WebApplication.Service
         public Task<News> SaveAsync(News obj)
         {
             throw new System.NotImplementedException();
+        }
+
+        public List<ViewDataUploadFilesResult> Upload(HttpContextBase httpContext, string path)
+        {
+            var resultList = new List<ViewDataUploadFilesResult>();
+            List<ViewDataUploadFilesResult> list = new List<ViewDataUploadFilesResult>();
+            FilesHelper photoFilesHelper = new FilesHelper(path);
+            var CurrentContext = httpContext;
+            photoFilesHelper.UploadFiles(CurrentContext, resultList, new string[] { ".jpeg", ".jpg", ".png" });
+            return resultList;
         }
     }
 }

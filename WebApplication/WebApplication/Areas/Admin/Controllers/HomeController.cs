@@ -1,19 +1,23 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using WebApplication.Area.Admin.Models;
+using WebApplication.Core;
 using WebApplication.Infrastructure;
 using WebApplication.Service;
 
 namespace WebApplication.Areas.Admin.Controllers
 {
     [Authorize]
-    public class HomeController : Controller
+    public class HomeController : WebApplicationController
     {
-        private ICurrentUser currentUser;
-        private INewsService newsService;
-        public HomeController(ICurrentUser _currentUser,
-                            INewsService _newsService)
+        private ICurrentUser _currentUser;
+        private INewsService _newsService;
+        public HomeController(ICurrentUser currentUser,
+                            INewsService newsService)
         {
-            currentUser = _currentUser;
-            newsService = _newsService;
+            _currentUser = currentUser;
+            _newsService = newsService;
         }
 
         public ActionResult Dashboard()
@@ -49,6 +53,37 @@ namespace WebApplication.Areas.Admin.Controllers
         public ActionResult PressMedia()
         {
             return View();
+        }
+
+        public ActionResult Upload()
+        {
+            return View(new FileModel() { Type = "Upload" });
+        }
+
+        [HttpPost]
+        public ActionResult Upload(string path)
+        {
+            List<ViewDataUploadFilesResult> resultList = new List<ViewDataUploadFilesResult>();
+            try
+            {
+                resultList = _newsService.Upload(HttpContext, path);
+                JsonFiles files = new JsonFiles(resultList);
+                bool isEmpty = !resultList.Any();
+                if (isEmpty)
+                {
+                    return JsonError("Error ");
+                }
+                else
+                {
+                    return JsonSuccess(files);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                resultList.ForEach(m => m.error = ex.Message);
+                JsonFiles files = new JsonFiles(resultList);
+                return JsonSuccess(files);
+            }
         }
     }
 }

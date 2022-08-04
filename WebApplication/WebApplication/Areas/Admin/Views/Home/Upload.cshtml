@@ -1,0 +1,69 @@
+﻿@model WebApplication.Area.Admin.Models.FileModel
+@{
+    ViewBag.Title = "Image Upload";
+    ViewBag.SubTitle = "Upload";
+}
+<!-- blueimp File Upload & Gallery styles -->
+@Styles.Render("~/Content/jQuery-File-Upload")
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Upload</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Photos</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Gallery")'">Back To List</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            @Html.Partial("_Alerts")
+
+                            <div class="col-md-12">
+
+                                <script>
+                                    var $form = null;
+                                    $(function () {
+                                        $form = $('#fileupload').fileupload({
+                                            dataType: 'json'
+                                        });
+                                    });
+                                    $('#fileupload').addClass('fileupload-processing');
+                                </script>
+                                @Html.Partial("_Files", Model)
+                                @Scripts.Render("~/bundles/jQuery-File-Upload")
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script>
+            $('#Entry-form').submit(function () {
+                if ($('#Entry-form').valid()) {
+                    $('#save').prop('disabled', true);
+                }
+            });
+
+        </script>*@
+}

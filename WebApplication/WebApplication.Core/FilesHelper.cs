@@ -19,6 +19,7 @@ namespace WebApplication.Core
         String tempPath = null;
         //ex:"~/Files/something/";
         String serverMapPath = null;
+        string path = null;
         public FilesHelper(String DeleteURL, String DeleteType, String StorageRoot, String UrlBase, String tempPath, String serverMapPath)
         {
             this.DeleteURL = DeleteURL;
@@ -27,6 +28,10 @@ namespace WebApplication.Core
             this.UrlBase = UrlBase;
             this.tempPath = tempPath;
             this.serverMapPath = serverMapPath;
+        }
+        public FilesHelper(string path)
+        {
+            this.path = path;
         }
 
         public void DeleteFiles(String pathToDelete)
@@ -313,6 +318,34 @@ namespace WebApplication.Core
 
             }
             return Filess;
+        }
+
+        public void UploadFiles(HttpContextBase requestContext, List<ViewDataUploadFilesResult> statuses, string[] fileExtensions = null)
+        {
+
+            var request = requestContext.Request;
+            string error = null;
+            string path = HostingEnvironment.MapPath(this.path);
+            UrlBase = this.path;
+            System.Diagnostics.Debug.WriteLine(path);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            for (int i = 0; i < request.Files.Count; i++)
+            {
+                var file = request.Files[i];
+                if (!fileExtensions.Contains(Path.GetExtension(file.FileName.ToLower())))
+                {
+                    error = "file not support.";
+                    statuses.Add(UploadResult(file.FileName, file.ContentLength, file.FileName, entityId: 0, GUID: null, error: error));
+                    continue;
+                }
+
+                var fullPath = Path.Combine(path, file.FileName);
+                file.SaveAs(fullPath);
+                statuses.Add(UploadResult(file.FileName, file.ContentLength, file.FileName, 0, Path.GetFileNameWithoutExtension(fullPath), error));
+            }
         }
     }
 
