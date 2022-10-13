@@ -12,12 +12,12 @@ namespace WebApplication.Helper
         {
             try
             {
-                var senderEmail = new MailAddress("mdsahir48@gmail.com", "HVM Support");
-                var password = "9K6c+bTV";
+                var senderEmail = new MailAddress("noreply@hvmsrsecschool.org", "HVM Support");
+                var password = "Welcome@007";
 
                 MailDefinition md = new MailDefinition
                 {
-                    From = "mdsahir48@gmail.com",
+                    From = "noreply@hvmsrsecschool.org",
                     IsBodyHtml = true,
                     Subject = string.Format("Contact {0}", Name),
                     Priority = MailPriority.High
@@ -39,11 +39,11 @@ namespace WebApplication.Helper
 
                 using (SmtpClient client = new SmtpClient())
                 {
-                    client.Host = "smtp.gmail.com";
-                    client.Port = 587;
+                    client.Host = "mail.hvmsrsecschool.org";
+                    client.Port = 25;
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.UseDefaultCredentials = false;
-                    client.EnableSsl = true;
+                    client.EnableSsl = false;
                     client.Credentials = new NetworkCredential(senderEmail.Address, password);
                     client.Send(msg);
                 }
