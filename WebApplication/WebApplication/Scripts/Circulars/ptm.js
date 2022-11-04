@@ -13,11 +13,13 @@ $(document).ready(function () {
     });
 });
 function getMonthYear(d) {
+    debugger
     var subStr = parseInt(d.substr(6));
     var dt = new Date(subStr);
+    var d = dt.getDate();
     var dtm = dt.toLocaleString('default', { month: 'long' });
     var dty = dt.getFullYear();
-    return dtm + " " + dty
+    return d + " " + dtm + " " + dty
 }
 $(document).on('click', 'table > tbody > tr > td > .pull-right > .delete', function () {
 
