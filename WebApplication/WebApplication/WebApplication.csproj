@@ -221,6 +221,7 @@
     <Compile Include="Areas\Admin\Controllers\DepartmentMasterController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClassMasterController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DatesheetController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DownloadsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
@@ -257,6 +258,7 @@
     <Compile Include="Extensions\ContactUsExtension.cs" />
     <Compile Include="Extensions\CircularsExtension.cs" />
     <Compile Include="Extensions\AdmissionExtension.cs" />
+    <Compile Include="Extensions\DatesheetExtension.cs" />
     <Compile Include="Extensions\TransferCertificateExtension.cs" />
     <Compile Include="Extensions\DownloadsExtension.cs" />
     <Compile Include="Extensions\NewsExtension.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="Infrastructure\Tasks\TaskRegistry.cs" />
     <Compile Include="Infrastructure\TransactionPerRequest.cs" />
     <Compile Include="Infrastructure\WebApplicationController.cs" />
+    <Compile Include="Models\DatesheetModel.cs" />
     <Compile Include="Models\PtmModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\CircularsModel.cs" />
@@ -339,6 +342,7 @@
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\DatesheetViewModel.cs" />
     <Compile Include="ViewModels\PtmViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -1799,6 +1803,7 @@
     <Content Include="Content\Free-file-icons\512px\_blank.png" />
     <Content Include="Content\Free-file-icons\512px\_page.png" />
     <Content Include="Content\Free-file-icons\icons.png" />
+    <Content Include="Content\images\22-23-Add.jpg" />
     <Content Include="Content\images\add-image.jpg" />
     <Content Include="Content\images\header-background.jpg" />
     <Content Include="Content\images\img_947.png" />
@@ -5068,6 +5073,10 @@
     <Content Include="Areas\Admin\Views\Circulars\DetailsPtm.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Upload.cshtml" />
     <Content Include="Areas\Admin\Views\Home\_Files.cshtml" />
+    <Content Include="Areas\Admin\Views\Datesheet\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Datesheet\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Datesheet\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Datesheet\Details.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -5084,6 +5093,7 @@
     <Content Include="Scripts\DepartmentMaster\DepartmentMaster.js" />
     <Content Include="Scripts\jquery.Jcrop.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
+    <Content Include="Scripts\Datesheet\Datesheet.js" />
     <Content Include="Scripts\News\News.js" />
     <Content Include="Scripts\Downloads\Dlownloads.js" />
     <Content Include="Scripts\OurInfrastructure\OurInfrastruture.js" />

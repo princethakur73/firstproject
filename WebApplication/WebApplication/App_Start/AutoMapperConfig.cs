@@ -29,6 +29,7 @@ namespace WebApplication
                 config.CreateMap<DepartmentMaster, DepartmentModel>().ReverseMap();
                 config.CreateMap<StudentAdmission, StudentAdmissionModel>().ReverseMap();
                 config.CreateMap<Ptm, PtmModel>().ReverseMap();
+                config.CreateMap<Datesheet, DatesheetModel>().ReverseMap();
             });
         }
     }

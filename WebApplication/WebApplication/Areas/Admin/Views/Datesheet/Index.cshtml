@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Datesheet";
+    ViewBag.SubTitle = "List";
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @ViewBag.Title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Datesheet</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
+        </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Datesheet List</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","Datesheet")'">Add New</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        @Html.Partial("_Alerts")
+                        <div id="alert">
+
+                        </div>
+                        <div id="table">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script src="~/Scripts/handlebars-v4.0.11.js"></script>
+    <script src="~/Scripts/comman/pager.js"></script>
+    <script id="table-list" type="text/x-handlebars-template">
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>FileName</th>
+                    <th>Session</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each DatesheetModels}}
+                <tr class="row-command">
+                    <td>{{FileName}}</td>
+                    <td>{{Session}}</td>
+                    <td>
+                        <div class="pull-right">
+                            <button type="button" class="btn bg-blue btn-sm" onclick="location.href='/Admin/Datesheet/Edit/{{Id}}'"><i class="fa fa-file-text-o"> </i> Edit</button>
+                            <button type="button" class="btn bg-purple-active btn-sm" onclick="location.href = '/Admin/Datesheet/Details/{{Id}}'"><i class="fa fa-eye"> </i> View</button>
+                            <button type="button" class="btn bg-red-active btn-sm delete" data-id="{{Id}}"><i class="fa fa-trash-o"> </i> Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="5"><p class="text-center text-info">Record not found.</p></td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <!-- pager -->
+        {{#list Pager}}
+        {{/list}}
+
+    </script>
+    <script src="~/Scripts/Datesheet/Datesheet.js"></script>
+}

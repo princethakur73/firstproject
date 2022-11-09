@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datesheet\IDatesheetService.cs" />
+    <Compile Include="Datesheet\DatesheetService.cs" />
     <Compile Include="DepartmentMaster\DepartmentMasterService.cs" />
     <Compile Include="DepartmentMaster\IDepartmentMasterService.cs" />
     <Compile Include="Downloads\IDownloadsService.cs" />
@@ -94,6 +96,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

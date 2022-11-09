@@ -1,10 +1,20 @@
-﻿@model WebApplication.Models.PageModel
+﻿@model WebApplication.Models.DatesheetModel
 
 @section seo
 {
-    <meta name="description" content="@Model.MetaDescription">
-    <meta name="keywords" content="@Model.MetaKeywords">
+    @*<meta name="description" content="@Model.MetaDescription">
+        <meta name="keywords" content="@Model.MetaKeywords">*@
 }
+<style>
+    .dd {
+        padding: 10px;
+        /*text-align: center;*/
+    }
+    .dd > select {
+        height: 30px;
+        width: 150px;
+    }
+</style>
 <!--============================
        About Page Header
    =============================-->
@@ -12,10 +22,10 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>@Model.Title</h1>
+                <h1>Datesheet</h1>
                 <ul class="list-unstyled">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="active">@Model.Title</li>
+                    <li class="active">Datesheet</li>
                 </ul>
             </div>
         </div>
@@ -31,9 +41,30 @@
             <div class="col-md-3 col-sm-12 ">
                 @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 2)
             </div>
-            <div class="col-sm-9">
-                @Html.Raw(Model.Contents)
+            <div class="col-md-9 col-sm-12 dd">
+                <h2>Datesheet</h2>
+                @Html.DropDownListFor(o=>o.Id, (List<SelectListItem>)ViewBag.dd, "Please select", new { @id = "sessiondd" })
             </div>
+            @if (Model != null && !string.IsNullOrEmpty(Model.FileName))
+            {
+                <div class="col-sm-9">
+                    <iframe src="~/Content/files/Datesheet/@Model.FileName" style="width:924px; min-height:600px;" frameborder="0"></iframe>
+                    @*@Html.Raw(Model.Contents)*@
+                </div>
+            }
         </div>
     </div>
 </section>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $("body").on("change", "#sessiondd", function () {
+        var query = new URLSearchParams();
+        query.append("id", $(this).val());
+        window.location.href =
+            "http://" +
+            window.location.host +
+            window.location.pathname +
+            '?' + query;
+        alert(window.location.href);
+    });
+</script>

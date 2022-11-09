@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using WebApplication.Core.Common;
+using WebApplication.Infrastructure;
+using WebApplication.Models;
 using WebApplication.Service;
 
 namespace WebApplication.Areas.Client.Controllers
@@ -7,16 +10,32 @@ namespace WebApplication.Areas.Client.Controllers
     public class AcademicsController : Controller
     {
         private IPageService _pageService;
-        public AcademicsController(IPageService pageService)
+        private IDatesheetService _datesheetService;
+        private ICurrentUser _currentUser;
+        public AcademicsController(IPageService pageService, IDatesheetService datesheetService, ICurrentUser currentUser)
         {
             _pageService = pageService;
+            _datesheetService = datesheetService;
+            _currentUser = currentUser;
         }
 
         [Route("datesheet")]
-        public ActionResult DateSheet()
+        public ActionResult DateSheet(int? id)
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.DateSheet).ToModel();
-
+            DatesheetModel model = new DatesheetModel();
+            try
+            {
+                var list = _datesheetService.GetList(1, 20);
+                if (list.Any())
+                {
+                    ViewBag.dd = list.Where(a => a.IsActive).Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Session.ToString("MMM yyy") }).ToList();
+                    model = _datesheetService.GetById(id ?? 0, _currentUser.User.Id).ToModel();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return View("~/Areas/Client/Views/Academics/DateSheet.cshtml", model);
+            }
             return View("~/Areas/Client/Views/Academics/DateSheet.cshtml", model);
         }
 
