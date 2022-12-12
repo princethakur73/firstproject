@@ -14,13 +14,13 @@ using WebApplication.ViewModels;
 namespace WebApplication.Areas.Admin.Controllers
 {
     [Authorize]
-    public class DatesheetController : WebApplicationController
+    public class TimetableController : WebApplicationController
     {
         private IFileService _fileService;
         private ICurrentUser _currentUser;
         private ICommonService _commonService;
 
-        public DatesheetController(IFileService fileService,
+        public TimetableController(IFileService fileService,
             ICurrentUser currentUser,
             ICommonService commonService)
         {
@@ -38,7 +38,7 @@ namespace WebApplication.Areas.Admin.Controllers
         public ActionResult Create()
         {
             FileTypeModel model = new FileTypeModel();
-            model.Type = (int)FiletypeEnum.Datesheet;
+            model.Type = (int)FiletypeEnum.Timetable;
             return View(model);
         }
 
@@ -62,7 +62,7 @@ namespace WebApplication.Areas.Admin.Controllers
                     {
                         string fileName = Path.GetFileNameWithoutExtension(file.FileName).ToLowerInvariant().Replace(' ', '-') + "-" + model.Session.Date.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);
 
-                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/datesheet/"), fileName));
+                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/timetable/"), fileName));
 
                         obj.FileName = fileName;
                         model.FileName = fileName;
@@ -75,7 +75,7 @@ namespace WebApplication.Areas.Admin.Controllers
 
                 if (_fileService.Save(obj) > 0)
                 {
-                    return RedirectToAction<DatesheetController>(m => m.Index())
+                    return RedirectToAction<TimetableController>(m => m.Index())
                                         .WithSuccess("Saved Successfully!");
                 }
 
@@ -98,7 +98,7 @@ namespace WebApplication.Areas.Admin.Controllers
             }
             catch (System.Exception ex)
             {
-                return RedirectToAction<DatesheetController>(m => m.Index())
+                return RedirectToAction<TimetableController>(m => m.Index())
                                         .WithError(ex.Message);
             }
 
@@ -117,23 +117,23 @@ namespace WebApplication.Areas.Admin.Controllers
                 {
                     return View(model);
                 }
-                if (!Directory.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"))))
+                if (!Directory.Exists(string.Concat(Server.MapPath("~/Content/files/timetable/"))))
                 {
-                    Directory.CreateDirectory(string.Concat(Server.MapPath("~/Content/files/datesheet/")));
+                    Directory.CreateDirectory(string.Concat(Server.MapPath("~/Content/files/timetable/")));
                 }
                 var obj = model.ToEntity();
                 if (file != null)
                 {
                     if (file.ContentLength > 0)
                     {
-                        if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName)))
+                        if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/timetable/"), model.FileName)))
                         {
-                            System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName));
+                            System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/timetable/"), model.FileName));
                         }
 
                         string fileName = Path.GetFileNameWithoutExtension(file.FileName).ToLowerInvariant().Replace(' ', '-') + "-" + model.Session.Date.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);
 
-                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/datesheet/"), fileName));
+                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/timetable/"), fileName));
 
                         obj.FileName = fileName;
                         model.FileName = fileName;
@@ -142,9 +142,9 @@ namespace WebApplication.Areas.Admin.Controllers
                 }
                 if (model.IsRemoveFile)
                 {
-                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName)))
+                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/timetable/"), model.FileName)))
                     {
-                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName));
+                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/timetable/"), model.FileName));
                     }
 
                     model.FileName = null;
@@ -158,13 +158,13 @@ namespace WebApplication.Areas.Admin.Controllers
 
                 if (_fileService.Save(obj) > 0)
                 {
-                    return RedirectToAction<DatesheetController>(m => m.Index())
+                    return RedirectToAction<TimetableController>(m => m.Index())
                                         .WithSuccess("Updated Successfully!");
                 }
             }
             catch (System.Exception ex)
             {
-                return RedirectToAction<DatesheetController>(m => m.Edit(model))
+                return RedirectToAction<TimetableController>(m => m.Edit(model))
                                         .WithError(ex.Message);
             }
 
@@ -180,7 +180,7 @@ namespace WebApplication.Areas.Admin.Controllers
             }
             catch (System.Exception ex)
             {
-                return RedirectToAction<DatesheetController>(m => m.Index())
+                return RedirectToAction<TimetableController>(m => m.Index())
                                         .WithError(ex.Message);
             }
 
@@ -194,16 +194,16 @@ namespace WebApplication.Areas.Admin.Controllers
             {
                 if (Id == null)
                 {
-                    return RedirectToAction<DatesheetController>(m => m.Index())
+                    return RedirectToAction<TimetableController>(m => m.Index())
                         .WithError("Unable to delete, record is already in use.");
                 }
                 var data = _fileService.GetById(Id ?? 0, _currentUser.User.Id);
                 result = _fileService.DeleteById(Id ?? 0, _currentUser.User.Id);
                 if (result)
                 {
-                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"), data.FileName)))
+                    if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/timetable/"), data.FileName)))
                     {
-                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/datesheet/"), data.FileName));
+                        System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/timetable/"), data.FileName));
                     }
                 }
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -218,12 +218,12 @@ namespace WebApplication.Areas.Admin.Controllers
         #region Helper
 
         [HttpGet]
-        public JsonResult GetDatesheetList(int pageNumber, int pageSize)
+        public JsonResult GetTimetableList(int pageNumber, int pageSize)
         {
             try
             {
-                var list = _fileService.GetList(pageNumber, pageSize, (int)FiletypeEnum.Datesheet);
-                int totalItems = _fileService.GetListCount(pageNumber, pageSize, (int)FiletypeEnum.Datesheet);
+                var list = _fileService.GetList(pageNumber, pageSize, (int)FiletypeEnum.Timetable);
+                int totalItems = _fileService.GetListCount(pageNumber, pageSize, (int)FiletypeEnum.Timetable);
 
                 var pager = new Pager(totalItems, pageNumber, pageSize);
 

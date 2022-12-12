@@ -4,9 +4,9 @@ using WebApplication.Models;
 
 namespace WebApplication.ViewModels
 {
-    public class DatesheetViewModel
+    public class FileViewModel
     {
-        public List<DatesheetModel> DatesheetModels { get; set; }
+        public List<FileTypeModel> FileModels { get; set; }
 
         public Pager Pager { get; set; }
     }

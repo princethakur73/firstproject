@@ -1,8 +1,8 @@
 ﻿@model WebApplication.Models.FileTypeModel
 
 @{
-    ViewBag.Title = "Datesheet";
-    ViewBag.SubTitle = "Add New";
+    ViewBag.Title = "Timetable";
+    ViewBag.SubTitle = "Edit";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -12,8 +12,8 @@
             @ViewBag.Title
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Datesheet</a></li>
-            <li><a href="#">@ViewBag.SubTitle</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Timetable</a></li>
+            <li><a href="#">    @ViewBag.SubTitle</a></li>
         </ol>
     </section>
     <!-- Content Header (Page header) -->
@@ -22,25 +22,24 @@
             <div class="col-md-12">
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Datesheet</h3>
+                        <h3 class="box-title">Timetable</h3>
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Datesheet")'">Back To List</button>
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Timetable")'">Back To List</button>
                         </div>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             @Html.Partial("_Alerts")
-                            @using (Html.BeginForm("Create", "Datesheet", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("Edit", "Timetable", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
-                                @Html.HiddenFor(a => a.Type);
+                                @Html.HiddenFor(m => m.Id)
                                 <div class="col-md-12">
                                     <div class="form-horizontal">
                                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Session <span class="text-red">*</span> </label>
+                                            <label class="col-md-3 control-label">Date <span class="text-red">*</span> </label>
                                             <div class="col-md-6">
                                                 @Html.EditorFor(model => model.Session)
                                                 @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
@@ -50,16 +49,15 @@
                                             <label class="col-md-3 control-label">File </label>
                                             <div class="col-md-6">
                                                 @Html.TextBox("file", null, new { @class = "form-control", type = "file" })
+                                                @Html.HiddenFor(model => model.FileName)
+                                                @if (!string.IsNullOrEmpty(Model.FileName))
+                                                {
+                                                    <span><a target="_blank" href="~/Content/files/timetable/@Model.FileName">Download</a></span> <span style="margin-left:10px">@Html.EditorFor(model => model.IsRemoveFile) Remove</span>
+
+                                                }
                                                 @Html.ValidationMessageFor(model => model.FileName, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-                                        @*<div class="form-group">
-                                            <label class="col-md-3 control-label">Type <span class="text-red">*</span> </label>
-                                            <div class="col-md-6">
-                                                @Html.DropDownListFor(model => model.Type, Model.FileTypeList, "Please select");
-                                                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>*@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Is Publish <span class="text-red">*</span> </label>
                                             <div class="col-md-6">
@@ -93,7 +91,6 @@
     <script>
 
         $('#Entry-form').submit(function () {
-
             if ($('#Entry-form').valid()) {
                 $('#save').prop('disabled', true);
             }

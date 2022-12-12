@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
+using WebApplication.EnumHelper;
 using WebApplication.Infrastructure;
 using WebApplication.Models;
 using WebApplication.Service;
@@ -10,9 +11,9 @@ namespace WebApplication.Areas.Client.Controllers
     public class AcademicsController : Controller
     {
         private IPageService _pageService;
-        private IDatesheetService _datesheetService;
+        private IFileService _datesheetService;
         private ICurrentUser _currentUser;
-        public AcademicsController(IPageService pageService, IDatesheetService datesheetService, ICurrentUser currentUser)
+        public AcademicsController(IPageService pageService, IFileService datesheetService, ICurrentUser currentUser)
         {
             _pageService = pageService;
             _datesheetService = datesheetService;
@@ -22,10 +23,10 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("datesheet")]
         public ActionResult DateSheet(int? id)
         {
-            DatesheetModel model = new DatesheetModel();
+            FileTypeModel model = new FileTypeModel();
             try
             {
-                var list = _datesheetService.GetList(1, 20);
+                var list = _datesheetService.GetList(1, 20,(int)FiletypeEnum.Datesheet);
                 if (list.Any())
                 {
                     ViewBag.dd = list.Where(a => a.IsActive).Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Session.ToString("MMM yyy") }).ToList();

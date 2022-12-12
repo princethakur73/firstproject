@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace WebApplication.Models
 {
-    public class DatesheetModel
+    public class FileTypeModel
     {
         public int Id { get; set; }
         public DateTime Session { get; set; }
@@ -15,6 +17,7 @@ namespace WebApplication.Models
         public int CreateByUserId { get; set; }
         public DateTime ModifyByDate { get; set; }
         public int ModifyByUserId { get; set; }
+        public int Type { get; set; }
 
     }
 }

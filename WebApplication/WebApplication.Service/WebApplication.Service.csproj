@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datesheet\IDatesheetService.cs" />
-    <Compile Include="Datesheet\DatesheetService.cs" />
+    <Compile Include="Datesheet\IFileService.cs" />
+    <Compile Include="Datesheet\FileService.cs" />
     <Compile Include="DepartmentMaster\DepartmentMasterService.cs" />
     <Compile Include="DepartmentMaster\IDepartmentMasterService.cs" />
     <Compile Include="Downloads\IDownloadsService.cs" />

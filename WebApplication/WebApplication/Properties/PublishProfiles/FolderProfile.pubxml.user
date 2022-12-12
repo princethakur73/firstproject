@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\princ\OneDrive\Desktop\build</_PublishTargetUrl>
-    <History>True|2022-10-13T10:50:43.8336767Z;False|2022-08-04T18:02:51.2922769+05:30;True|2022-03-29T18:38:56.9891349+05:30;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
+    <History>True|2022-11-25T09:29:00.0228854Z;True|2022-10-13T16:20:43.8336767+05:30;False|2022-08-04T18:02:51.2922769+05:30;True|2022-03-29T18:38:56.9891349+05:30;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -163,6 +163,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Dashboard/Index.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Datesheet/Create.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Datesheet/Details.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Datesheet/Edit.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Datesheet/Index.cshtml">
+      <publishTime>11/25/2022 12:12:39</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/DepartmentMaster/Create.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
@@ -313,6 +325,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Students/TransferCertificate.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Timetable/Create.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Timetable/Details.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Timetable/Edit.cshtml">
+      <publishTime>11/25/2022 13:10:07</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Timetable/Index.cshtml">
+      <publishTime>11/25/2022 13:01:19</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/Toppers/Create.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
@@ -344,7 +368,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/AffiliationCBSE.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>10/17/2022 12:09:34</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/ChairmanMassage.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -374,7 +398,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/MandatoryDisclosure.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>10/17/2022 12:16:15</publishTime>
     </File>
     <File Include="Areas/Client/Views/AboutUs/Messages.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -404,7 +428,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Academics/DateSheet.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>11/25/2022 13:10:07</publishTime>
     </File>
     <File Include="Areas/Client/Views/Academics/Result.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -422,7 +446,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Admission/AdmissionForm.cshtml">
-      <publishTime>03/17/2022 11:39:46</publishTime>
+      <publishTime>11/09/2022 10:51:43</publishTime>
     </File>
     <File Include="Areas/Client/Views/Admission/AdmissionRule.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -446,7 +470,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/PTMSchedule.cshtml">
-      <publishTime>05/03/2022 19:24:23</publishTime>
+      <publishTime>11/12/2022 10:42:43</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolCirculars.cshtml">
       <publishTime>04/19/2022 15:49:42</publishTime>
@@ -464,13 +488,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/TimeTable.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>11/25/2022 13:17:04</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/View.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Gallery/Photos.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>11/09/2022 10:47:30</publishTime>
     </File>
     <File Include="Areas/Client/Views/Gallery/PhotoSession2018.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -488,7 +512,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/Index.cshtml">
-      <publishTime>03/29/2022 12:29:55</publishTime>
+      <publishTime>11/08/2022 00:02:43</publishTime>
     </File>
     <File Include="Areas/Client/Views/Home/News.cshtml">
       <publishTime>03/14/2022 14:37:18</publishTime>
@@ -1136,31 +1160,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2021 14:18:25</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>08/04/2022 18:02:30</publishTime>
+      <publishTime>11/25/2022 14:56:39</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>08/04/2022 18:02:30</publishTime>
+      <publishTime>11/25/2022 14:56:39</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>10/13/2022 16:20:13</publishTime>
+      <publishTime>11/25/2022 14:57:39</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>10/13/2022 16:20:13</publishTime>
+      <publishTime>11/25/2022 14:57:39</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>08/04/2022 18:02:31</publishTime>
+      <publishTime>11/25/2022 14:56:41</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>08/04/2022 18:02:31</publishTime>
+      <publishTime>11/25/2022 14:56:41</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>08/04/2022 18:02:31</publishTime>
+      <publishTime>11/25/2022 14:56:42</publishTime>
+    </File>
+    <File Include="bin/WebApplication.Service.dll.config">
+      <publishTime>11/04/2022 15:47:31</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>08/04/2022 18:02:31</publishTime>
+      <publishTime>11/25/2022 14:56:42</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/14/2022 13:44:38</publishTime>
@@ -6162,6 +6189,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/Free-file-icons/LICENSE">
       <publishTime>03/14/2022 13:44:29</publishTime>
+    </File>
+    <File Include="Content/images/22-23-Add.jpg">
+      <publishTime>11/07/2022 23:53:58</publishTime>
     </File>
     <File Include="Content/images/add-image.jpg">
       <publishTime>03/14/2022 13:44:35</publishTime>
@@ -14768,7 +14798,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:36</publishTime>
     </File>
     <File Include="Scripts/Circulars/ptm.js">
-      <publishTime>04/22/2022 19:27:12</publishTime>
+      <publishTime>11/14/2022 12:57:30</publishTime>
     </File>
     <File Include="Scripts/ClassMaster/ClassMaster.js">
       <publishTime>03/14/2022 13:44:36</publishTime>
@@ -14776,11 +14806,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/comman/pager.js">
       <publishTime>03/14/2022 13:44:37</publishTime>
     </File>
+    <File Include="Scripts/Datesheet/Datesheet.js">
+      <publishTime>11/04/2022 00:04:09</publishTime>
+    </File>
     <File Include="Scripts/DepartmentMaster/DepartmentMaster.js">
       <publishTime>03/14/2022 13:44:36</publishTime>
     </File>
     <File Include="Scripts/Downloads/Dlownloads.js">
       <publishTime>03/14/2022 13:44:36</publishTime>
+    </File>
+    <File Include="Scripts/File/Datesheet.js">
+      <publishTime>11/25/2022 12:10:30</publishTime>
+    </File>
+    <File Include="Scripts/File/Timetable.js">
+      <publishTime>11/25/2022 12:48:25</publishTime>
     </File>
     <File Include="Scripts/Gallery/Gallery.js">
       <publishTime>03/14/2022 13:44:36</publishTime>
@@ -15074,7 +15113,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/29/2022 18:38:19</publishTime>
+      <publishTime>11/09/2022 10:56:39</publishTime>
     </File>
   </ItemGroup>
 </Project>

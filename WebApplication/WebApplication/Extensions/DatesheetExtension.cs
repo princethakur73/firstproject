@@ -7,24 +7,24 @@ namespace WebApplication
 {
     public static class DatesheetExtension
     {
-        public static DatesheetModel ToModel(this Datesheet obj)
+        public static FileTypeModel ToModel(this File obj)
         {
-            return Mapper.Map<Datesheet, DatesheetModel>(obj);
+            return Mapper.Map<File, FileTypeModel>(obj);
         }
 
-        public static List<DatesheetModel> ToModel(this List<Datesheet> objList)
+        public static List<FileTypeModel> ToModel(this List<File> objList)
         {
-            return Mapper.Map<List<Datesheet>, List<DatesheetModel>>(objList);
+            return Mapper.Map<List<File>, List<FileTypeModel>>(objList);
         }
 
-        public static Datesheet ToEntity(this DatesheetModel model)
+        public static File ToEntity(this FileTypeModel model)
         {
-            return Mapper.Map<DatesheetModel, Datesheet>(model);
+            return Mapper.Map<FileTypeModel, File>(model);
         }
 
-        public static List<Datesheet> ToEntity(this List<DatesheetModel> objList)
+        public static List<File> ToEntity(this List<FileTypeModel> objList)
         {
-            return Mapper.Map<List<DatesheetModel>, List<Datesheet>>(objList);
+            return Mapper.Map<List<FileTypeModel>, List<File>>(objList);
         }
     }
 }

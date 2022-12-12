@@ -29,51 +29,6 @@ namespace WebApplication.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public ActionResult TimeTable()
-        {
-            PageModel pageModel = new PageModel();
-            try
-            {
-                pageModel = _pageService.GetPageByMenuCode(MenuCode.TimeTable).ToModel();
-                return View(pageModel);
-            }
-            catch (System.Exception ex)
-            {
-
-                return View(pageModel).WithError(ex.Message);
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TimeTable(PageModel model)
-        {
-            try
-            {
-                var obj = model.ToEntity();
-                obj.MenuCode = MenuCode.TimeTable;
-                obj.IsPublish = true;
-                obj.UserId = (int)_currentUser.User.Id;
-                var result = _pageService.Save(obj);
-                if (result > 0)
-                {
-                    return RedirectToAction<CircularsController>(m => m.TimeTable(model))
-                                        .WithSuccess("Saved Successfully!");
-                }
-                else
-                {
-                    return RedirectToAction<CircularsController>(m => m.TimeTable(model))
-                                       .WithError("Failed!");
-                }
-
-            }
-            catch (System.Exception ex)
-            {
-
-                return View(model).WithError(ex.Message);
-            }
-        }
         public ActionResult EvaluationWeightage()
         {
             PageModel pageModel = new PageModel();

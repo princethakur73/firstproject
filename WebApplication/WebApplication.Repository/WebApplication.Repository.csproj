@@ -73,8 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datesheet\IDatesheetRepository.cs" />
-    <Compile Include="Datesheet\DatesheetRepository.cs" />
+    <Compile Include="Datesheet\IFileRepository.cs" />
+    <Compile Include="Datesheet\FileRepository.cs" />
     <Compile Include="DepartmentMaster\DepartmentMasterRepository.cs" />
     <Compile Include="DepartmentMaster\IDepartmentMasterRepository.cs" />
     <Compile Include="Downloads\IDownloadsRepository.cs" />

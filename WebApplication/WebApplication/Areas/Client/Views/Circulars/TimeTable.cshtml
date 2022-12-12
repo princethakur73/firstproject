@@ -1,21 +1,32 @@
-﻿@model WebApplication.Models.PageModel
+﻿@model WebApplication.Models.FileTypeModel
 
 @section seo
 {
-    <meta name="description" content="@Model.MetaDescription">
-    <meta name="keywords" content="@Model.MetaKeywords">
+    @*<meta name="description" content="@Model.MetaDescription">
+        <meta name="keywords" content="@Model.MetaKeywords">*@
 }
+<style>
+    .dd {
+        padding: 10px;
+        /*text-align: center;*/
+    }
+
+        .dd > select {
+            height: 30px;
+            width: 150px;
+        }
+</style>
 <!--============================
-        About Page Header
-    =============================-->
+       About Page Header
+   =============================-->
 <section class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>@Model.Title</h1>
+                <h1>Timetable</h1>
                 <ul class="list-unstyled">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="active">@Model.Title</li>
+                    <li class="active">Timetable</li>
                 </ul>
             </div>
         </div>
@@ -31,9 +42,15 @@
             <div class="col-md-3 col-sm-12 ">
                 @Html.Partial("~/Areas/Client/Views/Shared/_CircularsSidebar.cshtml", 1)
             </div>
-            <div class="col-sm-9">
-                @Html.Raw(Model.Contents)
+            <div class="col-md-9 col-sm-12 dd">
+                <h2>Timetable</h2>
             </div>
+            @if (Model != null && !string.IsNullOrEmpty(Model.FileName))
+            {
+                <div class="col-sm-9">
+                    <iframe src="~/Content/files/timetable/@Model.FileName" style="width:924px; min-height:600px;" frameborder="0"></iframe>
+                </div>
+            }
         </div>
     </div>
 </section>

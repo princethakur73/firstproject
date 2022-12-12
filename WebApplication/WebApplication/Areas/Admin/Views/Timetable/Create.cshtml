@@ -1,7 +1,7 @@
 ﻿@model WebApplication.Models.FileTypeModel
 
 @{
-    ViewBag.Title = "Datesheet";
+    ViewBag.Title = "Timetable";
     ViewBag.SubTitle = "Add New";
 }
 <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@
             @ViewBag.Title
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Datesheet</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Timetable</a></li>
             <li><a href="#">@ViewBag.SubTitle</a></li>
         </ol>
     </section>
@@ -22,15 +22,15 @@
             <div class="col-md-12">
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Datesheet</h3>
+                        <h3 class="box-title">Timetable</h3>
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Datesheet")'">Back To List</button>
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index","Timetable")'">Back To List</button>
                         </div>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             @Html.Partial("_Alerts")
-                            @using (Html.BeginForm("Create", "Datesheet", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("Create", "Timetable", FormMethod.Post, htmlAttributes: new { Id = "Entry-form", enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
                                 @Html.HiddenFor(a => a.Type);

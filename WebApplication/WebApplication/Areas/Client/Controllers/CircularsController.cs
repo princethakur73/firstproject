@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using WebApplication.Area.Admin.Models;
 using WebApplication.Core.Common;
+using WebApplication.EnumHelper;
 using WebApplication.Infrastructure;
+using WebApplication.Models;
 using WebApplication.Service;
 
 namespace WebApplication.Areas.Client.Controllers
@@ -15,9 +19,10 @@ namespace WebApplication.Areas.Client.Controllers
         private IDownloadsService _downloadsService;
         private ICircularsService _circularsService;
         private ICurrentUser _currentUser;
+        private IFileService _fileService;
         public CircularsController(IStaffDetailService staffDetailService,
             IMemberService memberService,
-            IPageService pageService, IDownloadsService downloadsService, ICircularsService circularsService, ICurrentUser currentUser)
+            IPageService pageService, IDownloadsService downloadsService, ICircularsService circularsService, ICurrentUser currentUser, IFileService fileService)
         {
             _pageService = pageService;
             _StaffDetailService = staffDetailService;
@@ -25,6 +30,7 @@ namespace WebApplication.Areas.Client.Controllers
             _downloadsService = downloadsService;
             _circularsService = circularsService;
             _currentUser = currentUser;
+            _fileService = fileService;
         }
         // GET: Client/Circulars
 
@@ -35,7 +41,15 @@ namespace WebApplication.Areas.Client.Controllers
         [Route("time-table")]
         public ActionResult TimeTable()
         {
-            var model = _pageService.GetPageByMenuCode(MenuCode.TimeTable).ToModel();
+            FileTypeModel model = new FileTypeModel();
+            try
+            {
+                model = _fileService.GetList(1, 20,(int)FiletypeEnum.Timetable).FirstOrDefault().ToModel();
+            }
+            catch (Exception ex)
+            {
+                return View("~/Areas/Client/Views/Circulars/TimeTable.cshtml", model);
+            }
             return View("~/Areas/Client/Views/Circulars/TimeTable.cshtml", model);
         }
         [Route("evaluation-weightage")]
@@ -92,7 +106,7 @@ namespace WebApplication.Areas.Client.Controllers
         {
             var list = _circularsService.GetListPtm(1, 100);
             var model = list.ToModel();
-            return View("~/Areas/Client/Views/Circulars/PTMSchedule.cshtml", model);
+            return View("~/Areas/Client/Views/Circulars/PTMSchedule.cshtml", model.Where(a => a.IsActive).ToList());
         }
 
         [Route("co-curricular-activites")]

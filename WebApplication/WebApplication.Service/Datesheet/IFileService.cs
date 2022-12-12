@@ -5,10 +5,10 @@ using WebApplication.Core;
 
 namespace WebApplication.Service
 {
-    public interface IDatesheetService : IService<Datesheet, int>
+    public interface IFileService : IService<File, int>
     {
-        List<Datesheet> GetList(int pageNo = 1, int pageSize = 10);
-        int GetListCount(int pageNo = 1, int pageSize = 10);
+        List<File> GetList(int pageNo = 1, int pageSize = 10, int type = 0);
+        int GetListCount(int pageNo = 1, int pageSize = 10, int type = 0);
         List<ViewDataUploadFilesResult> Upload(HttpContextBase httpContext, string path);
     }
 }

@@ -3,7 +3,7 @@ $(document).ready(function () {
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
     $.get('/Admin/Datesheet/GetDatesheetList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {
-        data.DatesheetModels.forEach(task => { task.Session = getDateMonthYear(task.Session) });
+        data.FileModels.forEach(task => { task.Session = getDateMonthYear(task.Session) });
         var templateResult = templateCompile(data);
         $('#table').html(templateResult);
     });

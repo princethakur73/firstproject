@@ -6,20 +6,20 @@ using WebApplication.Repository;
 
 namespace WebApplication.Service
 {
-    public class DatesheetService : IDatesheetService
+    public class FileService : IFileService
     {
-        private DatesheetRepository datesheetRepository;
-        public DatesheetService()
+        private FileRepository fileRepository;
+        public FileService()
         {
-            datesheetRepository = new DatesheetRepository();
+            fileRepository = new FileRepository();
         }
 
-        public int Save(Datesheet obj)
+        public int Save(File obj)
         {
             int result = 0;
             try
             {
-                result = datesheetRepository.Save(obj);
+                result = fileRepository.Save(obj);
             }
             catch (System.Exception ex)
             {
@@ -28,12 +28,12 @@ namespace WebApplication.Service
             return result;
         }
 
-        public Datesheet GetById(int Id, long currentUserId)
+        public File GetById(int Id, long currentUserId)
         {
-            Datesheet obj = new Datesheet();
+            File obj = new File();
             try
             {
-                obj = datesheetRepository.GetById(Id);
+                obj = fileRepository.GetById(Id);
             }
             catch (System.Exception ex)
             {
@@ -44,12 +44,12 @@ namespace WebApplication.Service
             return obj;
         }
 
-        public List<Datesheet> GetList(int pageNo = 1, int pageSize = 10)
+        public List<File> GetList(int pageNo = 1, int pageSize = 10, int type = 0)
         {
-            List<Datesheet> list = new List<Datesheet>();
+            List<File> list = new List<File>();
             try
             {
-                list = datesheetRepository.GetList(pageNo, pageSize);
+                list = fileRepository.GetList(pageNo, pageSize, type);
             }
             catch (System.Exception ex)
             {
@@ -58,12 +58,12 @@ namespace WebApplication.Service
             }
             return list;
         }
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int pageNo = 1, int pageSize = 10, int type = 0)
         {
-            int count = 0;
+            int count;
             try
             {
-                count = datesheetRepository.GetListCount(pageNo, pageSize);
+                count = fileRepository.GetListCount(pageNo, pageSize, type);
             }
             catch (System.Exception ex)
             {
@@ -75,10 +75,10 @@ namespace WebApplication.Service
 
         public bool DeleteById(int Id, long currentUserId)
         {
-            bool result = false;
+            bool result;
             try
             {
-                result = datesheetRepository.DeleteById(Id);
+                result = fileRepository.DeleteById(Id);
             }
             catch (System.Exception ex)
             {
@@ -99,32 +99,32 @@ namespace WebApplication.Service
             return resultList;
         }
 
-        public Task<IEnumerable<Datesheet>> GetListAsync(long currentUserId)
+        public Task<IEnumerable<File>> GetListAsync(long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Datesheet> GetList(long currentUserId)
+        public List<File> GetList(long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<Datesheet> GetByIdAsync(Datesheet obj, long currentUserId)
+        public Task<File> GetByIdAsync(File obj, long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<Datesheet> GetByIdAsync(int Id, long currentUserId)
+        public Task<File> GetByIdAsync(int Id, long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Datesheet GetById(Datesheet obj, long currentUserId)
+        public File GetById(File obj, long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> DeleteByIdAsync(Datesheet obj, long currentUserId)
+        public Task<bool> DeleteByIdAsync(File obj, long currentUserId)
         {
             throw new System.NotImplementedException();
         }
@@ -134,12 +134,12 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public bool DeleteById(Datesheet obj, long currentUserId)
+        public bool DeleteById(File obj, long currentUserId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<Datesheet> SaveAsync(Datesheet obj)
+        public Task<File> SaveAsync(File obj)
         {
             throw new System.NotImplementedException();
         }

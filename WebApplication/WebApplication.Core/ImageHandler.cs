@@ -71,7 +71,7 @@ namespace WebApplication.Core
         }
         public static Bitmap LoadImage(string path)
         {
-            var ms = new MemoryStream(File.ReadAllBytes(path));
+            var ms = new MemoryStream(System.IO.File.ReadAllBytes(path));
             GC.KeepAlive(ms);
             return (Bitmap)Image.FromStream(ms);
         }

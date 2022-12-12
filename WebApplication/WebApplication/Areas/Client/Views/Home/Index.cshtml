@@ -579,8 +579,8 @@
 </section>
 
 <!-- Trigger the Modal -->
-<img id="myImg" src="~/Content/images/22-23-Add.jpg" alt="Snow" style="display:none;width:100%;max-width:300px">
-<img id="requirement" src="~/Content/images/Requirement.jpeg" alt="Snow" style="display:none;width:100%;max-width:300px">
+<img id="myImg" src="~/Content/images/22-23-Add.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
+<img id="requirement" src="~/Content/images/Requirement1.png" alt="Requirement" style="display:none;width:100%;max-width:300px">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -590,6 +590,8 @@
 
     <!-- Modal Content (The Image) -->
     <img class="modal-content" id="img01">
+    <!-- Modal Content (The Image) --> <br /><br />
+    <img class="modal-content" id="img03">
 
     <!-- Modal Caption (Image Text) -->
     <div id="caption"></div>
@@ -600,7 +602,7 @@
     <span id="close2" class="close">&times;</span>
 
     <!-- Modal Content (The Image) -->
-    <img class="modal-content" id="img02">
+    <img class="modal-content" id="img02">    
 
     <!-- Modal Caption (Image Text) -->
     <div id="caption1"></div>
@@ -616,6 +618,7 @@
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img1 = document.getElementById("requirement");
     var modalImg1 = document.getElementById("img02");
+    var modalImg3 = document.getElementById("img03");
     var captionText1 = document.getElementById("caption1");
     img1.onclick = function () {
         modal1.style.display = "block";
@@ -634,6 +637,7 @@
     img.onclick = function () {
         modal.style.display = "block";
         modalImg.src = this.src;
+        modalImg3.src = img1.src;
         captionText.innerHTML = this.alt;
     }
 

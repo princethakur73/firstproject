@@ -218,6 +218,7 @@
     <Compile Include="Areas\Admin\Controllers\AchievementController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdmissionController.cs" />
     <Compile Include="Areas\Admin\Controllers\CircularsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TimetableController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepartmentMasterController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClassMasterController.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="EnumHelper\FiletypeEnum.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Extensions\ContactUsExtension.cs" />
     <Compile Include="Extensions\CircularsExtension.cs" />
@@ -318,7 +320,7 @@
     <Compile Include="Infrastructure\Tasks\TaskRegistry.cs" />
     <Compile Include="Infrastructure\TransactionPerRequest.cs" />
     <Compile Include="Infrastructure\WebApplicationController.cs" />
-    <Compile Include="Models\DatesheetModel.cs" />
+    <Compile Include="Models\FileTypeModel.cs" />
     <Compile Include="Models\PtmModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\CircularsModel.cs" />
@@ -342,7 +344,7 @@
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
-    <Compile Include="ViewModels\DatesheetViewModel.cs" />
+    <Compile Include="ViewModels\FileViewModel.cs" />
     <Compile Include="ViewModels\PtmViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -1815,6 +1817,7 @@
     <Content Include="Content\images\Member\5f0b62aa-459c-4de0-91a2-86ce2c37bc80.PNG" />
     <Content Include="Content\images\Member\90a41d91-0ba4-41a4-8e28-3e4d0aa1b591.jpg" />
     <Content Include="Content\images\Member\93f75899-90c8-4d00-af58-f82c485c2112.jpg" />
+    <Content Include="Content\images\Requirement.jpeg" />
     <Content Include="Content\images\Slide\09506c70-14f2-497f-931a-3daafee78fe5.jpg" />
     <Content Include="Content\images\Slide\3b8092b4-d6d2-4857-8b15-07e1905b17b3.jpg" />
     <Content Include="Content\images\Slide\87a2c420-0c85-4dc4-9f0a-53c8417f5508.jpg" />
@@ -5077,6 +5080,10 @@
     <Content Include="Areas\Admin\Views\Datesheet\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Datesheet\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Datesheet\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Timetable\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Timetable\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Timetable\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Timetable\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -5090,10 +5097,11 @@
     <Content Include="Scripts\Circulars\ptm.js" />
     <Content Include="Scripts\comman\pager.js" />
     <Content Include="Scripts\ClassMaster\ClassMaster.js" />
+    <Content Include="Scripts\File\Timetable.js" />
+    <Content Include="Scripts\File\Datesheet.js" />
     <Content Include="Scripts\DepartmentMaster\DepartmentMaster.js" />
     <Content Include="Scripts\jquery.Jcrop.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
-    <Content Include="Scripts\Datesheet\Datesheet.js" />
     <Content Include="Scripts\News\News.js" />
     <Content Include="Scripts\Downloads\Dlownloads.js" />
     <Content Include="Scripts\OurInfrastructure\OurInfrastruture.js" />
@@ -5204,8 +5212,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Kindergarten\" />
     <Folder Include="Content\Client\OurInfrastructure\Libarary\" />
+    <Folder Include="Content\files\Datesheet\" />
     <Folder Include="Content\files\downloads\" />
     <Folder Include="Content\files\News\" />
+    <Folder Include="Content\files\Timetable\" />
     <Folder Include="Content\images\StaffDetail\" />
     <Folder Include="Content\images\Toppers\" />
     <Folder Include="Files\Gallery\thumbs\" />

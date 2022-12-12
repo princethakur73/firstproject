@@ -1,4 +1,4 @@
-﻿@model WebApplication.Models.DatesheetModel
+﻿@model WebApplication.Models.FileTypeModel
 
 @{
     ViewBag.Title = "Datesheet";
@@ -52,7 +52,7 @@
                                                 @Html.HiddenFor(model => model.FileName)
                                                 @if (!string.IsNullOrEmpty(Model.FileName))
                                                 {
-                                                    <span><a target="_blank" href="~/Content/files/Datesheet/@Model.FileName">Download</a></span> <span style="margin-left:10px">@Html.EditorFor(model => model.IsRemoveFile) Remove</span>
+                                                    <span><a target="_blank" href="~/Content/files/datesheet/@Model.FileName">Download</a></span> <span style="margin-left:10px">@Html.EditorFor(model => model.IsRemoveFile) Remove</span>
 
                                                 }
                                                 @Html.ValidationMessageFor(model => model.FileName, "", new { @class = "text-danger" })

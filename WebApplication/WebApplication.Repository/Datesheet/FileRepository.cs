@@ -9,10 +9,10 @@ using WebApplication.Core;
 
 namespace WebApplication.Repository
 {
-    public class DatesheetRepository : IDatesheetRepository
+    public class FileRepository : IFileRepository
     {
         private string query { get; set; }
-        public int Save(Core.Datesheet obj)
+        public int Save(Core.File obj)
         {
             int Id = 0;
             try
@@ -21,11 +21,12 @@ namespace WebApplication.Repository
                 param.Add("_Id", obj.Id, DbType.Int32);
                 param.Add("_Session", obj.Session, DbType.Date);
                 param.Add("_FileNames", obj.FileName, DbType.String);
+                param.Add("_Type", obj.Type, DbType.Int32);
                 param.Add("_IsActive", obj.IsActive, DbType.Boolean);
                 param.Add("_UserId", obj.UserId, DbType.Int32);
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
-                    Id = Db.Execute("Sp_Save_Datesheet", param, commandType: CommandType.StoredProcedure);
+                    Id = Db.Execute("Sp_Save_File", param, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)
@@ -35,9 +36,9 @@ namespace WebApplication.Repository
             }
             return Id;
         }
-        public Core.Datesheet GetById(int id)
+        public Core.File GetById(int id)
         {
-            Datesheet data;
+            File data;
             try
             {
                 query = @"SELECT Id,
@@ -48,11 +49,11 @@ namespace WebApplication.Repository
                                 CreateByUserId,
                                 ModifyByDate,
                                 IsDeleted
-                            FROM datesheet
+                            FROM file
 		                     where Id=@Id";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
-                    data = Db.Query<Datesheet>(query, param: new { Id = id }).SingleOrDefault();
+                    data = Db.Query<File>(query, param: new { Id = id }).SingleOrDefault();
                 }
             }
             catch (Exception ex)
@@ -63,18 +64,19 @@ namespace WebApplication.Repository
 
             return data;
         }
-        public List<Datesheet> GetList(int pageNo = 1, int pageSize = 10)
+        public List<File> GetList(int pageNo = 1, int pageSize = 10,int type =0)
         {
-            List<Datesheet> list;
+            List<File> list;
             try
             {
                 DynamicParameters param = new DynamicParameters();
                 param.Add("_IsCount", 0, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
+                param.Add("_Type", type, DbType.Int32);
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
-                    list = Db.Query<Datesheet>("Sp_Select_Datesheet_List", param: param, commandType: CommandType.StoredProcedure).ToList();
+                    list = Db.Query<File>("Sp_Select_File_List", param: param, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
             catch (Exception ex)
@@ -89,7 +91,7 @@ namespace WebApplication.Repository
             bool isDeleted = false;
             try
             {
-                query = @"Delete from datesheet where Id=@Id;";
+                query = @"Delete from file where Id=@Id;";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
                     var effectedRow = Db.Execute(query, new { Id = id });
@@ -131,7 +133,7 @@ namespace WebApplication.Repository
             }
             return isDeleted;
         }
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int pageNo = 1, int pageSize = 10, int type = 0)
         {
             int countTotal = 0;
             try
@@ -140,9 +142,10 @@ namespace WebApplication.Repository
                 param.Add("_IsCount", 1, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
+                param.Add("_Type", type, DbType.Int32);
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
-                    countTotal = Db.ExecuteScalar<int>("Sp_Select_Datesheet_List", param: param, commandType: CommandType.StoredProcedure);
+                    countTotal = Db.ExecuteScalar<int>("Sp_Select_File_List", param: param, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)
@@ -153,7 +156,7 @@ namespace WebApplication.Repository
             return countTotal;
         }
 
-        public List<Datesheet> GetAll(long currentUserId)
+        public List<File> GetAll(long currentUserId)
         {
             throw new NotImplementedException();
         }

@@ -19,52 +19,6 @@ namespace WebApplication.Areas.Admin.Controllers
             _pageService = pageService;
             _currentUser = currentUser;
         }
-
-        public ActionResult DateSheet()
-        {
-            PageModel pageModel = new PageModel();
-            try
-            {
-                pageModel = _pageService.GetPageByMenuCode(MenuCode.DateSheet).ToModel();
-                return View(pageModel);
-            }
-            catch (System.Exception ex)
-            {
-
-                return View(pageModel).WithError(ex.Message);
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DateSheet(PageModel model)
-        {
-            try
-            {
-                var obj = model.ToEntity();
-                obj.MenuCode = MenuCode.DateSheet;
-                obj.IsPublish = true;
-                obj.UserId = (int)_currentUser.User.Id;
-                var result = _pageService.Save(obj);
-                if (result > 0)
-                {
-                    return RedirectToAction<AcademicsController>(m => m.DateSheet(model))
-                                        .WithSuccess("Saved Successfully!");
-                }
-                else
-                {
-                    return RedirectToAction<AcademicsController>(m => m.DateSheet(model))
-                                       .WithError("Failed!");
-                }
-
-            }
-            catch (System.Exception ex)
-            {
-
-                return View(model).WithError(ex.Message);
-            }
-        }
-
         public ActionResult Result()
         {
             PageModel pageModel = new PageModel();

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Datesheet";
+    ViewBag.Title = "Timetable";
     ViewBag.SubTitle = "List";
 }
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
@@ -11,7 +11,7 @@
             @ViewBag.Title
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Datesheet</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Timetable</a></li>
             <li><a href="#">    @ViewBag.SubTitle</a></li>
         </ol>
     </section>
@@ -22,9 +22,9 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Datesheet List</h3>
+                        <h3 class="box-title">Timetable List</h3>
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","Datesheet")'">Add New</button>
+                            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","Timetable")'">Add New</button>
                         </div>
                     </div>
                     <div class="box-body">
@@ -62,8 +62,8 @@
                     <td>{{Session}}</td>
                     <td>
                         <div class="pull-right">
-                            <button type="button" class="btn bg-blue btn-sm" onclick="location.href='/Admin/Datesheet/Edit/{{Id}}'"><i class="fa fa-file-text-o"> </i> Edit</button>
-                            <button type="button" class="btn bg-purple-active btn-sm" onclick="location.href = '/Admin/Datesheet/Details/{{Id}}'"><i class="fa fa-eye"> </i> View</button>
+                            <button type="button" class="btn bg-blue btn-sm" onclick="location.href='/Admin/Timetable/Edit/{{Id}}'"><i class="fa fa-file-text-o"> </i> Edit</button>
+                            <button type="button" class="btn bg-purple-active btn-sm" onclick="location.href = '/Admin/Timetable/Details/{{Id}}'"><i class="fa fa-eye"> </i> View</button>
                             <button type="button" class="btn bg-red-active btn-sm delete" data-id="{{Id}}"><i class="fa fa-trash-o"> </i> Delete</button>
                         </div>
                     </td>
@@ -79,5 +79,5 @@
         {{/list}}
 
     </script>
-    <script src="~/Scripts/File/Datesheet.js"></script>
+    <script src="~/Scripts/File/Timetable.js"></script>
 }
