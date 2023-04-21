@@ -20,8 +20,7 @@ namespace WebApplication.Models
         [MaxLength(50)]
         public string FileName { get; set; }
         public bool IsRemoveFile { get; set; }
-
-        [Required]
+        
         [MaxLength(200)]
         [Display(Name = "Short Description")]
         [UIHint("MultilineText")]

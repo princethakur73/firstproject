@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Net.Mail;
 using System.Threading.Tasks;
+using System.Web;
 using WebApplication.Core;
+using WebApplication.Core.Helper;
+using WebApplication.Core.Model;
 using WebApplication.Repository;
 namespace WebApplication.Service
 {
@@ -143,6 +148,87 @@ namespace WebApplication.Service
         public Task<StudentAdmission> SaveAsync(StudentAdmission obj)
         {
             throw new System.NotImplementedException();
+        }
+
+        public bool SubmitRecruitmentForm(RecruitmentModel model)
+        {
+            bool status = false;
+            try
+            {
+                #region Candidate information
+                string mailText = string.Empty;
+                HttpPostedFileBase file = model.RecruitmentFile;
+                using (var sr = new StreamReader(model.RecruitmentTemplatePath))
+                {
+                    mailText = sr.ReadToEnd();
+                    mailText = mailText.Replace("[Name]", model.FullName.Trim());
+                    mailText = mailText.Replace("[Gender]", model.Gender.Trim());
+                    mailText = mailText.Replace("[DOB]", model.DOB.Trim());
+                    mailText = mailText.Replace("[Address]", model.Address.Trim());
+                    mailText = mailText.Replace("[Contact]", model.Contact.Trim());
+                    mailText = mailText.Replace("[Email]", model.Email.Trim());
+                    mailText = mailText.Replace("[ApplyFor]", model.ApplyFor.Trim());
+                }
+                MailMessage _mailmsg = new MailMessage
+                {
+                    //Make TRUE because our body text is html  
+                    IsBodyHtml = true,
+
+                    //Set From Email ID  
+                    From = new MailAddress(AppSetting.From),
+
+                    //Set Subject  
+                    Subject = "Candidate Detail",
+
+                    //Set Body Text of Email   
+                    Body = mailText
+                };
+
+                //Set To Email ID  
+                _mailmsg.To.Add(AppSetting.SchoolEmail);
+
+                if (file != null)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    _mailmsg.Attachments.Add(new Attachment(file.InputStream, fileName));
+                }
+                EmailHelper.Send(_mailmsg);
+                #endregion
+
+                #region Send Confirmation to Candidate
+                mailText = string.Empty;
+                using (var sr = new StreamReader(model.ConfirmationTemplatePath))
+                {
+                    mailText = sr.ReadToEnd();
+                    mailText = mailText.Replace("[CustomerName]", model.FullName.Trim());
+                }
+
+                _mailmsg = new MailMessage
+                {
+                    //Make TRUE because our body text is html  
+                    IsBodyHtml = true,
+
+                    //Set From Email ID  
+                    From = new MailAddress(AppSetting.From),
+
+                    //Set Subject  
+                    Subject = "HVM Confirmation",
+
+                    //Set Body Text of Email   
+                    Body = mailText
+                };
+
+                //Set To Email ID  
+                _mailmsg.To.Add(model.Email);
+
+                EmailHelper.Send(_mailmsg);
+                #endregion
+                return status;
+            }
+            catch (System.Exception)
+            {
+                return status;
+            }
         }
     }
 }

@@ -139,14 +139,15 @@ namespace WebApplication.Repository
             return isDeleted;
         }
 
-        public List<Circulars> GetList(int pageNo = 1, int pageSize = 10)
+        public List<Circulars> GetList(int year, int pageNumber=0, int pageSize=0)
         {
             List<Circulars> list;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_Year", year, DbType.Int32);
                 param.Add("_IsCount", 0, DbType.Boolean);
-                param.Add("_PageNumber", pageNo, DbType.Int32);
+                param.Add("_PageNumber", pageNumber, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
@@ -160,15 +161,16 @@ namespace WebApplication.Repository
             return list;
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int year)
         {
             int countTotal = 0;
             try
             {
                 DynamicParameters param = new DynamicParameters();
+                param.Add("_Year", year, DbType.Int32);
                 param.Add("_IsCount", 1, DbType.Boolean);
-                param.Add("_PageNumber", pageNo, DbType.Int32);
-                param.Add("_PageSize", pageSize, DbType.Int32);
+                param.Add("_PageNumber", 0, DbType.Int32);
+                param.Add("_PageSize", 0, DbType.Int32);
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
                     countTotal = Db.ExecuteScalar<int>("Sp_Select_Circulars_List", param: param, commandType: CommandType.StoredProcedure);

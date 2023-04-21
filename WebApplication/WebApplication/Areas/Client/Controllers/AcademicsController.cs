@@ -12,12 +12,10 @@ namespace WebApplication.Areas.Client.Controllers
     {
         private IPageService _pageService;
         private IFileService _datesheetService;
-        private ICurrentUser _currentUser;
-        public AcademicsController(IPageService pageService, IFileService datesheetService, ICurrentUser currentUser)
+        public AcademicsController(IPageService pageService, IFileService datesheetService)
         {
             _pageService = pageService;
             _datesheetService = datesheetService;
-            _currentUser = currentUser;
         }
 
         [Route("datesheet")]
@@ -30,7 +28,8 @@ namespace WebApplication.Areas.Client.Controllers
                 if (list.Any())
                 {
                     ViewBag.dd = list.Where(a => a.IsActive).Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Session.ToString("MMM yyy") }).ToList();
-                    model = _datesheetService.GetById(id ?? 0, _currentUser.User.Id).ToModel();
+                    if(id.HasValue)
+                    model = _datesheetService.GetById((int)id,0).ToModel();
                 }
             }
             catch (System.Exception ex)

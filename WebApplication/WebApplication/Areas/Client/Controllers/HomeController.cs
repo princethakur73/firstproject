@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Areas.Client.Models;
-using WebApplication.Helper;
+using WebApplication.Core.Helper;
 using WebApplication.Models;
 using WebApplication.Service;
 
@@ -49,7 +49,7 @@ namespace WebApplication.Areas.Client.Controllers
         [HttpPost]
         public ActionResult FirstVisit(FirstVistModel model)
         {
-            var result=EmailHelper.SendEmail(model.Contact, model.Name, model.Description);
+            var result = EmailHelper.SendEmail(model.Contact, model.Name, model.Description);
             return Json(result);
         }
 

@@ -2,11 +2,28 @@
 $(document).ready(function () {
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
-    $.get('/Admin/Circulars/GetCircularsList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {
+    var sessionId = document.getElementById("SessionId").value;
+    $.get('/Admin/Circulars/GetCircularsList', { 'sessionId': sessionId,'pageNumber': 1, 'pageSize': 10 }, function (data) {
         console.log(data);
         var templateResult = templateCompile(data);
         debugger
         $('#table').html(templateResult);
+    });
+
+    $('').on('click', function () {
+        alert('');
+    });
+});
+
+$('#SessionId').change(function () {
+    var templateHtml = $('#table-list').html();
+    var templateCompile = Handlebars.compile(templateHtml);
+    var sessionId = this.value;
+    img.click();
+    $.get('/Admin/Circulars/GetCircularsList', { 'sessionId': sessionId, 'pageNumber': 1, 'pageSize': 10 }, function (data) {
+        var templateResult = templateCompile(data);
+        $('#table').html(templateResult);
+        span.click();
     });
 
     $('').on('click', function () {
@@ -39,9 +56,32 @@ $(document).on('click', 'li > a', function () {
 
     var templateHtml = $('#table-list').html();
     var templateCompile = Handlebars.compile(templateHtml);
-
-    $.get('/Admin/Circulars/GetCircularsList', { 'pageNumber': parseInt(pageNo), 'pageSize': 10 }, function (data) {
+    var sessionId = document.getElementById("SessionId").value;
+    $.get('/Admin/Circulars/GetCircularsList', { 'sessionId': sessionId,'pageNumber': parseInt(pageNo), 'pageSize': 10 }, function (data) {
         var templateResult = templateCompile(data);
         $('#table').html(templateResult);
     });
 });
+
+///////////////////////////////////////////////////////////////////////////
+// Get Loading
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function () {
+    modal.style.display = "block";
+    modalImg.classList.add("center");
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("close1");
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}

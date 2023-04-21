@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApplication.Core;
 using WebApplication.Repository;
@@ -91,17 +92,17 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public List<Circulars> GetList(int pageNo = 1, int pageSize = 10)
+        public List<Circulars> GetList(string year = "", int pageNumber = 0, int pageSize = 0)
         {
-            List<Circulars> list = new List<Circulars>();
+            List<Circulars> list;
             try
             {
-                list = _circularsRepository.GetList(pageNo, pageSize);
+                int sessionYear = string.IsNullOrEmpty(year) ? GetCurrentYear() : Convert.ToInt32(year.Split('-')[0]);
+                list = _circularsRepository.GetList(sessionYear, pageNumber, pageSize);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-
-                throw new System.Exception(ex.Message);
+                throw new Exception(ex.Message);
             }
             return list;
         }
@@ -116,12 +117,12 @@ namespace WebApplication.Service
             throw new System.NotImplementedException();
         }
 
-        public int GetListCount(int pageNo = 1, int pageSize = 10)
+        public int GetListCount(int year)
         {
-            int count = 0;
+            int count;
             try
             {
-                count = _circularsRepository.GetListCount(pageNo, pageSize);
+                count = _circularsRepository.GetListCount(year);
             }
             catch (System.Exception ex)
             {
@@ -221,6 +222,11 @@ namespace WebApplication.Service
             }
 
             return result;
+        }
+
+        private int GetCurrentYear()
+        {
+            return DateTime.Today.Month > 3 ? DateTime.Today.Year : DateTime.Today.Year - 1;
         }
         #endregion
     }

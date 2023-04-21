@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 
-namespace WebApplication.Helper
+namespace WebApplication.Core.Helper
 {
     public static class EmailHelper
     {
@@ -31,7 +35,7 @@ namespace WebApplication.Helper
                 };
 
                 string body = "<div>Hello <br>Please check the following detail of the user who visit over the site.<br>" +
-                    "Name: "+ Name +"<br>" +
+                    "Name: " + Name + "<br>" +
                     "Conatct: " + Contact + "<br>" +
                     "Description: " + Description + "</div>";
 
@@ -53,6 +57,21 @@ namespace WebApplication.Helper
             {
                 throw e;
             }
+        }
+
+        public static bool Send(MailMessage mailMessage)
+        {
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.Host = AppSetting.Host;
+                client.Port = AppSetting.Port;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = false;
+                client.Credentials = new NetworkCredential(AppSetting.From, AppSetting.Password);
+                client.Send(mailMessage);
+            }
+            return true;
         }
     }
 }

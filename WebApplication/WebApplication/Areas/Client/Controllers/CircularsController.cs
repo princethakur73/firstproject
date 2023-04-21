@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using WebApplication.Area.Admin.Models;
 using WebApplication.Core.Common;
 using WebApplication.EnumHelper;
 using WebApplication.Infrastructure;
@@ -14,23 +13,19 @@ namespace WebApplication.Areas.Client.Controllers
     public class CircularsController : WebApplicationController
     {
         private readonly IPageService _pageService;
-        private IStaffDetailService _StaffDetailService;
-        private IMemberService _MemberService;
         private IDownloadsService _downloadsService;
         private ICircularsService _circularsService;
         private ICurrentUser _currentUser;
         private IFileService _fileService;
-        public CircularsController(IStaffDetailService staffDetailService,
-            IMemberService memberService,
-            IPageService pageService, IDownloadsService downloadsService, ICircularsService circularsService, ICurrentUser currentUser, IFileService fileService)
+        private readonly ICommonService _commonService;
+        public CircularsController(IPageService pageService, IDownloadsService downloadsService, ICircularsService circularsService, ICurrentUser currentUser, IFileService fileService, ICommonService commonService)
         {
             _pageService = pageService;
-            _StaffDetailService = staffDetailService;
-            _MemberService = memberService;
             _downloadsService = downloadsService;
             _circularsService = circularsService;
             _currentUser = currentUser;
             _fileService = fileService;
+            _commonService = commonService;
         }
         // GET: Client/Circulars
 
@@ -117,10 +112,11 @@ namespace WebApplication.Areas.Client.Controllers
         }
 
         [Route("school-circulars")]
-        public ActionResult SchoolCirculars()
-        {
-            //var model = _pageService.GetPageByMenuCode(MenuCode.SchoolCirculars).ToModel();
-            var model = _circularsService.GetList().ToModel();
+        public ActionResult SchoolCirculars(string year)
+        {            
+            ViewBag.SessionList = _commonService.GetSessionList().Select(s => new SelectListItem { Value = s.Name, Text = s.Name }).ToList(); //drop down list
+            ViewBag.SelectedYear = year; //selected year
+            var model = _circularsService.GetList(year).ToModel();            
             return View("~/Areas/Client/Views/Circulars/SchoolCirculars.cshtml", model);
         }
     }

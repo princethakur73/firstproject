@@ -283,7 +283,6 @@
     <Compile Include="Helpers\BootstrapHelpers.cs" />
     <Compile Include="Helpers\JavaScriptHelper.cs" />
     <Compile Include="Helper\BootstrapHelpers.cs" />
-    <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\HelperMethod.cs" />
     <Compile Include="Infrastructure\ActionFilterRegistry.cs" />
     <Compile Include="Infrastructure\Alerts\Alert.cs" />
@@ -5084,6 +5083,7 @@
     <Content Include="Areas\Admin\Views\Timetable\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Timetable\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Timetable\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Admission\RecruitmentForm.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-fullscreen.min.js.map" />
     <Content Include="Scripts\blueimp-gallery2\js\blueimp-gallery-indicator.min.js.map" />
@@ -5207,6 +5207,8 @@
     <Content Include="Views\Shared\EditorTemplates\ClassMasterId.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ClassMasterRomanId.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MasterDepartmentdId.cshtml" />
+    <Content Include="Views\Shared\EmailTemplates\RecruitmentConfirmation.html" />
+    <Content Include="Views\Shared\EmailTemplates\RecruitmentCandidate.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

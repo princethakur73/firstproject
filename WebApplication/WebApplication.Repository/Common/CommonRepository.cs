@@ -69,7 +69,7 @@ namespace WebApplication.Repository
                                 SortId,
                                 CreateByDate,
                                 CreateByUserId
-                            FROM session";
+                            FROM session  Where IsActive=1 order by SortId desc";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
                     list = Db.Query<Session>(Query).ToList();

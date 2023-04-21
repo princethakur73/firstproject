@@ -1,8 +1,10 @@
-﻿@{
+﻿@model WebApplication.Area.Admin.Models.GalleryModel
+@{
     ViewBag.Title = "School Circulars";
     ViewBag.SubTitle = "List";
 }
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
+<link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,6 +28,9 @@
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create","Circulars")'">Add New</button>
                         </div>
+                        <div>
+                            @Html.EditorFor(model => model.SessionId, new { htmlAttributes = new { onchange = "OnChangeEvent(this)" } })
+                        </div>
                     </div>
                     <div class="box-body">
                         @Html.Partial("_Alerts")
@@ -40,6 +45,18 @@
             </div>
         </div>
     </section>
+    <img id="myImg" src="~/Content/Client/js/fancybox/fancybox_loading@2x.gif" alt="loading" style="display:none;width:100%;max-width:300px">
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span id="close1" class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content center" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
 </div>
 @section scripts
 {
@@ -81,5 +98,6 @@
         {{/list}}
 
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/Scripts/Circulars/Circulars.js"></script>
 }

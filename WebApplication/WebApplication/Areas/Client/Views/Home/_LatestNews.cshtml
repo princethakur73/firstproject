@@ -7,11 +7,14 @@
         <ul class="news_marquee">
             @foreach (var item in Model)
             {
-                <li>
-                    <h5><strong>@item.Title</strong></h5>
-                    <span>@Html.Raw(item.Description)</span> <br />
+            <li>
+                <h5><strong>@item.Title</strong></h5>
+                <span>@Html.Raw(item.Description)</span> <br />
+                @if (!string.IsNullOrWhiteSpace(item.ShortDescription))
+                {
                     <a href="~/Content/files/News/@item.FileName" target="_blank">@item.ShortDescription</a>
-                </li>
+                }
+            </li>
             }
         </ul>
     </marquee>

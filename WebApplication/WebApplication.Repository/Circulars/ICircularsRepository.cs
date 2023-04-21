@@ -5,9 +5,9 @@ namespace WebApplication.Repository
 {
     public interface ICircularsRepository : IRepository<Circulars>
     {
-        List<Circulars> GetList(int pageNo = 1, int pageSize = 10);
+        List<Circulars> GetList(int year, int pageNumber = 0, int pageSize = 0);
 
-        int GetListCount(int pageNo = 1, int pageSize = 10);
+        int GetListCount(int year);
 
         bool IsNameExist(string name, int id);
 

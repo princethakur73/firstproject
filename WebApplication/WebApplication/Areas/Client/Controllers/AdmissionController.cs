@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
+using WebApplication.Core.Model;
+using WebApplication.Helper;
 using WebApplication.Infrastructure;
 using WebApplication.Infrastructure.Alerts;
 using WebApplication.Models;
@@ -89,7 +92,7 @@ namespace WebApplication.Areas.Client.Controllers
                 }
 
 
-                obj.UserId = _currentUser !=null && _currentUser.User !=null ? (int)_currentUser.User.Id : 0;
+                obj.UserId = _currentUser != null && _currentUser.User != null ? (int)_currentUser.User.Id : 0;
 
                 if (_admissionService.Save(obj) > 0)
                 {
@@ -106,6 +109,34 @@ namespace WebApplication.Areas.Client.Controllers
             }
         }
 
+        [Route("recruitment-form")]
+        [HttpGet]
+        public ActionResult RecruitmentForm()
+        {
+            RecruitmentModel model = new RecruitmentModel();
+            return View("~/Areas/Client/Views/Admission/RecruitmentForm.cshtml", model);
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("recruitment-form")]
+        public ActionResult RecruitmentForm(RecruitmentModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("~/Areas/Client/Views/Admission/RecruitmentForm.cshtml", model);
+            }
+            else
+            {
+                model.RecruitmentFile = Request.Files["RecruitmentFile"];
+                model.RecruitmentTemplatePath = Server.MapPath("~/Views/Shared/EmailTemplates/RecruitmentCandidate.html");
+                model.ConfirmationTemplatePath = Server.MapPath("~/Views/Shared/EmailTemplates/RecruitmentConfirmation.html");
+
+                bool status = _admissionService.SubmitRecruitmentForm(model);
+
+                return RedirectToAction<AdmissionController>(m => m.RecruitmentForm())
+                                        .WithSuccess("Submitted Successfully!");
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication.Area.Admin.Models;
 using WebApplication.Core.Common;
 using WebApplication.Infrastructure;
 using WebApplication.Infrastructure.Alerts;
@@ -18,16 +19,22 @@ namespace WebApplication.Areas.Admin.Controllers
         private IPageService _pageService;
         private ICurrentUser _currentUser;
         private ICircularsService _circularsService;
-        public CircularsController(IPageService pageService, ICurrentUser currentUser, ICircularsService circularsService)
+        private IGalleryService _GalleryService;
+        private readonly ICommonService _commonService;
+        public CircularsController(IPageService pageService, ICurrentUser currentUser, ICircularsService circularsService, IGalleryService GalleryService, ICommonService commonService)
         {
             _pageService = pageService;
             _currentUser = currentUser;
             _circularsService = circularsService;
+            _GalleryService = GalleryService;
+            _commonService = commonService;
         }
         // GET: Admin/Circulars
         public ActionResult Index()
         {
-            return View();
+            GalleryModel galleryModel = new GalleryModel();
+            galleryModel.SessionId = _GalleryService.GetCurrentSession();
+            return View(galleryModel);
         }
         public ActionResult EvaluationWeightage()
         {
@@ -695,15 +702,15 @@ namespace WebApplication.Areas.Admin.Controllers
         #region Helper
 
         [HttpGet]
-        public JsonResult GetCircularsList(int pageNumber, int pageSize)
+        public JsonResult GetCircularsList(int sessionId, int pageNumber, int pageSize)
         {
             try
             {
-                var list = _circularsService.GetList(pageNumber, pageSize);
-                int totalItems = _circularsService.GetListCount(pageNumber, pageSize);
-
+                var session = _commonService.GetSessionList().Where(a => a.Id == sessionId).FirstOrDefault();
+                int sessionYear = string.IsNullOrEmpty(session.Name) ? GetCurrentYear() : Convert.ToInt32(session.Name.Split('-')[0]);
+                var list = _circularsService.GetList(session.Name, pageNumber, pageSize);
+                int totalItems = _circularsService.GetListCount(sessionYear);
                 var pager = new Pager(totalItems, pageNumber, pageSize);
-
                 var viewMOdel = new CircularsViewModel()
                 {
                     CircularsModels = list.ToModel(),
@@ -851,5 +858,9 @@ namespace WebApplication.Areas.Admin.Controllers
         }
         #endregion
 
+        private int GetCurrentYear()
+        {
+            return DateTime.Today.Month > 3 ? DateTime.Today.Year : DateTime.Today.Year - 1;
+        }
     }
 }
