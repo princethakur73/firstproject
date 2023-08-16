@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\princ\OneDrive\Desktop\build</_PublishTargetUrl>
-    <History>True|2023-04-21T10:04:04.6132714Z;True|2022-11-25T14:59:00.0228854+05:30;True|2022-10-13T16:20:43.8336767+05:30;False|2022-08-04T18:02:51.2922769+05:30;True|2022-03-29T18:38:56.9891349+05:30;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
+    <History>True|2023-08-16T19:20:50.2057360Z;True|2023-04-21T15:34:04.6132714+05:30;True|2022-11-25T14:59:00.0228854+05:30;True|2022-10-13T16:20:43.8336767+05:30;False|2022-08-04T18:02:51.2922769+05:30;True|2022-03-29T18:38:56.9891349+05:30;True|2022-01-29T01:24:52.2843603+05:30;True|2021-07-05T23:33:00.5908092+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -98,7 +98,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/Create.cshtml">
-      <publishTime>04/21/2023 12:33:50</publishTime>
+      <publishTime>08/15/2023 13:31:20</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/CreateEditPtm.cshtml">
       <publishTime>04/22/2022 17:59:52</publishTime>
@@ -113,7 +113,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/22/2022 19:09:14</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/Edit.cshtml">
-      <publishTime>04/21/2023 12:34:04</publishTime>
+      <publishTime>08/16/2023 23:50:14</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Circulars/EvaluationWeightage.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -347,7 +347,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Toppers/Index.cshtml">
-      <publishTime>03/14/2022 13:44:24</publishTime>
+      <publishTime>05/22/2023 10:42:33</publishTime>
     </File>
     <File Include="Areas/Admin/Views/TransferCertificate/Create.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -476,7 +476,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/12/2022 10:42:43</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolCirculars.cshtml">
-      <publishTime>04/21/2023 11:29:32</publishTime>
+      <publishTime>08/17/2023 00:46:00</publishTime>
     </File>
     <File Include="Areas/Client/Views/Circulars/SchoolDiary.cshtml">
       <publishTime>03/14/2022 13:44:24</publishTime>
@@ -1163,34 +1163,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2021 14:18:25</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.dll">
-      <publishTime>03/22/2023 11:47:46</publishTime>
+      <publishTime>08/17/2023 00:49:08</publishTime>
     </File>
     <File Include="bin/WebApplication.Core.pdb">
-      <publishTime>03/22/2023 11:47:46</publishTime>
+      <publishTime>08/17/2023 00:49:08</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>04/21/2023 15:32:49</publishTime>
+      <publishTime>08/17/2023 00:49:56</publishTime>
     </File>
     <File Include="bin/WebApplication.pdb">
-      <publishTime>04/21/2023 15:32:49</publishTime>
+      <publishTime>08/17/2023 00:49:56</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll">
-      <publishTime>04/21/2023 15:32:12</publishTime>
+      <publishTime>08/17/2023 00:49:15</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.dll.config">
       <publishTime>03/14/2022 13:44:24</publishTime>
     </File>
     <File Include="bin/WebApplication.Repository.pdb">
-      <publishTime>04/21/2023 15:32:12</publishTime>
+      <publishTime>08/17/2023 00:49:15</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll">
-      <publishTime>04/21/2023 15:32:13</publishTime>
+      <publishTime>08/17/2023 00:49:17</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.dll.config">
       <publishTime>11/04/2022 15:47:31</publishTime>
     </File>
     <File Include="bin/WebApplication.Service.pdb">
-      <publishTime>04/21/2023 15:32:13</publishTime>
+      <publishTime>08/17/2023 00:49:17</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/14/2022 13:44:38</publishTime>
@@ -5147,7 +5147,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2022 13:44:29</publishTime>
     </File>
     <File Include="Content/Client/Index/Index.css">
-      <publishTime>04/21/2023 12:09:07</publishTime>
+      <publishTime>04/21/2023 15:58:28</publishTime>
     </File>
     <File Include="Content/Client/js/assets/bootstrap.min.js">
       <publishTime>03/14/2022 13:44:29</publishTime>

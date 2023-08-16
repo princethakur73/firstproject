@@ -13,6 +13,7 @@ namespace WebApplication.Models
         public string Extenstion { get; set; }
         public DateTime CreateByDate { get; set; }
         public int CreateByUserId { get; set; }
+        [Required(ErrorMessage = "Date Required")]
         public DateTime ModifyByDate { get; set; }
         public int ModifyByUserId { get; set; }
         public bool IsActive { get; set; }

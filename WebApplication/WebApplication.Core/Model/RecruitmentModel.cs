@@ -8,7 +8,7 @@ namespace WebApplication.Core.Model
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Name Required")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
+        [RegularExpression(@"^[A-Z][a-z]*(\s[A-Z][a-z]*)+$", ErrorMessage = "Use letters only please")]
         public string FullName { get; set; }
         [Required]
         public string Gender { get; set; }

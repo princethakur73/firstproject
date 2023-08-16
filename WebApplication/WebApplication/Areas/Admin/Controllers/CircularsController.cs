@@ -632,6 +632,7 @@ namespace WebApplication.Areas.Admin.Controllers
                         obj.FileName = fileName;
                         model.FileName = fileName;
                     }
+                    obj.Extenstion = Path.GetExtension(obj.FileName);
 
                 }
 

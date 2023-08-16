@@ -73,12 +73,13 @@ namespace WebApplication.Repository
             {
                 DynamicParameters param = new DynamicParameters();
                 param.Add("_Id", obj.Id, DbType.Int32);
-                param.Add("_Title", obj.Title, DbType.String);                
+                param.Add("_Title", obj.Title, DbType.String);
                 param.Add("_FileNames", obj.FileName, DbType.String);
                 param.Add("_Extenstion", obj.Extenstion, DbType.String);
                 param.Add("_SortId", obj.SortId, DbType.Int32);
                 param.Add("_IsActive", obj.IsActive, DbType.Boolean);
                 param.Add("_UserId", obj.UserId, DbType.Int32);
+                param.Add("_date", obj.ModifyByDate, DbType.DateTime);
 
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
@@ -139,7 +140,7 @@ namespace WebApplication.Repository
             return isDeleted;
         }
 
-        public List<Circulars> GetList(int year, int pageNumber=0, int pageSize=0)
+        public List<Circulars> GetList(int year, int pageNumber = 0, int pageSize = 0)
         {
             List<Circulars> list;
             try

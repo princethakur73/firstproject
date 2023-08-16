@@ -62,7 +62,7 @@
                         </thead>
                         @foreach (var item in Model)
                         {
-                            <tr><td>@item.Title</td><td>@item.CreateByDate</td><td><span><a target="_self" href="~/Content/files/circulars/@item.FileName">Download</a></span></td><td><span><a target="_blank" href="~/Content/files/circulars/@item.FileName">View</a></span></td></tr>
+                            <tr><td>@item.Title</td><td>@item.ModifyByDate.ToShortDateString()</td><td><span><a target="_self" href="~/Content/files/circulars/@item.FileName">Download</a></span></td><td><span><a target="_blank" href="~/Content/files/circulars/@item.FileName">View</a></span></td></tr>
                         }
                     </table>
                 </div>
