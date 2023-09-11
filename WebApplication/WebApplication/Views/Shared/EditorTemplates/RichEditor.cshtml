@@ -11,6 +11,7 @@
             // instance, using default configuration.
 
             CKEDITOR.replace('@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)', { height: '800px' });
+            CKEDITOR.config.allowedContent = true;
             ////bootstrap WYSIHTML5 - text editor
             //$(".textarea").wysihtml5();
         });

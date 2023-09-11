@@ -52,7 +52,6 @@
                                     <label>Contents</label>
                                     @Html.EditorFor(model => model.Contents)
                                 </div>
-
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="seo">
@@ -89,3 +88,7 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@section Scripts
+{
+    <script src="~/Content/Admin/plugins/ckeditor/config.js"></script>
+}
