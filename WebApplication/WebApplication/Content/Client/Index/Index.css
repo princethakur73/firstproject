@@ -103,3 +103,9 @@
     margin-right: auto;
     width: auto;
 }
+
+#closepop {
+    margin: auto;
+    display: block;
+    width: 5%;
+}

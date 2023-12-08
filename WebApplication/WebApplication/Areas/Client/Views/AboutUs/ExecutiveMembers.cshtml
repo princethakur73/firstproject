@@ -83,9 +83,10 @@
                         @foreach (var item in Model)
                         {
                             string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
+                            string style = !string.IsNullOrEmpty(item.Image)  ? "width: 100%" : null;
                             <div class="box-item">
-                                <figure class="message_container">
-                                    <img style="width: 100%;" src="@image">
+                                <figure class="message_container">                                    
+                                    <img style="@style" src="@image">
                                     <figcaption>
                                         <div class="message_caption">
                                             @item.Name (@item.Desigination)

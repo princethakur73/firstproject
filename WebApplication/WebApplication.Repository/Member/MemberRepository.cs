@@ -59,7 +59,7 @@ namespace WebApplication.Repository
                                 CreateByUserId,
                                 ModifyByDate,
                                 ModifyByUserId
-                                FROM member Where Desigination != 'Founder'                               
+                                FROM member Where Desigination != 'Founder' AND IsActive=1                              
 		                    Order By SortId";
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
