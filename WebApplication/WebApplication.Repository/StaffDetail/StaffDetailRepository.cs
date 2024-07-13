@@ -183,7 +183,7 @@ namespace WebApplication.Repository
             try
             {
                 DynamicParameters param = new DynamicParameters();
-                param.Add("_StaffName", staffName, DbType.String);
+                param.Add("_StaffName", staffName ?? "", DbType.String);
                 param.Add("_IsCount", 0, DbType.Boolean);
                 param.Add("_PageNumber", pageNo, DbType.Int32);
                 param.Add("_PageSize", pageSize, DbType.Int32);

@@ -104,8 +104,21 @@
     width: auto;
 }
 
-#closepop {
-    margin: auto;
-    display: block;
-    width: 5%;
+.add-btn {
+    margin: 5px;
+    color: #fff;
+    background: #c40e05;
+    border: 2px solid #c40e05;
+    text-transform: uppercase;
+    padding: 7px 25px;
+    border-radius: 3px;
+    font-weight: 500 !important;
+    transition: 0.3s ease !important;
+}
+
+.popup-btn {
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 0.2rem;
+    text-align: center;
 }

@@ -30,7 +30,7 @@
                 @foreach (var item in Model)
                 {
                     <h2><a href="@Url.Action("NewsDetails", "Home", new { token = item.Key, Area = "Client" })" target="_blank">@item.Title</a></h2>
-                    @if (!string.IsNullOrWhiteSpace(item.ShortDescription))
+                    if (!string.IsNullOrWhiteSpace(item.ShortDescription))
                     {
                         <a href="~/Content/files/News/@item.FileName" target="_blank">@item.ShortDescription</a>
                     }

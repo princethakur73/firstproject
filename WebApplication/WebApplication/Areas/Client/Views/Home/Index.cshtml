@@ -6,7 +6,7 @@
 
     var slides = dbContext.GetList(currentUserId: 0).OrderBy(m => m.SortId);
 }
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
 
@@ -101,6 +101,11 @@
         <!-- END SLIDER CONTAINER -->
     </div>
     <!-- END SLIDER CONTAINER WRAPPER -->
+    <!--Marquee for ad-->
+    <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
+        We are now hiring teachers  for the post of PGT, TGT and Kindergarten. <a href="/recruitment-form">Apply Now</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Provisional admission is opened for Class XI (Medical,Non-Medical, Commerce & Arts) for the Session 2024-25 Till March 20, 2024. <a href="/admission-form">Apply Now</a>
+    </marquee>
 </section>
 <section class="about">
     <div class="container">
@@ -225,7 +230,7 @@
                                     <h5>1. English Core</h5>
                                     <h5>2. Economics</h5>
                                     <h5>3. Political Science</h5>
-                                    <h5>4. History</h5>                                    
+                                    <h5>4. History</h5>
                                     <h5>5. Hindi Core/ Punjabi</h5>
                                     <h5>6. IP/ Music/ Phy. Education/ App. Maths</h5>
                                     <!-- Ends: .course-excerpt -->
@@ -307,19 +312,33 @@
                         <div class="ts-right">
                             <div class="client-content">
                                 <h3 class="client-info">
-                                    Mrs. Radhika Jain <br>
-                                    <span>Director</span>
+                                    Mrs. Sunita Kumari<br>
+                                    <span>Principal</span>
                                 </h3>
                                 <br>
-                                <p>Thank you for your interest in HVM Convent Sr. Sec. School. I sincerely hope that you will appreciate the spirit of our...</p>
+                                <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
                                 <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
                             </div>
-                            <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
                         </div>
                     </div>
+                    @*<div class="col-sm-6">
+            <div class="ts-right">
+                <div class="client-content">
+                    <h3 class="client-info">
+                        Mrs. Radhika Jain <br>
+                        <span>Director</span>
+                    </h3>
+                    <br>
+                    <p>Thank you for your interest in HVM Convent Sr. Sec. School. I sincerely hope that you will appreciate the spirit of our...</p>
+                    <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                </div>
+                <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
+            </div>
+        </div>*@
                 </div>
                 <!-- ends: .testimonial-single -->
-                <div class="testimonial-single row">
+                @*<div class="testimonial-single row">
                     <div class="col-sm-9">
                         <div class="ts-left">
                             <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
@@ -334,7 +353,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <!-- ends: .testimonial-single -->
             </div>
         </div>
@@ -413,61 +432,61 @@
                                 </div>
                             </div>
                         </div>-->
-                        <!-- ends: .event-single -->
-                        <!--<div class="col-sm-6">
-                            <div class="event-single">
-                                <div class="event-image"> <img src="~/Content/Client/images/earth-day.jpg" alt="" class="img-responsive"> </div>
-                                <div class="event-details">
-                                    <h3>Earth Day</h3>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
-                                        <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
-                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- ends: .row -->
-                    <!--<div class="row">-->
-                        <!-- ends: .event-single -->
-                        <!--<div class="col-sm-6">
-                            <div class="event-single">
-                                <div class="event-image"> <img src="~/Content/Client/images/mother-day.jpg" alt="" class="img-responsive"> </div>
-                                <div class="event-details">
-                                    <h3>Mother's Day</h3>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
-                                        <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
-                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="event-single">
-                                <div class="event-image"> <img src="~/Content/Client/images/pool-party.jpg" alt="" class="img-responsive"> </div>
-                                <div class="event-details">
-                                    <h3>Pool Party</h3>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
-                                        <li><i class="fa fa-clock-o"></i> 9.00am - 4.00pm</li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
-                                    <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- ends: .row -->
-                <!--</div>-->
-                <!-- ends: .event-block -->
-                <!-- Ends: .blog-pagination -->
-            <!--</div>-->
-            <!-- Ends: .col-md-12 -->
-        <!--</div>
+<!-- ends: .event-single -->
+<!--<div class="col-sm-6">
+        <div class="event-single">
+            <div class="event-image"> <img src="~/Content/Client/images/earth-day.jpg" alt="" class="img-responsive"> </div>
+            <div class="event-details">
+                <h3>Earth Day</h3>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                    <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- ends: .row -->
+<!--<div class="row">-->
+<!-- ends: .event-single -->
+<!--<div class="col-sm-6">
+        <div class="event-single">
+            <div class="event-image"> <img src="~/Content/Client/images/mother-day.jpg" alt="" class="img-responsive"> </div>
+            <div class="event-details">
+                <h3>Mother's Day</h3>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                    <li><i class="fa fa-clock-o"></i> 8.00am - 5.00pm</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="event-single">
+            <div class="event-image"> <img src="~/Content/Client/images/pool-party.jpg" alt="" class="img-responsive"> </div>
+            <div class="event-details">
+                <h3>Pool Party</h3>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar"></i> 1st Jan, 2017</li>
+                    <li><i class="fa fa-clock-o"></i> 9.00am - 4.00pm</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipisic ing elit, sed diam nonummy nibh euismod tincidui nt ut laoreet dolore magna volutpat.</p>
+                <a href="">Read More <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- ends: .row -->
+<!--</div>-->
+<!-- ends: .event-block -->
+<!-- Ends: .blog-pagination -->
+<!--</div>-->
+<!-- Ends: .col-md-12 -->
+<!--</div>
     </div>
 </section>-->
 <section class="kids-bg">
@@ -484,7 +503,7 @@
 </section>
 
 <!-- Trigger the Modal -->
-<img id="myImg" src="~/Content/images/22-23-Add.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
+<img id="myImg" src="~/Content/images/Banner-ad.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
 <img id="requirement" src="~/Content/images/Requirement1.png" alt="Requirement" style="display:none;width:100%;max-width:300px">
 
 <!-- The Modal -->
@@ -495,23 +514,25 @@
 
     <!-- Modal Content (The Image) -->
     <img class="modal-content" id="img01">    <br />
-    @*<img class="modal-content" id="img03">*@   
-    <a href="#" id="closepop" class="el-btn-regular">Close</a>
-
+    @*<img class="modal-content" id="img03">*@
+    <div class="popup-btn">
+        <a href="#" id="reg" class="add-btn">Register</a>
+        <a href="#" id="closepop" class="add-btn">Close</a>        
+    </div>
     <!-- Modal Caption (Image Text) -->
     <div id="caption"></div>
 </div>
-<div id="myModal1" class="modal">
+<!--<div id="myModal1" class="modal">-->
 
     <!-- The Close Button -->
-    <span id="close2" class="close">&times;</span>
+    <!--<span id="close2" class="close">&times;</span>-->
 
     <!-- Modal Content (The Image) -->
-    <img class="modal-content" id="img02">    
+    <!--<img class="modal-content" id="img02">-->
 
     <!-- Modal Caption (Image Text) -->
-    <div id="caption1"></div>
-</div>
+    <!--<div id="caption1"></div>
+</div>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
@@ -519,18 +540,18 @@
         img.click();
     });
     // Get the modal for requirement
-    var modal1 = document.getElementById("myModal1");
+    //var modal1 = document.getElementById("myModal1");
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img1 = document.getElementById("requirement");
-    var modalImg1 = document.getElementById("img02");
-    var modalImg3 = document.getElementById("img03");
-    var captionText1 = document.getElementById("caption1");
-    img1.onclick = function () {
-        modal1.style.display = "block";
-        modalImg1.src = this.src;
-        captionText1.innerHTML = this.alt;
-    }
+    //// Get the image and insert it inside the modal - use its "alt" text as a caption
+    //var img1 = document.getElementById("requirement");
+    //var modalImg1 = document.getElementById("img02");
+    //var modalImg3 = document.getElementById("img03");
+    //var captionText1 = document.getElementById("caption1");
+    //img1.onclick = function () {
+    //    modal1.style.display = "block";
+    //    modalImg1.src = this.src;
+    //    captionText1.innerHTML = this.alt;
+    //}
 
     ///////////////////////////////////////////////////////////////////////////
     // Get the modal for addmission
@@ -543,20 +564,26 @@
     img.onclick = function () {
         modal.style.display = "block";
         modalImg.src = this.src;
-        modalImg3.src = img1.src;        
+        //modalImg3.src = img1.src;
     }
 
     // Get the <span> element that closes the modal
     var span = document.getElementById("close1");
 
-    // Get the <span> element that closes the modal
-    var span1 = document.getElementById("close2");
+    //// Get the <span> element that closes the modal
+    //var span1 = document.getElementById("close2");
 
     // Get the <A> element that closes the modal
     var closeBtn = document.getElementById("closepop");
+    var regBtn = document.getElementById("reg");
 
     closeBtn.onclick = function () {
         modal.style.display = "none";
+    }
+
+    regBtn.onclick = function () {
+        modal.style.display = "none";
+        window.location.href = "/contact-us";
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -564,18 +591,18 @@
         modal.style.display = "none";
     }
 
-    // When the user clicks on <span> (x), close the modal
-    span1.onclick = function () {
-        $("#img02").hide();
-        modal1.style.display = "none";
-        img.click();
-    }
+    //// When the user clicks on <span> (x), close the modal
+    //span1.onclick = function () {
+    //    $("#img02").hide();
+    //    modal1.style.display = "none";
+    //    img.click();
+    //}
 
-    function openForm() {
-        $("#img01").hide();
-        $.get('/Client/Home/FirstVisit', function (data) {
-            $('#caption').html(data);
-        });
-    }
+    //function openForm() {
+    //    $("#img01").hide();
+    //    $.get('/Client/Home/FirstVisit', function (data) {
+    //        $('#caption').html(data);
+    //    });
+    //}
 
 </script>

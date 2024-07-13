@@ -2,7 +2,7 @@ $(function() {
 
 	// Get the form.
 	var form = $('#ajax-contact');
-
+	debugger
 	// Get the messages div.
 	var formMessages = $('#form-messages');
 
@@ -23,10 +23,10 @@ $(function() {
 		.done(function(response) {
 			// Make sure that the formMessages div has the 'success' class.
 			$(formMessages).removeClass('error');
-			$(formMessages).addClass('success');
+			$(formMessages).addClass('success-message');
 
 			// Set the message text.
-			$(formMessages).text(response);
+			$(formMessages).text('Your message successfully sent');
 
 			// Clear the form.
 			$('#name').val('');
@@ -35,7 +35,7 @@ $(function() {
 		})
 		.fail(function(data) {
 			// Make sure that the formMessages div has the 'error' class.
-			$(formMessages).removeClass('success');
+			$(formMessages).removeClass('success-message');
 			$(formMessages).addClass('error');
 
 			// Set the message text.

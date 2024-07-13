@@ -111,6 +111,15 @@ p {
 .pad_zero {
 	padding:0px;
 }
+
+.success-message {
+	background-color: #dff0d8;
+	color: #3c763d;
+	border-color: #3c763d;	
+	padding: 10px;
+	margin-top: 10px;
+}
+
 .gallery_bx {
 	background-color:#f5f5f5;
 	padding:5px 0px 0 8px;
@@ -13776,7 +13785,7 @@ ul.tag-cloud, ul.sidebar-gallery {
 .paymeny-link {
     padding: 25px 0 0 80px;
 }
-.paymeny-link a {
+.blink {
     animation-duration: 1200ms;
     animation-name: blink;
     animation-iteration-count: infinite;

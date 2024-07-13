@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using System.Net.Mail;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebApplication.Areas.Client.Models;
 using WebApplication.Core.Helper;
 using WebApplication.Models;
@@ -59,11 +62,32 @@ namespace WebApplication.Areas.Client.Controllers
             return View("~/Areas/Client/Views/Home/ContactUs.cshtml");
         }
 
-        //[Route("contact-us")]
-        //public ActionResult ContactUs(ContactUsModel contact)
-        //{
-        //    return View("~/Areas/Client/Views/Home/ContactUs.cshtml");
-        //}
+        [Route("contact-us")]
+        [HttpPost]
+        public ActionResult ContactUs(ContactUsModel contact)
+        {
+            #region Send Confirmation to Candidate
+
+            string body = "<div>Hello <br>Please check the following detail of the user who visit over the site.<br>" +
+                    "Name: " + contact.Name + "<br>" +
+                    "Subject: " + contact.Subject + "<br>" +
+                    "Conatct: " + contact.Email + "<br>" +
+                    "Message: " + contact.Message + "</div>";
+
+            MailDefinition md = new MailDefinition
+            {
+                From = "noreply@hvmsrsecschool.org",
+                IsBodyHtml = true,
+                Subject = string.Format("{0}", contact.Subject),
+                Priority = MailPriority.High
+            };
+
+            MailMessage msg = md.CreateMailMessage("hvmconvent@gmail.com", null, body, new System.Web.UI.Control());
+            #endregion
+
+            var result = EmailHelper.Send(msg);
+            return Json(result);
+        }
 
         [Route("press-media")]
         public ActionResult PressMedia()
