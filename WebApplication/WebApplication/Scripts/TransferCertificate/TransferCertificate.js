@@ -5,7 +5,6 @@ $(document).ready(function () {
     $.get('/Admin/TransferCertificate/GetTransferCertificateList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {
         console.log(data);
         var templateResult = templateCompile(data);
-        debugger
         $('#table').html(templateResult);
     });
 

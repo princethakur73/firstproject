@@ -5,7 +5,6 @@ $(document).ready(function () {
     $.get('/Admin/Circulars/GetPtmList', { 'pageNumber': 1, 'pageSize': 10 }, function (data) {
         data.PtmModels.forEach(task => { task.Month = getMonthYear(task.Month) });
         var templateResult = templateCompile(data);
-        debugger 
         $('#table').html(templateResult);
     });
 
@@ -14,7 +13,6 @@ $(document).ready(function () {
     });
 });
 function getMonthYear(d) {
-    debugger
     var subStr = parseInt(d.substr(6));
     var dt = new Date(subStr);
     var d = dt.getDate();

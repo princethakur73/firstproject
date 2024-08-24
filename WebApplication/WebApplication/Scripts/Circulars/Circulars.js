@@ -6,7 +6,6 @@ $(document).ready(function () {
     $.get('/Admin/Circulars/GetCircularsList', { 'sessionId': sessionId,'pageNumber': 1, 'pageSize': 10 }, function (data) {
         console.log(data);
         var templateResult = templateCompile(data);
-        debugger
         $('#table').html(templateResult);
     });
 

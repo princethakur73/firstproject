@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
-
+    <input type="hidden" id="showPopup" name="showPopup" value="N">
     <div class="rev_slider_wrapper">
         <div id="rev_slider_4" class="rev_slider" style="display:none">
             <!-- BEGIN SLIDES LIST -->
@@ -157,7 +157,7 @@
                 <div class="service-box">
                     <div class="service-icon"> <img src="~/Content/Client/images/moto.png" alt="" /> </div>
                     <div class="service-info">
-                        <h3>Our Moto</h3>
+                        <h3>Our Motto</h3>
                         <p>‘Work is Worship’ mean - Children must treat the work they do as an art of worship so that they can rise and roar high to reach the pinnacle of glory and make us proud.</p>
                     </div>
                 </div>
@@ -323,37 +323,37 @@
                         </div>
                     </div>
                     @*<div class="col-sm-6">
-            <div class="ts-right">
-                <div class="client-content">
-                    <h3 class="client-info">
-                        Mrs. Radhika Jain <br>
-                        <span>Director</span>
-                    </h3>
-                    <br>
-                    <p>Thank you for your interest in HVM Convent Sr. Sec. School. I sincerely hope that you will appreciate the spirit of our...</p>
-                    <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
-                </div>
-                <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
-            </div>
-        </div>*@
+                            <div class="ts-right">
+                                <div class="client-content">
+                                    <h3 class="client-info">
+                                        Mrs. Radhika Jain <br>
+                                        <span>Director</span>
+                                    </h3>
+                                    <br>
+                                    <p>Thank you for your interest in HVM Convent Sr. Sec. School. I sincerely hope that you will appreciate the spirit of our...</p>
+                                    <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                                </div>
+                                <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
+                            </div>
+                        </div>*@
                 </div>
                 <!-- ends: .testimonial-single -->
                 @*<div class="testimonial-single row">
-                    <div class="col-sm-9">
-                        <div class="ts-left">
-                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
-                            <div class="client-content">
-                                <h3 class="client-info">
-                                    Mrs. Sunita Kumari<br>
-                                    <span>Principal</span>
-                                </h3>
-                                <br>
-                                <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
-                                <div align="right"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                        <div class="col-sm-9">
+                            <div class="ts-left">
+                                <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
+                                <div class="client-content">
+                                    <h3 class="client-info">
+                                        Mrs. Sunita Kumari<br>
+                                        <span>Principal</span>
+                                    </h3>
+                                    <br>
+                                    <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
+                                    <div align="right"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>*@
+                    </div>*@
                 <!-- ends: .testimonial-single -->
             </div>
         </div>
@@ -517,21 +517,18 @@
     @*<img class="modal-content" id="img03">*@
     <div class="popup-btn">
         <a href="#" id="reg" class="add-btn">Register</a>
-        <a href="#" id="closepop" class="add-btn">Close</a>        
+        <a href="#" id="closepop" class="add-btn">Close</a>
     </div>
     <!-- Modal Caption (Image Text) -->
     <div id="caption"></div>
 </div>
 <!--<div id="myModal1" class="modal">-->
-
-    <!-- The Close Button -->
-    <!--<span id="close2" class="close">&times;</span>-->
-
-    <!-- Modal Content (The Image) -->
-    <!--<img class="modal-content" id="img02">-->
-
-    <!-- Modal Caption (Image Text) -->
-    <!--<div id="caption1"></div>
+<!-- The Close Button -->
+<!--<span id="close2" class="close">&times;</span>-->
+<!-- Modal Content (The Image) -->
+<!--<img class="modal-content" id="img02">-->
+<!-- Modal Caption (Image Text) -->
+<!--<div id="caption1"></div>
 </div>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -556,15 +553,16 @@
     ///////////////////////////////////////////////////////////////////////////
     // Get the modal for addmission
     var modal = document.getElementById("myModal");
-
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementById("myImg");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
     img.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        //modalImg3.src = img1.src;
+        if (document.getElementById("showPopup").value == 'Y') {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            //modalImg3.src = img1.src;
+        }
     }
 
     // Get the <span> element that closes the modal

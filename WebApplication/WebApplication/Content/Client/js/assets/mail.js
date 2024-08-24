@@ -2,7 +2,7 @@ $(function() {
 
 	// Get the form.
 	var form = $('#ajax-contact');
-	debugger
+
 	// Get the messages div.
 	var formMessages = $('#form-messages');
 

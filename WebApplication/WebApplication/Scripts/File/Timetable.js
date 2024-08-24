@@ -46,7 +46,6 @@ $(document).on('click', 'li > a', function () {
 });
 
 function getDateMonthYear(d) {
-    debugger
     var subStr = parseInt(d.substr(6));
     var dt = new Date(subStr);
     var d = dt.getDate();
