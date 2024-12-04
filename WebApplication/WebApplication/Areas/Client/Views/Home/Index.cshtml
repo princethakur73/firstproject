@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
-    <input type="hidden" id="showPopup" name="showPopup" value="N">
+    <input type="hidden" id="showPopup" name="showPopup" value="Y">
     <div class="rev_slider_wrapper">
         <div id="rev_slider_4" class="rev_slider" style="display:none">
             <!-- BEGIN SLIDES LIST -->
@@ -102,10 +102,9 @@
     </div>
     <!-- END SLIDER CONTAINER WRAPPER -->
     <!--Marquee for ad-->
-    <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
+    @*<marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
         We are now hiring teachers  for the post of PGT, TGT and Kindergarten. <a href="/recruitment-form">Apply Now</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Provisional admission is opened for Class XI (Medical,Non-Medical, Commerce & Arts) for the Session 2024-25 Till March 20, 2024. <a href="/admission-form">Apply Now</a>
-    </marquee>
+    </marquee>*@
 </section>
 <section class="about">
     <div class="container">
@@ -504,7 +503,7 @@
 
 <!-- Trigger the Modal -->
 <img id="myImg" src="~/Content/images/Banner-ad.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
-<img id="requirement" src="~/Content/images/Requirement1.png" alt="Requirement" style="display:none;width:100%;max-width:300px">
+@*<img id="requirement" src="~/Content/images/Requirement1.png" alt="Requirement" style="display:none;width:100%;max-width:300px">*@
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -516,7 +515,7 @@
     <img class="modal-content" id="img01">    <br />
     @*<img class="modal-content" id="img03">*@
     <div class="popup-btn">
-        <a href="#" id="reg" class="add-btn">Register</a>
+        <a href="#" target="_blank" id="reg" class="add-btn">Register</a>
         <a href="#" id="closepop" class="add-btn">Close</a>
     </div>
     <!-- Modal Caption (Image Text) -->
@@ -581,7 +580,7 @@
 
     regBtn.onclick = function () {
         modal.style.display = "none";
-        window.location.href = "/contact-us";
+        window.location.href = "https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8";
     }
 
     // When the user clicks on <span> (x), close the modal

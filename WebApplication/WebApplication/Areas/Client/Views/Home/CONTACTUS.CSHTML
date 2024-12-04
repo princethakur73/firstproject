@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div id="contact-focus" class="col-sm-5">
                     <div class="contact-one-form">
                         <h1>Write Your Message Here</h1>
                         <form id="ajax-contact" action="../../@Url.Action("ContactUs","Home")" method="post">
@@ -91,7 +91,8 @@
                                     <textarea placeholder="Message" name="Message" required></textarea>
                                 </div>
                                 <div class="col-sm-12">
-                                    <button type="submit">Send Message</button>
+                                    <button id="contact-us" type="button" onclick="contactUs()">Send Message</button>
+                                    <button id="submit" type="submit" style="display:none"></button>
                                 </div>
                             </div>
                             <div id="form-messages"></div>
@@ -105,7 +106,7 @@
                 <div class="col-sm-12">
                     <div class="contact-map">
                         <h3>Location On Map</h3>
-                        <iframe src="https://www.google.com/maps/d/embed?mid=19Z1WTUtXpMNQ2FR3_cXI9GLvzUk" width="100" height="350"></iframe>
+                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=HVM%20Convent%20school%20ludhiana+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100" height="350"></iframe>
                     </div>
                 </div>
                 <!-- Ends: .col-sm-12 -->
@@ -114,3 +115,19 @@
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+
+    $(window).on('load', function () {
+        window.location.hash = '#contact-focus';
+    });
+
+    $('#contact-us').click(function () {
+        if (confirm("Press OK if your data is valid") == true) {
+            document.getElementById('submit').click();
+        }
+        else {
+            return false;
+        }
+    });
+</script>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
 using WebApplication.EnumHelper;
@@ -27,7 +28,7 @@ namespace WebApplication.Areas.Client.Controllers
                 var list = _datesheetService.GetList(1, 20,(int)FiletypeEnum.Datesheet);
                 if (list.Any())
                 {
-                    ViewBag.dd = list.Where(a => a.IsActive).Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Session.ToString("MMM yyy") }).ToList();
+                    ViewBag.dd = list.Where(a => a.IsActive).Select(s => new SelectListItem { Value = s.Id.ToString(), Text = Path.GetFileNameWithoutExtension(s.FileName) + " " + s.Session.ToString("MMM yyy") }).ToList();
                     if(id.HasValue)
                     model = _datesheetService.GetById((int)id,0).ToModel();
                 }

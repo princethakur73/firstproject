@@ -126,9 +126,9 @@ namespace WebApplication.Areas.Admin.Controllers
                 {
                     if (file.ContentLength > 0)
                     {
-                        if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName)))
+                        if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/datesheet/"), file.FileName)))
                         {
-                            System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/datesheet/"), model.FileName));
+                            System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/datesheet/"), file.FileName));
                         }
 
                         string fileName = Path.GetFileNameWithoutExtension(file.FileName).ToLowerInvariant().Replace(' ', '-') + "-" + model.Session.Date.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);

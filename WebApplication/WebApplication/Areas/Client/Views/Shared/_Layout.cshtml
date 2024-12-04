@@ -66,8 +66,8 @@
                     <div id="logo" class="col-sm-6"><a href="@Url.Action("Index","Home")"><img src="~/Content/Client/images/logo.png" class="img-responsive"></a></div>
                     <div class="col-sm-4"></div>
                     @*<div class="col-sm-4 paymeny-link"><a class ="blink" target="_blank" href="https://smarthubeducation.hdfcbank.com/SmartFees/Landing.action?instId=5687">
-         <span>Online Fee Payment through HDFC <img src="~/Content/Client/images/hdfc.png" /></span>
-        </a></div>*@
+                         <span>Online Fee Payment through HDFC <img src="~/Content/Client/images/hdfc.png" /></span>
+                        </a></div>*@
                     <div class="col-sm-2">
                         <div class="widget-content social-icon-t">
                             <ul class="list-unstyled" style="display:inline;">
@@ -154,7 +154,7 @@
                                                         <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
                                                         <li><a href="@Url.Action("EvaluationWeightage","Circulars")">Evaluation Weightage</a></li>
                                                         @*<li><a href="@Url.Action("SchoolDiary","Circulars")">School Diary</a></li>
-                                                        <li><a href="@Url.Action("CodeOfConductForStudent","Circulars")">Code of Conduct for Student</a></li>*@
+                                                            <li><a href="@Url.Action("CodeOfConductForStudent","Circulars")">Code of Conduct for Student</a></li>*@
                                                         <li><a href="@Url.Action("ListOfBooks","Circulars")">List of Books</a></li>
                                                         @*<li><a href="@Url.Action("ListOfHolidays","Circulars")">List of Holidays</a></li>*@
                                                         <li><a href="@Url.Action("TeachingMethodology","Circulars")">Teaching Methodology</a></li>
@@ -173,7 +173,7 @@
                                                 <li><a href="@Url.Action("Result","Academics")">Result</a></li>
                                                 @*<li><a href="@Url.Action("InterSchoolPrizes","Achievements")">Inter School Prizes</a></li>*@
                                                 @*<li><a href="@Url.Action("Sports","Student")">Sports</a></li>
-                                                <li><a href="@Url.Action("HubLearningActivities","Achievements")">Hub Of Learning Activities</a></li>*@
+                                                    <li><a href="@Url.Action("HubLearningActivities","Achievements")">Hub Of Learning Activities</a></li>*@
                                                 @*<li><a href="@Url.Action("Sports","Student")">Sports</a></li>
                                                     <li><a href="@Url.Action("ActivitiesEvents","Student")">Activities & Events</a></li>
                                                     <li><a href="@Url.Action("OnRoll","Student")">On Roll</a></li>
@@ -223,7 +223,7 @@
                                                         <li><a href="@Url.Action("RecruitmentForm","Admission")">Recruitment Form</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="/photos/2023-24/206">Press Release</a></li>
+                                                <li><a href="/photos/2024-25/272">Press Release</a></li>
                                                 <li><a href="@Url.Action("SchoolVirtualTour","Gallery")">School Virtual Tour</a></li>
 
                                             </ul>
@@ -286,7 +286,7 @@
                                 <li><a href="@Url.Action("Sports","Students")">About Us</a></li>
                                 <li><a href="@Url.Action("CourseOffered","AboutUs")">Streams Offered</a></li>
                                 <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Our Infrastructure</a></li>
-                                <li>@*<a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a>*@</li>                                             
+                                <li>@*<a href="@Url.Action("OurFacilities","AboutUs")">Our Facilities</a>*@</li>
                                 <li><a href="@Url.Action("AdmissionRule","Admission")">Admission Rules</a></li>
                                 @*<li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>*@
                             </ul>
@@ -302,7 +302,7 @@
                         <div class="widget-content">
                             <ul class="list-unstyled">
                                 <li><a href="@Url.Action("SchoolVirtualTour","Gallery")">Virtual Tour</a></li>
-                                <li><a href="/photos/2023-24/206">Press & Release</a></li>
+                                <li><a href="/photos/2024-25/272">Press & Release</a></li>
                                 <li><a href="@Url.Action("Download","Student")">Download</a></li>
                                 @*<li><a href="#">Kindergarten</a></li>*@
                                 <li><a href="@Url.Action("DateSheet","Academics")">Date Sheet</a></li>
@@ -344,7 +344,7 @@
                                 <li><a href="photogallery.aspx"><img src="~/Content/Client/images/thumb-5.jpg" alt=""></a></li>
                                 <li><a href="photogallery.aspx"><img src="~/Content/Client/images/thumb-6.jpg" alt=""></a></li>
                             </ul>
-                            <a href="/session-photo-gallery/2023-24" class="el-btn-regular2" style="margin-top:10px">View Our Gallery</a>
+                            <a href="/session-photo-gallery/2024-25" class="el-btn-regular2" style="margin-top:10px">View Our Gallery</a>
                         </div>
                     </div>
                     <div class="widget footer-social">
@@ -421,5 +421,26 @@
              STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
         ============================================================== -->
     @RenderSection("scripts", required: false)
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '904645521808936');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=904645521808936&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
 </body>
 </html>
