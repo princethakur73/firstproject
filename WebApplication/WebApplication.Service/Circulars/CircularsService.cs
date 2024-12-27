@@ -30,6 +30,21 @@ namespace WebApplication.Service
             return result;
         }
 
+        public bool DeleteAll(int year)
+        {
+            bool result = false;
+            try
+            {
+                result = _circularsRepository.DeleteAll(year);
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+
+            return result;
+        }
+
         public bool DeleteById(int Id, long currentUserId)
         {
             bool result = false;
@@ -152,6 +167,20 @@ namespace WebApplication.Service
             try
             {
                 result = _circularsRepository.Save(obj);
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public List<int> SaveList(List<Circulars> listObj)
+        {
+            List<int> result = new List<int>();
+            try
+            {
+                result = _circularsRepository.SaveList(listObj);
             }
             catch (System.Exception ex)
             {

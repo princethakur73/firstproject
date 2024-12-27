@@ -11,6 +11,10 @@ namespace WebApplication.Repository
 
         bool IsNameExist(string name, int id);
 
+        List<int> SaveList(List<Circulars> listObj);
+
+        bool DeleteAll(int year);
+
         #region PTM
         Ptm GetByIdPtm(int? id);
         int SavePTM(Core.Ptm obj);

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Area.Admin.Models;
+using WebApplication.Core;
 using WebApplication.Core.Common;
 using WebApplication.Infrastructure;
 using WebApplication.Infrastructure.Alerts;
@@ -531,39 +533,42 @@ namespace WebApplication.Areas.Admin.Controllers
         {
             try
             {
-
-                HttpPostedFileBase file = Request.Files["file"];
-
-                if (file.ContentLength == 0)
+                List<Circulars> circularsList = new List<Circulars>();
+                for (int i = 0; i < Request.Files.Count; i++)
                 {
-                    ModelState.AddModelError("FileName", "Please give valid file.");
-                }
-
-                if (!ModelState.IsValid)
-                {
-                    return View(model);
-                }
-
-                var obj = model.ToEntity();
-                if (file != null)
-                {
-                    if (file.ContentLength > 0)
+                    if (Request.Files.GetKey(i) == "file")
                     {
-                        string fileName = file.FileName;
+                        HttpPostedFileBase fileUpload = Request.Files.Get(i);
 
-                        file.SaveAs(string.Concat(Server.MapPath("~/Content/files/circulars/"), fileName));
+                        if (fileUpload.ContentLength == 0)
+                        {
+                            ModelState.AddModelError("FileName", "Please give valid file.");
+                        }
 
-                        obj.FileName = fileName;
-                        obj.Extenstion = Path.GetExtension(file.FileName);
-                        model.FileName = fileName;
+                        if (!ModelState.IsValid)
+                        {
+                            return View(model);
+                        }
+
+                        Circulars circulars = new Circulars
+                        {
+                            FileName = fileUpload.FileName,
+                            Title = Path.GetFileNameWithoutExtension(fileUpload.FileName),
+                            Extenstion = Path.GetExtension(fileUpload.FileName),
+                            IsActive = true,
+                            CreateByDate = DateTime.Today,
+                            CreateByUserId = (int)_currentUser.User.Id,
+                            ModifyByDate = DateTime.Today,
+                            ModifyByUserId = (int)_currentUser.User.Id,
+                            UserId = (int)_currentUser.User.Id,
+                            SortId = 0
+                        };
+                        fileUpload.SaveAs(string.Concat(Server.MapPath("~/Content/files/circulars/"), circulars.FileName));
+                        circularsList.Add(circulars);
                     }
-
                 }
 
-
-                obj.UserId = (int)_currentUser.User.Id;
-
-                if (_circularsService.Save(obj) > 0)
+                if (_circularsService.SaveList(circularsList) != null)
                 {
                     return RedirectToAction<CircularsController>(m => m.Index())
                                         .WithSuccess("Saved Successfully!");
@@ -625,7 +630,7 @@ namespace WebApplication.Areas.Admin.Controllers
                             System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/circulars/"), model.FileName));
                         }
 
-                        string fileName = model.Title.ToLowerInvariant().Replace(' ', '-') + "-" + DateTime.Now.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);
+                        string fileName = file.FileName;
 
                         file.SaveAs(string.Concat(Server.MapPath("~/Content/files/circulars/"), fileName));
 
@@ -690,6 +695,30 @@ namespace WebApplication.Areas.Admin.Controllers
                     {
                         System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/circulars/"), data.FileName));
                     }
+                }
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception ex)
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        public ActionResult DeleteAll(int sessionId)
+        {
+            bool result = false;
+            try
+            {
+                var session = _commonService.GetSessionList().Where(a => a.Id == sessionId).FirstOrDefault();
+                int sessionYear = string.IsNullOrEmpty(session.Name) ? GetCurrentYear() : Convert.ToInt32(session.Name.Split('-')[0]);
+                result = _circularsService.DeleteAll(sessionYear);
+                if (result)
+                {
+                    //if (System.IO.File.Exists(string.Concat(Server.MapPath("~/Content/files/circulars/"), data.FileName)))
+                    //{
+                    //    System.IO.File.Delete(string.Concat(Server.MapPath("~/Content/files/circulars/"), data.FileName));
+                    //}
                 }
                 return Json(result, JsonRequestBehavior.AllowGet);
             }

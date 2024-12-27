@@ -62,6 +62,28 @@ $(document).on('click', 'li > a', function () {
     });
 });
 
+$(document).on('click', '.delete-all', function () {
+
+    var a = confirm("Are you sure to delete to delete all records?");
+    if (a) {
+        var templateHtml = $('#table-list').html();
+        var templateCompile = Handlebars.compile(templateHtml);
+        var sessionId = document.getElementById("SessionId").value;
+        $.get('/Admin/Circulars/DeleteAll', { "sessionId": sessionId }, function (data) {
+            if (data === true) {                
+                $('#alert').html("<div class='container-fluid alert-container'><div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>All Records deleted successfully.</div></div>");
+                $.get('/Admin/Circulars/GetCircularsList', { 'sessionId': sessionId, 'pageNumber': parseInt(0), 'pageSize': 10 }, function (data) {
+                    var templateResult = templateCompile(data);
+                    $('#table').html(templateResult);
+                });
+            }
+            else {
+                $('#alert').html("<div class='container-fluid alert-container'><div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Unable to delete, records is already in use.</div></div>");
+            }
+        });
+    }
+});
+
 ///////////////////////////////////////////////////////////////////////////
 // Get Loading
 var modal = document.getElementById("myModal");

@@ -11,6 +11,9 @@ namespace WebApplication.Service
 
         bool IsNameExist(string name, int id);
 
+        List<int> SaveList(List<Circulars> listObj);
+        bool DeleteAll(int year);
+
         #region PTM
         List<Ptm> GetListPtm(int pageNo = 1, int pageSize = 10);
         Ptm GetByIdPtm(int? Id);

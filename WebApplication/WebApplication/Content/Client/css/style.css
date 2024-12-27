@@ -1240,7 +1240,7 @@ header .main-menu nav.navbar .navbar-collapse ul.navbar-nav {
 	padding: 0;
 }
 header .main-menu nav.navbar .navbar-collapse ul.navbar-nav li {
-	margin-right: 50px;
+	margin-right: 40px;
 }
 header .main-menu nav.navbar .navbar-collapse ul.navbar-nav li:last-child {
 	margin-right: 0;

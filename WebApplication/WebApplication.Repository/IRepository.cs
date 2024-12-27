@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using WebApplication.Core;
 namespace WebApplication.Repository
 {
     public interface IRepository<T>

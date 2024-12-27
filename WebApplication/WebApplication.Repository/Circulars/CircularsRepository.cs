@@ -93,6 +93,16 @@ namespace WebApplication.Repository
             return Id;
         }
 
+        public List<int> SaveList(List<Circulars> listObj)
+        {
+            List<int> ids = new List<int>();
+            foreach (var item in listObj)
+            {
+                ids.Add(Save(item));
+            }
+            return ids;
+        }
+
         public bool DeleteById(int id)
         {
             bool isDeleted = false;
@@ -102,6 +112,27 @@ namespace WebApplication.Repository
                 using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
                 {
                     var effectedRow = Db.Execute(_query, new { Id = id });
+                    if (effectedRow > 0)
+                        isDeleted = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return isDeleted;
+        }
+
+        public bool DeleteAll(int year)
+        {
+            bool isDeleted = false;
+            try
+            {
+                _query = @"update circulars set isactive=0 where CreateByDate Between MAKEDATE(" + year + ", 91) AND MAKEDATE(" + year + ", 455)  AND IsActive = 1;";
+                
+                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                {
+                    var effectedRow = Db.Execute(_query);
                     if (effectedRow > 0)
                         isDeleted = true;
                 }
