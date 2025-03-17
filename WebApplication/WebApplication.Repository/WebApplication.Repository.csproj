@@ -79,6 +79,8 @@
     <Compile Include="DepartmentMaster\IDepartmentMasterRepository.cs" />
     <Compile Include="Downloads\IDownloadsRepository.cs" />
     <Compile Include="Downloads\DownloadsRepository.cs" />
+    <Compile Include="KindergartenSlide\IKindergartenSlideRepository.cs" />
+    <Compile Include="KindergartenSlide\KindergartenSlideRepository.cs" />
     <Compile Include="Slide\SlideRepository.cs" />
     <Compile Include="Slide\ISlideRepository.cs" />
     <Compile Include="ContactUs\IContactUsRepository.cs" />

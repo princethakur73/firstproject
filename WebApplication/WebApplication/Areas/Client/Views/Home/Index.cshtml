@@ -103,7 +103,8 @@
     <!-- END SLIDER CONTAINER WRAPPER -->
     <!--Marquee for ad-->
     <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
-        Admissions open for Nursery and UKG. <a href="/contact-us">Apply Now</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Admissions open for 2025-26 <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8">Apply Now</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Annual Datesheet of class IX and XI. <a href="/datesheet">Click Here</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </marquee>
 </section>
 <section class="about">
@@ -137,7 +138,7 @@
                     <div class="service-icon"> <img src="~/Content/Client/images/vision.png" alt="" /> </div>
                     <div class="service-info">
                         <h3>Our Vision</h3>
-                        <p>HVM Convent will promote quality and Holistic Development in learning process by building Knowledge with life skill perspective and values so as to nurture citizens who will meet all challenges of a dynamic society. </p>
+                        <p>HVM Convent School aims to promote holistic development by nurturing and training the HVMians to grow into global citizens by equipping them with 21st century skills and values to meet all the challenges of a rapidly changing society.  </p>
                     </div>
                 </div>
             </div>
@@ -147,7 +148,7 @@
                     <div class="service-icon"> <img src="~/Content/Client/images/mission.png" alt="" /> </div>
                     <div class="service-info">
                         <h3>Our Mission</h3>
-                        <p>To provide the students a conducive and dynamic learning environment, creating a proper platform so that they can work towards attainment of their goals and enrich the society with their works and values</p>
+                        <p>Our mission is to provide a safe, conducive and dynamic learning environment to promote the talents of students at all levels so that they can work towards attainment of their goals and enrich the society with their works and values. </p>
                     </div>
                 </div>
             </div>
@@ -157,7 +158,7 @@
                     <div class="service-icon"> <img src="~/Content/Client/images/moto.png" alt="" /> </div>
                     <div class="service-info">
                         <h3>Our Motto</h3>
-                        <p>‘Work is Worship’ mean - Children must treat the work they do as an art of worship so that they can rise and roar high to reach the pinnacle of glory and make us proud.</p>
+                        <p>Our motto is "Work is worship" that means students must treat the work they do as an art of worship so that they can rise and soar high to fulfill their aims to reach the zenith of success in their lives. </p>
                     </div>
                 </div>
             </div>
@@ -533,6 +534,7 @@
 
 <script>
     $(window).on('load', function () {
+        if (!checkCookieExists("firstvisit")) 
         img.click();
     });
     // Get the modal for requirement
@@ -560,6 +562,7 @@
         if (document.getElementById("showPopup").value == 'Y') {
             modal.style.display = "block";
             modalImg.src = this.src;
+            setPopupCookie();
             //modalImg3.src = img1.src;
         }
     }
@@ -602,4 +605,14 @@
     //    });
     //}
 
+    function setPopupCookie() {
+        const date = new Date();
+        date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = "firstvisit = true;" + expires;
+    }
+
+    function checkCookieExists(cookieName) {
+        return document.cookie.split(';').some((item) => item.trim().startsWith(`${cookieName}=`));
+    }
 </script>

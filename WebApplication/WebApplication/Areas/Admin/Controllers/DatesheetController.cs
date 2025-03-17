@@ -60,8 +60,9 @@ namespace WebApplication.Areas.Admin.Controllers
                 {
                     if (file.ContentLength > 0)
                     {
-                        string fileName = Path.GetFileNameWithoutExtension(file.FileName).ToLowerInvariant().Replace(' ', '-') + "-" + model.Session.Date.ToString("MM-dd-yyyy") + "-" + (new Random()).Next(1000, 5000).ToString() + Path.GetExtension(file.FileName);
+                        string fileName = Path.GetFileNameWithoutExtension(file.FileName).ToUpperInvariant().Replace(' ', '-') + Path.GetExtension(file.FileName);
 
+                        
                         file.SaveAs(string.Concat(Server.MapPath("~/Content/files/datesheet/"), fileName));
 
                         obj.FileName = fileName;
