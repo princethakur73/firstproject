@@ -104,11 +104,11 @@
                             <table class="table" border="1">
                                 <tbody>
                                     <tr>
-                                        <th colspan="2">@item.Department Dept</th>
+                                        <th colspan="3">@item.Department Dept</th>
                                     </tr>
                                     @foreach (var staff in item.Staff)
                                     {
-                                        <tr><td>@staff.StaffName</td> <td>@staff.AcadmicQualification</td></tr>
+                                        <tr><td>@staff.StaffName</td><td>@staff.Designation</td> <td>@staff.AcadmicQualification</td></tr>
                                     }
                                 </tbody>
                             </table>
