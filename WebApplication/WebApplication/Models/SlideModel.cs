@@ -17,6 +17,8 @@ namespace WebApplication.Models
 
         public int SortId { get; set; }
 
+        public int Type { get; set; }
+        public string TypeName { get; set; }
         public DateTime CreateByDate { get; set; }
 
         public int CreateByUserId { get; set; }

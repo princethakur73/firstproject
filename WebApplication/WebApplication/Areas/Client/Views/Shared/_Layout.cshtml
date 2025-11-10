@@ -13,7 +13,7 @@
     @RenderSection("seo", required: false)
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HVM Convent Sr. Sec. School</title>
+    <title>HVM Convent School</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/Content/Client/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/Content/Client/images/favicon.ico" type="image/x-icon">
@@ -63,7 +63,13 @@
         <div class="header-logo">
             <div class="container">
                 <div class="row">
-                    <div id="logo" class="col-sm-6"><a href="@Url.Action("Index","Home")"><img src="~/Content/Client/images/logo.png" class="img-responsive"></a></div>
+                    <div id="logo" class="col-sm-6"><a href="@Url.Action("Index","Home")"><img src="~/Content/Client/images/new logo.png" class="img-responsive"></a>
+                                                    <div class="logo-content">
+                                                        <span class="school-name">HVM CONVENT SCHOOL</span>
+                                                        <span class="affiliation sr-sec">(A Senior Secondary School)</span>
+                                                        <span class="affiliation">(Affiliated Tto CBSE Vide Affiliation No. 1630652)</span>
+                                                    </div>
+                    </div>
                     <div class="col-sm-4"></div>
                     @*<div class="col-sm-4 paymeny-link"><a class ="blink" target="_blank" href="https://smarthubeducation.hdfcbank.com/SmartFees/Landing.action?instId=5687">
                          <span>Online Fee Payment through HDFC <img src="~/Content/Client/images/hdfc.png" /></span>
@@ -72,7 +78,7 @@
                         <div class="widget-content social-icon-t">
                             <ul class="list-unstyled" style="display:inline;">
                                 <li style="display:inline; margin-left:7px;"><a href="https://www.facebook.com/hvmludhiana" target="_blank"><img src="~/Content/Client/images/facebook.png"></a></li>
-                                <li style="display:inline; margin-left:7px;"><a href="http://instagram.com/hvmldh" target="_blank"><img src="/Content/Client/images/instagram.png"></a></li>
+                                <li style="display:inline; margin-left:7px;"><a href="http://instagram.com/hvmldhofficial" target="_blank"><img src="/Content/Client/images/instagram.png"></a></li>
                                 <li style="display:inline; margin-left:7px;"><a href="https://www.youtube.com/channel/UClWtmVXMpiAjqqMnF2zLALw" target="_blank"><img src="~/Content/Client/images/youtube.png"></a></li>
                             </ul>
                         </div>
@@ -136,7 +142,7 @@
                                                 <li><a href="@Url.Action("AdmissionRule","Admission")">Admission Rules</a></li>
                                                 <li><a href="@Url.Action("FeeStructure","Admission")">Fee Structure</a></li>
                                                 <li><a href="@Url.Action("TransferCertificate","Student")">Transfer Certificate</a></li>
-                                                <li><a href="@Url.Action("FacultyDetailsNew","AboutUs")">Teachers</a></li>
+                                                @*<li><a href="@Url.Action("FacultyDetailsNew","AboutUs")">Teachers</a></li>*@
                                                 <li><a href="@Url.Action("OnRoll","Student")">Student Strength</a></li>
                                                 <li><a href="@Url.Action("CourseOffered","AboutUs")">Streams Offered</a></li>
                                                 <li><a href="@Url.Action("OurInfrastructure","AboutUs")">Infrastructure</a></li>
@@ -319,7 +325,7 @@
                             <h2>Contact Us</h2>
                         </div>
                         <div class="widget-content">
-                            <h3 style="color:#FFFFFF; text-transform:capitalize; font-weight:normal;">HVM Convent Sr. Sec. School</h3>
+                            <h3 style="color:#FFFFFF; text-transform:capitalize; font-weight:normal;">HVM Convent School</h3>
                             <ul class="list-unstyled">
                                 <li>Karamsar Colony, New Subash Nagar, Ludhiana, Punjab.</li>
                                 <li><i class="fa fa-phone"></i> 96460-98888</li>
@@ -355,7 +361,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="https://www.facebook.com/hvmludhiana"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://www.youtube.com/channel/UClWtmVXMpiAjqqMnF2zLALw"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="http://instagram.com/hvmldhofficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -371,7 +377,7 @@
             <div class="footer-bottom-inner">
                 <div class="row">
                     <div class="col-md-12 col-sm-12" align="center">
-                        <p>&copy; Copyright @System.DateTime.Today.Year.ToString() HVM Convent Sr. Sec. School. All Rights Reserved. </p>
+                        <p>&copy; Copyright @System.DateTime.Today.Year.ToString() HVM Convent School. All Rights Reserved. </p>
                     </div>
                 </div>
             </div>

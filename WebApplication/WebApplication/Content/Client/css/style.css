@@ -717,9 +717,9 @@ header .header-top-dark .header-top-right ul li a.apply-btn:hover {
 }
 .header-logo {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     background-image: url('../../images/header-background.jpg');
-    background-size: auto 105px;
+    background-size: auto 130px;
 }
 /* Slider Bottom Services */
 
@@ -13785,6 +13785,7 @@ ul.tag-cloud, ul.sidebar-gallery {
 .paymeny-link {
     padding: 25px 0 0 80px;
 }
+
 .blink {
     animation-duration: 1200ms;
     animation-name: blink;
@@ -13817,4 +13818,51 @@ ul.tag-cloud, ul.sidebar-gallery {
     to {
         color: blue;
     }
+}
+@media (min-width: 1024px) {
+	.logo-content {
+		position: absolute;
+		padding: 1% 0 0% 20%;
+		text-align: right;
+		cursor: pointer;		
+	}
+
+	.school-name {
+		font-size: xx-large;
+		color: #ffc800;
+		font-weight: 500;
+	}
+	.affiliation {
+		color: white;
+		display: block;
+	}
+	.sr-sec {
+		font-weight: 500;
+		font-size: 17px;
+		margin-top: -2%;
+	}
+	#logo a {
+		width: 18%;
+		display: flex;
+		float: left;
+	}
+	#logo img {
+		z-index: 10;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	#logo-content {
+		display: none
+	}
+
+	#logo a {
+		width: 40%;
+		display: flex;
+		float: left;
+	}
+
+	.social-icon-t {
+		float: right;
+	}
 }

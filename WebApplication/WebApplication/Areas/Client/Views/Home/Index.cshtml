@@ -4,7 +4,7 @@
 @{
     var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
 
-    var slides = dbContext.GetList(currentUserId: 0).OrderBy(m => m.SortId);
+    var slides = dbContext.GetList(currentUserId: 0).Where(a=>a.Type ==1).OrderBy(m => m.SortId);
 }
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
@@ -58,7 +58,7 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
@@ -84,7 +84,7 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
@@ -103,7 +103,7 @@
     <!-- END SLIDER CONTAINER WRAPPER -->
     <!--Marquee for ad-->
     <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
-        Admissions open for 2025-26 <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8">Apply Now</a>        
+        Registration open for 2026-27 <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9">Apply Now</a>
     </marquee>
 </section>
 <section class="about">
@@ -311,48 +311,63 @@
                         <div class="ts-right">
                             <div class="client-content">
                                 <h3 class="client-info">
-                                    Mrs. Sunita Kumari<br>
+                                    Mrs. Maninder Kaur <br>
                                     <span>Principal</span>
                                 </h3>
                                 <br>
-                                <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
+                                <p>Welcome to H.V.M. Convent School, a place where learning goes beyond books and classrooms to nurture the mind, body and spirit of every child...</p>
                                 <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
                             </div>
-                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpeg" alt="" class="img-responsive"> </div>
+                        </div>
+                        @*<div class="ts-right">
+            <div class="client-content">
+                <h3 class="client-info">
+                    Mrs. Sunita Kumari<br>
+                    <span>Deputy Director</span>
+                </h3>
+                <br>
+                <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
+                <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+            </div>
+            <div class="client-image"> <img src="~/Content/Client/images/dep-director.jpg" alt="" class="img-responsive"> </div>
+        </div>*@
+                    </div>
+                </div>
+                <!---->
+                @*<div class="testimonial-single row">
+                    <div class="col-sm-6">
+                        <div class="ts-right">
+                            <div class="client-content">
+                                <h3 class="client-info">
+                                    Mrs. Maninder Kaur <br>
+                                    <span>Principal</span>
+                                </h3>
+                                <br>
+                                <p>Welcome to H.V.M. Convent School, a place where learning goes beyond books and classrooms to nurture the mind, body and spirit of every child...</p>
+                                <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                            </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/principal.jpeg" alt="" class="img-responsive"> </div>
                         </div>
                     </div>
-                    @*<div class="col-sm-6">
-                            <div class="ts-right">
-                                <div class="client-content">
-                                    <h3 class="client-info">
-                                        Mrs. Radhika Jain <br>
-                                        <span>Director</span>
-                                    </h3>
-                                    <br>
-                                    <p>Thank you for your interest in HVM Convent Sr. Sec. School. I sincerely hope that you will appreciate the spirit of our...</p>
-                                    <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
-                                </div>
-                                <div class="client-image"> <img src="~/Content/Client/images/director.jpg" alt="" class="img-responsive"> </div>
-                            </div>
-                        </div>*@
-                </div>
+                </div>*@
                 <!-- ends: .testimonial-single -->
                 @*<div class="testimonial-single row">
-                        <div class="col-sm-9">
-                            <div class="ts-left">
-                                <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
-                                <div class="client-content">
-                                    <h3 class="client-info">
-                                        Mrs. Sunita Kumari<br>
-                                        <span>Principal</span>
-                                    </h3>
-                                    <br>
-                                    <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
-                                    <div align="right"><a href="/executive-members" class="el-btn-regular">read more</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>*@
+            <div class="col-sm-9">
+                <div class="ts-left">
+                    <div class="client-image"> <img src="~/Content/Client/images/principal.jpg" alt="" class="img-responsive"> </div>
+                    <div class="client-content">
+                        <h3 class="client-info">
+                            Mrs. Sunita Kumari<br>
+                            <span>Principal</span>
+                        </h3>
+                        <br>
+                        <p>It is my privilege and pride in acknowledging that HVM Convent School has taken rapid strides to establish ...</p>
+                        <div align="right"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
                 <!-- ends: .testimonial-single -->
             </div>
         </div>
@@ -495,7 +510,7 @@
             <div class="col-sm-6 kids-text">
                 <h2>Kindergarten <span>Section</span></h2>
                 <p>The aim of education should be to teach the "Child To Think , Not What To Think". Do And Learn' is the principal followed to improve children so that they can orient themselves to the tangible world of space and time to formulate their ideas. </p>
-                <a href="" class="el-btn-regular">Read More</a>
+                <a href="/kindergarten" class="el-btn-regular">Read More</a>
             </div>
         </div>
     </div>Ma
@@ -503,7 +518,7 @@
 
 <!-- Trigger the Modal -->
 <img id="myImg" src="~/Content/images/Banner-ad.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
-@*<img id="requirement" src="~/Content/images/Requirement1.png" alt="Requirement" style="display:none;width:100%;max-width:300px">*@
+<img id="requirement" src="~/Content/images/Requirement1.jpg" alt="Requirement" style="display:none;width:100%;max-width:300px">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -513,9 +528,9 @@
 
     <!-- Modal Content (The Image) -->
     <img class="modal-content" id="img01">    <br />
-    @*<img class="modal-content" id="img03">*@
+    <img class="modal-content" id="img03">
     <div class="popup-btn">
-        <a href="#" target="_blank" id="reg" class="add-btn">Register</a>
+        <a href="#" target="_blank" id="reg" class="add-btn">Contact Us</a>
         <a href="#" id="closepop" class="add-btn">Close</a>
     </div>
     <!-- Modal Caption (Image Text) -->
@@ -540,15 +555,15 @@
     //var modal1 = document.getElementById("myModal1");
 
     //// Get the image and insert it inside the modal - use its "alt" text as a caption
-    //var img1 = document.getElementById("requirement");
+    var img1 = document.getElementById("requirement");
     //var modalImg1 = document.getElementById("img02");
-    //var modalImg3 = document.getElementById("img03");
+    var modalImg3 = document.getElementById("img03");
     //var captionText1 = document.getElementById("caption1");
-    //img1.onclick = function () {
-    //    modal1.style.display = "block";
-    //    modalImg1.src = this.src;
-    //    captionText1.innerHTML = this.alt;
-    //}
+    img1.onclick = function () {
+        modal1.style.display = "block";
+        modalImg1.src = this.src;
+        captionText1.innerHTML = this.alt;
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // Get the modal for addmission
@@ -561,8 +576,9 @@
         if (document.getElementById("showPopup").value == 'Y') {
             modal.style.display = "block";
             modalImg.src = this.src;
+            modalImg3.src = img1.src;
             setPopupCookie();
-            //modalImg3.src = img1.src;
+            
         }
     }
 
@@ -582,7 +598,8 @@
 
     regBtn.onclick = function () {
         modal.style.display = "none";
-        window.location.href = "https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8";
+        //window.location.href = "/contact-us";
+        window.location.href = "https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9";
     }
 
     // When the user clicks on <span> (x), close the modal

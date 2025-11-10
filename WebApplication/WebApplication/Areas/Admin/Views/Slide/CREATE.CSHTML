@@ -4,6 +4,13 @@
     ViewBag.Title = "Slide";
     ViewBag.SubTitle = "Add New";
 }
+<style>
+    #Type {
+        width: 130px;
+        height: 40px;
+        padding: 10px;
+    }
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -39,70 +46,77 @@
                                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                         @*<div class="form-group">
-                                            <label class="col-md-4 control-label">Title <span class="text-red">*</span> </label>
-                                            <div class="col-md-6">
-                                                @Html.EditorFor(model => model.Title)
-                                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>*@
+            <label class="col-md-4 control-label">Title <span class="text-red">*</span> </label>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
                                         @*<div class="form-group">
 
-                                            @Html.LabelFor(model => model.Image, new { @class = "" })
+            @Html.LabelFor(model => model.Image, new { @class = "" })
 
-                                            <input type="file" id="flPhoto" name="upload" />
+            <input type="file" id="flPhoto" name="upload" />
 
-                                            <table>
+            <table>
 
-                                                <tr>
+                <tr>
 
-                                                    <td>
+                    <td>
 
-                                                        Width: <label id="lblWidth">200px</label>
+                        Width: <label id="lblWidth">200px</label>
 
-                                                        Height: <label id="lblHeight">200px</label>
+                        Height: <label id="lblHeight">200px</label>
 
-                                                    </td>
+                    </td>
 
-                                                    <td>
+                    <td>
 
-                                                        <a href="#" id="hlcropImage" style="vertical-align:top;">Crop Image</a>
+                        <a href="#" id="hlcropImage" style="vertical-align:top;">Crop Image</a>
 
-                                                    </td>
+                    </td>
 
-                                                </tr>
+                </tr>
 
-                                                <tr>
+                <tr>
 
-                                                    <td>
+                    <td>
 
-                                                        <div style="height:400px; width:400px; overflow:auto;">
+                        <div style="height:400px; width:400px; overflow:auto;">
 
-                                                            <img id="imgEmpPhoto" src="~/Images/Default/emp-blank-avatar.png" alt="Employee Image" />
+                            <img id="imgEmpPhoto" src="~/Images/Default/emp-blank-avatar.png" alt="Employee Image" />
 
-                                                        </div>
+                        </div>
 
-                                                    </td>
+                    </td>
 
-                                                    <td>
+                    <td>
 
-                                                        <canvas id="canvas" height="5" width="5" style="vertical-align:top;"></canvas>
+                        <canvas id="canvas" height="5" width="5" style="vertical-align:top;"></canvas>
 
-                                                    </td>
+                    </td>
 
-                                                </tr>
+                </tr>
 
-                                            </table>
+            </table>
 
+        </div>
+
+        <p>
+
+            <img id="imgCropped" src="#" style="display:none;" />
+
+        </p>
+
+        <input type="hidden" name="avatarCropped" id="avatarCropped" />*@
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Slider Type <span class="text-red">*</span> </label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("Type", (List<SelectListItem>)ViewBag.SlideType, new { @id = "Type" })
+                                                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                                            </div>
                                         </div>
-
-                                        <p>
-
-                                            <img id="imgCropped" src="#" style="display:none;" />
-
-                                        </p>
-
-                                        <input type="hidden" name="avatarCropped" id="avatarCropped" />*@
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Image <span class="text-red">*</span> </label>
                                             <div class="col-md-6">

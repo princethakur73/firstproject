@@ -1,4 +1,56 @@
-﻿$("#library > div:gt(0)").hide();
+﻿$("#OutDoorPlay > div:gt(0)").hide();
+
+setInterval(function () {
+    $('#OutDoorPlay > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#OutDoorPlay');
+}, 3000);
+
+/////////////////////////////////////////////////////////////////////
+
+$("#StoryTime > div:gt(0)").hide();
+
+setInterval(function () {
+    $('#StoryTime > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#StoryTime');
+}, 3000);
+
+/////////////////////////////////////////////////////////////////////
+
+$("#ArtCraft > div:gt(0)").hide();
+
+setInterval(function () {
+    $('#ArtCraft > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#ArtCraft');
+}, 3000);
+
+/////////////////////////////////////////////////////////////////////
+
+$("#MusicDance > div:gt(0)").hide();
+
+setInterval(function () {
+    $('#MusicDance > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#MusicDance');
+}, 3000);
+
+/////////////////////////////////////////////////////////////////////
+
+$("#library > div:gt(0)").hide();
 
 setInterval(function () {
     $('#library > div:first')

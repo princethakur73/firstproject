@@ -1324,6 +1324,7 @@
     <Content Include="Content\Client\css\assets\slick.css" />
     <Content Include="Content\Client\css\font-awesome.css" />
     <Content Include="Content\Client\css\font-awesome.min.css" />
+    <Content Include="Content\Client\css\new-layout.css" />
     <Content Include="Content\Client\css\style-nav.css" />
     <Content Include="Content\Client\css\style.css" />
     <Content Include="Content\Client\images\10th\amandeep-singh.jpg" />

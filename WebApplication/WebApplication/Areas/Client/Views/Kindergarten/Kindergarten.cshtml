@@ -1,39 +1,128 @@
-﻿@model WebApplication.Models.PageModel
-@using System.Linq;
+﻿@using System.Linq;
 @using WebApplication.Infrastructure
 @{
-    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
-
-    var slides = dbContext.GetList(currentUserId: 0).OrderBy(m => m.SortId);
+    Layout = "~/Areas/Client/Views/Shared/_Layout.cshtml";
 }
-
 @section seo
 {
     <meta name="description" content="@Model.MetaDescription">
     <meta name="keywords" content="@Model.MetaKeywords">
 }
-<!--============================
-       About Page Header
-   =============================-->
-<!--<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>@Model.Title</h1>
-                <ul class="list-unstyled">
-                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="active">@Model.Title</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>-->
-<!-- Ends: .page-header -->
-<!--============================
-        About Page Content
-=============================-->
+@{
+    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
+    var slides = dbContext.GetList(currentUserId: 0).Where(a=>a.Type==2).OrderBy(m => m.SortId);
+}
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
+<style>
+    .facilities {
+        border-radius: 5px;
+        border: 1px solid black;
+        margin-bottom: 10px;
+    }
+
+    .caption {
+        margin-top: 200px
+    }
+    /**Slider**/
+    .our-infrastruture {
+    }
+
+        .our-infrastruture > div {
+            position: absolute;
+            top: 0px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+    /**Kindergardten **/
+    img.img-fluid.mb-2 {
+        width: 100%;
+    }
+
+    /* Kindergarten Page Styles */
+    .kg-section {
+        padding: 4rem 0;
+    }
+
+    .kg-section-alt {
+        background: #f9f9f9;
+    }
+
+    .kg-hero {
+        background: #fffbe7;
+        padding: 5rem 0;
+    }
+
+    .kg-heading {
+        color: #c40e05;
+        margin-bottom: 2rem;
+    }
+
+    .kg-card {
+        border: none;
+        transition: transform 0.3s ease;
+        border-radius: 10px;
+    }
+
+        .kg-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .kg-icon {
+        color: #e9887f;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .kg-activity-item {
+        margin-bottom: 2rem;
+    }
+
+        .kg-activity-item img {
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+            .kg-activity-item img:hover {
+                transform: scale(1.05);
+            }
+
+    .kg-testimonial {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-btn-theme {
+        background: #c40e05;
+        color: #fff;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+    }
+
+        .contact-btn-theme:hover {
+            background: #a50b04;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+
 <section class="slider slider-style02 slider-university">
     <input type="hidden" id="showPopup" name="showPopup" value="Y">
     <div class="rev_slider_wrapper">
@@ -57,15 +146,15 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Kindergarten!</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="175"
                              data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                              style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                            Our aim is that students work with enthusiasm and interest<br>
-                            because God always blesses and helps those who help themselves.
+                            Where little steps lead to big dreams.<br>
+                            Building bright futures, one block at a time.
                         </div>
                     </li>
                 }
@@ -84,7 +173,7 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
@@ -110,7 +199,7 @@
                              data-x="left" data-hoffset="0"
                              data-y="center" data-voffset="110"
                              data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent Sr. Sec. School</div>
+                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
                         <!-- LAYER NR. 3 -->
                         <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
                              data-x="left" data-hoffset="0"
@@ -128,22 +217,215 @@
     </div>
     <!-- END SLIDER CONTAINER WRAPPER -->
 </section>
-
-<section class="about-ds">
+<!-- Hero / Overview Section -->
+<!--<section class="jumbotron text-center kg-hero mb-0">
     <div class="container">
-        <div class="row">
-            <section class="kids-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6"><img src="~/Content/Client/images/kids.png" class="img-responsive"></div>
-                        <div class="col-sm-6 kids-text">
-                            <h2>Kindergarten <span>Section</span></h2>
-                            <p>The aim of education should be to teach the "Child To Think , Not What To Think". Do And Learn' is the principal followed to improve children so that they can orient themselves to the tangible world of space and time to formulate their ideas. </p>
-                            <a href="" class="el-btn-regular">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <img src="~/Content/Client/images/kids.png" class="img-fluid mb-3" alt="Kindergarten Kids" style="max-width: 320px;">
+        <h1 class="display-4" style="color:#c40e05;">Welcome to Our Kindergarten</h1>
+        <p class="lead">A joyful start to lifelong learning. Where curiosity, creativity, and care come together.</p>
+    </div>
+</section>-->
+<!-- Motto / Philosophy Section -->
+<section class="kg-section kg-section-alt">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center mb-4 mb-md-0">
+                <img src="~/Content/Client/images/motto.png" class="img-fluid rounded shadow" alt="Motto" style="max-width: 320px;">
+            </div>
+            <div class="col-md-7">
+                <h2 class="kg-heading mb-3">Our Motto</h2>
+                <blockquote class="blockquote" style="font-size:1.25rem; border-left: 4px solid #e9887f; padding-left: 1rem; color: #c40e05;">
+                    Teaching children <b>how</b> to think, not <b>what</b> to think.
+                </blockquote>
+                <ul class="mt-4" style="list-style:none; padding-left:0;">
+                    <li class="mb-2">
+                        <i class="fa fa-shield kg-icon" style="font-size:1.3rem; vertical-align:middle;"></i>
+                        <span style="vertical-align:middle;"><b>Safe & Nurturing Environment</b></span>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa fa-gamepad kg-icon" style="font-size:1.3rem; vertical-align:middle;"></i>
+                        <span style="vertical-align:middle;"><b>Learning by Doing</b></span>
+                    </li>
+                    <li>
+                        <i class="fa fa-smile-o kg-icon" style="font-size:1.3rem; vertical-align:middle;"></i>
+                        <span style="vertical-align:middle;"><b>Joyful, Confident Growth</b></span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Curriculum Section -->
+<section class="kg-section">
+    <div class="container">
+        <h2 class="text-center kg-heading">Curriculum Highlights</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm kg-card">
+                    <div class="card-body text-center">
+                        <i class="fa fa-book kg-icon"></i>
+                        <h5 class="card-title">Language & Literacy</h5>
+                        <p class="card-text">Storytelling, phonics, and early reading to build strong communication skills.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm kg-card">
+                    <div class="card-body text-center">
+                        <i class="fa fa-paint-brush kg-icon"></i>
+                        <h5 class="card-title">Creative Arts</h5>
+                        <p class="card-text">Art, music, and dance to encourage creativity and self-expression.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm kg-card">
+                    <div class="card-body text-center">
+                        <i class="fa fa-cubes kg-icon"></i>
+                        <h5 class="card-title">Math & Science</h5>
+                        <p class="card-text">Hands-on activities to explore numbers, patterns, and the natural world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Daily Activities Section -->
+<section class="kg-section kg-section-alt">
+    <div class="container">
+        <h2 class="text-center kg-heading">A Day at Kindergarten</h2>
+        <div class="row">
+            <div class="col-md-3 col-6 kg-activity-item text-center our-infrastruture" id="OutDoorPlay">
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/OutDoorPlay/1.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/OutDoorPlay/2.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/OutDoorPlay/3.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/OutDoorPlay/4.jpg" />
+                </div>
+                <p class="caption">OutDoor Play</p>
+            </div>
+            <div class="col-md-3 col-6 kg-activity-item text-center our-infrastruture" id="StoryTime">
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/StoryTime/1.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/StoryTime/2.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/StoryTime/3.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/StoryTime/4.jpg" />
+                </div>
+                <p class="caption">Story Time</p>
+            </div>
+            <div class="col-md-3 col-6 kg-activity-item text-center our-infrastruture" id="ArtCraft">
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/ArtCraft/1.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/ArtCraft/2.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/ArtCraft/3.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/ArtCraft/4.jpg" />
+                </div>
+                <p class="caption">Art & Craft</p>
+            </div>
+            <div class="col-md-3 col-6 kg-activity-item text-center our-infrastruture" id="MusicDance">
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/MusicDance/1.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/MusicDance/2.jpg" />
+                </div>
+                <div>
+                    <img class="img-responsive border" src="~/Content/images/Kindergarten/MusicDance/3.jpg" />
+                </div>
+                <p class="caption">Music & Dance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities Section -->
+<section class="kg-section">
+    <div class="container">
+        <h2 class="text-center kg-heading">Our Facilities</h2>
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <img src="~/Content/images/Kindergarten/OurFacilities/Classroom.jpg" class="img-fluid mb-2 facilities" alt="Safe Classrooms">
+                <div>Safe Classrooms</div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="~/Content/images/Kindergarten/OurFacilities/Playground.jpg" class="img-fluid mb-2 facilities" alt="Playground">
+                <div>Spacious Playground</div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="~/Content/images/Kindergarten/OurFacilities/Discipline.jpg" class="img-fluid mb-2 facilities" alt="Discipline">
+                <div>Children's Library</div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="~/Content/images/Kindergarten/OurFacilities/Activityroom.jpg" class="img-fluid mb-2 facilities" alt="Activity Room">
+                <div>Activity Room</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="kg-section kg-section-alt">
+    <div class="container">
+        <h2 class="text-center kg-heading">What Parents Say</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="kg-testimonial">
+                    <p>"My child loves going to school every day! The teachers are caring and the environment is wonderful."</p>
+                    <div class="text-right"><b>- Mrs. Sharma</b></div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="kg-testimonial">
+                    <p>"We are so happy with the progress our daughter has made. The activities are engaging and fun."</p>
+                    <div class="text-right"><b>- Mr. Singh</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="kg-section text-center" style="background: #fffbe7;">
+    <div class="container">
+        <h2 class="kg-heading">Ready to Join Us?</h2>
+        <p class="mb-4">Contact us today to learn more about our kindergarten program and admissions process.</p>
+        <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9" class="btn contact-btn-theme btn-lg"><i class="fa fa-paper-plane"></i> Contact Us</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        sections.forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+    });
+</script>

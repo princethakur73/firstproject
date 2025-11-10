@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Core.Common;
@@ -42,6 +44,8 @@ namespace WebApplication.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.SlideType = new List<SelectListItem>  { new SelectListItem { Text = "Home", Value = "1", Selected = true },
+                                                                     new SelectListItem { Text = "Kindergarten", Value = "2" }}; //drop down list
             return View(new SlideModel());
         }
 
@@ -51,11 +55,12 @@ namespace WebApplication.Areas.Admin.Controllers
         {
             try
             {
-
+                ViewBag.SlideType = new List<SelectListItem>  { new SelectListItem { Text = "Home", Value = "1", Selected = true },
+                                                                     new SelectListItem { Text = "Kindergarten", Value = "2" }}; //drop down list
                 HttpPostedFileBase file = Request.Files["ImageData"];
                 if (file != null)
                 {
-                    if (file.ContentLength > 500000)
+                    if (file.ContentLength > 1500000)
                     {
                         throw new Exception("The photo size cannot be greater than 500 KB.");
                     }
@@ -262,6 +267,7 @@ namespace WebApplication.Areas.Admin.Controllers
         {
             try
             {
+                
                 var list = _SlideService.GetList(pageNumber, pageSize);
                 int totalItems = _SlideService.GetListCount(pageNumber, pageSize);
 

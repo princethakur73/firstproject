@@ -9,6 +9,8 @@
 
         public bool IsActive { get; set; }
 
+        public int Type { get; set; }
+
         public int SortId { get; set; }
 
     }

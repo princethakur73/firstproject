@@ -21,6 +21,7 @@ namespace WebApplication.Repository
                 query = @"SELECT Id,
                                 Title,
                                 Image,
+                                Type,
                                 IsActive,
                                 SortId,
                                 CreateByUserId,
@@ -51,6 +52,7 @@ namespace WebApplication.Repository
                 query = @"SELECT Id,
                                 Title,
                                 Image,
+                                Type,
                                 IsActive,
                                 SortId,
                                 CreateByUserId,
@@ -82,6 +84,7 @@ namespace WebApplication.Repository
                 param.Add("_Id", obj.Id, DbType.String);
                 param.Add("_Title", obj.Title, DbType.String);
                 param.Add("_Image", obj.Image, DbType.String);
+                param.Add("_Type", obj.Type, DbType.String);
                 param.Add("_IsActive", obj.IsActive, DbType.Boolean);
                 param.Add("_SortId", obj.SortId, DbType.Int32);
                 param.Add("_UserId", obj.UserId, DbType.Int32);

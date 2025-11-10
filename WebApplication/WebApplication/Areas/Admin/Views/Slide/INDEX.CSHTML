@@ -50,6 +50,7 @@
             <thead>
                 <tr>
                     <th>Image</th>
+                    <th>Type</th>
                     <th>Sort Id</th>
                     <th></th>
                 </tr>
@@ -58,6 +59,7 @@
                 {{#each SlideModels}}
                 <tr class="row-command">
                     <td><img src="/Content/images/Slide/{{Image}}" width="50"/></td>
+                    <td>{{TypeName}}</td>
                     <td>{{SortId}}</td>
                     <td>
                         <div class="pull-right">

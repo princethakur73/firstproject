@@ -9,5 +9,7 @@ namespace WebApplication.Core.Helper
         public static string From = ConfigurationManager.AppSettings["From"];
         public static string Password = ConfigurationManager.AppSettings["Password"];
         public static string SchoolEmail = ConfigurationManager.AppSettings["SchoolEmail"];
+        public static string CaptchaSecret = ConfigurationManager.AppSettings["captchaSecret"];
+        public static string CaptchaSite = ConfigurationManager.AppSettings["captchaSite"];
     }
 }
