@@ -13852,7 +13852,7 @@ ul.tag-cloud, ul.sidebar-gallery {
 }
 
 @media screen and (max-width: 1023px) {
-	#logo-content {
+	.logo-content {
 		display: none
 	}
 
