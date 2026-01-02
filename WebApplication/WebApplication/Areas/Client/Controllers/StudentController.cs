@@ -42,10 +42,10 @@ namespace WebApplication.Areas.Client.Controllers
         }
 
         [Route("transfer-certificate")]
-        public ActionResult TransferCertificate()
+        public ActionResult TransferCertificate(string text = "")
         {
             //var model = _pageService.GetPageByMenuCode(MenuCode.TransferCertificate).ToModel();
-            var model = _transferCertificateService.GetList().ToModel();
+            var model = _transferCertificateService.GetList().Where(a => a.AdmissionNumber == text).ToList().ToModel();
 
             return View("~/Areas/Client/Views/Student/TransferCertificate.cshtml", model);
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication.Core;
+using WebApplication.Repository.DataSource;
 
 namespace WebApplication.Repository
 {
@@ -12,17 +13,11 @@ namespace WebApplication.Repository
     {
         private string query { get; set; }
 
-
-        /// <summary>
-        /// Returns the User's name given a User id
-        /// </summary>
-        /// <param name="UserId"></param>
-        /// <returns></returns>
-        public string GetUserName(long UserId)
+            public string GetUserName(long UserId)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.ExecuteScalar<string>("Select Name from user where Id=@UserId", new { UserId = UserId });
                 }
@@ -35,16 +30,11 @@ namespace WebApplication.Repository
 
         }
 
-        /// <summary>
-        /// Returns a User ID given a User name
-        /// </summary>
-        /// <param name="userName">The User's name</param>
-        /// <returns></returns>
         public long GetUserId(string userName)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.ExecuteScalar<long>("Select Id from user where UserName=@UserName", new { UserName = userName });
                 }
@@ -57,16 +47,11 @@ namespace WebApplication.Repository
 
         }
 
-        /// <summary>
-        /// Returns an TUser given the User's id
-        /// </summary>
-        /// <param name="UserId">The User's id</param>
-        /// <returns></returns>
         public User GetUserById(long UserId)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.Query<User>("Select * from user where Id=@UserId", new { UserId = UserId })
                     .FirstOrDefault();
@@ -79,16 +64,11 @@ namespace WebApplication.Repository
             }
         }
 
-        /// <summary>
-        /// Returns a list of TUser instances given a User name
-        /// </summary>
-        /// <param name="userName">User's name</param>
-        /// <returns></returns>
         public List<User> GetUserByName(string userName)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.Query<User>("Select * from user where UserName=@UserName", new { UserName = userName })
                     .ToList();
@@ -107,16 +87,11 @@ namespace WebApplication.Repository
             return null;
         }
 
-        /// <summary>
-        /// Return the User's password hash
-        /// </summary>
-        /// <param name="UserId">The User's id</param>
-        /// <returns></returns>
         public string GetPasswordHash(long UserId)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.ExecuteScalar<string>("Select PasswordHash from user where Id = @UserId", new { UserId = UserId });
                 }
@@ -129,25 +104,19 @@ namespace WebApplication.Repository
 
         }
 
-        /// <summary>
-        /// Sets the User's password hash
-        /// </summary>
-        /// <param name="UserId"></param>
-        /// <param name="passwordHash"></param>
-        /// <returns></returns>
         public void SetPasswordHash(long UserId, string passwordHash)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     Db.Execute(@"
-                    UPDATE
-                        user
-                    SET
-                        PasswordHash = @pwdHash
-                    WHERE
-                        Id = @Id", new { pwdHash = passwordHash, Id = UserId });
+                        UPDATE
+                            user
+                        SET
+                            PasswordHash = @pwdHash
+                        WHERE
+                            Id = @Id", new { pwdHash = passwordHash, Id = UserId });
                 }
             }
             catch (Exception ex)
@@ -158,16 +127,11 @@ namespace WebApplication.Repository
 
         }
 
-        /// <summary>
-        /// Returns the User's security stamp
-        /// </summary>
-        /// <param name="UserId"></param>
-        /// <returns></returns>
         public string GetSecurityStamp(long UserId)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     return Db.ExecuteScalar<string>("Select SecurityStamp from user where Id = @UserId", new { UserId = UserId });
                 }
@@ -179,11 +143,6 @@ namespace WebApplication.Repository
             }
         }
 
-        /// <summary>
-        /// Inserts a new User in the Users table
-        /// </summary>
-        /// <param name="User"></param>
-        /// <returns></returns>
         public void Insert(User User)
         {
             try
@@ -206,44 +165,43 @@ namespace WebApplication.Repository
                 param.Add("masterPassword", User.MasterPassword, System.Data.DbType.String);
 
                 query = @"Insert into user (FirstName,
-                                            LastName,
-                                            Name,
-                                            DateOfBirth,
-                                            UserName,
-                                            PasswordHash, 
-                                            SecurityStamp,
-                                            MasterPassword,
-                                            Email,
-                                            EmailConfirmed,
-                                            MobileNo,
-                                            MobileNoConfirmed, 
-                                            AccessFailedCount,
-                                            LockoutEnabled,
-                                            LockoutEndDateUtc,
-                                            TwoFactorEnabled)
-                                            values  
-                                            (@firstName,
-                                             @lastName,
-                                             @name, 
-                                             @dateOfBirth,
-                                             @name,
-                                             @pwdHash, 
-                                             @SecStamp,
-                                             @masterPassword,
-                                             @email,
-                                             @emailconfirmed,
-                                             @MobileNo,
-                                             @MobileNoconfirmed,
-                                             @accesscount,
-                                             @lockoutenabled,
-                                             @lockoutenddate,
-                                             @twofactorenabled);
-                                SELECT LAST_INSERT_ID()";
+                                                LastName,
+                                                Name,
+                                                DateOfBirth,
+                                                UserName,
+                                                PasswordHash, 
+                                                SecurityStamp,
+                                                MasterPassword,
+                                                Email,
+                                                EmailConfirmed,
+                                                MobileNo,
+                                                MobileNoConfirmed, 
+                                                AccessFailedCount,
+                                                LockoutEnabled,
+                                                LockoutEndDateUtc,
+                                                TwoFactorEnabled)
+                                                values  
+                                                (@firstName,
+                                                 @lastName,
+                                                 @name, 
+                                                 @dateOfBirth,
+                                                 @name,
+                                                 @pwdHash, 
+                                                 @SecStamp,
+                                                 @masterPassword,
+                                                 @email,
+                                                 @emailconfirmed,
+                                                 @MobileNo,
+                                                 @MobileNoconfirmed,
+                                                 @accesscount,
+                                                 @lockoutenabled,
+                                                 @lockoutenddate,
+                                                 @twofactorenabled);
+                                    SELECT LAST_INSERT_ID()";
 
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     var id = Db.ExecuteScalar<long>(query, param);
-                    // we need to set the id to the returned identity generated from the db
                     User.Id = id;
                 }
             }
@@ -255,22 +213,17 @@ namespace WebApplication.Repository
 
         }
 
-        /// <summary>
-        /// Updates a User in the Users table
-        /// </summary>
-        /// <param name="User"></param>
-        /// <returns></returns>
         public void Update(User User)
         {
             try
             {
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     Db.Execute(@"
-                            Update user set FirstName=@firstName,LastName=@lastName,DateOfBirth=@dateOfBirth, UserName = @userName, PasswordHash = @pswHash, SecurityStamp = @secStamp, 
-                Email=@email, EmailConfirmed=@emailconfirmed, MobileNo=@MobileNo, MobileNoConfirmed=@MobileNoconfirmed,
-                AccessFailedCount=@accesscount, LockoutEnabled=@lockoutenabled, LockoutEndDateUtc=@lockoutenddate, TwoFactorEnabled=@twofactorenabled  
-                WHERE Id = @UserId",
+                                Update user set FirstName=@firstName,LastName=@lastName,DateOfBirth=@dateOfBirth, UserName = @userName, PasswordHash = @pswHash, SecurityStamp = @secStamp, 
+                    Email=@email, EmailConfirmed=@emailconfirmed, MobileNo=@MobileNo, MobileNoConfirmed=@MobileNoconfirmed,
+                    AccessFailedCount=@accesscount, LockoutEnabled=@lockoutenabled, LockoutEndDateUtc=@lockoutenddate, TwoFactorEnabled=@twofactorenabled  
+                    WHERE Id = @UserId",
                     new
                     {
                         firstName = User.FirstName,
@@ -300,7 +253,6 @@ namespace WebApplication.Repository
 
         }
 
-
         #region Get List
         public async Task<IEnumerable<User>> GetListAsync(long currentUserId)
         {
@@ -308,10 +260,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where CreateByUserId=@currentUserId 
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where CreateByUserId=@currentUserId 
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = await Db.QueryAsync<User>(query, param: new { currentUserId = currentUserId });
                 }
@@ -331,10 +283,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where CreateByUserId=@currentUserId
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where CreateByUserId=@currentUserId
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = Db.Query<User>(query, param: new { currentUserId = currentUserId }).ToList();
                 }
@@ -356,7 +308,7 @@ namespace WebApplication.Repository
             try
             {
                 query = @"delete from user where Id = @Id";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = Db.ExecuteScalar<bool>(query, new { Id = Id });
                     result = true;
@@ -377,7 +329,7 @@ namespace WebApplication.Repository
             try
             {
                 query = @"delete from user where Id = @Id";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     Db.Execute(query, new { Id = obj.Id });
                 }
@@ -398,7 +350,7 @@ namespace WebApplication.Repository
             try
             {
                 query = @"delete from user where Id=@Id";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     await Db.ExecuteAsync(query, new { Id = Id });
                 }
@@ -419,7 +371,7 @@ namespace WebApplication.Repository
             try
             {
                 query = @"delete from user where Id=@Id";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     await Db.ExecuteAsync(query, new { Id = obj.Id });
                 }
@@ -442,10 +394,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where Id=@Id 
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where Id=@Id 
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = Db.Query<User>(query, param: new { Id = Id }).SingleOrDefault();
                 }
@@ -464,10 +416,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where Id=@Id 
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where Id=@Id 
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = Db.Query<User>(query, param: new { Id = obj.Id }).SingleOrDefault();
                 }
@@ -487,10 +439,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where Id=@Id d
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where Id=@Id d
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = (await Db.QueryAsync<User>(query, param: new { Id = Id })).SingleOrDefault();
                 }
@@ -510,10 +462,10 @@ namespace WebApplication.Repository
             try
             {
                 query = @"SELECT *
-                        FROM user
-						where Id=@Id 
-							";
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                            FROM user
+										where Id=@Id 
+											";
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = (await Db.QueryAsync<User>(query, param: new { Id = obj.Id })).SingleOrDefault();
                 }
@@ -536,68 +488,68 @@ namespace WebApplication.Repository
                 if (obj.Id == 0)
                 {
                     query = @"INSERT INTO `user`
-                                (`Name`,
-                                `DateOfBirth`,
-                                `MobileNo`,
-                                `MobileNoConfirmed`,
-                                `Email`,
-                                `EmailConfirmed`,
-                                `UserName`,
-                                `PasswordHash`,
-                                `SecurityStamp`,
-                                `TwoFactorEnabled`,
-                                `LockoutEndDateUtc`,
-                                `LockoutEnabled`,
-                                `AccessFailedCount`,
-                                `CreateByUserId`,
-						        `CreateByDate`,
-						        `ModifyByUserId`,
-						        `ModifyByDate`)
-                                VALUES
-                                (@Name,
-                                @DateOfBirth,
-                                @MobileNo,
-                                @MobileNoConfirmed,
-                                @Email,
-                                @EmailConfirmed,
-                                @UserName,
-                                @PasswordHash,
-                                @SecurityStamp,
-                                @TwoFactorEnabled,
-                                @LockoutEndDateUtc,
-                                @LockoutEnabled,
-                                @AccessFailedCount,
-                                @CreateByUserId,
-						        @CreateByDate,
-						        @ModifyByUserId,
-						        @ModifyByDate);
-                                SELECT LAST_INSERT_ID()
-						";
+                                    (`Name`,
+                                    `DateOfBirth`,
+                                    `MobileNo`,
+                                    `MobileNoConfirmed`,
+                                    `Email`,
+                                    `EmailConfirmed`,
+                                    `UserName`,
+                                    `PasswordHash`,
+                                    `SecurityStamp`,
+                                    `TwoFactorEnabled`,
+                                    `LockoutEndDateUtc`,
+                                    `LockoutEnabled`,
+                                    `AccessFailedCount`,
+                                    `CreateByUserId`,
+                  `CreateByDate`,
+                  `ModifyByUserId`,
+                  `ModifyByDate`)
+                                    VALUES
+                                    (@Name,
+                                    @DateOfBirth,
+                                    @MobileNo,
+                                    @MobileNoConfirmed,
+                                    @Email,
+                                    @EmailConfirmed,
+                                    @UserName,
+                                    @PasswordHash,
+                                    @SecurityStamp,
+                                    @TwoFactorEnabled,
+                                    @LockoutEndDateUtc,
+                                    @LockoutEnabled,
+                                    @AccessFailedCount,
+                                    @CreateByUserId,
+                  @CreateByDate,
+                  @ModifyByUserId,
+                  @ModifyByDate);
+                                    SELECT LAST_INSERT_ID()
+										";
                 }
                 else
                 {
                     query = @"UPDATE user
-                                    SET
-                                    `Name` = @Name,
-                                    `DateOfBirth` = @DateOfBirth,
-                                    `MobileNo` = @MobileNo,
-                                    `MobileNoConfirmed` = @MobileNoConfirmed,
-                                    `Email` = @Email,
-                                    `EmailConfirmed` = @EmailConfirmed,
-                                    `UserName` = @UserName,
-                                    `PasswordHash` = @PasswordHash,
-                                    `SecurityStamp` = @SecurityStamp,
-                                    `TwoFactorEnabled` = @TwoFactorEnabled,
-                                    `LockoutEndDateUtc` = @LockoutEndDateUtc,
-                                    `LockoutEnabled` = @LockoutEnabled,
-                                    `AccessFailedCount` = @AccessFailedCount,
-                                    `ModifyByUserId` = @ModifyByUserId,
-							        `ModifyByDate` = @ModifyByDate
-                                    WHERE `Id` = @Id;
+                                        SET
+                                        `Name` = @Name,
+                                        `DateOfBirth` = @DateOfBirth,
+                                        `MobileNo` = @MobileNo,
+                                        `MobileNoConfirmed` = @MobileNoConfirmed,
+                                        `Email` = @Email,
+                                        `EmailConfirmed` = @EmailConfirmed,
+                                        `UserName` = @UserName,
+                                        `PasswordHash` = @PasswordHash,
+                                        `SecurityStamp` = @SecurityStamp,
+                                        `TwoFactorEnabled` = @TwoFactorEnabled,
+                                        `LockoutEndDateUtc` = @LockoutEndDateUtc,
+                                        `LockoutEnabled` = @LockoutEnabled,
+                                        `AccessFailedCount` = @AccessFailedCount,
+                                        `ModifyByUserId` = @ModifyByUserId,
+                   `ModifyByDate` = @ModifyByDate
+                                        WHERE `Id` = @Id;
 
-										";
+														";
                 }
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = await Db.ExecuteScalarAsync<User>(query, obj);
                 }
@@ -618,68 +570,68 @@ namespace WebApplication.Repository
                 if (obj.Id == 0)
                 {
                     query = @"INSERT INTO `user`
-                                (`Name`,
-                                `DateOfBirth`,
-                                `MobileNo`,
-                                `MobileNoConfirmed`,
-                                `Email`,
-                                `EmailConfirmed`,
-                                `UserName`,
-                                `PasswordHash`,
-                                `SecurityStamp`,
-                                `TwoFactorEnabled`,
-                                `LockoutEndDateUtc`,
-                                `LockoutEnabled`,
-                                `AccessFailedCount`,
-                                `CreateByUserId`,
-						        `CreateByDate`,
-						        `ModifyByUserId`,
-						        `ModifyByDate`)
-                                VALUES
-                                (@Name,
-                                @DateOfBirth,
-                                @MobileNo,
-                                @MobileNoConfirmed,
-                                @Email,
-                                @EmailConfirmed,
-                                @UserName,
-                                @PasswordHash,
-                                @SecurityStamp,
-                                @TwoFactorEnabled,
-                                @LockoutEndDateUtc,
-                                @LockoutEnabled,
-                                @AccessFailedCount,
-                                @CreateByUserId,
-						        @CreateByDate,
-						        @ModifyByUserId,
-						        @ModifyByDate);
-                            SELECT LAST_INSERT_ID()
-						";
+                                    (`Name`,
+                                    `DateOfBirth`,
+                                    `MobileNo`,
+                                    `MobileNoConfirmed`,
+                                    `Email`,
+                                    `EmailConfirmed`,
+                                    `UserName`,
+                                    `PasswordHash`,
+                                    `SecurityStamp`,
+                                    `TwoFactorEnabled`,
+                                    `LockoutEndDateUtc`,
+                                    `LockoutEnabled`,
+                                    `AccessFailedCount`,
+                                    `CreateByUserId`,
+                  `CreateByDate`,
+                  `ModifyByUserId`,
+                  `ModifyByDate`)
+                                    VALUES
+                                    (@Name,
+                                    @DateOfBirth,
+                                    @MobileNo,
+                                    @MobileNoConfirmed,
+                                    @Email,
+                                    @EmailConfirmed,
+                                    @UserName,
+                                    @PasswordHash,
+                                    @SecurityStamp,
+                                    @TwoFactorEnabled,
+                                    @LockoutEndDateUtc,
+                                    @LockoutEnabled,
+                                    @AccessFailedCount,
+                                    @CreateByUserId,
+                  @CreateByDate,
+                  @ModifyByUserId,
+                  @ModifyByDate);
+                                SELECT LAST_INSERT_ID()
+										";
                 }
                 else
                 {
                     query = @"UPDATE user
-                                    SET
-                                    `Name` = @Name,
-                                    `DateOfBirth` = @DateOfBirth,
-                                    `MobileNo` = @MobileNo,
-                                    `MobileNoConfirmed` = @MobileNoConfirmed,
-                                    `Email` = @Email,
-                                    `EmailConfirmed` = @EmailConfirmed,
-                                    `UserName` = @UserName,
-                                    `PasswordHash` = @PasswordHash,
-                                    `SecurityStamp` = @SecurityStamp,
-                                    `TwoFactorEnabled` = @TwoFactorEnabled,
-                                    `LockoutEndDateUtc` = @LockoutEndDateUtc,
-                                    `LockoutEnabled` = @LockoutEnabled,
-                                    `AccessFailedCount` = @AccessFailedCount,
-                                    `ModifyByUserId` = @ModifyByUserId,
-							        `ModifyByDate` = @ModifyByDate
-                                    WHERE `Id` = @Id;
+                                        SET
+                                        `Name` = @Name,
+                                        `DateOfBirth` = @DateOfBirth,
+                                        `MobileNo` = @MobileNo,
+                                        `MobileNoConfirmed` = @MobileNoConfirmed,
+                                        `Email` = @Email,
+                                        `EmailConfirmed` = @EmailConfirmed,
+                                        `UserName` = @UserName,
+                                        `PasswordHash` = @PasswordHash,
+                                        `SecurityStamp` = @SecurityStamp,
+                                        `TwoFactorEnabled` = @TwoFactorEnabled,
+                                        `LockoutEndDateUtc` = @LockoutEndDateUtc,
+                                        `LockoutEnabled` = @LockoutEnabled,
+                                        `AccessFailedCount` = @AccessFailedCount,
+                                        `ModifyByUserId` = @ModifyByUserId,
+                   `ModifyByDate` = @ModifyByDate
+                                        WHERE `Id` = @Id;
 
-										";
+														";
                 }
-                using (var Db = new MySqlConnection(DatabaseConnection.ConnectionString))
+                using (var Db = ConnectionFactory.CreateOpenConnection())
                 {
                     result = Db.Execute(query, obj);
                 }

@@ -29,5 +29,6 @@ namespace WebApplication.Models
         public DateTime ModifyByDate { get; set; }
 
         public int ModifyByUserId { get; set; }
+        public bool IsActive { get; set; }
     }
 }

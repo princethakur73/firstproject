@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSource\ConnectionFactory.cs" />
     <Compile Include="Datesheet\IFileRepository.cs" />
     <Compile Include="Datesheet\FileRepository.cs" />
     <Compile Include="DepartmentMaster\DepartmentMasterRepository.cs" />
