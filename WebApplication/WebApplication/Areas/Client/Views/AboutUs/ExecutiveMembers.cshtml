@@ -5,54 +5,92 @@
 @{
 }
 <style>
-    .slide-item-wrapper {        
-        height: 1000px;
-        overflow: hidden;
-        cursor:pointer;
-    }
+	/* Slider styles */
+	.slide-wrapper {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
 
-        .slide-item-wrapper > * {
-            transition: .5s ease-in-out;
-        }
+	.slide-viewport {
+		overflow: hidden;
+		width: 100%;
+	}
 
-    .box-item {
-        display: flex;
-        height: 1000px;
-        /*justify-content: center;
-        align-items: center;
-        background: red;
-        color: white;
-        width: 300px;
-        height: 84px;
-        margin-bottom: 20px;*/
-    }
-    .message_container {
-        padding: 5px;
-        background: #e9e9e9;
-        text-align: center;
-        padding: 10px;
-        padding-bottom: 15px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        float: left;
-        margin: 8px
-    }
+	.slide-track {
+		display: flex;
+		flex-wrap: nowrap;
+		transition: transform .5s ease-in-out;
+		will-change: transform;
+	}
 
-    .message_caption {
-        font-family: "Roboto", serif;
-        font-size: 18px;
-        text-align: left;
-        color: #333;
-        padding-top: 10px;
-    }
+	.slide-item {
+		min-width: 100%;
+		box-sizing: border-box;
+		padding: 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .message_matter {
-        text-align: left;
-        padding-top: 10px;
-    }
-    }
+	/* Reuse existing card styling */
+	.message_container {
+		padding: 10px;
+		background: #e9e9e9;
+		text-align: center;
+		border-radius: 4px;
+		margin: 8px;
+		max-width: 720px;
+		width: 100%;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+	}
+
+	.message_container img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 4px;
+		display: block;
+		margin: 0 auto 8px;
+	}
+
+	.message_caption {
+		font-family: "Roboto", serif;
+		font-size: 18px;
+		text-align: left;
+		color: #333;
+		padding-top: 6px;
+	}
+
+	/* Prev/Next controls */
+	.slider-control {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		border: none;
+		background: rgba(0,0,0,0.45);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+		z-index: 10;
+	}
+
+	.slider-control:focus { outline: 2px solid #007acc; }
+
+	.slider-prev { left: 8px; }
+	.slider-next { right: 8px; }
+
+	@@media (max-width: 768px) {
+		.message_caption { font-size: 16px; }
+		.slider-control { width: 36px; height: 36px; }
+	}
 </style>
+
 <section class="page-header">
     <div class="container">
         <div class="row">
@@ -66,7 +104,7 @@
         </div>
     </div>
 </section>
-<!-- Ends: .page-header -->
+
 <!--============================
         About Page Content
     =============================-->
@@ -77,51 +115,111 @@
                 @Html.Partial("~/Areas/Client/Views/AboutUs/_AboutUsSidebar.cshtml", 1)
             </div>
             <div class="col-sm-9">
-                @*<p class="justify">The institution is running under Harsh Educational Society registered under the Society Registration Act 1860. Registration no. of the society is 0048.</p>*@
-                <div title="Take away your pointer to resume slider" class="slide-item-wrapper">
-                    <div>
-                        @foreach (var item in Model)
-                        {
-                            string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
-                            string style = !string.IsNullOrEmpty(item.Image)  ? "width: 100%" : null;
-                            <div class="box-item">
-                                <figure class="message_container">                                    
-                                    <img style="@style" src="@image">
-                                    <figcaption>
-                                        <div class="message_caption">
-                                            @item.Name (@item.Desigination)
-                                            <p style="text-align:left;padding-top:10px">@item.Message <br /></p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        }
+                <div title="Hover to pause autoplay" class="slide-wrapper" id="exec-slider" role="region" aria-label="Executive members slider">
+                    <button class="slider-control slider-prev" type="button" id="exec-prev" aria-label="Previous member">‹</button>
+                    <div class="slide-viewport">
+                        <div class="slide-track">
+                            @foreach (var item in Model)
+                            {
+                                string image = string.IsNullOrEmpty(item.Image) || !System.IO.File.Exists(Server.MapPath("/Content/images/Member/" + item.Image)) ? "/Content/Client/images/profile-img.jpg" : "/Content/images/Member/" + item.Image;
+                                string style = !string.IsNullOrEmpty(item.Image) ? "width: 100%" : null;
+                                <div class="slide-item">
+                                    <figure class="message_container">
+                                        <img style="@style" src="@image" alt="@item.Name" />
+                                        <figcaption>
+                                            <div class="message_caption">
+                                                <strong>@item.Name</strong> (@item.Desigination)
+                                                <p style="text-align:left;padding-top:10px">@Html.Raw(item.Message)</p>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            }
+                        </div>
                     </div>
-                    <div style="clear:both"></div>
+                    <button class="slider-control slider-next" type="button" id="exec-next" aria-label="Next member">›</button>
                 </div>
+
+                <div style="clear:both"></div>
             </div>
         </div>
     </div>
 </section>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-    var offset = 0;    
-    var count = $(".slide-item-wrapper > * > *").length;
+    (function ($) {
+        // Slider behavior: one item visible; left/right controls + autoplay + pause on hover
+        var $slider = $('#exec-slider');
+        var $track = $slider.find('.slide-track');
+        var $items = $track.find('.slide-item');
+        var total = $items.length;
+        var index = 0;
+        var autoplayInterval = 10000;
+        var timer = null;
 
-    var slide = function () {
-            offset = (offset - 1000) % (count * 1000); // 104px div height (incl margin)
-            $(".slide-item-wrapper > *").css({
-                "transform": "translateY(" + offset + "px)",
-            });
+        function update() {
+            // translate by percentage, since each item is 100% width
+            var pos = -index * 100;
+            $track.css('transform', 'translateX(' + pos + '%)');
         }
 
-    var nextSliderTime = setInterval(slide, 10000);
+        function next() {
+            index = (index + 1) % total;
+            update();
+        }
 
-    $('.slide-item-wrapper').mouseenter(function () {
-        // Clear the interval.
-        clearInterval(nextSliderTime);
-    }).mouseleave(function () {
-        // Start it nextSlide again.
-        nextSliderTime = setInterval(slide, 10000);
+        function prev() {
+            index = (index - 1 + total) % total;
+            update();
+        }
+
+        // Controls
+        $slider.on('click', '#exec-next', function (e) {
+            e.preventDefault();
+            next();
+            restartAutoplay();
         });
+        $slider.on('click', '#exec-prev', function (e) {
+            e.preventDefault();
+            prev();
+            restartAutoplay();
+        });
+
+        // Keyboard support
+        $slider.attr('tabindex', '0').on('keydown', function (e) {
+            if (e.key === 'ArrowLeft') { prev(); restartAutoplay(); }
+            if (e.key === 'ArrowRight') { next(); restartAutoplay(); }
+        });
+
+        function startAutoplay() {
+            if (timer) return;
+            timer = setInterval(next, autoplayInterval);
+        }
+        function stopAutoplay() {
+            if (!timer) return;
+            clearInterval(timer);
+            timer = null;
+        }
+        function restartAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        // Pause on hover/focus
+        $slider.on('mouseenter focusin', function () { stopAutoplay(); });
+        $slider.on('mouseleave focusout', function () { startAutoplay(); });
+
+        // Start when ready. If there are no items, hide controls.
+        $(function () {
+            if (total <= 1) {
+                $slider.find('.slider-control').hide();
+            }
+            update();
+            startAutoplay();
+            // Ensure responsive behavior (no transforms to set on resize needed since % is used),
+            // but we can update track in case of layout changes.
+            $(window).on('resize', function () { update(); });
+        });
+    })(jQuery);
 </script>

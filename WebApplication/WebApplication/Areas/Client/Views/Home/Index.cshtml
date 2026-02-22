@@ -9,107 +9,65 @@
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
-    <input type="hidden" id="showPopup" name="showPopup" value="N">
-    <div class="rev_slider_wrapper">
-        <div id="rev_slider_4" class="rev_slider" style="display:none">
-            <!-- BEGIN SLIDES LIST -->
-            <ul>
-                @foreach (var item in slides)
-                {
-                    <li data-transition="random" data-title="Slide Title" data-param1="Additional Text">
-                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                        <img src="~/Content/images/Slide/@item.Image" alt="Sky" class="rev-slidebg">
-                        <!-- BEGIN BASIC TEXT LAYER -->
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                             data-y="center" data-voffset="50"
-                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-15%];y:150px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="110"
-                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="175"
-                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                            Our aim is that students work with enthusiasm and interest<br>
-                            because God always blesses and helps those who help themselves.
-                        </div>
-                    </li>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <input type="hidden" id="showPopup" name="showPopup" value="N">
+                <div class="rev_slider_wrapper">
+                    <div id="rev_slider_4" class="rev_slider" style="display:none">
+                        <!-- BEGIN SLIDES LIST -->
+                        <ul>
+                            @foreach (var item in slides)
+                            {
+                                <li data-transition="random" data-title="Slide Title" data-param1="Additional Text">
+                                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                                    <img src="~/Content/images/Slide/@item.Image" alt="Sky" class="rev-slidebg">
+                                    <!-- BEGIN BASIC TEXT LAYER -->
+                                    <!-- LAYER NR. 2 -->
+                                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                                         data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
+                                         data-y="center" data-voffset="50"
+                                         data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-15%];y:150px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                         style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
+                                    <!-- LAYER NR. 2 -->
+                                    <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
+                                         data-x="left" data-hoffset="0"
+                                         data-y="center" data-voffset="110"
+                                         data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                         style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
+                                    <!-- LAYER NR. 3 -->
+                                    <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
+                                         data-x="left" data-hoffset="0"
+                                         data-y="center" data-voffset="175"
+                                         data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                         style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
+                                        Our aim is that students work with enthusiasm and interest<br>
+                                        because God always blesses and helps those who help themselves.
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <!-- END SLIDES LIST -->
+                    </div>
+                    <!-- END SLIDER CONTAINER -->
+                </div>
+                <!-- END SLIDER CONTAINER WRAPPER -->
+                <!--Marquee for ad-->
+            </div>
+            <div class="col-md-4 col-sm-12" style="padding-top:15px">
+                @{
+                    Html.RenderPartial("~/Areas/Client/Views/Home/_LatestNews.cshtml", Model.NewsModels);
                 }
-                @*<li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide02-thumb.jpg">
-                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                        <img src="~/Content/Client/images/slide02.jpg" alt="Sky" class="rev-slidebg">
-                        <!-- BEGIN BASIC TEXT LAYER -->
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                             data-y="center" data-voffset="50"
-                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="110"
-                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="175"
-                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                            Our aim is that students work with enthusiasm and interest<br>
-                            because God always blesses and helps those who help themselves.
-                        </div>
-                    </li>
-                    <li data-transition="random" data-title="Slide Title" data-param1="Additional Text" data-thumb="images/slide03-thumb.jpg">
-                        <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                        <img src="~/Content/Client/images/slide03.jpg" alt="Sky" class="rev-slidebg">
-                        <!-- BEGIN BASIC TEXT LAYER -->
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="['left', 'center', 'center', 'center']" data-hoffset="0"
-                             data-y="center" data-voffset="50"
-                             data-frames='[{"delay":0,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:32px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">Welcome to</div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="110"
-                             data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 6; font-size:40px; color:#fff; text-transform:capitalize; font-family:'Roboto Slab', serif; white-space: nowrap; font-weight:600; background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">HVM Convent School</div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption font-lora sfb tp-resizeme letter-space-5"
-                             data-x="left" data-hoffset="0"
-                             data-y="center" data-voffset="175"
-                             data-frames='[{"delay":2000,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                             style="z-index: 7; font-size:20px; color:#fff; font-family:'Roboto', serif; max-width: auto; max-height: auto; white-space: nowrap; font-weight:400;  background-color: rgba(0, 0, 0, 0.7); padding:0 15px;">
-                            Our aim is that students work with enthusiasm and interest<br>
-                            because God always blesses and helps those who help themselves.
-                        </div>
-                    </li>*@
-            </ul>
-            <!-- END SLIDES LIST -->
-        </div>
-        <!-- END SLIDER CONTAINER -->
-    </div>
-    <!-- END SLIDER CONTAINER WRAPPER -->
-    <!--Marquee for ad-->
-    <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
-        Registration open for 2026-27 <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9">Apply Now</a>
-    </marquee>
+            </div>
+            <marquee class="blink" style="padding-top: 10px;" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
+                Registration open for 2026-27 <a href="https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9">Apply Now</a>
+            </marquee>
+        </div></div>
 </section>
 <section class="about">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="section-header04 section-header-g">
                     <h2>Welcome To <span>HVM</span></h2>
                     <span class="section-devider"><span><i class="fa fa-circle"></i></span></span>
@@ -121,11 +79,11 @@
                 </p>
                 <a href="" class="el-btn-regular">Read More</a>
             </div>
-            <div class="col-md-4 col-sm-12">
+            @*<div class="col-md-4 col-sm-12">
                 @{
                     Html.RenderPartial("~/Areas/Client/Views/Home/_LatestNews.cshtml", Model.NewsModels);
                 }
-            </div>
+            </div>*@
         </div>
     </div>
 </section>
@@ -264,22 +222,9 @@
             <div id="testimonial-carousel02" class="owl-carousel testimonial-carousel02 col-sm-12">
                 <!---->
                 <div class="testimonial-single row">
+
                     <div class="col-sm-6">
                         <div class="ts-left">
-                            <div class="client-image"> <img src="~/Content/Client/images/founder.jpg" alt="" class="img-responsive"> </div>
-                            <div class="client-content">
-                                <h3 class="client-info">
-                                    Founders' Message<br>
-                                    <span>(Founder)</span>
-                                </h3>
-                                <br>
-                                <p>We are fortunate to have been ordained with the opportunity to shape the personalities and develop the minds of the young learners...</p>
-                                <div align="right"><a href="/executive-members" class="el-btn-regular">read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="ts-right">
                             <div class="client-content">
                                 <h3 class="client-info">
                                     S. Dilbagh Singh<br>
@@ -292,16 +237,30 @@
                             <div class="client-image"> <img src="~/Content/Client/images/chairman.jpeg" alt="" class="img-responsive"> </div>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="ts-right">
+                            <div class="client-content">
+                                <h3 class="client-info">
+                                    Jaspal Singh Saini<br>
+                                    <span>President</span>
+                                </h3>
+                                <br>
+                                <p>Education is not about filling the mind with facts — it’s about igniting curiosity, compassion, and courage.” ...</p>
+                                <div align="left"><a href="/executive-members" class="el-btn-regular">read more</a></div>
+                            </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/president.jpg" alt="" class="img-responsive"> </div>
+                        </div>
+                    </div>
                 </div>
                 <!---->
                 <div class="testimonial-single row">
                     <div class="col-sm-6">
                         <div class="ts-left">
-                            <div class="client-image"> <img src="~/Content/Client/images/president.jpg" alt="" class="img-responsive"> </div>
+                            <div class="client-image"> <img src="~/Content/Client/images/vicepresident.jpg" alt="" class="img-responsive"> </div>
                             <div class="client-content">
                                 <h3 class="client-info">
                                     Mr. D.P. Sharma <br>
-                                    <span>President</span>
+                                    <span>Vice President</span>
                                 </h3>
                                 <br>
                                 <p>Like a sapling that grows with careful nurturing and supervision, I have seen the birth and growth of an ...</p>
