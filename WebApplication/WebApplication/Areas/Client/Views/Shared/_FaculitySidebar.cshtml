@@ -12,15 +12,10 @@
         </a>
     </li>
     <li>
-        <a href="@Url.Action("TransferCertificate","Student")">
-            <div class="link @(Model==3?"active-nav":"")">Transfer Certificate</div>
+        <a href="@Url.Action("FacultyDetails","AboutUs")">
+            <div class="link @(Model==3?"active-nav":"")">Teachers</div>
         </a>
     </li>
-    @*<li>
-        <a href="@Url.Action("FacultyDetails","AboutUs")">
-            <div class="link @(Model==4?"active-nav":"")">Teachers</div>
-        </a>
-    </li>*@
     <li>
         <a href="@Url.Action("OnRoll","Student")">
             <div class="link @(Model==5?"active-nav":"")">Student Strength</div>
@@ -39,6 +34,11 @@
     <li>
         <a href="@Url.Action("CouselingServices","AboutUs")">
             <div class="link @(Model==8?"active-nav":"")">Counseling Services</div>
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("TransferCertificate","Student")">
+            <div class="link @(Model==9?"active-nav":"")">Transfer Certificate</div>
         </a>
     </li>
     @*<li>

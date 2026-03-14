@@ -2,7 +2,7 @@
 <!--============================
         About Page Header
     =============================-->
-@{ int a = 0; var exclude = new[] { "management", "executive" };}
+@{ int a = 0; var exclude = new[] { "management", "executive","office" };}
 <style>
     th {
         font-size: 14px;
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 ">
-                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 4)
+                @Html.Partial("~/Areas/Client/Views/Shared/_FaculitySidebar.cshtml", 3)
             </div>
             <div class="col-sm-9">
                 <!--Dynamic-->
@@ -78,14 +78,14 @@
                         }
                     </tbody>
                 </table>
-                @*<h1 style="text-align:center">Office Executives</h1>
+                <h1 style="text-align:center">Office Staff</h1>
                 <table class="table" border="1">
                     <tbody>
                         <tr>
                             <th>Name</th>
 
                         </tr>
-                        @foreach (var item in Model.Where(s => s.Department.ToLower() == "executive"))
+                        @foreach (var item in Model.Where(s => s.Department.ToLower() == "office"))
                         {
                             foreach (var staff in item.Staff)
                             {
@@ -94,7 +94,7 @@
                                 </tr>
                             }
                         }
-                </table>*@
+                </table>
                 <div class="container">
                     @foreach (var item in Model.Where(z => !exclude.Contains(z.Department.ToLower())).ToList())
                     {

@@ -16,34 +16,27 @@ namespace WebApplication.Areas.Client.Controllers
     {
 
         private INewsService newsService;
-
-        public IToppersService toppersService { get; }
-        private ICircularsService _circularsService;
+        private ISlideService slideService;
 
         public HomeController(INewsService _newsService,
-            IToppersService _toppersService, ICircularsService circularsService)
+            ISlideService _slideSerice)
         {
             newsService = _newsService;
-            toppersService = _toppersService;
-            _circularsService = circularsService;
+            slideService = _slideSerice;
         }
         // GET: Client/Home
         public ActionResult Index()
         {
             var data = newsService.GetList();
             if (data != null)
-                data = data.Where(m => m.IsActive == true).OrderBy(m => m.SortId).ToList();
-
-            var toppersModels = toppersService.GetList(currentUserId: 0).ToModel();
-            var circularsModel = _circularsService.GetList().ToModel();
+                data = data.Where(m => m.IsActive == true).OrderBy(m => m.SortId).ToList();            
+            var slideModels = slideService.GetList(currentUserId: 0).Where(a => a.Type == 1).OrderBy(m => m.SortId).ToList();
 
             var homeModels = new HomeModels()
             {
                 NewsModels = data.ToModel(),
-                ToppersModels = toppersModels,
-                CircularsModel = circularsModel,
+                SlideModels = slideModels,                
             };
-
             return View("~/Areas/Client/Views/Home/Index.cshtml", homeModels);
         }
         public ActionResult FirstVisit()

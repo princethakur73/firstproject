@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WebApplication.Core;
 
 namespace WebApplication.Models
 {
@@ -7,5 +8,6 @@ namespace WebApplication.Models
         public List<NewsModel> NewsModels { get; set; }
         public List<ToppersModel> ToppersModels { get; set; }
         public List<CircularsModel> CircularsModel { get; set; }
+        public List<Slide> SlideModels { get; set; }
     }
 }

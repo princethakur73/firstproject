@@ -1,23 +1,16 @@
 ﻿@model WebApplication.Models.HomeModels
-@using System.Linq;
-@using WebApplication.Infrastructure
-@{
-    var dbContext = Context.GetContainer().GetInstance<WebApplication.Service.ISlideService>();
-
-    var slides = dbContext.GetList(currentUserId: 0).Where(a=>a.Type ==1).OrderBy(m => m.SortId);
-}
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link href="~/Content/Client/Index/Index.css" rel="stylesheet" />
 <section class="slider slider-style02 slider-university">
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-                <input type="hidden" id="showPopup" name="showPopup" value="N">
+                <input type="hidden" id="showPopup" name="showPopup" value="Y">
                 <div class="rev_slider_wrapper">
                     <div id="rev_slider_4" class="rev_slider" style="display:none">
                         <!-- BEGIN SLIDES LIST -->
                         <ul>
-                            @foreach (var item in slides)
+                            @foreach (var item in Model.SlideModels)
                             {
                                 <li data-transition="random" data-title="Slide Title" data-param1="Additional Text">
                                     <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
@@ -478,18 +471,18 @@
 </section>
 
 <!-- Trigger the Modal -->
-<img id="myImg" src="~/Content/images/Banner-ad.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
-<img id="requirement" src="~/Content/images/Requirement1.jpg" alt="Requirement" style="display:none;width:100%;max-width:300px">
+<img id="adBanner" src="~/Content/images/Banner-ad.jpg" alt="admission" style="display:none;width:100%;max-width:300px">
+<img id="adBanner2" src="~/Content/images/Banner-ad-2.jpg" alt="admission2" style="display:none;width:100%;max-width:300px">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
     <!-- The Close Button -->
-    <span id="close1" class="close">&times;</span>
+    <span id="close" class="close">&times;</span>
 
     <!-- Modal Content (The Image) -->
     <img class="modal-content" id="img01">    <br />
-    <img class="modal-content" id="img03">
+    <img class="modal-content" id="img02">
     <div class="popup-btn">
         <a href="#" target="_blank" id="reg" class="add-btn">Contact Us</a>
         <a href="#" id="closepop" class="add-btn">Close</a>
@@ -497,90 +490,56 @@
     <!-- Modal Caption (Image Text) -->
     <div id="caption"></div>
 </div>
-<!--<div id="myModal1" class="modal">-->
-<!-- The Close Button -->
-<!--<span id="close2" class="close">&times;</span>-->
-<!-- Modal Content (The Image) -->
-<!--<img class="modal-content" id="img02">-->
-<!-- Modal Caption (Image Text) -->
-<!--<div id="caption1"></div>
-</div>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     $(window).on('load', function () {
-        if (!checkCookieExists("firstvisit")) 
-        img.click();
+        if (!checkCookieExists("firstvisit"))
+            adImg.click();
     });
-    // Get the modal for requirement
-    //var modal1 = document.getElementById("myModal1");
 
-    //// Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img1 = document.getElementById("requirement");
-    //var modalImg1 = document.getElementById("img02");
-    var modalImg3 = document.getElementById("img03");
-    //var captionText1 = document.getElementById("caption1");
-    img1.onclick = function () {
-        modal1.style.display = "block";
-        modalImg1.src = this.src;
-        captionText1.innerHTML = this.alt;
-    }
+    //get the ad and requirement imgage
+    var adImg = document.getElementById("adBanner");
+    var adImg2 = document.getElementById("adBanner2");
+    
 
-    ///////////////////////////////////////////////////////////////////////////
-    // Get the modal for addmission
-    var modal = document.getElementById("myModal");
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
+    //create models for images
     var modalImg = document.getElementById("img01");
+    var nodelImg2 = document.getElementById("img02");
+    
+    // Get the popup modal 
+    var modal = document.getElementById("myModal");    
+    
+    //the the caption element
     var captionText = document.getElementById("caption");
-    img.onclick = function () {
+
+    adImg.onclick = function () {
         if (document.getElementById("showPopup").value == 'Y') {
             modal.style.display = "block";
             modalImg.src = this.src;
-            modalImg3.src = img1.src;
-            setPopupCookie();
-            
+            nodelImg2.src = adImg2.src;
+            setPopupCookie();            
         }
     }
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementById("close1");
-
-    //// Get the <span> element that closes the modal
-    //var span1 = document.getElementById("close2");
-
     // Get the <A> element that closes the modal
-    var closeBtn = document.getElementById("closepop");
-    var regBtn = document.getElementById("reg");
-
+    var closeBtn = document.getElementById("close");
+    var closePopupBtn = document.getElementById("closepop");
     closeBtn.onclick = function () {
         modal.style.display = "none";
     }
 
+    closePopupBtn.onclick = function () {
+        modal.style.display = "none";
+    }    
+
+    //Contact Us btn
+    var regBtn = document.getElementById("reg");
     regBtn.onclick = function () {
         modal.style.display = "none";
         //window.location.href = "/contact-us";
         window.location.href = "https://hvmcsludhiana.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/9";
     }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    //// When the user clicks on <span> (x), close the modal
-    //span1.onclick = function () {
-    //    $("#img02").hide();
-    //    modal1.style.display = "none";
-    //    img.click();
-    //}
-
-    //function openForm() {
-    //    $("#img01").hide();
-    //    $.get('/Client/Home/FirstVisit', function (data) {
-    //        $('#caption').html(data);
-    //    });
-    //}
 
     function setPopupCookie() {
         const date = new Date();

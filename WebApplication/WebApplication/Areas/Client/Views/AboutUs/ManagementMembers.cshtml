@@ -37,7 +37,7 @@
                 <p class="justify">The institution is running under Harsh Educational Society registered under the Society Registration Act 1860. Registration no. of the society is 0048.</p>
                 <table class="table" border="1" cellpadding="10" style="width:100%">
                     <tr><th>S. No.</th><th>Name</th><th>Designation</th></tr>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Where(a=>a.Desigination != "Principal")) //Principal not in management
                     {
                         <tr><td>@i</td><td style="font-weight: 500;">@item.Name</td><td>@item.Desigination</td></tr>                       
                         i++;

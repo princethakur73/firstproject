@@ -1809,13 +1809,6 @@
     <Content Include="Content\images\header-background.jpg" />
     <Content Include="Content\images\img_947.png" />
     <Content Include="Content\images\Jcrop.gif" />
-    <Content Include="Content\images\Member\1a49f155-167c-413f-ae95-be1fabbeaa65.jpg" />
-    <Content Include="Content\images\Member\1e712c70-0b85-47ba-90ba-456fae0a4215.jpg" />
-    <Content Include="Content\images\Member\31233123-850f-4d09-ab59-e86bf81b12a5.jpg" />
-    <Content Include="Content\images\Member\58eba1c1-bbdf-4547-b9c4-ef865d40c973.jpg" />
-    <Content Include="Content\images\Member\5f0b62aa-459c-4de0-91a2-86ce2c37bc80.PNG" />
-    <Content Include="Content\images\Member\90a41d91-0ba4-41a4-8e28-3e4d0aa1b591.jpg" />
-    <Content Include="Content\images\Member\93f75899-90c8-4d00-af58-f82c485c2112.jpg" />
     <Content Include="Content\images\Slide\e9adf3b3-995e-49ca-a14f-edfc817ee01b.jpg" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.css" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui-noscript.css" />
@@ -5211,6 +5204,7 @@
     <Folder Include="Content\files\downloads\" />
     <Folder Include="Content\files\News\" />
     <Folder Include="Content\files\Timetable\" />
+    <Folder Include="Content\images\Member\" />
     <Folder Include="Content\images\StaffDetail\" />
     <Folder Include="Content\images\Toppers\" />
     <Folder Include="Files\Gallery\thumbs\" />
